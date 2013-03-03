@@ -2,7 +2,6 @@ using System;
 
 namespace Adventurer
 {
-#if WINDOWS || XBOX
     static class Program
     {
         /// <summary>
@@ -10,12 +9,11 @@ namespace Adventurer
         /// </summary>
         static void Main(string[] args)
         {
-            using (Game1 game = new Game1())
+            using (AdventurerGame game = new AdventurerGame())
             {
                 game.Run();
             }
         }
     }
-#endif
 }
 

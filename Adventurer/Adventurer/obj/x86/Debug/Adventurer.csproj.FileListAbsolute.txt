@@ -1,0 +1,7 @@
+C:\Users\Colton McGee\Adventurer\Adventurer\Adventurer\bin\x86\Debug\Adventurer.exe
+C:\Users\Colton McGee\Adventurer\Adventurer\Adventurer\bin\x86\Debug\Adventurer.pdb
+C:\Users\Colton McGee\Adventurer\Adventurer\Adventurer\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Colton McGee\Adventurer\Adventurer\Adventurer\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Colton McGee\Adventurer\Adventurer\Adventurer\obj\x86\Debug\Adventurer.exe
+C:\Users\Colton McGee\Adventurer\Adventurer\Adventurer\obj\x86\Debug\Adventurer.pdb
+C:\Users\Colton McGee\Adventurer\Adventurer\Adventurer\bin\x86\Debug\Content\Human.xnb

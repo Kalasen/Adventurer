@@ -1,0 +1,3 @@
+24 Tree
+46 Grass
+64 Human

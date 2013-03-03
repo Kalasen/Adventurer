@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
@@ -14,14 +12,35 @@ namespace Adventurer
     /// <summary>
     /// This is the main type for your game
     /// </summary>
-    public class Game1 : Microsoft.Xna.Framework.Game
+    public class AdventurerGame : Game
     {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        /// <summary>
+        /// The game's GraphicsDeviceManager
+        /// </summary>
+        private GraphicsDeviceManager graphics;
 
-        public Game1()
+        /// <summary>
+        /// The game's SpriteBatch
+        /// </summary>
+        private SpriteBatch spriteBatch;
+
+        /// <summary>
+        /// The world the player is currently in
+        /// </summary>
+        private World currentWorld;
+
+        /// <summary>
+        /// A dictionary of images and their names
+        /// </summary>
+        private Dictionary<ImageName, Texture2D> imageDictionary = new Dictionary<ImageName, Texture2D>();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AdventurerGame"/> class.
+        /// </summary>
+        public AdventurerGame()
         {
-            graphics = new GraphicsDeviceManager(this);
+            this.graphics = new GraphicsDeviceManager(this);
+            
             Content.RootDirectory = "Content";
         }
 
@@ -33,7 +52,7 @@ namespace Adventurer
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            this.currentWorld = new World();
 
             base.Initialize();
         }
@@ -44,10 +63,20 @@ namespace Adventurer
         /// </summary>
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
+            this.spriteBatch = new SpriteBatch(this.GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
+            this.imageDictionary.Add(ImageName.HUMAN, this.Content.Load<Texture2D>("Human"));
+        }
+
+        /// <summary>
+        /// Code to run after LoadContent, but before the game loop starts
+        /// </summary>
+        protected override void BeginRun()
+        {
+            Creature player = new Creature(ImageName.HUMAN);
+            this.currentWorld.creatures.Add(player);
+
+            base.BeginRun();
         }
 
         /// <summary>
@@ -83,7 +112,14 @@ namespace Adventurer
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            this.spriteBatch.Begin();
+
+            foreach (Creature creature in this.currentWorld.creatures)
+            {
+                this.spriteBatch.Draw(this.imageDictionary[creature.image], new Vector2(100, 100), Color.White);
+            }
+
+            this.spriteBatch.End();
 
             base.Draw(gameTime);
         }
