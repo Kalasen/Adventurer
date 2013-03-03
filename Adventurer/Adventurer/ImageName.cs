@@ -12,6 +12,7 @@ namespace Adventurer
     public enum ImageName
     {
         HUMAN,
+        GRASS,
         COUNT
     }
 }

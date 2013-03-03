@@ -66,6 +66,7 @@ namespace Adventurer
             this.spriteBatch = new SpriteBatch(this.GraphicsDevice);
 
             this.imageDictionary.Add(ImageName.HUMAN, this.Content.Load<Texture2D>("Human"));
+            this.imageDictionary.Add(ImageName.GRASS, this.Content.Load<Texture2D>("Grass"));
         }
 
         /// <summary>

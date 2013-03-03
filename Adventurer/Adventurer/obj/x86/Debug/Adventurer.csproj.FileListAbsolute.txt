@@ -5,3 +5,4 @@ C:\Users\Colton McGee\Adventurer\Adventurer\Adventurer\obj\x86\Debug\Microsoft.X
 C:\Users\Colton McGee\Adventurer\Adventurer\Adventurer\obj\x86\Debug\Adventurer.exe
 C:\Users\Colton McGee\Adventurer\Adventurer\Adventurer\obj\x86\Debug\Adventurer.pdb
 C:\Users\Colton McGee\Adventurer\Adventurer\Adventurer\bin\x86\Debug\Content\Human.xnb
+C:\Users\Colton McGee\Adventurer\Adventurer\Adventurer\bin\x86\Debug\Content\Grass.xnb

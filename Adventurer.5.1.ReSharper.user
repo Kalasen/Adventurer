@@ -21,15 +21,15 @@
     </ItemStatistics>
     <ItemStatistics item="Default">
       <Item value="Texture2D`0" priority="5" />
-      <Item value="public" priority="3" />
-      <Item value="Creature`0" priority="2" />
-      <Item value="this" priority="10" />
-      <Item value="image" priority="0" />
+      <Item value="public" priority="7" />
+      <Item value="Creature`0" priority="4" />
+      <Item value="this" priority="13" />
+      <Item value="image" priority="1" />
       <Item value="private" priority="3" />
       <Item value="testPlayer" priority="1" />
       <Item value="protected" priority="2" />
       <Item value="override" priority="1" />
-      <Item value="new" priority="10" />
+      <Item value="new" priority="14" />
       <Item value="Creature" priority="2" />
       <Item value="spriteBatch" priority="0" />
       <Item value="humanImage" priority="0" />
@@ -38,12 +38,12 @@
       <Item value="void" priority="0" />
       <Item value="PostInitalize`0" priority="0" />
       <Item value="Texture2D" priority="0" />
-      <Item value="Dictionary" priority="2" />
-      <Item value="int" priority="1" />
-      <Item value="ImageName`0" priority="7" />
+      <Item value="Dictionary" priority="3" />
+      <Item value="int" priority="2" />
+      <Item value="ImageName`0" priority="10" />
       <Item value="imageDictionary" priority="0" />
       <Item value="World`0" priority="2" />
-      <Item value="List" priority="0" />
+      <Item value="List" priority="1" />
       <Item value="creatures" priority="0" />
       <Item value="List&lt;Creature&gt;" priority="0" />
       <Item value="World" priority="0" />
@@ -53,6 +53,22 @@
       <Item value="creature" priority="0" />
       <Item value="SpriteBatch" priority="2" />
       <Item value="graphics" priority="0" />
+      <Item value="Tile`0" priority="1" />
+      <Item value="GRASS" priority="0" />
+      <Item value="using" priority="0" />
+      <Item value="Microsoft" priority="0" />
+      <Item value="Xna" priority="0" />
+      <Item value="for" priority="0" />
+      <Item value="DivideByZeroException`0" priority="0" />
+      <Item value="z" priority="2" />
+      <Item value="tiles" priority="0" />
+      <Item value="Vector3" priority="1" />
+      <Item value="x" priority="1" />
+      <Item value="y" priority="0" />
+      <Item value="Tile" priority="0" />
+      <Item value="Dictionary&lt;Vector3,Tile&gt;" priority="0" />
+      <Item value="Vector3`0" priority="0" />
+      <Item value="tilePos" priority="3" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Adventurer.Creature">
       <Item value="image" priority="2" />
@@ -67,59 +83,70 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:@Adventurer.ImageName">
       <Item value="HUMAN" priority="4" />
+      <Item value="GRASS" priority="1" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Collections.Generic.Dictionary`2">
-      <Item value="Add`0" priority="0" />
+      <Item value="Add`0" priority="1" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Collections.Generic.List`1">
       <Item value="Add`0" priority="1" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Adventurer.World">
       <Item value="creatures" priority="1" />
+      <Item value="tiles" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Microsoft.Xna.Framework.GraphicsDeviceManager">
       <Item value="GraphicsDevice" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Adventurer.Tile">
+      <Item value="image" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Microsoft.Xna.Framework.Vector3">
+      <Item value="X" priority="0" />
+      <Item value="Y" priority="0" />
+      <Item value="Z" priority="0" />
     </ItemStatistics>
   </CompletionStatisticsManager>
   <RecentFiles>
     <RecentFiles>
       <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:Program.cs" caret="335" fromTop="13" />
+      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:Tile.cs" caret="1140" fromTop="15" />
+      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:AdventurerGame.cs" caret="2040" fromTop="10" />
       <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:Creature.cs" caret="1195" fromTop="13" />
-      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:ImageName.cs" caret="0" fromTop="0" />
-      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:World.cs" caret="607" fromTop="17" />
-      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:AdventurerGame.cs" caret="2168" fromTop="26" />
+      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:ImageName.cs" caret="418" fromTop="10" />
+      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:World.cs" caret="908" fromTop="21" />
     </RecentFiles>
     <RecentEdits>
-      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:AdventurerGame.cs" caret="48" fromTop="1" />
-      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:AdventurerGame.cs" caret="158" fromTop="4" />
-      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:AdventurerGame.cs" caret="480" fromTop="12" />
-      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:AdventurerGame.cs" caret="386" fromTop="5" />
-      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:AdventurerGame.cs" caret="577" fromTop="10" />
-      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:Creature.cs" caret="719" fromTop="12" />
-      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:Creature.cs" caret="719" fromTop="14" />
-      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:Creature.cs" caret="927" fromTop="22" />
-      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:Creature.cs" caret="719" fromTop="12" />
-      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:Creature.cs" caret="420" fromTop="9" />
-      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:Creature.cs" caret="192" fromTop="2" />
-      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:AdventurerGame.cs" caret="2375" fromTop="14" />
-      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:ImageName.cs" caret="417" fromTop="19" />
+      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:AdventurerGame.cs" caret="2470" fromTop="14" />
       <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:ImageName.cs" caret="266" fromTop="7" />
       <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:ImageName.cs" caret="163" fromTop="3" />
       <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:Creature.cs" caret="1195" fromTop="13" />
       <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:Program.cs" caret="368" fromTop="16" />
       <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:Program.cs" caret="42" fromTop="4" />
       <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:AdventurerGame.cs" caret="1032" fromTop="14" />
-      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:AdventurerGame.cs" caret="2196" fromTop="23" />
       <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:World.cs" caret="142" fromTop="2" />
-      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:World.cs" caret="483" fromTop="15" />
-      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:World.cs" caret="868" fromTop="22" />
-      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:World.cs" caret="581" fromTop="17" />
-      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:AdventurerGame.cs" caret="2568" fromTop="29" />
-      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:AdventurerGame.cs" caret="3932" fromTop="26" />
-      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:AdventurerGame.cs" caret="4044" fromTop="28" />
+      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:World.cs" caret="547" fromTop="15" />
+      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:World.cs" caret="645" fromTop="17" />
+      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:AdventurerGame.cs" caret="2663" fromTop="29" />
+      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:AdventurerGame.cs" caret="4027" fromTop="26" />
+      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:AdventurerGame.cs" caret="4139" fromTop="28" />
       <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:AdventurerGame.cs" caret="701" fromTop="9" />
       <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:AdventurerGame.cs" caret="1774" fromTop="25" />
       <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:AdventurerGame.cs" caret="1285" fromTop="20" />
+      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:Tile.cs" caret="141" fromTop="2" />
+      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:ImageName.cs" caret="418" fromTop="10" />
+      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:AdventurerGame.cs" caret="2354" fromTop="27" />
+      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:Tile.cs" caret="697" fromTop="19" />
+      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:Tile.cs" caret="487" fromTop="15" />
+      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:Tile.cs" caret="628" fromTop="23" />
+      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:Tile.cs" caret="905" fromTop="27" />
+      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:Tile.cs" caret="487" fromTop="13" />
+      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:Tile.cs" caret="1033" fromTop="20" />
+      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:Tile.cs" caret="1359" fromTop="28" />
+      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:World.cs" caret="396" fromTop="13" />
+      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:World.cs" caret="1499" fromTop="26" />
+      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:World.cs" caret="1199" fromTop="28" />
+      <File id="104AAC4D-3091-4441-9120-113D3E5B1788/f:World.cs" caret="994" fromTop="23" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>
