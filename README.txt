@@ -3,5 +3,3 @@ This readme file is for the Adventurer project. The original author and lead pro
 Adventurer is a 2D tile-based game written in C# with MonoGame as the graphics/input/other media library. The goal is to create a fantasy world generator and simulator, and have the player play a character within it. As an adventurer, the player will have the ability to have a lasting impact on the world. When the adventurer dies, the player will have the ability to be another character in the same world, thus leaving the legacy of the previous character to be seen again.
 
 It is very early in development. This is actually a reboot of the original roguelike project. I felt that 2D tiles and a camera that follows the player would be better, as well as a rewrite of how the world was organized, amongst other things. I also focused way too much on getting dungeon crawling mechanics up in the original. In this, the initial focus will be on world creation and the ability for the player to interact with it.
-
-I am still setting up all this Github stuff. Code should be up before too long.
