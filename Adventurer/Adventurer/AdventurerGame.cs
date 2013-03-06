@@ -74,9 +74,6 @@ namespace Adventurer
         /// </summary>
         protected override void BeginRun()
         {
-            Creature player = new Creature(ImageName.HUMAN);
-            this.currentWorld.creatures.Add(player);
-
             base.BeginRun();
         }
 
@@ -114,11 +111,8 @@ namespace Adventurer
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             this.spriteBatch.Begin();
-
-            foreach (Creature creature in this.currentWorld.creatures)
-            {
-                this.spriteBatch.Draw(this.imageDictionary[creature.image], new Vector2(100, 100), Color.White);
-            }
+            
+            this.spriteBatch.Draw(this.imageDictionary[this.currentWorld.player.image], new Vector2(100, 100), Color.White);
 
             this.spriteBatch.End();
 

@@ -6,12 +6,8 @@
 
 namespace Adventurer
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
 
-    using Microsoft.Xna;
     using Microsoft.Xna.Framework;
 
     /// <summary>
@@ -24,30 +20,28 @@ namespace Adventurer
         /// </summary>
         public World()
         {
-            this.creatures = new List<Creature>();
-            this.tiles = new Dictionary<Vector3, Tile>();
+            this.chunks = new Dictionary<Vector3, Chunk>();
 
-            Vector3 tilePos = new Vector3();
+            this.player = new Player(ImageName.HUMAN);
 
-            for (int z = -10; z < 5; z++)
-                for (int y = -25; y < 25; y++)
-                    for (int x = -25; x < 25; x++)
-                    {
-                        tilePos.X = x;
-                        tilePos.Y = y;
-                        tilePos.Z = z;
-                        this.tiles.Add(tilePos, new Tile());
-                    }
+            this.currentChunk = new Chunk();
+            this.currentChunk.creatures.Add(this.player);
+            this.chunks.Add(new Vector3(0, 0, 0), this.currentChunk);
         }
-
-        /// <summary>
-        /// Gets or sets. A list of creatures in the world.
-        /// </summary>
-        public List<Creature> creatures { get; set; }
 
         /// <summary>
         /// Gets or sets. A dictionary of tiles in the world.
         /// </summary>
-        public Dictionary<Vector3, Tile> tiles { get; set; }
+        public Dictionary<Vector3, Chunk> chunks { get; set; }
+
+        /// <summary>
+        /// Gets or sets. The current chunk the player is in.
+        /// </summary>
+        public Chunk currentChunk { get; set; }
+
+        /// <summary>
+        /// Gets or sets. The creature representing the player.
+        /// </summary>
+        public Player player { get; set; }
     }
 }
