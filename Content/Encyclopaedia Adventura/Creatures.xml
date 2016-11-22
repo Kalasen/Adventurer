@@ -1,0 +1,625 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Some creature data used from Nethack as allowed under the Nethack General Public License-->
+<Root>
+  <!--Template body types most creatures fall under-->
+  <BodyType name="amorphous">
+    <BodyPart name="core" health="4000" lifeCritical="true"/>
+    <BodyPart name="pseudopod" health="2000"/>
+  </BodyType>
+  <BodyType name="arachnoid">
+    <BodyPart name="thorax" health="2000" lifeCritical="true"/>
+    <BodyPart name="head" parent="thorax" health="2000" lifeCritical="true"/>
+    <BodyPart name="abdomen" parent="thorax" health="2000" lifeCritical="true"/>
+    <BodyPart name="first left leg" parent="thorax" health="2000" canPickUp="true"/>
+    <BodyPart name="second left leg" parent="thorax" health="2000"/>
+    <BodyPart name="third left leg" parent="thorax" health="2000"/>
+    <BodyPart name="fourth left leg" parent="thorax" health="2000"/>
+    <BodyPart name="first right leg" parent="thorax" health="2000" canPickUp="true"/>
+    <BodyPart name="second right leg" parent="thorax" health="2000"/>
+    <BodyPart name="third right leg" parent="thorax" health="2000"/>
+    <BodyPart name="fourth right leg" parent="thorax" health="2000"/>
+  </BodyType>
+  <BodyType name="humanoid">
+    <BodyPart name="upper body" health="4000" lifeCritical="true"/>
+    <BodyPart name="neck" parent="upper body" health="2000" lifeCritical="true"/>
+    <BodyPart name="head" parent="neck" health="2000" lifeCritical="true"/>
+    <BodyPart name="lower body" parent="upper body" health="4000" lifeCritical="true"/>    
+    <BodyPart name="left arm" parent="upper body" health="2000"/>
+    <BodyPart name="left hand" parent="left arm" health="2000" canPickUp="true"/>
+    <BodyPart name="right arm" parent="upper body" health="2000"/>
+    <BodyPart name="right hand" parent="right arm" health="2000" canPickUp="true"/>
+    <BodyPart name="left leg" parent="lower body" health="2000"/>
+    <BodyPart name="left foot" parent="left leg" health="2000"/>
+    <BodyPart name="right leg" parent="lower body" health="2000"/>    
+    <BodyPart name="right foot" parent="right leg" health="2000"/>
+  </BodyType>
+  <BodyType name="insectoid">
+    <BodyPart name="thorax" health="4000" lifeCritical="true"/>
+    <BodyPart name="head" parent="thorax" health="2000" lifeCritical="true"/>
+    <BodyPart name="abdomen" parent="thorax" health="4000" lifeCritical="true"/>
+    <BodyPart name="first left leg" parent="thorax" health="2000" canPickUp="true"/>
+    <BodyPart name="second left leg" parent="thorax" health="2000"/>
+    <BodyPart name="third left leg" parent="thorax" health="2000"/>
+    <BodyPart name="first left leg" parent="thorax" health="2000" canPickUp="true"/>
+    <BodyPart name="second left leg" parent="thorax" health="2000"/>
+    <BodyPart name="third left leg" parent="thorax" health="2000"/>
+  </BodyType>
+  <BodyType name="serpentine">
+    <BodyPart name="body" health="2000" lifeCritical="true"/>
+  </BodyType>
+  <BodyType name="small beast">
+    <BodyPart name="upper body" health="4000" lifeCritical="true"/>
+    <BodyPart name="neck" parent="upper body" health="2000" lifeCritical="true"/>
+    <BodyPart name="head" parent="neck" health="2000" lifeCritical="true" canPickUp="true"/>
+    <BodyPart name="lower body" parent="upper body" health="4000" lifeCritical="true"/>
+    <BodyPart name="tail" parent="lower body" health="2000"/>
+    <BodyPart name="left foreleg" parent="upper body" health="2000"/>
+    <BodyPart name="left forepaw" parent="left arm" health="2000"/>
+    <BodyPart name="right foreleg" parent="upper body" health="2000"/>
+    <BodyPart name="right forepaw" parent="right arm" health="2000"/>
+    <BodyPart name="left hindleg" parent="lower body" health="2000"/>
+    <BodyPart name="left hindpaw" parent="left leg" health="2000"/>
+    <BodyPart name="right hindleg" parent="lower body" health="2000"/>
+    <BodyPart name="right hindpaw" parent="right leg" health="2000"/>
+  </BodyType>
+  <BodyType name="medium beast">
+    <BodyPart name="upper body" health="4000" lifeCritical="true"/>
+    <BodyPart name="neck" parent="upper body" health="2000" lifeCritical="true"/>
+    <BodyPart name="head" parent="neck" health="2000" lifeCritical="true" canPickUp="true"/>
+    <BodyPart name="lower body" parent="upper body" health="4000" lifeCritical="true"/>
+    <BodyPart name="tail" parent="lower body" health="2000"/>
+    <BodyPart name="left foreleg" parent="upper body" health="2000"/>
+    <BodyPart name="left forepaw" parent="left arm" health="2000"/>
+    <BodyPart name="right foreleg" parent="upper body" health="2000"/>
+    <BodyPart name="right forepaw" parent="right arm" health="2000"/>
+    <BodyPart name="left hindleg" parent="lower body" health="2000"/>
+    <BodyPart name="left hindpaw" parent="left leg" health="2000"/>
+    <BodyPart name="right hindleg" parent="lower body" health="2000"/>
+    <BodyPart name="right hindpaw" parent="right leg" health="2000"/>    
+  </BodyType>
+  <BodyType name="large beast">
+    <BodyPart name="upper body" health="4000" lifeCritical="true"/>
+    <BodyPart name="neck" parent="upper body" health="2000" lifeCritical="true"/>
+    <BodyPart name="head" parent="neck" health="2000" lifeCritical="true" canPickUp="true"/>
+    <BodyPart name="lower body" parent="upper body" health="4000" lifeCritical="true"/>
+    <BodyPart name="tail" parent="lower body" health="2000"/>
+    <BodyPart name="left foreleg" parent="upper body" health="2000"/>
+    <BodyPart name="left forepaw" parent="left arm" health="2000"/>
+    <BodyPart name="right foreleg" parent="upper body" health="2000"/>
+    <BodyPart name="right forepaw" parent="right arm" health="2000"/>
+    <BodyPart name="left hindleg" parent="lower body" health="2000"/>
+    <BodyPart name="left hindpaw" parent="left leg" health="2000"/>
+    <BodyPart name="right hindleg" parent="lower body" health="2000"/>
+    <BodyPart name="right hindpaw" parent="right leg" health="2000"/>
+  </BodyType>
+  
+  <!--The different creature species-->
+  <Species name="human" speed="12" image="64" color="FFFFFF">
+    <Armor name="pair of pants"/>
+    <Armor name="shirt"/>
+    <Weapon name="dagger"/>
+    <Item name="potion of healing"/>
+    <BodyType name="humanoid"/>
+    <Habitat name="village"/>
+  </Species>
+  <Species name="wolf" speed="12" image="100" color="C8C8C8">
+    <BodyType name="medium beast"/>
+    <Habitat name="forest"/>
+  </Species>
+  <Species name="goblin" speed="10" image="64" color="009600">
+    <Armor name="loincloth"/>
+    <Weapon name="dagger"/>
+    <BodyType name="humanoid"/>    
+    <Habitat name="dungeon"/>
+    <Habitat name="goblin cave"/>
+  </Species>
+  <Species name="rat" speed="12" image="114" color="AF6455">
+    <BodyType name="small beast"/>
+    <Habitat name="dungeon"/>
+    <Habitat name="village"/>
+  </Species>
+  <Species name="ogre" speed="10" image="79" color="EBE1E1">
+    <Armor name="loincloth"/>
+    <BodyType name="humanoid"/>
+    <Habitat name="dungeon"/>
+    <Habitat name="ogre cave"/>
+  </Species>
+  <Species name="minotaur" speed="10" image="64" color="E1143C">
+    <Armor name="loincloth"/>
+    <Weapon name="hand axe"/>
+    <BodyType name="humanoid">
+      <BodyPart name="horns" parent="head"/>
+      <BodyPart name="tail" parent="lower body"/>
+    </BodyType>
+    <Habitat name="dungeon"/>
+    <Habitat name="mountain"/>
+    <Habitat name="minotaur cave"/>
+  </Species>
+  <Species name="dragon" speed="10" image="68" color="00FFFF">
+    <BodyType name="large beast">
+      <BodyPart name="horns" parent="head"/>
+      <BodyPart name="right wing" parent="upper body"/>
+      <BodyPart name="left wing" parent="upper body"/>
+    </BodyType>
+    <Habitat name="dungeon"/>
+    <Habitat name="mountain"/>
+    <Habitat name="dragon cave"/>
+  </Species>
+  <Species name="giant beetle" speed="6" image="97" color="646464">
+    <BodyType name="insectoid">
+      <BodyPart name="left wing" parent="thorax" health="2000"/>
+      <BodyPart name="right wing" parent="thorax" health="2000"/>
+    </BodyType>
+    <Habitat name="forest"/>
+    <Habitat name="swamp"/>
+  </Species>
+  <Species name="giant ant" speed="18" image="97" color="906A39">
+    <BodyType name="insectoid"/>
+    <Habitat name="forest"/>
+    <Habitat name="swamp"/>
+  </Species>
+  <Species name="soldier ant" speed="18" image="97" color="000080">
+    <BodyType name="insectoid"/>
+    <Habitat name="dungeon"/>
+    <Habitat name="forest"/>
+    <Habitat name="swamp"/>
+  </Species>
+  <Species name="fire ant" speed="18" image="97" color="C80000">
+    <Effect name="fire" duration="3"/>
+    <BodyType name="insectoid"/>
+    <Habitat name="dungeon"/>
+    <Habitat name="volcano"/>
+  </Species>
+  <Species name="killer bee" speed="18" image="97" color="FFFF00">
+    <Effect name="poison" duration="3" magnitude="1"/>
+    <BodyType name="insectoid">
+      <BodyPart name="left wing" parent="thorax" health="2000"/>
+      <BodyPart name="right wing" parent="thorax" health="2000"/>
+    </BodyType>
+    <Habitat name="forest"/>
+    <Habitat name="swamp"/>
+  </Species>
+  <Species name="gelatinous cube" speed="6" image="98" color="00B1B1">
+    <BodyType name="amorphous"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="acid blob" speed="6" image="98" color="228B22">
+    <Effect name="acid" magnitude="3"/>
+    <BodyType name="amorphous"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="quivering blob" speed="1" image="98" color="228B22">
+    <Effect name="acid" magnitude="3"/>
+    <BodyType name="amorphous"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="chickatrice" speed="4" image="99" color="915F00">
+    <Effect name="stoning" duration="2"/>
+    <BodyType name="medium beast"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="cockatrice" speed="6" image="99" color="FFFF00">
+    <Effect name="stoning" duration="5"/>
+    <BodyType name="large beast"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="pyrolisk" speed="6" image="99" color="FF0000">
+    <Effect name="fire" duration="3"/>
+    <BodyType name="large beast"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="jackal" speed="12" image="100" color="915F00">
+    <BodyType name="medium beast"/>
+    <Habitat name="forest"/>
+  </Species>
+  <Species name="coyote" speed="12" image="100" color="915F00">
+    <BodyType name="medium beast"/>
+    <Habitat name="forest"/>
+  </Species>
+  <Species name="fox" speed="12" image="100" color="915F00">
+    <BodyType name="medium beast"/>
+    <Habitat name="forest"/>
+  </Species>
+  <Species name="dingo" speed="12" image="100" color="915F00">
+    <BodyType name="medium beast"/>
+    <Habitat name="forest"/>
+  </Species>
+  <Species name="warg" speed="12" image="100" color="FFFF00">
+    <BodyType name="large beast"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="winter wolf" speed="12" image="100" color="00B1B1">
+    <Effect name="cold"/>
+    <BodyType name="medium beast"/>
+    <Habitat name="forest"/>
+  </Species>
+  <Species name="hell hound" speed="14" image="100" color="C80000">
+    <Effect name="fire"/>
+    <BodyType name="medium beast"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="small dog" speed="18" image="100" color="FFFFFF">
+    <BodyType name="small beast"/>
+    <Habitat name="village"/>
+  </Species>
+  <Species name="dog" speed="16" image="100" color="FFFFFF">
+    <BodyType name="medium beast"/>
+    <Habitat name="village"/>
+  </Species>
+  <Species name="large dog" speed="15" image="100" color="FFFFFF">
+    <BodyType name="medium beast"/>
+    <Habitat name="village"/>
+  </Species>
+  <Species name="flaming sphere" speed="1" image="101" color="C80000">
+    <Effect name="fire"/>
+    <BodyType name="amorphous"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="freezing sphere" speed="1" image="101" color="FFFFFF">
+    <Effect name="cold"/>
+    <BodyType name="amorphous"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="shocking sphere" speed="1" image="101" color="00FFFF">
+    <Effect name="electric"/>
+    <BodyType name="amorphous"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="floating eye" speed="1" image="101" color="0000C8">
+    <Effect name="paralyze"/>
+    <BodyType name="amorphous"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="gas spore" speed="1" image="101" color="AFAFAF">
+    <Effect name="selfdestruct"/>
+    <BodyType name="amorphous"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="panther" speed="15" image="102" color="828282">
+    <BodyType name="medium beast"/>
+    <Habitat name="forest"/>
+  </Species>
+  <Species name="jaguar" speed="15" image="102" color="AF6455">
+    <BodyType name="medium beast"/>
+    <Habitat name="forest"/>
+  </Species>
+  <Species name="tiger" speed="15" image="102" color="FFFF00">
+    <BodyType name="medium beast"/>
+    <Habitat name="forest"/>
+  </Species>
+  <Species name="cat" speed="18" image="102" color="FFFFFF" cuteness="infinity">
+    <BodyType name="small beast"/>
+    <Habitat name="village"/>
+  </Species>
+  <Species name="gargoyle" speed="10" image="103" color="AF6455">
+    <BodyType name="humanoid">
+      <BodyPart name="tail" parent="lower body"/>
+    </BodyType>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="gremlin" speed="12" image="103" color="00AF00">
+    <BodyType name="humanoid">
+      <BodyPart name="tail" parent="lower body"/>
+    </BodyType>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="winged gargoyle" speed="15" image="103" color="960096">
+    <BodyType name="humanoid">
+      <BodyPart name="left wing" parent="upper body"/>
+      <BodyPart name="right wing" parent="upper body"/>
+      <BodyPart name="tail" parent="lower body"/>
+    </BodyType>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="dwarf lord" speed="12" image="104" color="0000AF">
+    <BodyType name="humanoid"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="bugbear" speed="9" image="104" color="AF6455">
+    <BodyType name="humanoid"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="hobbit" speed="9" image="104" color="00AF00">
+    <BodyType name="humanoid"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="dwarf king" speed="6" image="104" color="AF00AF">
+    <BodyType name="humanoid"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="mind flayer" speed="12" image="104" color="AF00AF">
+    <Effect name="brain drain"/>
+    <BodyType name="humanoid"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="master mind flayer" speed="12" image="104" color="AF00AF">
+    <Effect name="brain drain"/>
+    <BodyType name="humanoid"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="quasit" speed="15" image="105" color="0000AF">
+    <Effect name="poison"/>
+    <BodyType name="humanoid"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="quasit" speed="15" image="105" color="0000AF">
+    <BodyType name="humanoid"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="lemure" speed="3" image="105" color="AF6455">
+    <BodyType name="humanoid"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="tengu" speed="13" image="105" color="009696">
+    <BodyType name="humanoid"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="homonculus" speed="12" image="105" color="009600">
+    <BodyType name="humanoid"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="manes" speed="3" image="105" color="960000">
+    <BodyType name="humanoid"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="imp" speed="15" image="105" color="960000">
+    <Effect name="taunt"/>
+    <BodyType name="humanoid"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="blue jelly" speed="0" image="106" color="000096">
+    <Effect name="cold"/>
+    <BodyType name="amorphous"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="ochre jelly" speed="3" image="106" color="AF6455">
+    <Effect name="acid"/>
+    <BodyType name="amorphous"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="spotted jelly" speed="0" image="106" color="AF6455">
+    <Effect name="acid"/>
+    <BodyType name="amorphous"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="kobold" speed="6" image="107" color="AF6455">
+    <Weapon name="dagger"/>
+    <Armor name="loincloth"/>
+    <BodyType name="humanoid"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="large kobold" speed="6" image="107" color="960000">
+    <Weapon name="shortsword"/>
+    <Armor name="loincloth"/>
+    <BodyType name="humanoid"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="kobold lord" speed="6" image="107" color="960096">
+    <Weapon name="hand axe"/>
+    <Armor name="loincloth"/>
+    <BodyType name="humanoid"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="kobold shaman" speed="6" image="107" color="0000FF">
+    <Armor name="loincloth"/>
+    <BodyType name="humanoid"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="leprechaun" speed="6" image="108" color="000096">
+    <BodyType name="humanoid"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="small mimic" speed="3" image="109" color="AF6455">
+    <BodyType name="amorphous"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="large mimic" speed="3" image="109" color="960000">
+    <BodyType name="amorphous"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="giant mimic" speed="3" image="109" color="960096">
+    <BodyType name="amorphous"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="water nymph" speed="12" image="110" color="000096">
+    <BodyType name="humanoid"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="wood nymph" speed="12" image="110" color="009600">
+    <BodyType name="humanoid"/>
+    <Habitat name="forest"/>
+  </Species>
+  <Species name="mountain nymph" speed="12" image="110" color="AF6455">
+    <BodyType name="humanoid"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="uruk-hai" speed="7" image="111" color="646464">
+    <BodyType name="humanoid"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="mordor orc" speed="5" image="111" color="000064">
+    <BodyType name="humanoid"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="orc shaman" speed="9" image="111" color="0000C8">
+    <BodyType name="humanoid"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="hobgoblin" speed="9" image="111" color="AF6455">
+    <BodyType name="humanoid"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="orcoblin" speed="9" image="111" color="969696">
+    <BodyType name="humanoid"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="orc captain" speed="5" image="111" color="960096">
+    <BodyType name="humanoid"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="orc" speed="9" image="111" color="AF6455">
+    <BodyType name="humanoid"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="hill orc" speed="9" image="111" color="FFFF00">
+    <BodyType name="humanoid"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="armor piercer" speed="1" image="112" color="969696">
+    <BodyType name="amorphous"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="rock piercer" speed="1" image="112" color="009696">
+    <BodyType name="amorphous"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="glass piercer" speed="1" image="112" color="FAFAFA">
+    <BodyType name="amorphous"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="mastodon" speed="12" image="113" color="646464">
+    <BodyType name="large beast"/>
+    <Habitat name="forest"/>
+  </Species>
+  <Species name="rothe" speed="9" image="113" color="AF6455">
+    <BodyType name="medium beast"/>
+    <Habitat name="forest"/>
+  </Species>
+  <Species name="wumpus" speed="3" image="113" color="009696">
+    <BodyType name="large beast"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="mumak" speed="9" image="113" color="AFAFAF">
+    <BodyType name="large beast"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="titanothere" speed="12" image="113" color="AFAFAF">
+    <BodyType name="large beast"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="baluchitherium" speed="12" image="113" color="AFAFAF">
+    <BodyType name="large beast"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="baluchitherium" speed="18" image="113" color="640000">
+    <BodyType name="medium beast"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="sewer rat" speed="12" image="114" color="AF6455">
+    <BodyType name="small beast"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="giant rat" speed="10" image="114" color="AF6455">
+    <BodyType name="small beast"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="rabid rat" speed="12" image="114" color="AF6455">
+    <Effect name="poison"/>
+    <BodyType name="small beast"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="rock mole" speed="3" image="114" color="969696">
+    <BodyType name="small beast"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="cave spider" speed="12" image="115" color="969696">
+    <BodyType name="arachnoid"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="giant spider" speed="15" image="115" color="960096">
+    <BodyType name="arachnoid"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="scorpion" speed="15" image="115" color="960000">
+    <BodyType name="arachnoid"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="centipede" speed="4" image="115" color="969600">
+    <BodyType name="arachnoid"/> <!--ALL OF THE LEGS-->
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="trapper" speed="3" image="116" color="009600">
+    <BodyType name="amorphous"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="lurker above" speed="3" image="116" color="969696">
+    <BodyType name="amorphous"/>
+    <Habitat name="dungeon"/>
+  </Species>
+  <Species name="pony" speed="16" image="117" color="AF6455">
+    <BodyType name="medium beast"/>
+    <Habitat name="forest"/>
+  </Species>
+  <Species name="horse" speed="20" image="117" color="AF6455">
+    <BodyType name="large beast"/>
+    <Habitat name="forest"/>
+  </Species>
+  <Species name="warhorse" speed="24" image="117" color="AF6455">
+    <BodyType name="large beast"/>
+    <Habitat name="forest"/>
+  </Species>
+  <Species name="white unicorn" speed="24" image="117" color="FFFFFF">
+    <BodyType name="large beast"/>
+    <Habitat name="forest"/>
+  </Species>
+  <Species name="gray unicorn" speed="24" image="117" color="969696">
+    <BodyType name="large beast"/>
+    <Habitat name="forest"/>
+  </Species>
+  <Species name="black unicorn" speed="24" image="117" color="646464">
+    <BodyType name="large beast"/>
+    <Habitat name="forest"/>
+  </Species>
+  <Species name="fog cloud" speed="24" image="118" color="969696">
+    <BodyType name="amorphous"/>
+    <Habitat name="forest"/>
+  </Species>
+  <Species name="dust cloud" speed="20" image="118" color="AF6455">
+    <BodyType name="amorphous"/>
+    <Habitat name="forest"/>
+  </Species>
+  <Species name="ice vortex" speed="20" image="118" color="009696">
+    <BodyType name="amorphous"/>
+    <Habitat name="forest"/>
+  </Species>
+  <Species name="energy vortex" speed="20" image="118" color="0000FA">
+    <BodyType name="amorphous"/>
+    <Habitat name="forest"/>
+  </Species>
+  <Species name="steam vortex" speed="20" image="118" color="000096">
+    <BodyType name="amorphous"/>
+    <Habitat name="forest"/>
+  </Species>
+  <Species name="fire vortex" speed="22" image="118" color="FAFA00">
+    <BodyType name="amorphous"/>
+    <Habitat name="forest"/>
+  </Species>
+  <Species name="long worm" speed="3" image="119" color="AF6455">
+    <BodyType name="serpentine"/>
+    <Habitat name="forest"/>
+  </Species>
+  <Species name="purple worm" speed="9" image="119" color="960096">
+    <BodyType name="serpentine"/>
+    <Habitat name="forest"/>
+  </Species>
+  <Species name="grid bug" speed="12" image="120" color="960096">
+    <BodyType name="insectoid"/>
+    <Habitat name="forest"/>
+  </Species>
+  <Species name="xan" speed="18" image="120" color="AF6455">
+    <BodyType name="insectoid"/>
+    <Habitat name="forest"/>
+  </Species>
+  <Species name="black light" speed="15" image="121" color="646464">
+    <BodyType name="amorphous"/>
+    <Habitat name="forest"/>
+  </Species>
+  <Species name="yellow light" speed="15" image="121" color="FAFA00">
+    <BodyType name="amorphous"/>
+    <Habitat name="forest"/>
+  </Species>
+  <Species name="zruty" speed="8" image="122" color="AF6455">
+    <BodyType name="humanoid"/>
+    <Habitat name="dungeon"/>
+  </Species>
+</Root>

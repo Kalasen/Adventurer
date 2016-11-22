@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Density is in g/cm^3-->
+<Root>
+  <Material name="shale" color="#9B9B9B" density="2.634">
+    <Molecule name="silicon dioxide"/>
+  </Material>
+  <Material name="air" color="#FF00FF" density="1.2">
+    <Molecule name="dinitrogen"/>
+    <Molecule name="dioxygen"/>
+  </Material>
+  <Material name="amethyst" color="#800080" density="2.634">
+    <Molecule name="silicon dioxide"/>
+  </Material>
+  <Material name="beer" color="#AF9600" density="1.11">
+    <Molecule name="dihydrogen monoxide"/>
+    <Molecule name="ethanol"/>
+  </Material>
+  <Material name="cotton" color="#F5F5F5" density="1.1">
+    <Molecule name="cellulose"/>
+  </Material>
+  <Material name="iron" color="#DBDBD3" density="7.874">
+    <Molecule name="iron"/>
+  </Material>
+  <Material name="meat" color="#DC143C" density="1.1">
+    <Molecule name="dihydrogen monoxide"/>
+  </Material>
+  <Material name="orange juice" color="#FFA500" density="1.1">
+    <Molecule name="dihydrogen monoxide"/>
+    <Molecule name="sucrose"/>
+    <Molecule name="citric acid"/>
+  </Material>
+  <Material name="wood" color="#AA643C" density="5">
+    <Molecule name="cellulose"/>
+    <Molecule name="lignin"/>
+  </Material>
+  <Material name="water" color="#C8DCFF" density="1">
+    <Molecule name="dihydrogen monoxide"/>
+  </Material>
+  <Material name="glass" color="#3CC8D2" density="2.634">
+    <Molecule name="silicon"/>
+  </Material>
+  <Material name="gold" color="#FFD700" density="19.3">
+    <Molecule name="gold"/>
+  </Material>
+</Root>

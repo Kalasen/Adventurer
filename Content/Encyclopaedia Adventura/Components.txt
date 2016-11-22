@@ -1,0 +1,59 @@
+[COMPONENT] small chain
+	[MASS] 500
+	[MATERIAL] gold
+[/COMPONENT]
+
+[COMPONENT] gem
+	[MASS] 50
+	[MATERIAL] amethyst
+[/COMPONENT]
+
+[COMPONENT] blade
+	[MASS] 1500
+	[MATERIAL] iron
+[/COMPONENT]
+
+[COMPONENT] cloth
+	[MASS] 500
+	[MATERIAL] cotton
+[/COMPONENT]
+
+[COMPONENT] handle
+	[MASS] 1500
+	[MATERIAL] iron
+[/COMPONENT]
+
+[COMPONENT] spike
+	[MASS] 1500
+	[MATERIAL] iron
+[/COMPONENT]
+
+[COMPONENT] stick
+	[MASS] 2000
+	[MATERIAL] wood
+[/COMPONENT]
+
+[COMPONENT] raw material
+	[MASS] 1
+	[MATERIAL] water
+[/COMPONENT]
+
+[COMPONENT] wedge
+	[MASS] 2000
+	[MATERIAL] iron
+[/COMPONENT]
+
+[COMPONENT] flask
+	[MASS] 133.2007
+	[MATERIAL] glass
+[/COMPONENT]
+
+[COMPONENT] cork
+	[MASS] 3.4012
+	[MATERIAL] wood
+[/COMPONENT]
+
+[END]
+
+*****
+Blah notes blah

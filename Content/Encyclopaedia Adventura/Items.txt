@@ -1,0 +1,500 @@
+[AMULET] amulet of breathing
+	[MASS] 500
+	[VOLUME] 500
+	[COLOR] 200 200 250
+	[EFFECT] breathing
+	[COMPONENT] small chain:gold
+	[COMPONENT] gem:amethyst:EFFECT
+[/AMULET]
+
+[AMULET] amulet of changing
+	[MASS] 500
+	[VOLUME] 500
+	[COLOR] 128 000 128
+	[EFFECT] gender bend
+	[COMPONENT] small chain:gold
+	[COMPONENT] gem:amethyst:EFFECT
+[/AMULET]
+
+[AMULET] amulet of ESP
+	[MASS] 500
+	[VOLUME] 500
+	[COLOR] 50 50 250
+	[EFFECT] telepathy
+	[COMPONENT] small chain:gold
+	[COMPONENT] gem:amethyst:EFFECT
+[/AMULET]
+
+[AMULET] amulet of life saving
+	[MASS] 500
+	[VOLUME] 500
+	[COLOR] 200 250 200
+	[EFFECT] revive
+	[COMPONENT] small chain:gold
+	[COMPONENT] gem:amethyst:EFFECT
+[/AMULET]
+
+[AMULET] amulet of poison resistance
+	[MASS] 500
+	[VOLUME] 500
+	[COLOR] 000 250 250
+	[EFFECT] poison resistance
+	[COMPONENT] small chain:gold
+	[COMPONENT] gem:amethyst:EFFECT
+[/AMULET]
+
+[AMULET] amulet of reflection
+	[MASS] 500
+	[VOLUME] 500
+	[COLOR] 150 150 150
+	[EFFECT] reflection
+	[COMPONENT] small chain:gold
+	[COMPONENT] gem:amethyst:EFFECT
+[/AMULET]
+
+[AMULET] amulet of strangulation
+	[MASS] 500
+	[VOLUME] 500
+	[COLOR] 250 000 000
+	[EFFECT] choke
+	[COMPONENT] small chain:gold
+	[COMPONENT] gem:amethyst:EFFECT
+[/AMULET]
+
+[AMULET] amulet of unchanging
+	[MASS] 500
+	[VOLUME] 500
+	[COLOR] 150 000 000
+	[EFFECT] unchanging
+	[COMPONENT] small chain:gold
+	[COMPONENT] gem:amethyst:EFFECT
+[/AMULET]
+
+[AMULET] dream catcher
+	[MASS] 500
+	[VOLUME] 500
+	[COLOR] 100 100 100
+	[EFFECT] restful sleep
+	[COMPONENT] small chain:gold
+	[COMPONENT] gem:amethyst:EFFECT
+[/AMULET]
+
+[ARMOR] shirt
+	[ARMORTYPE] humanoid
+	[AC] 50
+	[MASS] 500
+	[VOLUME] 500
+	[COLOR] 245 245 245
+	[COVERS] upper body
+	[COMPONENT] cloth:cotton
+[/ARMOR]
+
+[ARMOR] pair of pants
+	[ARMORTYPE] humanoid
+	[AC] 50
+	[MASS] 500
+	[VOLUME] 500
+	[COLOR] 245 245 245
+	[COVERS] lower body
+	[COVERS] left leg
+	[COVERS] right leg
+	[COMPONENT] cloth:cotton*3
+[/ARMOR]
+
+[ARMOR] loincloth
+	[ARMORTYPE] humanoid
+	[AC] 50
+	[MASS] 200
+	[VOLUME] 200
+	[COLOR] 225 225 225
+	[COVERS] lower body
+	[COMPONENT] cloth:cotton
+[/ARMOR]
+
+[ARMOR] pair of gloves
+	[ARMORTYPE] humanoid
+	[AC] 50
+	[MASS] 200
+	[VOLUME] 200
+	[COLOR] 225 225 225
+	[COVERS] left arm
+	[COVERS] right arm
+	[COMPONENT] cloth:cotton*3
+[/ARMOR]
+
+[ARMOR] hood
+	[ARMORTYPE] humanoid
+	[AC] 50
+	[MASS] 200
+	[VOLUME] 200
+	[COLOR] 225 225 225
+	[COVERS] head
+	[COMPONENT] cloth:cotton
+[/ARMOR]
+
+[POTION] potion of blindness
+	[MASS] 250
+	[VOLUME] 250
+	[EFFECT] blind:15
+	[COLOR] 255 000 000
+	[COMPONENT] raw material:orange juice
+	[COMPONENT] flask:glass
+	[COMPONENT] cork:wood
+[/POTION]
+
+[POTION] potion of confusion
+	[MASS] 250
+	[VOLUME] 250
+	[EFFECT] confuse:5
+	[COLOR] 175 150 000
+	[COMPONENT] raw material:beer
+	[COMPONENT] flask:glass
+	[COMPONENT] cork:wood
+[/POTION]
+
+[POTION] potion of detect monster
+	[MASS] 250
+	[VOLUME] 250
+	[EFFECT] detect monster:50
+	[COLOR] 000 250 250
+	[COMPONENT] raw material:water
+	[COMPONENT] flask:glass
+	[COMPONENT] cork:wood
+[/POTION]
+
+[POTION] potion of detect item
+	[MASS] 250
+	[VOLUME] 250
+	[EFFECT] detect item:15
+	[COLOR] 100 250 100
+	[COMPONENT] raw material:water
+	[COMPONENT] flask:glass
+	[COMPONENT] cork:wood
+[/POTION]
+
+[POTION] potion of lesser healing
+	[MASS] 250
+	[VOLUME] 250
+	[EFFECT] heal:5
+	[COLOR] 250 000 000
+	[COMPONENT] raw material:water
+	[COMPONENT] flask:glass
+	[COMPONENT] cork:wood
+[/POTION]
+
+[POTION] potion of healing
+	[MASS] 250
+	[VOLUME] 250
+	[EFFECT] heal:15
+	[COLOR] 250 000 000
+	[COMPONENT] raw material:water
+	[COMPONENT] flask:glass
+	[COMPONENT] cork:wood
+[/POTION]
+
+[POTION] potion of greater healing
+	[MASS] 250
+	[VOLUME] 250
+	[EFFECT] heal:25
+	[COLOR] 250 000 000
+	[COMPONENT] raw material:water
+	[COMPONENT] flask:glass
+	[COMPONENT] cork:wood
+[/POTION]
+
+[POTION] potion of full healing
+	[MASS] 250
+	[VOLUME] 250
+	[EFFECT] heal:999
+	[COLOR] 250 000 000
+	[COMPONENT] raw material:water
+	[COMPONENT] flask:glass
+	[COMPONENT] cork:wood
+[/POTION]
+
+[POTION] potion of gain level
+	[MASS] 250
+	[VOLUME] 250
+	[EFFECT] level up:1
+	[COLOR] 200 250 200
+	[COMPONENT] raw material:water
+	[COMPONENT] flask:glass
+	[COMPONENT] cork:wood
+[/POTION]
+
+[POTION] potion of invisibility
+	[MASS] 250
+	[VOLUME] 250
+	[EFFECT] invisibility:50
+	[COLOR] 250 000 000
+	[COMPONENT] raw material:water
+	[COMPONENT] flask:glass
+	[COMPONENT] cork:wood
+[/POTION]
+
+[POTION] potion of life
+	[MASS] 250
+	[VOLUME] 250
+	[EFFECT] revive:50
+	[COLOR] 250 250 250
+	[COMPONENT] raw material:water
+	[COMPONENT] flask:glass
+	[COMPONENT] cork:wood
+[/POTION]
+
+[POTION] potion of levitation
+	[MASS] 250
+	[VOLUME] 250
+	[EFFECT] levitation:50
+	[COLOR] 000 250 250
+	[COMPONENT] raw material:water
+	[COMPONENT] flask:glass
+	[COMPONENT] cork:wood
+[/POTION]
+
+[POTION] potion of paralysis
+	[MASS] 250
+	[VOLUME] 250
+	[EFFECT] paralysis:15
+	[COLOR] 250 250 150
+	[COMPONENT] raw material:water
+	[COMPONENT] flask:glass
+	[COMPONENT] cork:wood
+[/POTION]
+
+[POTION] potion of poison
+	[MASS] 250
+	[VOLUME] 250
+	[EFFECT] poison:5
+	[COLOR] 000 200 000
+	[COMPONENT] raw material:orange juice
+	[COMPONENT] flask:glass
+	[COMPONENT] cork:wood
+[/POTION]
+
+[POTION] potion of polymorph
+	[MASS] 250
+	[VOLUME] 250
+	[EFFECT] polymorph:50
+	[COLOR] 250 250 000
+	[COMPONENT] raw material:water
+	[COMPONENT] flask:glass
+	[COMPONENT] cork:wood
+[/POTION]
+
+[POTION] potion of regeneration
+	[MASS] 250
+	[VOLUME] 250
+	[EFFECT] regenerate body part:5
+	[COLOR] 127 250 212
+	[COMPONENT] raw material:water
+	[COMPONENT] flask:glass
+	[COMPONENT] cork:wood
+[/POTION]
+
+[POTION] potion of see invisible
+	[MASS] 250
+	[VOLUME] 250
+	[EFFECT] see invisible:5
+	[COLOR] 250 165 000
+	[COMPONENT] raw material:orange juice
+	[COMPONENT] flask:glass
+	[COMPONENT] cork:wood
+[/POTION]
+
+[POTION] potion of sleeping
+	[MASS] 250
+	[VOLUME] 250
+	[EFFECT] sleep:15
+	[COLOR] 100 100 250
+	[COMPONENT] raw material:water
+	[COMPONENT] flask:glass
+	[COMPONENT] cork:wood
+[/POTION]
+
+[POTION] potion of speed
+	[MASS] 250
+	[VOLUME] 250
+	[EFFECT] speed:50
+	[COLOR] 250 250 000
+	[COMPONENT] raw material:water
+	[COMPONENT] flask:glass
+	[COMPONENT] cork:wood
+[/POTION]
+
+[POTION] potion of ability
+	[MASS] 250
+	[VOLUME] 250
+	[EFFECT] gain attribute:2
+	[COLOR] 250 150 150
+	[COMPONENT] raw material:water
+	[COMPONENT] flask:glass
+	[COMPONENT] cork:wood
+[/POTION]
+
+[POTION] flask of beer
+	[MASS] 250
+	[VOLUME] 250
+	[EFFECT] confuse:15
+	[COLOR] 175 150 000
+	[COMPONENT] raw material:beer
+	[COMPONENT] flask:glass
+	[COMPONENT] cork:wood
+[/POTION]
+
+[POTION] flask of water
+	[MASS] 250
+	[VOLUME] 250
+	[COLOR] 250 250 250
+	[COMPONENT] raw material:water
+	[COMPONENT] flask:glass
+	[COMPONENT] cork:wood
+[/POTION]
+
+[POTION] flask of fruit juice
+	[MASS] 250
+	[VOLUME] 250
+	[COLOR] 250 250 250
+	[COMPONENT] raw material:orange juice
+	[COMPONENT] flask:glass
+	[COMPONENT] cork:wood
+[/POTION]
+
+[TOOL] ball
+	[MASS] 1500
+	[VOLUME] 1500
+	[COLOR] 209 209 209
+	[MATERIAL] iron
+[/TOOL]
+
+[TOOL] pick axe
+	[DAMAGE] 1d6
+	[MASS] 4000
+	[VOLUME] 4000
+	[COLOR] 209 209 209
+	[DAMAGE] 1d6
+	[USE] mine
+	[COMPONENT] spike:iron
+	[COMPONENT] stick:wood
+[/TOOL]
+
+[TOOL] rope
+	[MASS] 4000
+	[VOLUME] 4000
+	[COLOR] 157 170 118
+	[DMGMIN] 100
+	[DMGMAX] 200
+	[USE] tripwire
+[/TOOL]
+
+[TOOL] shovel
+	[ACCURACY] -2
+	[MASS] 4000
+	[VOLUME] 4000
+	[COLOR] 157 170 118
+	[DAMAGE] 1d6
+	[USE] dig
+	[COMPONENT] wedge
+	[COMPONENT] stick
+[/TOOL]
+
+[TOOL] spiked ball
+	[MASS] 2000
+	[VOLUME] 4000
+	[COLOR] 209 209 209
+	[DMGMIN] 50
+	[DMGMAX] 100
+	[COMPONENT] ball
+	[COMPONENT] spike
+	[COMPONENT] spike
+[/TOOL]
+
+[WEAPON] hand axe
+	[DAMAGE] 1d6
+	[MASS] 4000
+	[VOLUME] 4000
+	[COLOR] 192 192 192
+	[USE] chop
+	[COMPONENT] wedge:iron
+	[COMPONENT] stick:wood
+[/WEAPON]
+
+[WEAPON] battle axe
+	[DAMAGE] 1d6
+	[MASS] 4000
+	[VOLUME] 4000
+	[COLOR] 192 192 192
+	[USE] chop
+	[COMPONENT] wedge:iron
+	[COMPONENT] stick:wood
+[/WEAPON]
+
+[WEAPON] flail
+	[MASS] 4000
+	[VOLUME] 4000
+	[COLOR] 192 192 192
+	[DAMAGE] 1d6
+	[COMPONENT] ball
+	[COMPONENT] rope
+	[COMPONENT] stick
+[/WEAPON]
+
+[WEAPON] spiked flail
+	[MASS] 4000
+	[VOLUME] 4000
+	[COLOR] 192 192 192
+	[DAMAGE] 1d6+1
+	[COMPONENT] spiked ball
+	[COMPONENT] rope
+	[COMPONENT] stick
+[/WEAPON]
+
+[WEAPON] dagger
+	[ACCURACY] 2
+	[MASS] 2000
+	[VOLUME] 2000
+	[COLOR] 192 192 192
+	[DAMAGE] 1d4
+	[COMPONENT] blade:iron
+	[COMPONENT] handle:iron
+[/WEAPON]
+
+[WEAPON] knife
+	[MASS] 2000
+	[VOLUME] 2000
+	[COLOR] 192 192 192
+	[DAMAGE] 1d2
+	[COMPONENT] blade:iron
+	[COMPONENT] handle:iron
+[/WEAPON]
+
+[WEAPON] short sword
+	[MASS] 2000
+	[VOLUME] 2000
+	[COLOR] 192 192 192
+	[DAMAGE] 1d2
+	[COMPONENT] blade:iron
+	[COMPONENT] handle:iron
+[/WEAPON]
+
+[END]
+
+*********
+
+MASS is in grams
+VOLUME is in cubic centimeters. Under normal conditions, 1 gram of water = 1 cubic centimeter of water
+EFFECT needs a specific match to an internal effect string
+COLOR is in rrr ggg bbb form.
+DENSITY is grams per cubic centimeter
+
+COMPONENT is a sub-item of the current item. It is made of...
+	MOLECULE is a reference to molecules that are defined elsewhere, also known as materials. They are made of...
+		ATOM is a reference to one or multiple items of one type defined elsewhere.
+
+
+
+
+
+
+
+The lizard

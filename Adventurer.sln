@@ -1,22 +1,20 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adventurer", "Adventurer\Adventurer\Adventurer.csproj", "{104AAC4D-3091-4441-9120-113D3E5B1788}"
-EndProject
-Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "AdventurerContent", "Adventurer\AdventurerContent\AdventurerContent.contentproj", "{C803EE0A-1870-40E8-9C12-9ADBB6BDA7E9}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adventurer", "Adventurer.csproj", "{AB3834F5-1CC8-4167-A4EC-F0A938DDABB9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x86 = Debug|x86
-		Release|x86 = Release|x86
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{104AAC4D-3091-4441-9120-113D3E5B1788}.Debug|x86.ActiveCfg = Debug|x86
-		{104AAC4D-3091-4441-9120-113D3E5B1788}.Debug|x86.Build.0 = Debug|x86
-		{104AAC4D-3091-4441-9120-113D3E5B1788}.Release|x86.ActiveCfg = Release|x86
-		{104AAC4D-3091-4441-9120-113D3E5B1788}.Release|x86.Build.0 = Release|x86
-		{C803EE0A-1870-40E8-9C12-9ADBB6BDA7E9}.Debug|x86.ActiveCfg = Debug|x86
-		{C803EE0A-1870-40E8-9C12-9ADBB6BDA7E9}.Release|x86.ActiveCfg = Release|x86
+		{AB3834F5-1CC8-4167-A4EC-F0A938DDABB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB3834F5-1CC8-4167-A4EC-F0A938DDABB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB3834F5-1CC8-4167-A4EC-F0A938DDABB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB3834F5-1CC8-4167-A4EC-F0A938DDABB9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

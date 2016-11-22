@@ -1,0 +1,5735 @@
+[CREATURE] human
+	[NOGEN]
+	[DAMAGE] 1d2
+	[SPEED]	12
+	[IMAGE] 64
+	[COLOR] 255 255 255
+	[MASS] 80000
+	[ARMORTYPE] humanoid
+	[ARMOR] pair of pants
+	[ARMOR] shirt
+	[WEAPON] dagger
+	[ITEM] potion of healing
+
+	[BODYPART] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] wolf
+	[XP] 6
+	[DIFFICULTY] 1
+	[BASELVL] 0
+	[DAMAGE] 1d4
+	[HABITAT] forest
+	[AC]	0
+	[SPEED]	12
+	[IMAGE] 100
+	[COLOR] 200 200 200
+	[MASS] 2275
+	[ARMORTYPE] canine
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] goblin
+	[XP] 6
+	[DIFFICULTY] 1
+	[BASELVL] 0
+	[DAMAGE] 1d4
+	[HABITAT] dungeon
+	[AC]	0
+	[SPEED]	10
+	[IMAGE] 64
+	[COLOR] 000 150 000
+	[MASS] 80000
+	[ARMORTYPE] humanoid
+	[ARMOR] loincloth
+	[WEAPON] dagger
+
+	[BODYPART] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] rat
+	[XP] 2
+	[DIFFICULTY] 1
+	[BASELVL] 0
+	[DAMAGE] 1d3
+	[HABITAT] dungeon
+	[AC]	0
+	[SPEED]	10
+	[IMAGE] 114
+	[COLOR] 175 100 085
+	[MASS] 2275
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] ogre
+	[XP] 61
+	[DIFFICULTY] 7
+	[BASELVL] 5
+	[DAMAGE] 2d5
+	[HABITAT] dungeon
+	[MINLEVEL] 1
+	[AC]	0
+	[SPEED]	10
+	[IMAGE] 79
+	[COLOR] 235 225 225
+	[MASS] 80000
+	[ARMORTYPE] humanoid
+	[ARMOR] loincloth
+
+	[BODYPART] upper body
+		[HEALTH] 5000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 5000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 3000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 3000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 3000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 3000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 3000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] minotaur
+	[XP] 500
+	[DIFFICULTY] 17
+	[BASELVL] 15
+	[AC]	4
+	[DAMAGE] 3d10
+	[HABITAT] dungeon
+	[MINLEVEL] 1
+	[SPEED]	10
+	[IMAGE] 64
+	[COLOR] 225 020 060
+	[MASS] 80000
+	[ARMORTYPE] humanoid
+	[ARMOR] loincloth
+	[WEAPON] hand axe
+
+	[BODYPART] upper body
+		[HEALTH] 5000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 5000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 3000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 3000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 3000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 3000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 3000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] dragon
+	[MINLEVEL] 1
+	[XP] 500
+	[DIFFICULTY] 20
+	[BASELVL] 15
+	[AC]	11
+	[DAMAGE] 3d8
+	[HABITAT] dungeon
+	[AC]	0
+	[SPEED]	10
+	[IMAGE] 68
+	[COLOR] 000 255 255
+	[MASS] 80000
+	[ARMORTYPE] dragonoid
+
+	[BODYPART] upper body
+		[HEALTH] 8000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 8000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 5000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 5000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 5000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 5000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 5000
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] lower body
+		[HEALTH] 5000
+	[/BODYPART]
+
+	[BODYPART] right wing
+		[PARENT] lower body
+		[HEALTH] 5000
+	[/BODYPART]
+
+	[BODYPART] left wing
+		[PARENT] lower body
+		[HEALTH] 5000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] giant beetle
+	[MINLEVEL] 1
+	[XP] 56
+	[DIFFICULTY] 6
+	[BASELVL] 5
+	[AC]	6
+	[DAMAGE] 3d6
+	[HABITAT] dungeon
+	[SPEED]	6
+	[IMAGE] 97
+	[COLOR] 100 100 100
+	[MASS] 2000
+	[ARMORTYPE] insectoid
+
+	[BODYPART] head
+		[PARENT] thorax
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] thorax
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] abdomen
+		[PARENT] thorax
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] first left leg
+		[PARENT] thorax
+		[HEALTH] 750
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] second left leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] third left leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] first right leg
+		[PARENT] thorax
+		[HEALTH] 750
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] second right leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] third right leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left wing
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right wing
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] giant ant
+	[MINLEVEL] 1
+	[XP] 22
+	[DIFFICULTY] 4
+	[BASELVL] 2
+	[AC]	7
+	[DAMAGE] 1d4
+	[HABITAT] dungeon
+	[SPEED]	18
+	[IMAGE] 97
+	[COLOR] 144 106 057
+	[MASS] 2000
+	[ARMORTYPE] insectoid
+
+	[BODYPART] head
+		[PARENT] thorax
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] thorax
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] abdomen
+		[PARENT] thorax
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] first left leg
+		[PARENT] thorax
+		[HEALTH] 750
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] second left leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] third left leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] first right leg
+		[PARENT] thorax
+		[HEALTH] 750
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] second right leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] third right leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] soldier ant
+	[MINLEVEL] 1
+	[XP] 39
+	[DIFFICULTY] 6
+	[BASELVL] 3
+	[AC]	7
+	[DAMAGE] 2d4
+	[HABITAT] dungeon
+	[SPEED]	18
+	[IMAGE] 97
+	[COLOR] 000 000 128
+	[MASS] 2000
+
+	[ARMORTYPE] insectoid
+
+	[BODYPART] head
+		[PARENT] thorax
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] thorax
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] abdomen
+		[PARENT] thorax
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] first left leg
+		[PARENT] thorax
+		[HEALTH] 750
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] second left leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] third left leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] first right leg
+		[PARENT] thorax
+		[HEALTH] 750
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] second right leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] third right leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] fire ant
+	[MINLEVEL] 1
+	[XP] 36
+	[DIFFICULTY] 6
+	[BASELVL] 3
+	[AC]	7
+	[DAMAGE] 2d4 
+	[DAMAGE_EFFECT] fire
+	[HABITAT] dungeon
+	[SPEED]	18
+	[IMAGE] 97
+	[COLOR] 200 000 000
+	[MASS] 2000
+	[ARMORTYPE] insectoid
+
+	[BODYPART] head
+		[PARENT] thorax
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] thorax
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] abdomen
+		[PARENT] thorax
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] first left leg
+		[PARENT] thorax
+		[HEALTH] 750
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] second left leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] third left leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] first right leg
+		[PARENT] thorax
+		[HEALTH] 750
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] second right leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] third right leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] killer bee
+	[MINLEVEL] 1
+	[XP] 19
+	[GROUP] 2d4
+	[DIFFICULTY] 5
+	[BASELVL] 1
+	[AC]	11
+	[DAMAGE] 1d3
+	[DAMAGE_EFFECT] poison
+	[HABITAT] dungeon
+	[SPEED]	18
+	[IMAGE] 97
+	[COLOR] 255 255 000
+	[MASS] 100
+	[ARMORTYPE] insectoid
+
+	[BODYPART] head
+		[PARENT] thorax
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] thorax
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] abdomen
+		[PARENT] thorax
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] first left leg
+		[PARENT] thorax
+		[HEALTH] 750
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] second left leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] third left leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] first right leg
+		[PARENT] thorax
+		[HEALTH] 750
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] second right leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] third right leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left wing
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right wing
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] gelatinous cube
+	[MINLEVEL] 1
+	[XP] 76
+	[DIFFICULTY] 8
+	[BASELVL] 6
+	[AC]	10
+	[DAMAGE] 2d4
+	[DAMAGE_EFFECT] paralyze
+	[HABITAT] dungeon
+	[SPEED]	6
+	[IMAGE] 98
+	[COLOR] 000 177 177
+	[MASS] 600
+	[ARMORTYPE] blob
+
+	[BODYPART] core
+		[HEALTH] 2000
+		[LIFECRITICAL]
+		[PICKUP]
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] acid blob
+	[MINLEVEL] 1
+	[XP] 9
+	[DIFFICULTY] 3
+	[BASELVL] 1
+	[AC]	2
+	[PASSIVE]
+	[DAMAGE] 1d8
+	[DAMAGE_EFFECT] acid
+	[HABITAT] dungeon
+	[SPEED]	6
+	[IMAGE] 98
+	[COLOR] 034 139 34
+	[MASS] 30
+	[ARMORTYPE] blob
+
+	[BODYPART] core
+		[HEALTH] 2000
+		[LIFECRITICAL]
+		[PICKUP]
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] quivering blob
+	[MINLEVEL] 1
+	[XP] 59
+	[DIFFICULTY] 6
+	[BASELVL] 5
+	[AC]	2
+	[DAMAGE] 1d8
+	[HABITAT] dungeon
+	[SPEED]	1
+	[IMAGE] 98
+	[COLOR] 034 139 34
+	[MASS] 200
+	[ARMORTYPE] blob
+
+	[BODYPART] core
+		[HEALTH] 2000
+		[LIFECRITICAL]
+		[PICKUP]
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] chickatrice
+	[MINLEVEL] 1
+	[XP] 136
+	[DIFFICULTY] 7
+	[BASELVL] 4
+	[AC]	11
+	[DAMAGE] 1d2
+	[DAMAGE_EFFECT] stoning
+	[HABITAT] dungeon
+	[AC]	2
+	[SPEED]	4
+	[IMAGE] 99
+	[COLOR] 145 095 000
+	[MASS] 10
+	[ARMORTYPE] dragonoid
+
+	[BODYPART] upper body
+		[HEALTH] 8000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 8000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 5000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 5000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 5000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 5000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 5000
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] lower body
+		[HEALTH] 5000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] cockatrice
+	[MINLEVEL] 1
+	[XP] 149
+	[DIFFICULTY] 8
+	[BASELVL] 5
+	[AC]	11
+	[DAMAGE] 1d3
+	[DAMAGE_EFFECT] stoning
+	[HABITAT] dungeon
+	[AC]	4
+	[SPEED]	6
+	[IMAGE] 99
+	[COLOR] 255 255 000
+	[MASS] 30
+	[ARMORTYPE] dragonoid
+
+	[BODYPART] upper body
+		[HEALTH] 8000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 8000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 5000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 5000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 5000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 5000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 5000
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] lower body
+		[HEALTH] 5000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] pyrolisk
+	[MINLEVEL] 1
+	[XP] 82
+	[DIFFICULTY] 8
+	[BASELVL] 6
+	[AC]	11
+	[DAMAGE] 2d6
+	[DAMAGE_EFFECT] fire
+	[HABITAT] dungeon
+	[AC]	4
+	[SPEED]	6
+	[IMAGE] 99
+	[COLOR] 255 000 000
+	[MASS] 30
+	[ARMORTYPE] dragonoid
+
+	[BODYPART] upper body
+		[HEALTH] 8000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 8000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 5000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 5000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 5000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 5000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 5000
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] lower body
+		[HEALTH] 5000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] jackal
+	[GROUP] 1d4
+	[XP] 1
+	[DIFFICULTY] 1
+	[BASELVL] 0
+	[DAMAGE] 1d2
+	[HABITAT] dungeon
+	[AC]	3
+	[SPEED]	12
+	[IMAGE] 100
+	[COLOR] 145 095 000
+	[MASS] 300
+	[ARMORTYPE] canine
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] coyote
+	[GROUP] 1d4
+	[XP] 11
+	[DIFFICULTY] 2
+	[BASELVL] 0
+	[DAMAGE] 1d4
+	[HABITAT] dungeon
+	[AC]	3
+	[SPEED]	12
+	[IMAGE] 100
+	[COLOR] 145 095 000
+	[MASS] 300
+	[ARMORTYPE] canine
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] fox
+	[GROUP] 1d4
+	[XP] 4
+	[DIFFICULTY] 1
+	[BASELVL] 0
+	[DAMAGE] 1d3
+	[HABITAT] dungeon
+	[AC]	3
+	[SPEED]	12
+	[IMAGE] 100
+	[COLOR] 145 095 000
+	[MASS] 300
+	[ARMORTYPE] canine
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] dingo
+	[GROUP] 1d3
+	[XP] 44
+	[DIFFICULTY] 5
+	[BASELVL] 4
+	[DAMAGE] 1d6
+	[HABITAT] dungeon
+	[AC]	5
+	[SPEED]	16
+	[IMAGE] 100
+	[COLOR] 255 255 000
+	[MASS] 400
+	[ARMORTYPE] canine
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] warg
+	[GROUP] 1d3
+	[XP] 95
+	[DIFFICULTY] 8
+	[BASELVL] 7
+	[DAMAGE] 2d6
+	[HABITAT] dungeon
+	[AC]	6
+	[SPEED]	12
+	[IMAGE] 100
+	[COLOR] 255 255 000
+	[MASS] 850
+	[ARMORTYPE] canine
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] winter wolf
+	[GROUP] 1d3
+	[XP] 44
+	[DIFFICULTY] 9
+	[BASELVL] 4
+	[DAMAGE] 2d6
+	[DAMAGE_EFFECT] cold
+	[HABITAT] dungeon
+	[AC]	6
+	[SPEED]	12
+	[IMAGE] 100
+	[COLOR] 000 177 177
+	[MASS] 700
+	[ARMORTYPE] canine
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] winter wolf cub
+	[GROUP] 1d3
+	[XP] 67
+	[DIFFICULTY] 7
+	[BASELVL] 5
+	[DAMAGE] 1d8
+	[DAMAGE_EFFECT] cold
+	[HABITAT] dungeon
+	[AC]	6
+	[SPEED]	12
+	[IMAGE] 100
+	[COLOR] 000 177 177
+	[MASS] 250
+	[ARMORTYPE] canine
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] hell hound
+	[GROUP] 1d3
+	[XP] 286
+	[DIFFICULTY] 14
+	[BASELVL] 12
+	[DAMAGE] 3d6
+	[DAMAGE_EFFECT] fire
+	[HABITAT] dungeon
+	[AC]	8
+	[SPEED]	14
+	[IMAGE] 100
+	[COLOR] 200 000 000
+	[MASS] 600
+	[ARMORTYPE] canine
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] hell hound pup
+	[GROUP] 1d3
+	[XP] 105
+	[DIFFICULTY] 9
+	[BASELVL] 7
+	[DAMAGE] 2d6
+	[DAMAGE_EFFECT] fire
+	[HABITAT] dungeon
+	[AC]	6
+	[SPEED]	12
+	[IMAGE] 100
+	[COLOR] 200 000 000
+	[MASS] 200
+	[ARMORTYPE] canine
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] little dog
+	[GROUP] 1d3
+	[XP] 22
+	[DIFFICULTY] 3
+	[BASELVL] 2
+	[DAMAGE] 1d6
+	[HABITAT] dungeon
+	[AC]	4
+	[SPEED]	18
+	[IMAGE] 100
+	[COLOR] 255 255 255
+	[MASS] 150
+	[ARMORTYPE] canine
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] dog
+	[GROUP] 1d3
+	[XP] 44
+	[DIFFICULTY] 5
+	[BASELVL] 4
+	[DAMAGE] 1d6
+	[HABITAT] dungeon
+	[AC]	5
+	[SPEED]	16
+	[IMAGE] 100
+	[COLOR] 255 255 255
+	[MASS] 400
+	[ARMORTYPE] canine
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] large dog
+	[GROUP] 1d3
+	[XP] 76
+	[DIFFICULTY] 7
+	[BASELVL] 6
+	[DAMAGE] 2d4
+	[HABITAT] dungeon
+	[AC]	6
+	[SPEED]	15
+	[IMAGE] 100
+	[COLOR] 255 255 255
+	[MASS] 800
+	[ARMORTYPE] canine
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] flaming sphere
+	[XP] 12
+	[DIFFICULTY] 13
+	[BASELVL] 6
+	[DAMAGE] 4d6
+	[DAMAGE_EFFECT] fire
+	[SELFDESTRUCT]
+	[HABITAT] dungeon
+	[AC]	6
+	[SPEED]	1
+	[IMAGE] 101
+	[COLOR] 200 000 000
+	[MASS] 10
+	[ARMORTYPE] blob
+
+	[BODYPART] core
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] flaming sphere
+	[XP] 12
+	[DIFFICULTY] 13
+	[BASELVL] 6
+	[DAMAGE] 4d6
+	[DAMAGE_EFFECT] fire
+	[SELFDESTRUCT]
+	[HABITAT] dungeon
+	[AC]	6
+	[SPEED]	1
+	[IMAGE] 101
+	[COLOR] 200 000 000
+	[MASS] 10
+	[ARMORTYPE] blob
+
+	[BODYPART] core
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] freezing sphere
+	[XP] 12
+	[DIFFICULTY] 13
+	[BASELVL] 6
+	[DAMAGE] 4d6
+	[DAMAGE_EFFECT] cold
+	[SELFDESTRUCT]
+	[HABITAT] dungeon
+	[AC]	6
+	[SPEED]	1
+	[IMAGE] 101
+	[COLOR] 255 255 255
+	[MASS] 10
+	[ARMORTYPE] blob
+
+	[BODYPART] core
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] shocking sphere
+	[XP] 12
+	[DIFFICULTY] 13
+	[BASELVL] 6
+	[DAMAGE] 4d6
+	[DAMAGE_EFFECT] electric
+	[SELFDESTRUCT]
+	[HABITAT] dungeon
+	[AC]	6
+	[SPEED]	1
+	[IMAGE] 101
+	[COLOR] 000 255 255
+	[MASS] 10
+	[ARMORTYPE] blob
+
+	[BODYPART] core
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] floating eye
+	[XP] 17
+	[DIFFICULTY] 3
+	[BASELVL] 2
+	[DAMAGE] 0d0
+	[DAMAGE_EFFECT] paralyze
+	[PACIFIST]
+	[HABITAT] dungeon
+	[AC]	1
+	[SPEED]	1
+	[IMAGE] 101
+	[COLOR] 000 000 200
+	[MASS] 10
+	[ARMORTYPE] blob
+
+	[BODYPART] core
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] gas spore
+	[XP] 12
+	[DIFFICULTY] 3
+	[BASELVL] 1
+	[DAMAGE] 4d6
+	[PACIFIST]
+	[SELFDESTRUCT]
+	[HABITAT] dungeon
+	[AC]	0
+	[SPEED]	1
+	[IMAGE] 101
+	[COLOR] 175 175 175
+	[MASS] 10
+	[ARMORTYPE] blob
+
+	[BODYPART] core
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] panther
+	[IMAGE] 102
+	[COLOR] 130 130 130
+
+	[DIFFICULTY] 7
+	[DAMAGE] 1d6
+	[BASELVL] 5
+	[XP] 59
+	[SPEED]	15
+	[AC]	4
+	[MASS] 400
+
+	[HABITAT] dungeon
+	[ARMORTYPE] feline
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] jaguar
+	[IMAGE] 102
+	[COLOR] 175 100 085
+
+	[DIFFICULTY] 6
+	[DAMAGE] 1d4
+	[BASELVL] 4
+	[XP] 44
+	[SPEED]	15
+	[AC]	4
+	[MASS] 600
+
+	[HABITAT] dungeon
+	[ARMORTYPE] feline
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] lynx
+	[IMAGE] 102
+	[COLOR] 000 180 180
+
+	[DIFFICULTY] 7
+	[DAMAGE] 1d6
+	[BASELVL] 5
+	[XP] 59
+	[SPEED]	15
+	[AC]	4
+	[MASS] 600
+
+	[HABITAT] dungeon
+	[ARMORTYPE] feline
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] tiger
+	[IMAGE] 102
+	[COLOR] 255 255 000
+
+	[DIFFICULTY] 8
+	[DAMAGE] 2d4
+	[BASELVL] 6
+	[XP] 73
+	[SPEED]	12
+	[AC]	4
+	[MASS] 600
+
+	[HABITAT] dungeon
+	[ARMORTYPE] feline
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] kitten
+	[IMAGE] 102
+	[COLOR] 255 255 255
+
+	[DIFFICULTY] 3
+	[DAMAGE] 1d6
+	[BASELVL] 2
+	[XP] 22
+	[SPEED]	18
+	[AC]	4
+	[MASS] 150
+
+	[HABITAT] dungeon
+	[ARMORTYPE] feline
+
+	[CUTENESSPROXIMITY] 9001
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] housecat
+	[IMAGE] 102
+	[COLOR] 255 255 255
+
+	[DIFFICULTY] 7
+	[DAMAGE] 2d4
+	[BASELVL] 6
+	[XP] 76
+	[SPEED]	15
+	[AC]	6
+	[MASS] 250
+
+	[HABITAT] dungeon
+	[ARMORTYPE] feline
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] gargoyle
+	[IMAGE] 103
+	[COLOR] 175 100 085
+
+	[DIFFICULTY] 8
+	[DAMAGE] 2d6
+	[BASELVL] 6
+	[XP] 79
+	[SPEED]	10
+	[AC]	14
+	[MASS] 1000
+
+	[HABITAT] dungeon
+	[ARMORTYPE] gargoyle
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] gremlin
+	[IMAGE] 103
+	[COLOR] 000 175 000
+
+	[DIFFICULTY] 8
+	[DAMAGE] 1d6
+	[DAMAGE_EFFECT] gremlin
+	[BASELVL] 5
+	[XP] 61
+	[SPEED]	12
+	[AC]	8
+	[MASS] 100
+
+	[HABITAT] dungeon
+	[ARMORTYPE] gargoyle
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] winged gargoyle
+	[IMAGE] 103
+	[COLOR] 150 000 150
+
+	[DIFFICULTY] 11
+	[DAMAGE] 3d6
+	[BASELVL] 9
+	[XP] 195
+	[SPEED]	15
+	[AC]	12
+	[MASS] 1200
+
+	[HABITAT] dungeon
+	[ARMORTYPE] gargoyle
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right wing
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left wing
+		[PARENT] body
+
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] dwarf lord
+	[IMAGE] 104
+	[COLOR] 000 000 150
+
+	[DIFFICULTY] 6
+	[DAMAGE] 2d4
+	[BASELVL] 4
+	[XP] 51
+	[SPEED]	6
+	[AC]	0
+	[MASS] 900
+
+	[HABITAT] dungeon
+	[ARMORTYPE] humanoid
+
+	[BODYPART] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] bugbear
+	[IMAGE] 104
+	[COLOR] 175 100 085
+
+	[DIFFICULTY] 5
+	[DAMAGE] 2d4
+	[BASELVL] 3
+	[XP] 33
+	[SPEED]	9
+	[AC]	5
+	[MASS] 1250
+
+	[HABITAT] dungeon
+	[ARMORTYPE] humanoid
+
+	[BODYPART] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] hobbit
+	[IMAGE] 104
+	[COLOR] 000 150 000
+
+	[DIFFICULTY] 2
+	[DAMAGE] 1d6
+	[BASELVL] 1
+	[XP] 23
+	[SPEED]	9
+	[AC]	0
+	[MASS] 500
+
+	[HABITAT] dungeon
+	[ARMORTYPE] humanoid
+
+	[BODYPART] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] dwarf king
+	[IMAGE] 104
+	[COLOR] 150 000 150
+
+	[DIFFICULTY] 8
+	[DAMAGE] 2d6
+	[BASELVL] 6
+	[XP] 83
+	[SPEED]	6
+	[AC]	0
+	[MASS] 900
+
+	[HABITAT] dungeon
+	[ARMORTYPE] humanoid
+
+	[BODYPART] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] mind flayer
+	[IMAGE] 104
+	[COLOR] 150 000 150
+
+	[DIFFICULTY] 14
+	[DAMAGE] 1d4
+	[DAMAGE_EFFECT] brainsuck
+	[BASELVL] 9
+	[XP] 269
+	[SPEED]	12
+	[AC]	5
+	[MASS] 1450
+
+	[HABITAT] dungeon
+	[ARMORTYPE] humanoid
+
+	[BODYPART] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] master mind flayer
+	[IMAGE] 104
+	[COLOR] 150 000 150
+
+	[DIFFICULTY] 18
+	[DAMAGE] 1d8
+	[DAMAGE_EFFECT] brainsuck
+	[BASELVL] 13
+	[XP] 410
+	[SPEED]	12
+	[AC]	10
+	[MASS] 1450
+
+	[HABITAT] dungeon
+	[ARMORTYPE] humanoid
+
+	[BODYPART] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] quasit
+	[IMAGE] 105
+	[COLOR] 000 000 150
+
+	[DIFFICULTY] 7
+	[DAMAGE] 1d4
+	[DAMAGE_EFFECT] poison
+	[BASELVL] 3
+	[XP] 32
+	[SPEED]	15
+	[AC]	8
+	[MASS] 200
+
+	[HABITAT] dungeon
+	[ARMORTYPE] impish
+
+	[BODYPART] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] lemure
+	[IMAGE] 105
+	[COLOR] 175 100 085
+
+	[DIFFICULTY] 5
+	[DAMAGE] 1d3
+	[BASELVL] 3
+	[XP] 28
+	[SPEED]	3
+	[AC]	3
+	[MASS] 150
+
+	[HABITAT] dungeon
+	[ARMORTYPE] impish
+
+	[BODYPART] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] tengu
+	[IMAGE] 105
+	[COLOR] 000 150 150
+
+	[DIFFICULTY] 7
+	[DAMAGE] 1d7
+	[BASELVL] 6
+	[XP] 76
+	[SPEED]	13
+	[AC]	5
+	[MASS] 300
+
+	[HABITAT] dungeon
+	[ARMORTYPE] impish
+
+	[TELEPORTS]
+
+	[BODYPART] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] homonculus
+	[IMAGE] 105
+	[COLOR] 000 150 000
+
+	[DIFFICULTY] 3
+	[DAMAGE] 1d3
+	[DAMAGE_EFFECT] sleep
+	[BASELVL] 2
+	[XP] 19
+	[SPEED]	12
+	[AC]	6
+	[MASS] 60
+
+	[HABITAT] dungeon
+	[ARMORTYPE] impish
+
+	[BODYPART] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] manes
+	[IMAGE] 105
+	[COLOR] 150 000 000
+
+	[DIFFICULTY] 3
+	[DAMAGE] 1d3
+	[BASELVL] 1
+	[XP] 8
+	[SPEED]	3
+	[AC]	3
+	[MASS] 100
+
+	[GROUP] 1d5
+	[HABITAT] dungeon
+	[ARMORTYPE] impish
+
+	[ETHEREAL]
+
+	[BODYPART] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] imp
+	[IMAGE] 105
+	[COLOR] 150 000 000
+
+	[DIFFICULTY] 4
+	[DAMAGE] 1d4
+	[BASELVL] 3
+	[XP] 32
+	[SPEED]	15
+	[AC]	8
+	[MASS] 20
+
+	[HABITAT] dungeon
+	[ARMORTYPE] impish
+
+	[TAUNT] imp
+
+	[BODYPART] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] blue jelly
+	[IMAGE] 106
+	[COLOR] 000 000 150
+
+	[DIFFICULTY] 5
+	[DAMAGE] 4d6
+	[DAMAGE_EFFECT] cold
+	[BASELVL] 4
+	[XP] 45
+	[SPEED]	0
+	[AC]	2
+	[MASS] 50
+
+	[HABITAT] dungeon
+	[ARMORTYPE] blob
+
+	[BODYPART] core
+		[HEALTH] 1500
+		[LIFECRITICAL]
+		[PICKUP]
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] ochre jelly
+	[IMAGE] 106
+	[COLOR] 175 100 085
+
+	[DIFFICULTY] 8
+	[DAMAGE] 3d6
+	[DAMAGE_EFFECT] acid
+	[BASELVL] 6
+	[XP] 88
+	[SPEED]	3
+	[AC]	2
+	[MASS] 50
+
+	[HABITAT] dungeon
+	[ARMORTYPE] blob
+
+	[BODYPART] core
+		[HEALTH] 1500
+		[LIFECRITICAL]
+		[PICKUP]
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] spotted jelly
+	[IMAGE] 106
+	[COLOR] 000 150 000
+
+	[DIFFICULTY] 6
+	[DAMAGE] 3d6
+	[DAMAGE_EFFECT] acid
+	[BASELVL] 5
+	[XP] 61
+	[SPEED]	0
+	[AC]	2
+	[MASS] 50
+
+	[HABITAT] dungeon
+	[ARMORTYPE] blob
+
+	[BODYPART] core
+		[HEALTH] 1500
+		[LIFECRITICAL]
+		[PICKUP]
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] kobold
+	[IMAGE] 107
+	[COLOR] 175 100 085
+
+	[DIFFICULTY] 1
+	[DAMAGE] 1d4
+	[BASELVL] 0
+	[XP] 6
+	[SPEED]	6
+	[AC]	0
+	[MASS] 400
+
+	[HABITAT] dungeon
+	[ARMORTYPE] kobold
+
+	[BODYPART] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] large kobold
+	[IMAGE] 107
+	[COLOR] 150 000 000
+
+	[DIFFICULTY] 2
+	[DAMAGE] 1d6
+	[BASELVL] 1
+	[XP] 13
+	[SPEED]	6
+	[AC]	0
+	[MASS] 450
+
+	[HABITAT] dungeon
+	[ARMORTYPE] kobold
+
+	[BODYPART] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] kobold lord
+	[IMAGE] 107
+	[COLOR] 150 000 150
+
+	[DIFFICULTY] 3
+	[DAMAGE] 2d4
+	[BASELVL] 2
+	[XP] 22
+	[SPEED]	6
+	[AC]	0
+	[MASS] 500
+
+	[HABITAT] dungeon
+	[ARMORTYPE] kobold
+
+	[BODYPART] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] kobold shaman
+	[IMAGE] 107
+	[COLOR] 000 000 255
+
+	[DIFFICULTY] 4
+	[DAMAGE] 1d4
+	[BASELVL] 2
+	[XP] 27
+	[SPEED]	6
+	[AC]	4
+	[MASS] 450
+
+	[HABITAT] dungeon
+	[ARMORTYPE] kobold
+
+	[BODYPART] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] leprechaun
+	[IMAGE] 108
+	[COLOR] 000 000 150
+
+	[DIFFICULTY] 4
+	[DAMAGE] 1d2
+	[DAMAGE_EFFECT] leprechaun
+	[BASELVL] 5
+	[XP] 59
+	[SPEED]	15
+	[AC]	2
+	[MASS] 60
+
+	[HABITAT] dungeon
+	[ARMORTYPE] humanoid
+
+	[BODYPART] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] small mimic
+	[IMAGE] 109
+	[COLOR] 175 100 085
+
+	[DIFFICULTY] 8
+	[DAMAGE] 3d4
+	[DAMAGE_EFFECT] hold
+	[BASELVL] 7
+	[XP] 92
+	[SPEED]	3
+	[AC]	3
+	[MASS] 300
+
+	[HABITAT] dungeon
+	[ARMORTYPE] blob
+
+	[POLYMORPHS]
+
+	[BODYPART] core
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] large mimic
+	[IMAGE] 109
+	[COLOR] 150 000 000
+
+	[DIFFICULTY] 9
+	[DAMAGE] 3d4
+	[DAMAGE_EFFECT] hold
+	[BASELVL] 8
+	[XP] 113
+	[SPEED]	3
+	[AC]	3
+	[MASS] 600
+
+	[HABITAT] dungeon
+	[ARMORTYPE] blob
+
+	[POLYMORPHS]
+
+	[BODYPART] core
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] giant mimic
+	[IMAGE] 109
+	[COLOR] 150 000 150
+
+	[DIFFICULTY] 11
+	[DAMAGE] 3d6
+	[DAMAGE_EFFECT] hold
+	[BASELVL] 9
+	[XP] 186
+	[SPEED]	3
+	[AC]	3
+	[MASS] 800
+
+	[HABITAT] dungeon
+	[ARMORTYPE] blob
+
+	[POLYMORPHS]
+
+	[BODYPART] core
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] water nymph
+	[IMAGE] 110
+	[COLOR] 000 000 150
+
+	[DIFFICULTY] 5
+	[DAMAGE] 1d2
+	[DAMAGE_EFFECT] nymph
+	[BASELVL] 3
+	[XP] 28
+	[SPEED]	12
+	[AC]	1
+	[MASS] 600
+
+	[HABITAT] dungeon
+	[ARMORTYPE] fae
+
+	[BODYPART] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] wood nymph
+	[IMAGE] 110
+	[COLOR] 000 150 000
+
+	[DIFFICULTY] 5
+	[DAMAGE] 1d2
+	[DAMAGE_EFFECT] nymph
+	[BASELVL] 3
+	[XP] 28
+	[SPEED]	12
+	[AC]	1
+	[MASS] 600
+
+	[HABITAT] dungeon
+	[ARMORTYPE] fae
+
+	[BODYPART] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] mountain nymph
+	[IMAGE] 110
+	[COLOR] 175 100 086
+
+	[DIFFICULTY] 5
+	[DAMAGE] 1d2
+	[DAMAGE_EFFECT] nymph
+	[BASELVL] 3
+	[XP] 28
+	[SPEED]	12
+	[AC]	1
+	[MASS] 600
+
+	[HABITAT] dungeon
+	[ARMORTYPE] fae
+
+	[BODYPART] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] uruk-hai
+	[IMAGE] 111
+	[COLOR] 100 100 100
+
+	[DIFFICULTY] 5
+	[DAMAGE] 1d8
+	[BASELVL] 3
+	[XP] 33
+	[SPEED]	7
+	[AC]	0
+	[MASS] 1300
+
+	[GROUP] 1d5
+	[HABITAT] dungeon
+	[ARMORTYPE] humanoid
+
+	[BODYPART] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] mordor orc
+	[IMAGE] 111
+	[COLOR] 000 000 100
+
+	[DIFFICULTY] 5
+	[DAMAGE] 1d6
+	[BASELVL] 3
+	[XP] 33
+	[SPEED]	5
+	[AC]	0
+	[MASS] 1200
+
+	[GROUP] 1d5
+	[HABITAT] dungeon
+	[ARMORTYPE] humanoid
+
+	[BODYPART] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] orc shaman
+	[IMAGE] 111
+	[COLOR] 000 000 200
+
+	[DIFFICULTY] 5
+	[DAMAGE] 1d3
+	[BASELVL] 3
+	[XP] 38
+	[SPEED]	9
+	[AC]	5
+	[MASS] 1000
+
+	[GROUP] 1d5
+	[HABITAT] dungeon
+	[ARMORTYPE] humanoid
+
+	[BODYPART] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] hobgoblin
+	[IMAGE] 111
+	[COLOR] 175 100 085
+
+	[DIFFICULTY] 3
+	[DAMAGE] 1d4
+	[BASELVL] 1
+	[XP] 13
+	[SPEED]	9
+	[AC]	0
+	[MASS] 1000
+
+	[GROUP] 1d5
+	[HABITAT] dungeon
+	[ARMORTYPE] humanoid
+
+	[BODYPART] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] orcoblin
+	[IMAGE] 111
+	[COLOR] 150 150 150
+
+	[DIFFICULTY] 5
+	[DAMAGE] 1d4
+	[BASELVL] 0
+	[XP] 6
+	[SPEED]	9
+	[AC]	0
+	[MASS] 1300
+
+	[GROUP] 1d5
+	[HABITAT] dungeon
+	[ARMORTYPE] humanoid
+
+	[BODYPART] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] orc captain
+	[IMAGE] 111
+	[COLOR] 150 000 150
+
+	[DIFFICULTY] 7
+	[DAMAGE] 2d4
+	[BASELVL] 5
+	[XP] 66
+	[SPEED]	5
+	[AC]	0
+	[MASS] 1350
+
+	[HABITAT] dungeon
+	[ARMORTYPE] humanoid
+
+	[BODYPART] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] orc
+	[IMAGE] 111
+	[COLOR] 175 100 085
+
+	[DIFFICULTY] 3
+	[DAMAGE] 1d8
+	[BASELVL] 1
+	[XP] 13
+	[SPEED]	9
+	[AC]	0
+	[MASS] 850
+
+	[GROUP] 1d5
+	[HABITAT] dungeon
+	[ARMORTYPE] humanoid
+
+	[BODYPART] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 2000
+
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] hill orc
+	[IMAGE] 111
+	[COLOR] 255 255 000
+
+	[DIFFICULTY] 4
+	[DAMAGE] 1d6
+	[BASELVL] 2
+	[XP] 22
+	[SPEED]	9
+	[AC]	0
+	[MASS] 1000
+
+	[GROUP] 1d5
+	[HABITAT] dungeon
+	[ARMORTYPE] humanoid
+
+	[BODYPART] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] rock piercer
+	[IMAGE] 112
+	[COLOR] 150 150 150
+
+	[DIFFICULTY] 4
+	[DAMAGE] 2d6
+	[BASELVL] 3
+	[XP] 28
+	[SPEED]	1
+	[AC]	3
+	[MASS] 200
+
+	[HABITAT] dungeon
+	[ARMORTYPE] stalactite
+
+	[HIDE_CIELING]
+
+	[BODYPART] body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] rock piercer
+	[IMAGE] 112
+	[COLOR] 000 150 150
+
+	[DIFFICULTY] 6
+	[DAMAGE] 3d6
+	[BASELVL] 5
+	[XP] 62
+	[SPEED]	1
+	[AC]	10
+	[MASS] 400
+
+	[HABITAT] dungeon
+	[ARMORTYPE] stalactite
+
+	[HIDE_CIELING]
+
+	[BODYPART] body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] glass piercer
+	[IMAGE] 112
+	[COLOR] 250 250 250
+
+	[DIFFICULTY] 9
+	[DAMAGE] 4d6
+	[BASELVL] 7
+	[XP] 105
+	[SPEED]	1
+	[AC]	10
+	[MASS] 400
+
+	[HABITAT] dungeon
+	[ARMORTYPE] stalactite
+
+	[HIDE_CIELING]
+
+	[BODYPART] body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] mastodon
+	[IMAGE] 113
+	[COLOR] 100 100 100
+
+	[DIFFICULTY] 22
+	[DAMAGE] 4d8
+	[BASELVL] 20
+	[XP] 614
+	[SPEED]	12
+	[AC]	5
+	[MASS] 3800
+
+	[HABITAT] dungeon
+	[ARMORTYPE] elephantine
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] trunk
+		[PICKUP]
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] rothe
+	[IMAGE] 113
+	[COLOR] 175 100 085
+
+	[DIFFICULTY] 4
+	[DAMAGE] 1d8
+	[BASELVL] 2
+	[XP] 17
+	[SPEED]	9
+	[AC]	7
+	[MASS] 400
+
+	[GROUP] 1d4
+	[HABITAT] dungeon
+	[ARMORTYPE] quadruped
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] wumpus
+	[IMAGE] 113
+	[COLOR] 000 150 150
+
+	[DIFFICULTY] 9
+	[DAMAGE] 3d6
+	[BASELVL] 8
+	[XP] 114
+	[SPEED]	3
+	[AC]	8
+	[MASS] 2500
+
+	[HABITAT] dungeon
+	[ARMORTYPE] quadruped
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] mumak
+	[IMAGE] 113
+	[COLOR] 150 150 150
+
+	[DIFFICULTY] 7
+	[DAMAGE] 4d12
+	[BASELVL] 5
+	[XP] 62
+	[SPEED]	9
+	[AC]	10
+	[MASS] 2500
+
+	[HABITAT] dungeon
+	[ARMORTYPE] elephantine
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] trunk
+		[PICKUP]
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] titanothere
+	[IMAGE] 113
+	[COLOR] 150 150 150
+
+	[DIFFICULTY] 13
+	[DAMAGE] 2d8
+	[BASELVL] 12
+	[XP] 267
+	[SPEED]	12
+	[AC]	4
+	[MASS] 2650
+
+	[HABITAT] dungeon
+	[ARMORTYPE] quadruped
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] baluchitherium
+	[IMAGE] 113
+	[COLOR] 150 150 150
+
+	[DIFFICULTY] 15
+	[DAMAGE] 5d4
+	[BASELVL] 14
+	[XP] 331
+	[SPEED]	12
+	[AC]	5
+	[MASS] 3800
+
+	[HABITAT] dungeon
+	[ARMORTYPE] quadruped
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] leocrotta
+	[IMAGE] 113
+	[COLOR] 100 000 000
+
+	[DIFFICULTY] 8
+	[DAMAGE] 2d6
+	[BASELVL] 6
+	[XP] 78
+	[SPEED]	18
+	[AC]	6
+	[MASS] 1200
+
+	[HABITAT] dungeon
+	[ARMORTYPE] quadruped
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] sewer rat
+	[IMAGE] 114
+	[COLOR] 175 100 085
+
+	[DIFFICULTY] 1
+	[DAMAGE] 1d3
+	[BASELVL] 0
+	[XP] 4
+	[SPEED]	12
+	[AC]	3
+	[MASS] 20
+
+	[HABITAT] dungeon
+	[ARMORTYPE] quadruped
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] giant rat
+	[IMAGE] 114
+	[COLOR] 175 100 085
+
+	[DIFFICULTY] 2
+	[DAMAGE] 1d3
+	[BASELVL] 1
+	[XP] 8
+	[SPEED]	10
+	[AC]	3
+	[MASS] 20
+
+	[HABITAT] dungeon
+	[ARMORTYPE] quadruped
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] rabid rat
+	[IMAGE] 114
+	[COLOR] 175 100 085
+
+	[DIFFICULTY] 4
+	[DAMAGE] 2d4
+	[DAMAGE_EFFECT] poison
+	[BASELVL] 2
+	[XP] 17
+	[SPEED]	12
+	[AC]	4
+	[MASS] 30
+
+	[HABITAT] dungeon
+	[ARMORTYPE] quadruped
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] rock mole
+	[IMAGE] 114
+	[COLOR] 150 150 150
+
+	[DIFFICULTY] 4
+	[DAMAGE] 1d6
+	[BASELVL] 3
+	[XP] 29
+	[SPEED]	3
+	[AC]	10
+	[MASS] 30
+
+	[HABITAT] dungeon
+	[ARMORTYPE] quadruped
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] cave spider
+	[IMAGE] 115
+	[COLOR] 150 150 150
+
+	[DIFFICULTY] 2
+	[DAMAGE] 1d2
+	[BASELVL] 1
+	[XP] 8
+	[SPEED]	12
+	[AC]	7
+	[MASS] 50
+
+	[HABITAT] dungeon
+	[ARMORTYPE] insectoid
+
+	[HIDE_ITEM]
+
+	[BODYPART] head
+		[PARENT] thorax
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] thorax
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] abdomen
+		[PARENT] thorax
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] first left leg
+		[PARENT] thorax
+		[HEALTH] 750
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] second left leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] third left leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] fourth left leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] first right leg
+		[PARENT] thorax
+		[HEALTH] 750
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] second right leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] third right leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] fourth right leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] giant spider
+	[IMAGE] 115
+	[COLOR] 150 000 150
+
+	[DIFFICULTY] 7
+	[DAMAGE] 2d4
+	[DAMAGE_EFFECT] poison
+	[BASELVL] 5
+	[XP] 64
+	[SPEED]	15
+	[AC]	6
+	[MASS] 100
+
+	[HABITAT] dungeon
+	[ARMORTYPE] insectoid
+
+	[BODYPART] head
+		[PARENT] thorax
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] thorax
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] abdomen
+		[PARENT] thorax
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] first left leg
+		[PARENT] thorax
+		[HEALTH] 750
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] second left leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] third left leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] fourth left leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] first right leg
+		[PARENT] thorax
+		[HEALTH] 750
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] second right leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] third right leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] fourth right leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] scorpion
+	[IMAGE] 115
+	[COLOR] 150 000 000
+
+	[DIFFICULTY] 8
+	[DAMAGE] 1d4
+	[DAMAGE_EFFECT] poison
+	[BASELVL] 5
+	[XP] 67
+	[SPEED]	15
+	[AC]	7
+	[MASS] 50
+
+	[HABITAT] dungeon
+	[ARMORTYPE] insectoid
+
+	[BODYPART] head
+		[PARENT] thorax
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] thorax
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] abdomen
+		[PARENT] thorax
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left claw
+		[PARENT] thorax
+		[HEALTH] 750
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right claw
+		[PARENT] thorax
+		[HEALTH] 750
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] first left leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] second left leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] third left leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] first right leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] second right leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] third right leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] abdomen
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] centipede
+	[IMAGE] 115
+	[COLOR] 250 250 000
+
+	[DIFFICULTY] 4
+	[DAMAGE] 1d3
+	[DAMAGE_EFFECT] poison
+	[BASELVL] 2
+	[XP] 19
+	[SPEED]	4
+	[AC]	3
+	[MASS] 50
+
+	[HABITAT] dungeon
+	[ARMORTYPE] centipede
+
+	[BODYPART] body
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	//[BODYPART] Legs - ALL OF THEM
+[/CREATURE]
+
+[CREATURE] trapper
+	[IMAGE] 116
+	[COLOR] 000 150 000
+
+	[DIFFICULTY] 14
+	[DAMAGE] 1d10
+	[BASELVL] 12
+	[XP] 270
+	[SPEED]	3
+	[AC]	7
+	[MASS] 800
+
+	[HABITAT] dungeon
+	[ARMORTYPE] stalactite
+
+	[HIDE_CEILING]
+	[VORE]
+
+	[BODYPART] body
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] lurker above
+	[IMAGE] 116
+	[COLOR] 150 150 150
+
+	[DIFFICULTY] 12
+	[DAMAGE] 1d8
+	[BASELVL] 10
+	[XP] 214
+	[SPEED]	3
+	[AC]	7
+	[MASS] 800
+
+	[HABITAT] dungeon
+	[ARMORTYPE] stalactite
+
+	[HIDE_CEILING]
+	[VORE]
+
+	[BODYPART] body
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] pony
+	[IMAGE] 117
+	[COLOR] 175 100 085
+
+	[DIFFICULTY] 4
+	[DAMAGE] 1d6
+	[BASELVL] 3
+	[XP] 31
+	[SPEED]	16
+	[AC] 4
+	[MASS] 1300
+
+	[HABITAT] dungeon
+	[ARMORTYPE] quadruped
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] horse
+	[IMAGE] 117
+	[COLOR] 175 100 085
+
+	[DIFFICULTY] 7
+	[DAMAGE] 1d8
+	[BASELVL] 5
+	[XP] 61
+	[SPEED]	20
+	[AC] 5
+	[MASS] 1500
+
+	[HABITAT] dungeon
+	[ARMORTYPE] quadruped
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] warhorse
+	[IMAGE] 117
+	[COLOR] 175 100 085
+
+	[DIFFICULTY] 9
+	[DAMAGE] 1d10
+	[BASELVL] 7
+	[XP] 97
+	[SPEED]	24
+	[AC] 6
+	[MASS] 1800
+
+	[HABITAT] dungeon
+	[ARMORTYPE] quadruped
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] white unicorn
+	[IMAGE] 117
+	[COLOR] 255 255 255
+
+	[DIFFICULTY] 6
+	[DAMAGE] 1d12
+	[BASELVL] 4
+	[XP] 24
+	[SPEED]	24
+	[AC] 8
+	[MASS] 1300
+
+	[HABITAT] dungeon
+	[ARMORTYPE] quadruped
+
+	[AVOID_CREATURE]
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] gray unicorn
+	[IMAGE] 117
+	[COLOR] 150 150 150
+
+	[DIFFICULTY] 6
+	[DAMAGE] 1d12
+	[BASELVL] 4
+	[XP] 24
+	[SPEED]	24
+	[AC] 8
+	[MASS] 1300
+
+	[HABITAT] dungeon
+	[ARMORTYPE] quadruped
+
+	[AVOID_CREATURE]
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] black unicorn
+	[IMAGE] 117
+	[COLOR] 100 100 100
+
+	[DIFFICULTY] 6
+	[DAMAGE] 1d12
+	[BASELVL] 4
+	[XP] 24
+	[SPEED]	24
+	[AC] 8
+	[MASS] 1300
+
+	[HABITAT] dungeon
+	[ARMORTYPE] quadruped
+
+	[AVOID_CREATURE]
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+
+	[BODYPART] head
+		[PARENT] body
+		[HEALTH] 1500
+		[LIFECRITICAL]		
+	[/BODYPART]
+
+	[BODYPART] left hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right hindleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right foreleg
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] tail
+		[PARENT] body
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] fog cloud
+	[IMAGE] 118
+	[COLOR] 150 150 150
+
+	[DIFFICULTY] 6
+	[DAMAGE] 1d6
+	[BASELVL] 3
+	[XP] 37
+	[SPEED]	1
+	[AC] 9
+	[MASS] 1
+
+	[HABITAT] dungeon
+	[ARMORTYPE] vaporous
+
+	[VORE]
+
+	[BODYPART] core
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+[/CREATURE]
+
+[CREATURE] dust cloud
+	[IMAGE] 118
+	[COLOR] 175 100 085
+
+	[DIFFICULTY] 6
+	[DAMAGE] 1d2
+	[DAMAGE_EFFECT] blind
+	[BASELVL] 4
+	[XP] 55
+	[SPEED]	20
+	[AC] 8
+	[MASS] 1
+
+	[HABITAT] dungeon
+	[ARMORTYPE] vaporous
+
+	[VORE]
+
+	[BODYPART] core
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+[/CREATURE]
+
+[CREATURE] ice vortex
+	[IMAGE] 118
+	[COLOR] 000 150 150
+
+	[DIFFICULTY] 7
+	[DAMAGE] 1d6
+	[DAMAGE_EFFECT] cold
+	[BASELVL] 5
+	[XP] 75
+	[SPEED]	20
+	[AC] 8
+	[MASS] 1
+
+	[HABITAT] dungeon
+	[ARMORTYPE] vaporous
+
+	[VORE]
+
+	[BODYPART] core
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+[/CREATURE]
+
+[CREATURE] energy vortex
+	[IMAGE] 118
+	[COLOR] 000 000 250
+
+	[DIFFICULTY] 9
+	[DAMAGE] 1d6
+	[DAMAGE_EFFECT] electric
+	[BASELVL] 6
+	[XP] 102
+	[SPEED]	20
+	[AC] 8
+	[MASS] 1
+
+	[HABITAT] dungeon
+	[ARMORTYPE] vaporous
+
+	[VORE]
+
+	[BODYPART] core
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+[/CREATURE]
+
+[CREATURE] steam vortex
+	[IMAGE] 118
+	[COLOR] 000 000 150
+
+	[DIFFICULTY] 7
+	[DAMAGE] 1d6
+	[DAMAGE_EFFECT] fire
+	[BASELVL] 5
+	[XP] 75
+	[SPEED]	20
+	[AC] 8
+	[MASS] 1
+
+	[HABITAT] dungeon
+	[ARMORTYPE] vaporous
+
+	[VORE]
+
+	[BODYPART] core
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+[/CREATURE]
+
+[CREATURE] fire vortex
+	[IMAGE] 118
+	[COLOR] 250 250 000
+
+	[DIFFICULTY] 10
+	[DAMAGE] 1d8
+	[DAMAGE_EFFECT] fire
+	[BASELVL] 8
+	[XP] 143
+	[SPEED]	22
+	[AC] 8
+	[MASS] 1
+
+	[HABITAT] dungeon
+	[ARMORTYPE] vaporous
+
+	[VORE]
+
+	[BODYPART] core
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+[/CREATURE]
+
+[CREATURE] baby long worm
+	[IMAGE] 119
+	[COLOR] 175 100 085
+
+	[DIFFICULTY] 9
+	[DAMAGE] 1d6
+	[BASELVL] 8
+	[XP] 113
+	[SPEED]	3
+	[AC] 5
+	[MASS] 600
+
+	[HABITAT] dungeon
+	[ARMORTYPE] serpentine
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+[/CREATURE]
+
+[CREATURE] long worm
+	[IMAGE] 119
+	[COLOR] 175 100 085
+
+	[DIFFICULTY] 9
+	[DAMAGE] 1d4
+	[BASELVL] 8
+	[XP] 169
+	[SPEED]	3
+	[AC] 5
+	[MASS] 1500
+
+	[HABITAT] dungeon
+	[ARMORTYPE] serpentine
+
+	[HIT_SPLIT]
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+[/CREATURE]
+
+[CREATURE] baby purple worm
+	[IMAGE] 119
+	[COLOR] 150 000 150
+
+	[DIFFICULTY] 9
+	[DAMAGE] 1d6
+	[BASELVL] 8
+	[XP] 113
+	[SPEED]	3
+	[AC] 5
+	[MASS] 600
+
+	[HABITAT] dungeon
+	[ARMORTYPE] serpentine
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+[/CREATURE]
+
+[CREATURE] purple worm
+	[IMAGE] 119
+	[COLOR] 150 000 150
+
+	[DIFFICULTY] 17
+	[DAMAGE] 2d8
+	[BASELVL] 15
+	[XP] 474
+	[SPEED]	9
+	[AC] 4
+	[MASS] 2700
+
+	[VORE]
+
+	[HABITAT] dungeon
+	[ARMORTYPE] serpentine
+
+	[BODYPART] body
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART] 
+[/CREATURE]
+
+[CREATURE] grid bug
+	[IMAGE] 120
+	[COLOR] 150 000 150
+
+	[DIFFICULTY] 1
+	[DAMAGE] 1d1
+	[DAMAGE_EFFECT] electric
+	[BASELVL] 0
+	[XP] 4
+	[SPEED]	12
+	[AC]	1
+	[MASS] 15
+
+	[HABITAT] dungeon
+	[ARMORTYPE] insectoid
+
+	[BODYPART] head
+		[PARENT] thorax
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] thorax
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] abdomen
+		[PARENT] thorax
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] first left leg
+		[PARENT] thorax
+		[HEALTH] 750
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] second left leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] third left leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] first right leg
+		[PARENT] thorax
+		[HEALTH] 750
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] second right leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] third right leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] xan
+	[IMAGE] 120
+	[COLOR] 175 100 085
+
+	[DIFFICULTY] 9
+	[DAMAGE] 1d4
+	[DAMAGE_EFFECT] cripple
+	[BASELVL] 7
+	[XP] 120
+	[SPEED]	18
+	[AC]	14
+	[MASS] 300
+
+	[HABITAT] dungeon
+	[ARMORTYPE] insectoid
+
+	[BODYPART] head
+		[PARENT] thorax
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] thorax
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] abdomen
+		[PARENT] thorax
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] first left leg
+		[PARENT] thorax
+		[HEALTH] 750
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] second left leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] third left leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] first right leg
+		[PARENT] thorax
+		[HEALTH] 750
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] second right leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] third right leg
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] left wing
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+
+	[BODYPART] right wing
+		[PARENT] thorax
+		[HEALTH] 750
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] black light
+	[IMAGE] 121
+	[COLOR] 100 100 100
+
+	[DIFFICULTY] 7
+	[DAMAGE] 1d2
+	[DAMAGE_EFFECT] hallucinate
+	[BASELVL] 5
+	[XP] 73
+	[SPEED]	15
+	[AC]	10
+	[MASS] 1
+
+	[HABITAT] dungeon
+	[ARMORTYPE] ethereal
+
+	[SELFDESTRUCT]
+
+	[BODYPART] core
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] yellow light
+	[IMAGE] 121
+	[COLOR] 250 250 000
+
+	[DIFFICULTY] 5
+	[DAMAGE] 1d2
+	[DAMAGE_EFFECT] blind
+	[BASELVL] 3
+	[XP] 43
+	[SPEED]	15
+	[AC]	10
+	[MASS] 1
+
+	[HABITAT] dungeon
+	[ARMORTYPE] ethereal
+
+	[SELFDESTRUCT]
+
+	[BODYPART] core
+		[HEALTH] 1500
+		[LIFECRITICAL]
+	[/BODYPART]
+[/CREATURE]
+
+[CREATURE] zruty
+	[IMAGE] 122
+	[COLOR] 175 100 085
+
+	[DIFFICULTY] 11
+	[DAMAGE] 3d4
+	[BASELVL] 9
+	[XP] 186
+	[SPEED]	8
+	[AC]	7
+	[MASS] 1200
+
+	[HABITAT] dungeon
+	[ARMORTYPE] humanoid
+
+	[BODYPART] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] lower body
+		[PARENT] upper body
+		[HEALTH] 4000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] head
+		[PARENT] upper body
+		[HEALTH] 2000
+		[LIFECRITICAL]
+	[/BODYPART]
+
+	[BODYPART] left arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] right arm
+		[PARENT] upper body
+		[HEALTH] 2000
+		[PICKUP]
+	[/BODYPART]
+
+	[BODYPART] left leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+
+	[BODYPART] right leg
+		[PARENT] lower body
+		[HEALTH] 2000
+	[/BODYPART]
+[/CREATURE]
+[END]
+
+
+
+**********************
+Notes can go down here
+**********************
+
+[COLOR] RRR GGG BBB
+
+Blood is in milliliters.
+Mass is in grams.
+
+As of 1/1/11, creature data borrows Nethack creature data for reference as allowed under the Nethack General Public License.
+		
+		

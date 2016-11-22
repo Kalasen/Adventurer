@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <Molecule name="citric acid" boilingPoint="175" meltingPoint="153">
+    <Atom name="carbon" count="6"/>
+    <Atom name="hydrogen" count="8"/>
+    <Atom name="oxygen" count="7"/>
+  </Molecule>
+  <Molecule name="ethanol" boilingPoint="78" meltingPoint="-114">
+    <Atom name="carbon" count="2"/>
+    <Atom name="hydrogen" count="6"/>
+    <Atom name="oxygen" count="1"/>
+  </Molecule>
+  <Molecule name="iron" boilingPoint="2862" meltingPoint="1538">
+    <Atom name="iron" count="1"/>
+  </Molecule>
+  <Molecule name="dihydrogen" boilingPoint="-252.87" meltingPoint="-259.14">
+    <Atom name="hydrogen" count="2"/>
+  </Molecule>
+  <Molecule name="dinitrogen" boilingPoint="-195.79" meltingPoint="-210.00">
+    <Atom name="nitrogen" count="2"/>
+  </Molecule>
+  <Molecule name="dioxygen" boilingPoint="-182.95" meltingPoint="-218.79">
+    <Atom name="oxygen" count="2"/>
+  </Molecule>
+  <Molecule name="silicon dioxide" boilingPoint="2230" meltingPoint="1650">
+    <Atom name="silicon" count="1"/>
+    <Atom name="oxygen" count="2"/>
+  </Molecule>
+  <Molecule name="sucrose" boilingPoint="200" meltingPoint="186">
+    <Atom name="carbon" count="12"/>
+    <Atom name="hydrogen" count="22"/>
+    <Atom name="oxygen" count="11"/>
+  </Molecule>
+  <Molecule name="dihydrogen monoxide" boilingPoint="100" meltingPoint="0">
+    <Atom name="hydrogen" count="2"/>
+    <Atom name="oxygen" count="1"/>
+  </Molecule>
+  <Molecule name="cellulose" boilingPoint="200" meltingPoint="100">
+    <Atom name="carbon" count="6"/>
+    <Atom name="hydrogen" count="10"/>
+    <Atom name="oxygen" count="5"/>
+  </Molecule>
+  <Molecule name="lignin" boilingPoint="200" meltingPoint="100">
+    <Atom name="carbon" count="9"/>
+    <Atom name="hydrogen" count="10"/>
+    <Atom name="oxygen" count="2"/>
+  </Molecule>
+  <!--Gold is weird and fuzzy on atoms in a gold molecule. At 104 atoms together it starts acting as a molecule. At 144 it starts acting as the metal.-->
+  <Molecule name="gold" boilingPoint="2970" meltingPoint="1064.18">
+    <atom name="gold" count="104"/>
+  </Molecule>
+</Root>
