@@ -13,6 +13,8 @@ namespace Adventurer
         public const double PI = 3.14159265; //Circumference/Diameter
         public const byte TURN_THRESHOLD = 72; //Timing system threshold for getting a turn
 
+        static GameState gameState = GameState.OpeningMenu;
+
         static int exploredLevels = 0;
 
         static ContentEncyclopedia content = new ContentEncyclopedia();
@@ -24,7 +26,7 @@ namespace Adventurer
         static bool iCanSeeForever = false;
         static bool debugMode = false;
 		
-        static string sessionName = String.Empty; //The title of the current session
+        static string sessionName = string.Empty; //The title of the current session
         static int inventorySelect = 0; //For use in the inventory menu
         static int inventoryMode = 0; //Main inventory mode  
         static int selectionCursor = 1; //A variable to track what part of the menu a cursor is on.        
@@ -253,7 +255,7 @@ namespace Adventurer
         static void NewGame()
         {
             #region Race Select
-            gameState = CREATURE_SELECT; //Yup, creature selection            
+            gameState = GameState.CreatureSelect; //Yup, creature selection            
 
             int numberOfPages = (int)Math.Ceiling((double)content.bestiary.Count / 26f); //Get the number of pages we'll need
             string[,] creaturePages = new string[numberOfPages, 26]; //Only as many pages as we need

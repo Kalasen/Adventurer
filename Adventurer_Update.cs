@@ -11,20 +11,7 @@ namespace Adventurer
 {
 	public partial class Adventurer
 	{
-		#region Variables
-        //TODO: Make into an enum
-		public const byte OPENING_MENU = 0;
-		public const byte MAIN_GAME = 1;
-		public const byte CREATURE_SELECT = 2;
-		public const byte HELP_MENU = 3;
-		public const byte ESCAPE_MENU = 4;
-		public const byte HEALTH_MENU = 5;
-		public const byte INVENTORY_MENU = 6;
-		public const byte NAME_SELECT = 7;
-		public const byte WAIT_FOR_POSITION = 8;
-		
-		public static byte gameState = OPENING_MENU; //The state the game is in
-		
+        #region Variables		
         public static Sdl.SDL_Event keyEvent; //To tell whether a key was pressed or lifted
         public static Sdl.SDL_Event oldKeyEvent; //For telling if a key was just pressed
         public static bool[] keys = new bool[255]; //An array to see which keys are down.
@@ -36,27 +23,27 @@ namespace Adventurer
 		{
 			switch (gameState)
 			{
-			case OPENING_MENU:
+			case GameState.OpeningMenu:
 				Update_OpeningMenu();
 				break;
 				
-			case MAIN_GAME:
+			case GameState.MainGame:
 				Update_MainGame();
 				break;
 				
-			case ESCAPE_MENU:
+			case GameState.EscapeMenu:
 				Update_EscapeMenu();
 				break;
 				
-			case HEALTH_MENU:
+			case GameState.HealthMenu:
 				Update_HealthMenu();
 				break;
 				
-			case HELP_MENU:
+			case GameState.HelpMenu:
 				Update_HelpMenu();
 				break;
 				
-			case INVENTORY_MENU:
+			case GameState.InventoryMenu:
 				Update_InventoryMenu();
 				break;
 			}
@@ -90,7 +77,7 @@ namespace Adventurer
 	            {
 	                worldSeed = (int)DateTime.Now.Ticks; //Set the world seed
 	
-	                gameState = NAME_SELECT; //Yup, name selection
+	                gameState = GameState.NameSelect; //Yup, name selection
 	                Draw(); //Draw the name select menu
 	
 	                Update_GetSessionStr();
@@ -147,27 +134,26 @@ namespace Adventurer
 	                    NewGame();
 	                }
 	
-	                gameState = MAIN_GAME;
+	                gameState = GameState.MainGame;
 	            }
 	            else if (selectionCursor == 2) //If "Help"
-	                gameState = HELP_MENU;
+	                gameState = GameState.HelpMenu;
 	            else if (selectionCursor == 4) //If "Load Game"
 	            {
 	                string[] saves = Directory.GetDirectories("Saves/");
 	
 	                if (saves.Length > 0) //If there's a save game
 	                {
-	                    StreamReader read = new StreamReader(saves[0] + "/WorldData.txt"); //Open up the world data file
-	
-	                    string line = read.ReadLine(); //Read the seed in
-	                    line = line.Remove(0, 7); //Remove "[SEED] "
-	                    worldSeed = int.Parse(line); //Seed the world
-	
-	                    line = read.ReadLine(); //Read in the player position
-	
-	                    read.Dispose();
-	                    read.Close(); //Close the file
-	                    gameState = MAIN_GAME;
+                        using (StreamReader read = new StreamReader(saves[0] + "/WorldData.txt")) //Open up the world data file
+                        {
+                            string line = read.ReadLine(); //Read the seed in
+                            line = line.Remove(0, 7); //Remove "[SEED] "
+                            worldSeed = int.Parse(line); //Seed the world
+
+                            line = read.ReadLine(); //Read in the player position
+                        }
+
+	                    gameState = GameState.MainGame;
 	                }
 	            }
 	            else if (selectionCursor == 3) //If "Quit"
@@ -215,7 +201,7 @@ namespace Adventurer
             {
                 case "Escape":
                 case "Space":
-                    gameState = MAIN_GAME;
+                    gameState = GameState.MainGame;
                     break;
             }
 		}
@@ -225,7 +211,7 @@ namespace Adventurer
 			{
             case "Space":
             case "Escape":
-                gameState = OPENING_MENU;				
+                gameState = GameState.OpeningMenu;				
                 return;
 			}
 		}
@@ -235,7 +221,7 @@ namespace Adventurer
             {
             case "Space":
             case "Escape":
-                gameState = MAIN_GAME;
+                gameState = GameState.MainGame;
                 break;
 
             case "2": //If down was pressed
@@ -254,7 +240,7 @@ namespace Adventurer
 
             case "Enter": //If enter aka "271" was pressed
                 if (selectionCursor == 1) //If "Return to game"
-                    gameState = MAIN_GAME;
+                    gameState = GameState.MainGame;
                 else if (selectionCursor == 2) //If "Quit and Save"
                 {
                     FileS_World();
@@ -299,7 +285,7 @@ namespace Adventurer
 	            {
 	                case "Space":
 	                case "Enter":
-	                    gameState = MAIN_GAME;
+	                    gameState = GameState.MainGame;
 	                    return;
 	            }
 	
@@ -310,7 +296,7 @@ namespace Adventurer
 				else // If a valid selection
 				{
 					Inv_Main();
-					gameState = MAIN_GAME;
+					gameState = GameState.MainGame;
 					done = true;
 				}
 			}
@@ -336,7 +322,7 @@ namespace Adventurer
 	            case "b": //Break down item
 	                currentLevel.creatures[0].BreakDownItem(currentLevel, thisItem); //Break down said item
 	                inventorySelect = 0;
-	                gameState = MAIN_GAME;
+	                gameState = GameState.MainGame;
 	                return;
 	
 	            case "c":
@@ -353,7 +339,7 @@ namespace Adventurer
 	                {
 	                    currentLevel.creatures[0].message.Add("Your limbs are too clumsy to make tools.");
 	                    inventorySelect = 0; //Back out of menu
-	                    gameState = MAIN_GAME;
+	                    gameState = GameState.MainGame;
 	                }
 	                #endregion
 	                return;
@@ -361,7 +347,7 @@ namespace Adventurer
 	            case "d":
 	                currentLevel.creatures[0].Drop(currentLevel, thisItem); //Drop said item	
 	                inventorySelect = 0; //Back out of menu 
-	                gameState = MAIN_GAME;
+	                gameState = GameState.MainGame;
 	                return;
 	
 	            case "e":
@@ -381,7 +367,7 @@ namespace Adventurer
 	
 	                currentLevel.creatures[0].Eat(currentLevel, thisItem); //Eat said item	
 	                inventorySelect = 0; //Back out of menu
-	                gameState = MAIN_GAME;
+	                gameState = GameState.MainGame;
 	                #endregion
 	                return;
 	
@@ -403,7 +389,7 @@ namespace Adventurer
 	                }                                                
 	
 	                inventorySelect = 0; //Back out of menu 
-	                gameState = MAIN_GAME;
+	                gameState = GameState.MainGame;
 	                #endregion
 	                return;
 	
@@ -419,7 +405,7 @@ namespace Adventurer
 	                if (currentLevel.creatures[0].CanWield(w))
 	                {
 	                    currentLevel.creatures[0].Wield(w);
-	                    gameState = MAIN_GAME;
+	                    gameState = GameState.MainGame;
 	                }
 	                else
 	                {
@@ -427,7 +413,7 @@ namespace Adventurer
 	                }
 	                
 	                inventorySelect = 0; //Back out of menu
-	                gameState = MAIN_GAME;
+	                gameState = GameState.MainGame;
 	                #endregion
 	                return;
 	
@@ -439,7 +425,7 @@ namespace Adventurer
 	                    if (currentLevel.creatures[0].CanWear(thisArmor))
 	                    {
 	                        currentLevel.creatures[0].Wear(thisArmor);//If it's armor, wear it.
-	                        gameState = MAIN_GAME;
+	                        gameState = GameState.MainGame;
 	                    }
 	                }
 					else if (thisItem is Amulet)
@@ -459,7 +445,7 @@ namespace Adventurer
 	                    currentLevel.creatures[0].message.Add("That's not armor.");
 	
 	                inventorySelect = 0; //Back out of menu
-	                gameState = MAIN_GAME;
+	                gameState = GameState.MainGame;
 	                #endregion
 					return;
 	            }
@@ -513,7 +499,7 @@ namespace Adventurer
                 {
                     #region Mine
                     currentLevel.creatures[0].message.Add("Choose a direction to dig.");
-                    gameState = MAIN_GAME;
+                    gameState = GameState.MainGame;
                     string input = Update_GetKey();
 
                     Vector2 playerPos = currentLevel.creatures[0].pos;
@@ -606,7 +592,7 @@ namespace Adventurer
                 {
                     #region Chop
                     currentLevel.creatures[0].message.Add("Choose a direction to chop.");
-                    gameState = MAIN_GAME;
+                    gameState = GameState.MainGame;
                     string input = Update_GetKey();
 
                     Vector2 playerPos = currentLevel.creatures[0].pos;
@@ -680,7 +666,7 @@ namespace Adventurer
             {
                 currentLevel.creatures[0].message.Add("You can't think of an obvious use for it at the moment.");
             }
-            gameState = MAIN_GAME;
+            gameState = GameState.MainGame;
             inventorySelect = 0;
             inventoryMode = 0;
 		}
@@ -695,7 +681,7 @@ namespace Adventurer
 				case "Escape":
 				case "Space":
 				case "Backspace":
-					gameState = MAIN_GAME;
+					gameState = GameState.MainGame;
 					inventoryMode = 0;
 					inventorySelect = 0;
 					return;
@@ -723,7 +709,7 @@ namespace Adventurer
 	
 	                    inventorySelect = 0; //Back out of menu
 	                    inventoryMode = 0;
-	                    gameState = MAIN_GAME;
+	                    gameState = GameState.MainGame;
 						return;
 	                }
 	                else
@@ -770,7 +756,7 @@ namespace Adventurer
 	                FileD_World();
 	
 	                run = false;
-	                gameState = OPENING_MENU;
+	                gameState = GameState.OpeningMenu;
 	                return false;
 				}
             }
@@ -873,7 +859,7 @@ namespace Adventurer
                     #endregion
 
                 case "Escape":
-                    gameState = ESCAPE_MENU;
+                    gameState = GameState.EscapeMenu;
                     return false;
 
                 case ",":
@@ -967,7 +953,7 @@ namespace Adventurer
                     #endregion
 
                 case "i":
-                    gameState = INVENTORY_MENU; //Gamestate is now the Inventory Menu
+                    gameState = GameState.InventoryMenu; //Gamestate is now the Inventory Menu
                     return false;
 
                 case "k":
@@ -1185,7 +1171,7 @@ namespace Adventurer
                     return false;
 
                 case "z":
-                    gameState = HEALTH_MENU;
+                    gameState = GameState.HealthMenu;
                     return false;
 					
 				default:
@@ -1833,7 +1819,7 @@ namespace Adventurer
         }
         static Vector2 Update_GetPosition()
         {
-            gameState = WAIT_FOR_POSITION;
+            gameState = GameState.WaitForPosition;
             cursorPos = currentLevel.creatures[0].pos; //Start at player's position
             Vector2 currentPos = currentLevel.creatures[0].pos; //The position the cursor is on
             bool done = false; //Variable for loop break
@@ -1857,13 +1843,13 @@ namespace Adventurer
                             switch (keyEvent.key.keysym.sym)
                             {
                                 case Sdl.SDLK_ESCAPE:
-                                    gameState = MAIN_GAME;
+                                    gameState = GameState.MainGame;
                                     done = true;                                    
                                     break;
 
                                 case 271: //If enter aka "271" or "13" was pressed
                                 case 13:
-                                    gameState = MAIN_GAME;
+                                    gameState = GameState.MainGame;
                                     return cursorPos;
 
                                 case Sdl.SDLK_KP1:

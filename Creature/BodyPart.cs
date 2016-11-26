@@ -67,29 +67,5 @@ namespace Adventurer
             return name;
         }
     }
-
-    public enum InjuryLevel
-    {
-        Healthy,
-        Minor,
-        Broken,
-        Mangled,
-        Destroyed
-    }
-
-    [Flags]
-    public enum BodyPartFlags
-    {
-        None = 0,
-        UsedForBreathing = 1 << 0,
-        CanUseWeapon = 1 << 1,
-        CanHoldItem = 1 << 2,
-        CanWearJewelry = 1 << 3,
-        CanPickUpItem = 1 << 4,
-        CanHear = 1 << 5,
-        CanSee = 1 << 6,
-        CanSmell = 1 << 7,
-        LifeCritical = 1 << 8
-    }
 }
 

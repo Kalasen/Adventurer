@@ -61,6 +61,7 @@
     <Compile Include="Adventurer_Update.cs" />
     <Compile Include="General\Direction.cs" />
     <Compile Include="General\Extensions.cs" />
+    <Compile Include="General\Menu.cs" />
     <Compile Include="Item\Amulet.cs" />
     <Compile Include="Item\Armor.cs" />
     <Compile Include="Item\Currency.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="General\Paragraph.cs" />
     <Compile Include="General\Vector2.cs" />
     <Compile Include="General\Vector3.cs" />
+    <Compile Include="Misc\Enums.cs" />
     <Compile Include="World\Atom.cs" />
     <Compile Include="World\Corridor.cs" />
     <Compile Include="World\Level.cs" />

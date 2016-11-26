@@ -16,7 +16,6 @@ namespace Adventurer
         public int nutrition {get;set;}
         public int itemImage {get;set;} //TODO: Make enum?
         public string name {get;set;}
-        //TODO: Enum instead of string?
         public List<string> use {get;set;} //A list of things that can be done with this item
         public Color color {get;set;}
         public List<Item> componentList {get;set;}

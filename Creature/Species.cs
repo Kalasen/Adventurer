@@ -6,7 +6,7 @@ using System.Text;
 namespace Adventurer
 {
     public class Species
-    {        
+    {
         public byte speed, strength, dexterity, constitution, intelligence, wisdom, charisma, creatureImage;
         public int senseOfSmell, damageMin, damageMax, smelliness, bloodMax, mass, ac;
         public string name, armorType, habitat;

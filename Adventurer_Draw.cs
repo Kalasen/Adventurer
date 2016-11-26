@@ -15,7 +15,7 @@ namespace Adventurer
 		
 		public static Sdl.SDL_Surface screenData; //The screen bitmap        
         public static Sdl.SDL_Surface[] imageData = new Sdl.SDL_Surface[256]; //The image bitmaps
-        public static IntPtr screen; //Pointer to screen bitmap
+        static IntPtr screen; //Pointer to screen bitmap
         public static IntPtr[] image = new IntPtr[256]; //Pointer to image data
         public static Sdl.SDL_Rect screenArea; //The area of the screen
         public static Sdl.SDL_Rect source; //A source rectangle to pull an image from
@@ -24,9 +24,9 @@ namespace Adventurer
         public static int windowSizeY = 750; //The vertical size of the screen
 		
         public static SdlTtf.TTF_Font veraData; //The data of the font
-        public static IntPtr vera; //The pointer to the font
+        static IntPtr vera; //The pointer to the font
         public static SdlTtf.TTF_Font veraSmallData; //The data of the font
-        public static IntPtr veraSmall; //The pointer to the font
+        static IntPtr veraSmall; //The pointer to the font
 		#endregion
 
         static void Draw()
@@ -36,39 +36,39 @@ namespace Adventurer
             
 			switch (gameState)
 			{
-			case OPENING_MENU:
+			case GameState.OpeningMenu:
 				Draw_Opening();
 				break;
 				
-			case NAME_SELECT:
+			case GameState.NameSelect:
 				Draw_Name();
 				break;
 				
-			case CREATURE_SELECT:
+			case GameState.CreatureSelect:
 				Draw_CreatureSel();
 				break;
 				
-			case HELP_MENU:
+			case GameState.HelpMenu:
 				Draw_Help();
 				break;
 				
-			case MAIN_GAME:
+			case GameState.MainGame:
 				Draw_Main();
 				break;
 				
-			case INVENTORY_MENU:
+			case GameState.InventoryMenu:
 				Draw_Inventory();
 				break;
 				
-			case HEALTH_MENU:
+			case GameState.HealthMenu:
 				Draw_Health();
 				break;
 				
-			case WAIT_FOR_POSITION:
+			case GameState.WaitForPosition:
 				Draw_GetPos();
 				break;
 				
-			case ESCAPE_MENU:
+			case GameState.EscapeMenu:
 				Draw_Escape();
 				break;
 			}
@@ -78,7 +78,7 @@ namespace Adventurer
 		
 		static void Draw_Opening()
 		{
-            DrawText(vera, "Adventurer 0.0.2.8", new Vector2(windowSizeX / 2 - 130, 20), Color.White);
+            DrawText(vera, "Adventurer", new Vector2(windowSizeX / 2 - 130, 20), Color.White);
             DrawText(vera, "by", new Vector2(windowSizeX / 2 - 50, 50), Color.White);
             DrawText(vera, "Kalasen Zyphurus", new Vector2(windowSizeX / 2 - 130, 80), Color.White);
 
@@ -418,7 +418,6 @@ namespace Adventurer
             int m = 60;
             Queue<string> parts = new Queue<string>();
             Queue<Color> partDamage = new Queue<Color>();
-            float healthRatio = 1f;
 
             foreach (BodyPart part in currentLevel.creatures[0].anatomy)
             {
@@ -825,7 +824,6 @@ namespace Adventurer
                 }
 
             pixels = null; //For the love of rng, this memory better be freed            
-        } //Changes the color of an image, is pretty hackish but works
+        } //Changes the transparency of an image, is pretty hackish but works
 	}
 }
-
