@@ -171,7 +171,7 @@ namespace Adventurer
                 new DNotation(2, 4, 2),
                 500,
                 byte.Parse(speciesNode.Attribute("image").Value),
-                Color.FromArgb(Convert.ToInt32(int.Parse(speciesNode.Attribute("color").Value, System.Globalization.NumberStyles.HexNumber))),
+                ColorTranslator.FromHtml(speciesNode.Attribute("color").Value),
                 speciesNode.Attribute("name").Value,
                 speciesNode.Element("Habitat").Attribute("name").Value,
                 anatomy,
@@ -196,7 +196,7 @@ namespace Adventurer
         void LoadAmulet(XElement itemNode)
         {
             var name = (string)itemNode.Attribute("name");
-            var color = Color.FromArgb(Convert.ToInt32(int.Parse(itemNode.Attribute("color").Value, System.Globalization.NumberStyles.HexNumber)));
+            var color = ColorTranslator.FromHtml(itemNode.Attribute("color").Value);
             var newAmulet = new Amulet(50f, 50f, name, color, GetComponentsInItem(itemNode), new List<string>());
 
             items.Add(newAmulet);
@@ -206,7 +206,7 @@ namespace Adventurer
         {
             var aC = int.Parse(itemNode.Attribute("defence").Value);
             var name = (string)itemNode.Attribute("name");
-            var color = Color.FromArgb(Convert.ToInt32(int.Parse(itemNode.Attribute("color").Value, System.Globalization.NumberStyles.HexNumber)));
+            var color = ColorTranslator.FromHtml(itemNode.Attribute("color").Value);
             var fitting = itemNode.Attribute("fitting").Value;
             var newItem = new Armor(500f, 500f, aC, fitting, new List<Item>(), name, new List<string>(), color, new List<string>());
             newItem.componentList = GetComponentsInItem(itemNode);
@@ -217,7 +217,7 @@ namespace Adventurer
         void LoadMiscItem(XElement itemNode)
         {
             var name = (string)itemNode.Attribute("name");
-            var color = Color.FromArgb(Convert.ToInt32(int.Parse(itemNode.Attribute("color").Value, System.Globalization.NumberStyles.HexNumber)));
+            var color = ColorTranslator.FromHtml(itemNode.Attribute("color").Value);
             var newItem = new Item(100f, 100f, name, color, new List<Item>(), new List<string>());
             newItem.componentList = GetComponentsInItem(itemNode);
 
@@ -227,7 +227,7 @@ namespace Adventurer
         void LoadPotion(XElement itemNode)
         {
             var name = (string)itemNode.Attribute("name");
-            var color = Color.FromArgb(Convert.ToInt32(int.Parse(itemNode.Attribute("color").Value, System.Globalization.NumberStyles.HexNumber)));
+            var color = ColorTranslator.FromHtml(itemNode.Attribute("color").Value);
             var newItem = new Potion(name, 100f, 100f, color, new List<Item>(), new List<string>());
             newItem.componentList = GetComponentsInItem(itemNode);
 
@@ -237,7 +237,7 @@ namespace Adventurer
         void LoadWeapon(XElement itemNode)
         {
             var name = (string)itemNode.Attribute("name");
-            var color = Color.FromArgb(Convert.ToInt32(int.Parse(itemNode.Attribute("color").Value, System.Globalization.NumberStyles.HexNumber)));
+            var color = ColorTranslator.FromHtml(itemNode.Attribute("color").Value);
             //TODO: Load damage
             var newItem = new Weapon(100f, 100f, name, color, new DNotation(2, 4, 2), new List<Item>(), new List<string>());
             newItem.componentList = GetComponentsInItem(itemNode);

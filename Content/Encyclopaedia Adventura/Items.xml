@@ -19,272 +19,272 @@ Component defaults can be overridden.
   <Item type="component" name="stick" mass="100" material ="wood"/>
 
   <!--Misc - items that don't fall into any other category-->
-  <Item type="misc" name="spiked ball" color="D1D1D1">
+  <Item type="misc" name="spiked ball" color="#D1D1D1">
     <Component name="ball"/>
     <Component name="spike"/>
     <Component name="spike"/>
   </Item>
-  <Item type="tool" name="pickaxe" damage="1d6" color="D1D1D1">
+  <Item type="tool" name="pickaxe" damage="1d6" color="#D1D1D1">
     <Use name="mine"/>
     <Component name="spike" material="iron"/>
     <Component name="stick" material="wood"/>
   </Item>
-  <Item type="tool" name="rope" color="9DAA76">
+  <Item type="tool" name="rope" color="#9DAA76">
     <Use name="tripwire"/>
     <Component name="cloth"/>
   </Item>
-  <Item type="tool" name="shovel" accuracy="-2" damage="1d6" color="9DAA76">
+  <Item type="tool" name="shovel" accuracy="-2" damage="1d6" color="#9DAA76">
     <Use name="dig"/>
     <Component name="wedge" material="iron"/>
     <Component name="stick" material="wood"/>
   </Item>
   
   <!--Amulets - jewelry worn around the neck-->
-  <Item type="amulet" name="amulet of breathing" color ="C8C8FA">
+  <Item type="amulet" name="amulet of breathing" color="#C8C8FA">
     <Component name="small chain"/>
     <Component name="gem" effect="breathing"/>    
   </Item>
-  <Item type="amulet" name="amulet of changing" color ="800080">
+  <Item type="amulet" name="amulet of changing" color="#800080">
     <Component name="small chain"/>
     <Component name="gem" effect="genderswap"/>
   </Item>
-  <Item type="amulet" name="amulet of telepathy" color ="3232FA">
+  <Item type="amulet" name="amulet of telepathy" color="#3232FA">
     <Component name="small chain"/>
     <Component name="gem" effect="telepathy"/>
   </Item>
-  <Item type="amulet" name="phylactery" color ="C8FAC8">
+  <Item type="amulet" name="phylactery" color="#C8FAC8">
     <Component name="small chain"/>
     <Component name="gem" effect="1UP"/>
   </Item>
-  <Item type="amulet" name="amulet of poison resistance" color ="00FAFA">
+  <Item type="amulet" name="amulet of poison resistance" color="#00FAFA">
     <Component name="small chain"/>
     <Component name="gem" effect="poison resistance"/>
   </Item>
-  <Item type="amulet" name="amulet of reflection" color ="969696">
+  <Item type="amulet" name="amulet of reflection" color="#969696">
     <Component name="small chain"/>
     <Component name="gem" effect="reflection"/>
   </Item>
-  <Item type="amulet" name="amulet of strangulation" color ="FA0000">
+  <Item type="amulet" name="amulet of strangulation" color="#FA0000">
     <Component name="small chain" effect="choking"/>
     <Component name="gem"/>
   </Item>
-  <Item type="amulet" name="amulet of unchanging" color ="960000">
+  <Item type="amulet" name="amulet of unchanging" color="#960000">
     <Component name="small chain"/>
     <Component name="gem" effect="unchanging"/>
   </Item>
-  <Item type="amulet" name="amulet of rest" color ="646464">
+  <Item type="amulet" name="amulet of rest" color="#646464">
     <Component name="small chain"/>
     <Component name="gem" effect="restful sleep"/>
   </Item>
   
   <!--Armor - items worn on the body-->
-  <Item type="armor" name="shirt" color="F5F5F5" fitting="humanoid" defence="50">
+  <Item type="armor" name="shirt" color="#F5F5F5" fitting="humanoid" defence="50">
     <BodyPartCovering name="upper body"/>
     <Component name="cloth" count="1"/>
   </Item>
-  <Item type="armor" name="pair of pants" color="E1E1E1" fitting="humanoid" defence="50">
+  <Item type="armor" name="pair of pants" color="#E1E1E1" fitting="humanoid" defence="50">
     <BodyPartCovering name="lower body"/>
     <BodyPartCovering name="left leg"/>
     <BodyPartCovering name="right leg"/>
     <Component name="cloth" count="3"/>
   </Item>
-  <Item type="armor" name="loincloth" color="E1E1E1" fitting="humanoid" defence="50">
+  <Item type="armor" name="loincloth" color="#E1E1E1" fitting="humanoid" defence="50">
     <BodyPartCovering name="lower body"/>
     <Component name="cloth" count="3"/>
   </Item>
-  <Item type="armor" name="pair of gloves" color="E1E1E1" fitting="humanoid" defence="50">
+  <Item type="armor" name="pair of gloves" color="#E1E1E1" fitting="humanoid" defence="50">
     <BodyPartCovering name="right hand"/>
     <BodyPartCovering name="left hand"/>
     <Component name="cloth" count="3"/>
   </Item>
-  <Item type="armor" name="hood" color="E1E1E1" fitting="humanoid" defence="50">
+  <Item type="armor" name="hood" color="#E1E1E1" fitting="humanoid" defence="50">
     <BodyPartCovering name="head"/>
     <Component name="cloth" count="1"/>
   </Item>
   
   <!--Potions - items that have an effect when ingested-->
-  <Item type="potion" name="potion of blindness" color="FF0000">    
+  <Item type="potion" name="potion of blindness" color="#FF0000">    
     <Component name="raw material" material="orange juice">
       <Effect name="blindness" duration="15"/>  
     </Component>
     <Component name="flask"/>
     <Component name="cork"/>
   </Item>
-  <Item type="potion" name="potion of confusion" color="AF9600">
+  <Item type="potion" name="potion of confusion" color="#AF9600">
     <Component name="raw material" material="beer">
       <Effect name="confusion" duration="5"/>
     </Component>
     <Component name="flask"/>
     <Component name="cork"/>
   </Item>
-  <Item type="potion" name="potion of detect life" color="00FAFA">
+  <Item type="potion" name="potion of detect life" color="#00FAFA">
     <Component name="raw material" material="water">
       <Effect name="detect life" duration="50"/>
     </Component>
     <Component name="flask"/>
     <Component name="cork"/>
   </Item>
-  <Item type="potion" name="potion of detect item" color="64FA64">
+  <Item type="potion" name="potion of detect item" color="#64FA64">
     <Component name="raw material" material="water">
       <Effect name="detect item" duration="15"/>
     </Component>
     <Component name="flask"/>
     <Component name="cork"/>
   </Item>
-  <Item type="potion" name="potion of lesser healing" color="FA0000">
+  <Item type="potion" name="potion of lesser healing" color="#FA0000">
     <Component name="raw material" material="water">
       <Effect name="heal" magnitude="5"/>
     </Component>
     <Component name="flask"/>
     <Component name="cork"/>
   </Item>
-  <Item type="potion" name="potion of healing" color="FA0000">
+  <Item type="potion" name="potion of healing" color="#FA0000">
     <Component name="raw material" material="water">
       <Effect name="heal" magnitude="15"/>
     </Component>
     <Component name="flask"/>
     <Component name="cork"/>
   </Item>
-  <Item type="potion" name="potion of greater healing" color="FA0000">
+  <Item type="potion" name="potion of greater healing" color="#FA0000">
     <Component name="raw material" material="water">
       <Effect name="heal" magnitude="25"/>
     </Component>
     <Component name="flask"/>
     <Component name="cork"/>
   </Item>
-  <Item type="potion" name="potion of full healing" color="FA0000">
+  <Item type="potion" name="potion of full healing" color="#FA0000">
     <Component name="raw material" material="water">
       <Effect name="heal" magnitude="999"/>
     </Component>
     <Component name="flask"/>
     <Component name="cork"/>
   </Item>
-  <Item type="potion" name="potion of rare candy" color="64FA00">
+  <Item type="potion" name="potion of rare candy" color="#64FA00">
     <Component name="raw material" material="water">
       <Effect name="level up" magnitude="1"/>
     </Component>
     <Component name="flask"/>
     <Component name="cork"/>
   </Item>
-  <Item type="potion" name="potion of life" color="FAFAFA">
+  <Item type="potion" name="potion of life" color="#FAFAFA">
     <Component name="raw material" material="water">
       <Effect name="revive" duration="50"/>
     </Component>
     <Component name="flask"/>
     <Component name="cork"/>
   </Item>
-  <Item type="potion" name="potion of levitation" color="00FAFA">
+  <Item type="potion" name="potion of levitation" color="#00FAFA">
     <Component name="raw material" material="water">
       <Effect name="levitation" duration="50"/>
     </Component>
     <Component name="flask"/>
     <Component name="cork"/>
   </Item>
-  <Item type="potion" name="potion of paralysis" color="FAFA96">
+  <Item type="potion" name="potion of paralysis" color="#FAFA96">
     <Component name="raw material" material="water">
       <Effect name="paralysis" duration="15"/>
     </Component>
     <Component name="flask"/>
     <Component name="cork"/>
   </Item>
-  <Item type="potion" name="potion of poison" color="00C800">
+  <Item type="potion" name="potion of poison" color="#00C800">
     <Component name="raw material" material="orange juice">
       <Effect name="poison" magnitude="5"/>
     </Component>
     <Component name="flask"/>
     <Component name="cork"/>
   </Item>
-  <Item type="potion" name="potion of polymorph" color="FAFA00">
+  <Item type="potion" name="potion of polymorph" color="#FAFA00">
     <Component name="raw material" material="water">
       <Effect name="polymorph" duration="50"/>
     </Component>
     <Component name="flask"/>
     <Component name="cork"/>
   </Item>
-  <Item type="potion" name="potion of regeneration" color="7FFAD4">
+  <Item type="potion" name="potion of regeneration" color="#7FFAD4">
     <Component name="raw material" material="water">
       <Effect name="regrowing" magnitude="1"/>
     </Component>
     <Component name="flask"/>
     <Component name="cork"/>
   </Item>
-  <Item type="potion" name="potion of see invisible" color="FAA500">
+  <Item type="potion" name="potion of see invisible" color="#FAA500">
     <Component name="raw material" material="orange juice">
       <Effect name="see invisible" duration="50"/>
     </Component>
     <Component name="flask"/>
     <Component name="cork"/>
   </Item>
-  <Item type="potion" name="potion of sleeping" color="6464FA">
+  <Item type="potion" name="potion of sleeping" color="#6464FA">
     <Component name="raw material" material="water">
       <Effect name="sleep" duration="50"/>
     </Component>
     <Component name="flask"/>
     <Component name="cork"/>
   </Item>
-  <Item type="potion" name="potion of speed" color="FAFA00">
+  <Item type="potion" name="potion of speed" color="#FAFA00">
     <Component name="raw material" material="water">
       <Effect name="speed" duration="50"/>
     </Component>
     <Component name="flask"/>
     <Component name="cork"/>
   </Item>
-  <Item type="potion" name="potion of ability" color="FA9696">
+  <Item type="potion" name="potion of ability" color="#FA9696">
     <Component name="raw material" material="water">
       <Effect name="gain attribute" magnitude="2"/>
     </Component>
     <Component name="flask"/>
     <Component name="cork"/>
   </Item>
-  <Item type="potion" name="flask of beer" color="AF9600">
+  <Item type="potion" name="flask of beer" color="#AF9600">
     <Component name="raw material" material="beer">
       <Effect name="confusion" duration="15"/>
     </Component>
     <Component name="flask"/>
     <Component name="cork"/>
   </Item>
-  <Item type="potion" name="flask of water" color="FAFAFA">
+  <Item type="potion" name="flask of water" color="#FAFAFA">
     <Component name="raw material" material="water"/>
     <Component name="flask"/>
     <Component name="cork"/>
   </Item>
-  <Item type="potion" name="flask of fruit juice" color="FAFAFA">
+  <Item type="potion" name="flask of fruit juice" color="#FAFAFA">
     <Component name="raw material" material="orange juice"/>
     <Component name="flask"/>
     <Component name="cork"/>
   </Item>
 
   <!--Weapons - items meant to be wielded and used to deal damage-->
-  <Item type="weapon" name="hand axe" damage="1d6" color ="C0C0C0">
+  <Item type="weapon" name="hand axe" damage="1d6" color="#C0C0C0">
     <Use name="chop"/>
     <Component name="wedge"/>
     <Component name="stick"/>
   </Item>
-  <Item type="weapon" name="battle axe" accuracy="-1" damage ="1d8" color ="C0C0C0">
+  <Item type="weapon" name="battle axe" accuracy="-1" damage ="1d8" color="#C0C0C0">
     <Use name="chop"/>
     <Component name="wedge"/>
     <Component name="stick"/>
   </Item>
-  <Item type="weapon" name="flail" damage ="1d6" color ="C0C0C0">
+  <Item type="weapon" name="flail" damage ="1d6" color="#C0C0C0">
     <Component name="ball"/>
     <Component name="rope"/>
     <Component name="stick"/>
   </Item>
-  <Item type="weapon" name="spiked flail" damage ="1d6+1" color ="C0C0C0">
+  <Item type="weapon" name="spiked flail" damage ="1d6+1" color="#C0C0C0">
     <Use name="chop"/>
     <Component name="spiked ball"/>
     <Component name="rope"/>
     <Component name="stick"/>
   </Item>
-  <Item type="weapon" name="dagger" accuracy="1" damage ="1d5" color ="C0C0C0">
+  <Item type="weapon" name="dagger" accuracy="1" damage ="1d5" color="#C0C0C0">
     <Component name="blade"/>
     <Component name="handle"/>
   </Item>
-  <Item type="weapon" name="knife" accuracy="2" damage ="1d4" color ="C0C0C0">
+  <Item type="weapon" name="knife" accuracy="2" damage ="1d4" color="#C0C0C0">
     <Component name="blade"/>
     <Component name="handle"/>
   </Item>
-  <Item type="weapon" name="short sword" accuracy="1" damage ="1d6" color ="C0C0C0">
+  <Item type="weapon" name="short sword" accuracy="1" damage ="1d6" color="#C0C0C0">
     <Component name="blade"/>
     <Component name="handle"/>
   </Item>

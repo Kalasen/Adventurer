@@ -746,13 +746,15 @@ namespace Adventurer
 					{
 						imageIndex = player.creatureImage;
 						imageColor = player.color;
-					}
+                        DrawImage(imageIndex, new Vector2(x * TILEWIDTH, y * TILEHEIGHT),
+                            imageColor); //Draw this tile's stuff
+                    }
                     //int smellTotal = 0;
                     //foreach (int s in currentLevel.tileArray[x, y].scentMagnitude)
                     //{
                     //    smellTotal += s;
                     //}
-                    //DrawText(veraSmall, smellTotal.ToString(), new Vector2(x * TILEWIDTH, y * TILEHEIGHT), Color.Red);                        
+                    //DrawText(veraSmall, smellTotal.ToString(), new Vector2(x * TILEWIDTH, y * TILEHEIGHT), Color.Red);
                 }
 			}
 		}
@@ -784,8 +786,8 @@ namespace Adventurer
         }
         static void DrawImage(int imageToDraw, Vector2 position, Color color)
         {
-            target.x = (short)position.X;
-            target.y = (short)position.Y;
+            target.x = position.X;
+            target.y = position.Y;
             ColorSwap(imageToDraw, color);
 
             Sdl.SDL_BlitSurface(image[imageToDraw], ref source, screen, ref target);
