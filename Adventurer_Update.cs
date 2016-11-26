@@ -12,6 +12,7 @@ namespace Adventurer
 	public partial class Adventurer
 	{
 		#region Variables
+        //TODO: Make into an enum
 		public const byte OPENING_MENU = 0;
 		public const byte MAIN_GAME = 1;
 		public const byte CREATURE_SELECT = 2;
@@ -496,12 +497,12 @@ namespace Adventurer
                             player.pos.Y = (short)rng.Next(1, Level.GRIDH);
                         }
                         currentLevel.creatures[0] = player;
-                        Item dirtChunk = new Item("dirt chunk", Color.FromArgb(157, 144, 118)); //Chunk of dirt
+                        Item dirtChunk = new Item(100f, 100f, "dirt chunk", Color.FromArgb(157, 144, 118), new List<Item>(), new List<string>()); //Chunk of dirt
                         currentLevel.tileArray[player.pos.X, player.pos.Y].itemList.Add(new Item(dirtChunk)); //Put the dirt chunk there
                     }
                     else
                     {                                                            
-                        Item dirtChunk = new Item("dirt chunk", Color.FromArgb(157, 144, 118)); //Chunk of dirt
+                        Item dirtChunk = new Item(100f, 100f, "dirt chunk", Color.FromArgb(157, 144, 118), new List<Item>(), new List<string>()); //Chunk of dirt
                         currentLevel.tileArray[pos.X, pos.Y].itemList.Add(new Item(dirtChunk)); //Put the dirt chunk there
                         currentLevel.tileArray[pos.X, pos.Y].hasBeenDug = true; //We've dug a pit here.
                         currentLevel.creatures[0].message.Add("You dig a hole, unearthing some dirt.");
@@ -560,7 +561,7 @@ namespace Adventurer
                             {
                                 currentLevel.creatures[0].message.Add("You somehow hit a weak point and topple the tree!");
                                 Tree thisTree = (Tree)currentLevel.tileArray[radius.X, radius.Y].fixtureLibrary[0];
-                                currentLevel.tileArray[radius.X, radius.Y].itemList.Add(new Item(CapitalizeFirst(thisTree.species) + " log", Color.Brown));
+                                currentLevel.tileArray[radius.X, radius.Y].itemList.Add(new Item(500f, 500f, CapitalizeFirst(thisTree.species) + " log", Color.Brown, new List<Item>(), new List<string>()));
                                 currentLevel.creatures[0].message.Add("You cut down the " + thisTree.species + " tree.");
                                 currentLevel.tileArray[radius.X, radius.Y].fixtureLibrary.RemoveAt(0);
                             }
@@ -651,13 +652,13 @@ namespace Adventurer
                             if (currentLevel.tileArray[radius.X, radius.Y].fixtureLibrary[0] is Tree)
                             {
                                 Tree thisTree = (Tree)currentLevel.tileArray[radius.X, radius.Y].fixtureLibrary[0];
-                                currentLevel.tileArray[radius.X, radius.Y].itemList.Add(new Item(CapitalizeFirst(thisTree.species) + " log", Color.Brown));
+                                currentLevel.tileArray[radius.X, radius.Y].itemList.Add(new Item(500f, 500f, CapitalizeFirst(thisTree.species) + " log", Color.Brown, new List<Item>(), new List<string>()));
                                 currentLevel.creatures[0].message.Add("You cut down the " + thisTree.species + " tree.");
                                 currentLevel.tileArray[radius.X, radius.Y].fixtureLibrary.RemoveAt(0);
                             }
                             else if (currentLevel.tileArray[radius.X, radius.Y].fixtureLibrary[0] is Door)
                             {                                
-								Item stick = new Item("stick", Color.Brown);
+								Item stick = new Item(100f, 100f, "stick", Color.Brown, new List<Item>(), new List<string>());
 
                                 currentLevel.tileArray[radius.X, radius.Y].itemList.Add(new Item(stick));
                                 currentLevel.tileArray[radius.X, radius.Y].itemList.Add(new Item(stick));
@@ -1018,7 +1019,7 @@ namespace Adventurer
                         {
                             if (rngDie.Roll(2) == 1) // 1/2 chance
                             {
-                                Item stick = new Item("stick", Color.Brown);
+                                Item stick = new Item(100f, 100f, "stick", Color.Brown, new List<Item>(), new List<string>());
 
                                 currentLevel.tileArray[radius.X, radius.Y].itemList.Add(new Item(stick));
                                 currentLevel.tileArray[radius.X, radius.Y].itemList.Add(new Item(stick));
@@ -1042,9 +1043,9 @@ namespace Adventurer
 
                             if (thisTrap.effect.type == "tripwire")
                             {
-                                Item rope = new Item("rope", Color.Wheat);
+                                Item rope = new Item(100f, 100f, "rope", Color.Wheat, new List<Item>(), new List<string>());
 
-                                foreach (Item t in itemLibrary)
+                                foreach (Item t in content.items)
                                 {
                                     if (t.name == "rope")
                                     {
@@ -1075,7 +1076,7 @@ namespace Adventurer
                             }
                             else if (thisTree.fruit != String.Empty && rng.Next(1, 101) > 50) //If it has fruit, 50% chance
                             {
-                                currentLevel.tileArray[c.pos.X, c.pos.Y].itemList.Add(new Item(thisTree.fruit, Color.Lime)); //Add a fruit
+                                currentLevel.tileArray[c.pos.X, c.pos.Y].itemList.Add(new Item(100f, 100f, thisTree.fruit, Color.Lime, new List<Item>(), new List<string>())); //Add a fruit
                                 c.message.Add("A " + thisTree.fruit + " drops at your feet.");
                                 thisTree.fruit = String.Empty; //No more fruit
                             }
@@ -1400,7 +1401,7 @@ namespace Adventurer
                                     }
                                 }
 
-                                qG.CycleWantGiveItem(itemLibrary); //Cycle what s/he wants and what he will give
+                                qG.CycleWantGiveItem(content.items); //Cycle what s/he wants and what he will give
 
                                 c.message.Add(CapitalizeFirst(d.name) + ": You trade your items.");
                             }

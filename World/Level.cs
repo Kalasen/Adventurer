@@ -1521,8 +1521,6 @@ namespace Adventurer
                     int count = c.inventory.Count;
                     for (int i = 0; i < count; i++)
                         c.Drop(this, c.inventory[0]); //Drop all items
-					
-					tileArray[c.pos.X, c.pos.Y].itemList.Add(new Currency(c.gold)); //Add item to tile 
 
                     count = c.wornArmor.Count;
                     for (int i = 0; i < count; i++)
@@ -1534,7 +1532,7 @@ namespace Adventurer
                     tileArray[c.pos.X, c.pos.Y].itemList.Add(c.weapon); //Add item to tile 
                     c.weapon = null; //Drop the weapon
 
-                    Item corpse = new Item(c.mass, c.mass, c.name + " corpse", c.color);
+                    Item corpse = new Item(c.mass, c.mass, c.name + " corpse", c.color, new List<Item>(), new List<string>());
                     corpse.itemImage = 253;
                     corpse.edible = true;
                     tileArray[c.pos.X, c.pos.Y].itemList.Add(new Item(corpse)); //Gibs
@@ -1634,12 +1632,7 @@ namespace Adventurer
                     Species c = content.bestiary.First(); //Default
                     if (social == "monster")
                     {
-                        c = content.bestiary.ToList()[rng.Next(0, content.bestiary.Count())]; //Stupid dumb List bug makes me do this
-
-                        while (c.baseLevel > mapPos.Z)
-                        {
-                            c = content.bestiary.ToList()[rng.Next(0, content.bestiary.Count())]; //Stupid dumb List bug makes me do this
-                        }
+                        c = content.bestiary.ToList()[rng.Next(0, content.bestiary.Count())];
                     }
                     else
                     {
@@ -1650,8 +1643,7 @@ namespace Adventurer
                         }
                     }
 
-
-                    Creature thisCreature = c.GenerateCreature(social, content.items.ToList(), rng.Next()); //If I don't do this, any time I change thisCreature it changes every creature in the list
+                    Creature thisCreature = c.GenerateCreature(social, content.items.ToList(), rng.Next());
                     thisCreature.pos = new Vector2(x, y);
                     for (y = 0; y < GRIDH; y++)
                         for (x = 0; x < GRIDW; x++)

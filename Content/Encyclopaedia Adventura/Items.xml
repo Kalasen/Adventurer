@@ -14,6 +14,9 @@ Component defaults can be overridden.
   <Item type="component" name="flask" mass="133.2007" material="glass"/>
   <Item type="component" name="cork" mass="3.4012" material="wood"/>
   <Item type="component" name="ball" mass="1500" material="iron"/>
+  <Item type="component" name="pinecone" mass="100" material ="wood"/>
+  <Item type="component" name="wedge" mass="100" material ="iron"/>
+  <Item type="component" name="stick" mass="100" material ="wood"/>
 
   <!--Misc - items that don't fall into any other category-->
   <Item type="misc" name="spiked ball" color="D1D1D1">
@@ -29,11 +32,6 @@ Component defaults can be overridden.
   <Item type="tool" name="rope" color="9DAA76">
     <Use name="tripwire"/>
     <Component name="cloth"/>
-  </Item>
-  <Item type="tool" name="shovel" accuracy="-2" damage="1d6" color="9DAA76">
-    <Use name="dig"/>
-    <Component name="wedge" material="iron"/>
-    <Component name="stick" material="wood"/>
   </Item>
   <Item type="tool" name="shovel" accuracy="-2" damage="1d6" color="9DAA76">
     <Use name="dig"/>

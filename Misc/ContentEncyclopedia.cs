@@ -18,6 +18,8 @@ namespace Adventurer
         public List<Item> items = new List<Item>();
         public List<Species> bestiary = new List<Species>();
 
+        Dictionary<string, List<BodyPart>> bodyTemplates = new Dictionary<string, List<BodyPart>>();
+
         public ContentEncyclopedia()
         {
                      
@@ -116,17 +118,72 @@ namespace Adventurer
 
         void LoadCreatures()
         {
+            var xmlRoot = XDocument.Load("Content/Encyclopaedia Adventura/Creatures.xml").Root;
+
             //Load in the BodyTypes that species will template from
-            var bodyTypes = new Dictionary<string, List<BodyPart>>();
+            foreach (var bodyTypeNode in xmlRoot.Elements("BodyType"))
+            {
+                var bodyTemplateName = bodyTypeNode.Attribute("name").Value;
+
+                //Load in the parts in this body type
+                var bodyParts = new List<BodyPart>();                
+                foreach (var bodyPartNode in bodyTypeNode.Elements("BodyPart"))
+                    bodyParts.Add(LoadBodyPart(bodyPartNode));
+
+                bodyTemplates.Add(bodyTemplateName, bodyParts); 
+            }
+
+            var newSpecies = new List<Species>();
 
             //TODO: Rest of creature loading
+            foreach (var speciesNode in xmlRoot.Elements("Species"))
+                newSpecies.Add(LoadSpecies(speciesNode));
+
+            bestiary.AddRange(newSpecies);            
+        }
+
+        BodyPart LoadBodyPart(XElement partNode)
+        {
+            //Set any flags attached to this body part
+            var flags = new BodyPartFlags();
+            if (partNode.Attribute("lifeCritical") != null)
+                flags |= BodyPartFlags.LifeCritical;
+            if (partNode.Attribute("canPickUp") != null)
+                flags |= BodyPartFlags.CanPickUpItem;
+            if (partNode.Attribute("missingno") != null)
+                flags |= BodyPartFlags.LifeCritical;
+
+            return new BodyPart(
+                partNode.Attribute("name").Value,
+                int.Parse(partNode.Attribute("health").Value),
+                flags,
+                null
+            );
+        }
+
+        Species LoadSpecies(XElement speciesNode)
+        {
+            var anatomy = new List<BodyPart>();
+            anatomy.AddRange(bodyTemplates[speciesNode.Element("BodyType").Attribute("name").Value]);
+
+            return new Species(
+                byte.Parse(speciesNode.Attribute("speed").Value),
+                new DNotation(2, 4, 2),
+                500,
+                byte.Parse(speciesNode.Attribute("image").Value),
+                Color.FromArgb(Convert.ToInt32(int.Parse(speciesNode.Attribute("color").Value, System.Globalization.NumberStyles.HexNumber))),
+                speciesNode.Attribute("name").Value,
+                speciesNode.Element("Habitat").Attribute("name").Value,
+                anatomy,
+                new Random().Next()
+            );
         }
 
         void LoadComponent(XElement itemNode)
         {
             var mass = (float)itemNode.Attribute("mass");
             var name = (string)itemNode.Attribute("name");
-            var newItem = new Item(mass, mass, name);
+            var newItem = new Item(mass, mass, name, Color.White, new List<Item>(), new List<string>());
 
             var material = (string)itemNode.Attribute("material");
             newItem.material = materials.FirstOrDefault((m) => m.name == material);
@@ -140,8 +197,7 @@ namespace Adventurer
         {
             var name = (string)itemNode.Attribute("name");
             var color = Color.FromArgb(Convert.ToInt32(int.Parse(itemNode.Attribute("color").Value, System.Globalization.NumberStyles.HexNumber)));
-            var newAmulet = new Amulet(name, color);
-            newAmulet.componentList = GetComponentsInItem(itemNode);
+            var newAmulet = new Amulet(50f, 50f, name, color, GetComponentsInItem(itemNode), new List<string>());
 
             items.Add(newAmulet);
         }
@@ -152,7 +208,7 @@ namespace Adventurer
             var name = (string)itemNode.Attribute("name");
             var color = Color.FromArgb(Convert.ToInt32(int.Parse(itemNode.Attribute("color").Value, System.Globalization.NumberStyles.HexNumber)));
             var fitting = itemNode.Attribute("fitting").Value;
-            var newItem = new Armor(aC, fitting, name, color);
+            var newItem = new Armor(500f, 500f, aC, fitting, new List<Item>(), name, new List<string>(), color, new List<string>());
             newItem.componentList = GetComponentsInItem(itemNode);
 
             items.Add(newItem);
@@ -162,7 +218,7 @@ namespace Adventurer
         {
             var name = (string)itemNode.Attribute("name");
             var color = Color.FromArgb(Convert.ToInt32(int.Parse(itemNode.Attribute("color").Value, System.Globalization.NumberStyles.HexNumber)));
-            var newItem = new Item(name, color);
+            var newItem = new Item(100f, 100f, name, color, new List<Item>(), new List<string>());
             newItem.componentList = GetComponentsInItem(itemNode);
 
             items.Add(newItem);
@@ -172,7 +228,7 @@ namespace Adventurer
         {
             var name = (string)itemNode.Attribute("name");
             var color = Color.FromArgb(Convert.ToInt32(int.Parse(itemNode.Attribute("color").Value, System.Globalization.NumberStyles.HexNumber)));
-            var newItem = new Item(name, color);
+            var newItem = new Potion(name, 100f, 100f, color, new List<Item>(), new List<string>());
             newItem.componentList = GetComponentsInItem(itemNode);
 
             items.Add(newItem);
@@ -183,7 +239,7 @@ namespace Adventurer
             var name = (string)itemNode.Attribute("name");
             var color = Color.FromArgb(Convert.ToInt32(int.Parse(itemNode.Attribute("color").Value, System.Globalization.NumberStyles.HexNumber)));
             //TODO: Load damage
-            var newItem = new Weapon(name);
+            var newItem = new Weapon(100f, 100f, name, color, new DNotation(2, 4, 2), new List<Item>(), new List<string>());
             newItem.componentList = GetComponentsInItem(itemNode);
 
             items.Add(newItem);
@@ -212,7 +268,7 @@ namespace Adventurer
             var components = new List<Item>();
             foreach (var componentNode in itemNode.Elements("Component"))
             {
-                components.Add(items.Find(component => component.name == componentNode.Attribute("name").Value));
+                components.Add(items.First(component => component.name == componentNode.Attribute("name").Value));
             }
             return components;
         }

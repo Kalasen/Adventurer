@@ -68,10 +68,10 @@ namespace Adventurer
 
             foreach (BodyPart b in this.anatomy)
             {
-                if (b.canPickUpItem)
+                if (b.flags.HasFlag(BodyPartFlags.CanPickUpItem))
                 {
                     this.isDextrous = true;
-                    b.canUseWeapon = true;
+                    b.flags |= BodyPartFlags.CanUseWeapon;
                 }
             }
         }
@@ -192,10 +192,10 @@ namespace Adventurer
 			case "heal":
 				foreach (BodyPart b in anatomy)
                 {
-                    b.currentHealth += (int)((float)b.noInjury * 0.25f);
+                    b.currentHealth += (int)(b.maxHealth * 0.25f);
 
-                    if (b.currentHealth > b.noInjury)
-                        b.currentHealth = b.noInjury;
+                    if (b.currentHealth > b.maxHealth)
+                        b.currentHealth = b.maxHealth;
                 }
 
                 hp += e.magnitude;
@@ -245,7 +245,7 @@ namespace Adventurer
 			case "regenerate body part":
 				if (lostParts.Count > 0)
                 {
-                    lostParts[0].currentHealth = lostParts[0].noInjury; //Heal part
+                    lostParts[0].currentHealth = lostParts[0].maxHealth; //Heal part
                     anatomy.Add(lostParts[0]); //Restore part                    
                     if (!mute) message.Add("A shiver runs through your body, and your missing " + lostParts[0].name + " grows back where it once was, good as new.");
                     lostParts.RemoveAt(0);                    
@@ -409,7 +409,7 @@ namespace Adventurer
         public bool CanWield(Item w)
         {
             foreach (BodyPart b in anatomy)
-                if (b.canUseWeapon)
+                if (b.flags.HasFlag(BodyPartFlags.CanUseWeapon))
                     return true; //If can wield weapon
 
             message.Add("You have no body parts that can use a weapon.");
@@ -581,7 +581,7 @@ namespace Adventurer
         {
             lostParts.Add(b); //Keep track of lost, removed parts
 
-            Item part = new Item(name + " " + b.name, Color.Red);            
+            Item part = new Item(100f, 100f, $"{name} {b.name}", Color.Red, new List<Item>(), new List<string>());            
             part.edible = true;
             part.itemImage = 253;           
             part.nutrition = 500;
@@ -599,12 +599,11 @@ namespace Adventurer
             if (currentLevel.CreatureNAt(pos.AdjacentVector(dir)) >= 0)
             {
                 opponentIndex = currentLevel.CreatureNAt(pos.AdjacentVector(dir));
+                var opponent = currentLevel.creatures[opponentIndex];
 
-                if (currentLevel.creatures[opponentIndex] is QuestGiver)
+                if (opponent is QuestGiver)
                 {
-                    Creature c = (Creature)currentLevel.creatures[opponentIndex];                    
-                    currentLevel.creatures[opponentIndex] = new Creature(c); //And then c was a monster
-                    message.Add("The " + c.name + " gets angry!"); //And s/he's mad.
+                    //TODO: Make aggressive
                 }
 
                 byte chanceToMiss = 10;
@@ -637,50 +636,51 @@ namespace Adventurer
                         message.Add("You deal no damage.");
                     }
 
-                    float damageBefore = (float)currentLevel.creatures[opponentIndex].anatomy[partIndex].currentHealth /
-                        (float)part.noInjury;
+                    var damageBefore = currentLevel.creatures[opponentIndex].anatomy[partIndex].injury;
                     currentLevel.creatures[opponentIndex].TakeDamage(damage);
-                    float damageAfter = (float)currentLevel.creatures[opponentIndex].anatomy[partIndex].currentHealth /
-                        (float)part.noInjury;
+                    var damageAfter = currentLevel.creatures[opponentIndex].anatomy[partIndex].injury;
 
-                    this.message.Add("You hit the " + currentLevel.creatures[opponentIndex].name + " in the " +
+                    message.Add("You hit the " + currentLevel.creatures[opponentIndex].name + " in the " +
                         part.name + " for " + damage + " damage.");
                     currentLevel.creatures[opponentIndex].message.Add("The " + this.name + " hits you in the " +
                         part.name + " for " + damage + " damage.");
 
-                    if (damageBefore > 0.75 && damageAfter <= 0.75)
-                        this.message.Add("You wound the " + currentLevel.creatures[opponentIndex].name + "'s " +
-                            part.name + ".");
-                    else if (damageBefore > 0.50 && damageAfter <= 0.50)
-                        this.message.Add("You break the " + currentLevel.creatures[opponentIndex].name + "'s " +
-                            part.name + ".");
-                    else if (damageBefore > 0.25 && damageAfter <= 0.25)
-                        this.message.Add("You mangle the " + currentLevel.creatures[opponentIndex].name + "'s " +
-                            part.name + ".");
-                    else if (damageBefore > 0.0 && damageAfter <= 0.0)
-                        this.message.Add("You obliterate the " + currentLevel.creatures[opponentIndex].name + "'s " +
-                            part.name + ".");
+                    if (damageBefore != damageAfter)
+                    {
+                        switch(damageAfter)
+                        {
+                            case InjuryLevel.Minor:
+                                message.Add($"You wound the {currentLevel.creatures[opponentIndex].name}'s {part.name}.");
+                                break;
+                            case InjuryLevel.Broken:
+                                message.Add($"You break the {currentLevel.creatures[opponentIndex].name}'s {part.name}.");
+                                break;
+                            case InjuryLevel.Mangled:
+                                message.Add($"You mangle the {currentLevel.creatures[opponentIndex].name}'s {part.name}.");
+                                break;
+                            case InjuryLevel.Destroyed:
+                                message.Add($"You obliterate the {currentLevel.creatures[opponentIndex].name}'s {part.name}.");
+                                break;
+                        }
+                    }
 
                     if (weapon is Potion)
                     {
                         Potion p = (Potion)weapon;
                         currentLevel.creatures[opponentIndex].inventory.Add(p);
                         p.Eat(currentLevel, currentLevel.creatures[opponentIndex]); //Smash, effect affects the creature
-                        this.message.Add("The " + p.name + " smashes against the " + currentLevel.creatures[opponentIndex].name);
+                        message.Add($"The ${p.name} smashes against the ${currentLevel.creatures[opponentIndex].name}");
                         weapon = null; //Smashed, gone
                     }
 
                     if (opponentIndex == 0) //If player
                     {
-                        currentLevel.causeOfDeath = "lethal damage to your " + part.name + ".";
-                        if (weapon == null)
-                        {
-                            currentLevel.mannerOfDeath = "you were hit in the " + part.name + " by a " + name + ".";
-                        }
+                        currentLevel.causeOfDeath = $"lethal damage to your {part.name}.";
+
+                        if(weapon == null)
+                            currentLevel.mannerOfDeath = $"you were hit in the {part.name} by a {name}.";
                         else
-                        {
-                            currentLevel.mannerOfDeath = "you were struck in the " + part.name + " by a " + weapon.name + " wielded by a " + name + ".";
-                        }
+                            currentLevel.mannerOfDeath = $"you were struck in the {part.name} by a {weapon.name} wielded by a {name}.";                        
                     }
                 }
             }
@@ -704,16 +704,19 @@ namespace Adventurer
                     for (int i = 0; i < count; i++)
                         currentLevel = currentLevel.creatures[opponentIndex].Drop(currentLevel,
                             currentLevel.creatures[opponentIndex].inventory[0]); //Drop on death
-					
-					currentLevel.tileArray[c.pos.X, c.pos.Y].itemList.Add(new Currency(c.gold)); //Add item to tile 
 
                     this.message.Add("You kill the " + currentLevel.creatures[opponentIndex].name + ".");
 
                     if (currentLevel.creatures[opponentIndex].name == "dragon")
-                        this.message.Add("Wow. Kalasen has no further challenges for you right now, congratulations.");
+                        this.message.Add("You monster.");
 
-                    Item corpse = new Item(currentLevel.creatures[opponentIndex].name + " corpse",
-					                       currentLevel.creatures[opponentIndex].color);
+                    Item corpse = new Item(500f, 
+                        500f, 
+                        $"{currentLevel.creatures[opponentIndex].name} corpse",
+					    currentLevel.creatures[opponentIndex].color,
+                        new List<Item>(),
+                        new List<string>()
+                    );
                     corpse.itemImage = 253; //"�"
                     corpse.edible = true;
                     corpse.nutrition = 3000; //For now, default to this
@@ -924,9 +927,9 @@ namespace Adventurer
                     this.message.Add("You kill the " + target.name + ".");
 
                     if (target.name == "dragon")
-                        this.message.Add("Wow. Kalasen has no further challenges for you right now, congratulations.");
+                        this.message.Add("You monster.");
 
-                    Item corpse = new Item(target.name + " corpse", target.color);
+                    Item corpse = new Item(target.mass, target.mass, $"{target.name} corpse", target.color, new List<Item>(), new List<string>());
                     corpse.itemImage = 253;
                     corpse.edible = true;
                     corpse.nutrition = 3000; //For now, default to this
@@ -984,7 +987,7 @@ namespace Adventurer
 
             foreach (BodyPart b in this.anatomy)
             {
-                if (b.lifeCritical && b.currentHealth <= 0) //If your head is chunky salsa, you're dead.          
+                if (b.flags.HasFlag(BodyPartFlags.LifeCritical) && b.injury == InjuryLevel.Destroyed) //If your head is chunky salsa, you're dead.          
                     return true;
             }
 
@@ -1042,6 +1045,11 @@ namespace Adventurer
                 inventory.Remove(w);
                 
             }
+        }
+
+        public override string ToString()
+        {
+            return name;
         }
     } //Whether monster or player, they're all creatures
 }

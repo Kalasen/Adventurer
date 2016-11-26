@@ -10,437 +10,6 @@ namespace Adventurer
 {
 	public partial class Adventurer
     { 
-		static List<Species> FileL_Creatures(List<Item> itemLibrary)
-        {
-            #region Storage Variables
-            string name;
-            string habitat = String.Empty;
-            string creatureArmorType = "error";
-            byte speed = 0;
-            byte imageIndex = 0;
-            byte baseLevel = 1;
-            DNotation damage = new DNotation();
-            int mass = 1;
-            int xp = 1;
-            short minLevel = -999; //The minimum level a creature can be spawned at
-            Weapon weapon = null;
-            List<Armor> armor = new List<Armor>();
-            List<Item> inventory = new List<Item>();
-            Color creatureColor = Color.White;
-            List<BodyPart> anatomy = new List<BodyPart>();
-            List<Species> creatureList = new List<Species>();
-            #endregion
-
-            StreamReader read = new StreamReader("Content/Encyclopaedia Adventura/Creatures.txt");
-            string line = String.Empty;
-
-            #region CREATURE.TXT
-            while (line != "[END]") // While there's still code stuff in the file
-            {
-                line = read.ReadLine(); //Gather the next line
-                line = line.Trim(); //Ignore white space on ends
-
-                #region CREATURE
-                if (line.StartsWith("[CREATURE]")) //If the line is a CREATURE tag
-                {
-                    line = line.Remove(0, 11); //Clip off the CREATURE tag, leaving only what's after
-                    name = line; //Which should be the creature's name
-
-                    while (line != "[/CREATURE]") //While within a creature tag area
-                    {
-                        line = read.ReadLine();
-                        line = line.Trim();
-
-                        #region HABITAT
-                        if (line.StartsWith("[HABITAT]")) //If the line is a habitat tag
-                        {
-                            line = line.Remove(0, 10); //Clip off the habitat tag, leaving only what's after
-                            habitat = line; //Which should be the creature's habitat
-                        }
-                        #endregion
-
-                        #region MINLEVEL
-                        if (line.StartsWith("[MINLEVEL]")) //If the line is a mimimum level tag
-                        {
-                            line = line.Remove(0, 11); //Clip off the min level tag, leaving only what's after
-                            minLevel = short.Parse(line); //Which should be the creature's minimum level
-                        }
-                        #endregion
-
-                        #region BASELVL
-                        if (line.StartsWith("[BASELVL]")) //If the line is a mimimum level tag
-                        {
-                            line = line.Remove(0, 10); //Clip off the min level tag, leaving only what's after
-                            baseLevel = byte.Parse(line); //Which should be the creature's minimum level
-                        }
-                        #endregion
-
-                        #region SPEED
-                        if (line.StartsWith("[SPEED]")) //If the line is a speed tag
-                        {
-                            line = line.Remove(0, 8); //Clip off the speed tag, leaving only what's after
-                            speed = byte.Parse(line); //Which should be the creature's speed
-                        }
-                        #endregion
-
-                        #region DAMAGE
-                        if (line.StartsWith("[DAMAGE]")) //If the line is a damage tag
-                        {
-                            line = line.Remove(0, 9); //Clip off the min damage tag, leaving only what's after
-                            string[] pieces = line.Split(new char[2]{'d', '+'});
-                            damage.nDie = int.Parse(pieces[0]);
-                            damage.sides = int.Parse(pieces[1]);
-                                                        
-                            if (pieces.Length > 2)                            
-                            {
-                                damage.bonus = int.Parse(pieces[2]); //Which should be the creature's minimum damage
-                            }                            
-                        }
-                        #endregion
-
-                        #region IMAGE
-                        if (line.StartsWith("[IMAGE]")) //If the line is an image tag
-                        {
-                            line = line.Remove(0, 8); //Clip off the image tag, leaving only what's after
-                            imageIndex = byte.Parse(line); //Which should be the creature's image index
-                        }
-                        #endregion
-
-                        #region ARMORTYPE
-                        if (line.StartsWith("[ARMORTYPE]")) //If the line is an ARMORTYPE tag
-                        {
-                            line = line.Remove(0, 12); //Clip off the ARMORTYPE tag, leaving only what's after
-                            creatureArmorType = line; //Which should be the creature's armor type
-                        }
-                        #endregion
-
-                        #region COLOR
-                        if (line.StartsWith("[COLOR]")) //If the line is a color tag
-                        {
-                            byte r, g, b;
-                            string[] data = line.Split(' ');
-                            r = byte.Parse(data[1]); //The first three numbers
-                            g = byte.Parse(data[2]); //The next three numbers
-                            b = byte.Parse(data[3]); //The next three numbers
-
-                            creatureColor = Color.FromArgb(r, g, b);
-                        }
-                        #endregion
-
-                        #region MASS
-                        if (line.StartsWith("[MASS]")) //If the line is an image tag
-                        {
-                            line = line.Remove(0, 7); //Clip off the image tag, leaving only what's after
-                            mass = int.Parse(line); //Which should be the creature's image index
-                        }
-                        #endregion
-
-                        #region BODYPART
-                        if (line.StartsWith("[BODYPART]")) //If the line is a body part tag
-                        {
-                            string partName = String.Empty;
-                            string parentName = String.Empty;
-                            string armorType = String.Empty;
-                            bool canPickUpItem = false;
-                            bool lifeCritical = false;
-                            int noInjury = 0;
-                            int minorInjury = 0;
-                            int breakInjury = 0;
-                            int mangleInjury = 0;
-
-                            line = line.Remove(0, 11);
-                            partName = line;
-
-                            while (line != "[/BODYPART]") //While within the tag area
-                            {
-                                line = read.ReadLine();
-                                line = line.Trim();
-
-                                if (line.StartsWith("[PARENT]"))
-                                {
-                                    line = line.Remove(0, 9);
-                                    parentName = line;
-                                }
-
-                                if (line.StartsWith("[PICKUP]"))
-                                    canPickUpItem = true;
-
-                                if (line.StartsWith("[LIFECRITICAL]"))
-                                    lifeCritical = true;
-
-                                if (line.StartsWith("[ARMORTYPE]"))
-                                {
-                                    line = line.Remove(0, 12);
-                                    armorType = line;
-                                }
-
-                                if (line.StartsWith("[HEALTH]"))
-                                {
-                                    line = line.Remove(0, 9);
-                                    noInjury = int.Parse(line);
-                                    minorInjury = (int)((double)noInjury * 0.75);
-                                    breakInjury = (int)((double)noInjury * 0.5);
-                                    mangleInjury = (int)((double)noInjury * 0.25);
-                                }
-                            }
-
-                            BodyPart thisBodyPart = new BodyPart(partName, parentName, canPickUpItem, armorType,
-                                noInjury, minorInjury, breakInjury, mangleInjury);
-                            thisBodyPart.lifeCritical = lifeCritical;
-                            anatomy.Add(thisBodyPart);
-                        }
-                        #endregion
-
-                        #region ITEM
-                        if (line.StartsWith("[ITEM]")) //If the line is an item tag
-                        {
-                            line = line.Remove(0, 7); //Clip off the item tag, leaving only what's after
-                            string itemName = line; //Which should be the item to spawn the creature with
-                            foreach (Item i in itemLibrary) //Search for the right item
-                                if (itemName == i.name)
-                                    inventory.Add(i);
-                        }
-                        #endregion
-
-                        #region ARMOR
-                        if (line.StartsWith("[ARMOR]")) //If the line is an item tag
-                        {
-                            line = line.Remove(0, 8); //Clip off the item tag, leaving only what's after
-                            string armorName = line; //Which should be the item to spawn the creature with
-                            foreach (Item i in itemLibrary) //Search for the right item
-                                if (armorName == i.name && i is Armor)
-                                {
-                                    armor.Add((Armor)i);
-                                }
-                        }
-                        #endregion
-
-                        #region WEAPON
-                        if (line.StartsWith("[WEAPON]")) //If the line is an item tag
-                        {
-                            line = line.Remove(0, 9); //Clip off the item tag, leaving only what's after
-                            string weaponName = line; //Which should be the item to spawn the creature with
-                            foreach (Item i in itemLibrary) //Search for the right item
-                                if (weaponName == i.name && i is Weapon)
-                                {
-                                    weapon = (Weapon)i;
-                                }
-                        }
-                        #endregion
-
-                        #region XP
-                        if (line.StartsWith("[XP]")) //If the line is a speed tag
-                        {
-                            line = line.Remove(0, 5); //Clip off the speed tag, leaving only what's after
-                            xp = int.Parse(line); //Which should be the creature's speed
-                        }
-                        #endregion
-                    }
-                    Species thisCreature = new Species(speed, new DNotation(damage), mass, imageIndex,
-                        creatureColor, name, habitat, new List<BodyPart>(anatomy), rng.Next());
-                    thisCreature.armorType = creatureArmorType;
-                    thisCreature.armor = new List<Armor>(armor);
-                    thisCreature.baseLevel = baseLevel;
-                    thisCreature.inventory = new List<Item>(inventory);
-                    thisCreature.minDLevel = minLevel;
-                    thisCreature.armorType = creatureArmorType;
-                    thisCreature.weapon = weapon;
-                    thisCreature.xpWorth = xp;
-                    creatureList.Add(new Species(thisCreature)); //Add the new creature to the bestiary
-                    armor.Clear();
-                    inventory.Clear();
-                    anatomy.Clear();
-                    weapon = null;
-                    creatureArmorType = null;                    
-                }
-                #endregion
-            }
-            #endregion
-
-            read.Close();
-            return new List<Species>(creatureList);
-        }
-
-        //TODO: Finish converting to XML
-		public static List<Item> FileL_Item(List<Material> universalMaterialList, StreamReader read)
-		{			
-			string[] splitTag = new string[1023];
-			List<Item> itemList = new List<Item>();
-			
-			while (splitTag[0] != "[END]")
-			{
-				string name = String.Empty; //Name of the item
-				
-				string line = String.Empty;
-				while(line == String.Empty)
-					line = read.ReadLine().Trim();
-				
-				splitTag = line.Split(']');
-				splitTag[0] += "]"; //Add the trimmed ']' back
-				if (splitTag.Length > 1)
-					splitTag[1] = splitTag[1].Trim(); //Lose the space	
-				
-				switch(splitTag[0])
-				{
-				case "[AMULET]":
-				case "[ARMOR]":
-				case "[COMPONENT]":
-				case "[POTION]":
-				case "[TOOL]":
-				case "[WEAPON]":
-					name = splitTag[1];
-					DNotation damage = new DNotation();
-					int aC = 1;
-					float mass = 1f;
-					float volume = 1f;
-					string armorType = "missingatomy";
-					Material material = new Material();
-					List<string> useList = new List<string>();
-					List<string> covers = new List<string>();
-					List<Item> componentList = new List<Item>();
-					Effect effect = new Effect();
-					Color color = Color.White;
-					
-					while (splitTag[0] != "[/AMULET]" &&
-					       splitTag[0] != "[/ARMOR]" &&
-					       splitTag[0] != "[/COMPONENT]" &&
-					       splitTag[0] != "[/POTION]" &&
-					       splitTag[0] != "[/TOOL]" &&
-					       splitTag[0] != "[/WEAPON]") //While within the item block
-					{
-						splitTag = read.ReadLine().Trim().Split(']'); //New line, trimmed whitespace, split by space						
-						splitTag[0] += "]"; //Add the trimmed ']' back
-						if (splitTag.Length <= 1)
-							break;
-						
-						splitTag[1] = splitTag[1].Trim(); //Lose the space						
-							
-						string data = splitTag[1];				
-						
-						#region Gather item info from line
-						switch (splitTag[0])
-						{			
-						case "[AC]":
-							aC = int.Parse(data); //Which should be the armor class
-							break;
-							
-						case "[ARMORTYPE]":
-							armorType = data; //Which should be the armor type
-							break;
-							
-						case "[COLOR]":							
-                            string[] piece = data.Split(' '); //Clip off the color tag, leaving only what's after
-							byte[] c = new byte[3];
-                            c[0] = byte.Parse(piece[0]); //Red
-                            c[1] = byte.Parse(piece[1]); //Green                            
-                            c[2] = byte.Parse(piece[2]); //Blue
-
-                            color = Color.FromArgb(c[0], c[1], c[2]);
-							break;
-							
-						case "[COMPONENT]":
-							string[] dataSplit = data.Split(':');
-							foreach (Item i in itemLibrary) //Search for the item referenced
-							{
-                                if (i.name == dataSplit[0])
-								{
-									Item component = Item.CopyDeep(i); //True new item
-									if (dataSplit.Length > 1) //If there's a second part
-										foreach(Material m in universalMaterialList) //Check all materials									
-											if (m.name == dataSplit[1]) //For a match
-												component.material = new Material(m); //Add the overridden material if we can
-									
-                                    componentList.Add(Item.CopyDeep(component)); 
-								}
-							}							
-							break;
-							
-						case "[COVERS]":
-							covers.Add(data); //What armor covers
-							break;
-							
-						case "[DAMAGE]":
-							string[] pieces = data.Split(new char[2] { 'd', '+' });
-                            damage.nDie = int.Parse(pieces[0]);
-                            damage.sides = int.Parse(pieces[1]);
-                            if (pieces.Length > 2)
-                                damage.bonus = int.Parse(pieces[2]); //Which should be the creature's minimum damage
-							break;
-							
-						case "[EFFECT]":
-							string[] parts = data.Split(':'); //Split the line
-							if (parts.Length >= 2)
-								effect = new Effect(int.Parse(parts[1]), parts[0]);
-							else
-								effect = new Effect(1, parts[0]);
-							break;
-							
-						case "[MASS]":
-	                        mass = float.Parse(data, System.Globalization.CultureInfo.InvariantCulture); //Respect my ,. authoritah
-							break;
-							
-						case "[MATERIAL]":
-                            foreach (Material i in universalMaterialList) //Search for the material referenced
-                                if (i.name == data)
-									material = i; //Success               
-							break;
-							
-						case "[USE]":
-							useList.Add(data);
-							break;
-							
-						case "[VOLUME]":
-	                        volume = float.Parse(data, System.Globalization.CultureInfo.InvariantCulture); //Respect my ,. authoritah
-							break;
-						}
-						#endregion
-					}
-					
-					Item thisItem = new Item();
-					
-					#region Build item from info, add to list
-					switch(splitTag[0])
-					{
-					case "[/AMULET]":
-						thisItem = new Amulet(mass, volume, name, color, effect);
-						break;
-					case "[/ARMOR]":
-						thisItem = new Armor(mass, volume, aC, armorType, componentList, name, covers, color);
-						break;
-					case "[/COMPONENT]":
-						thisItem = new Item(mass, volume, name, color);
-						break;
-					case "[/POTION]":
-						thisItem = new Potion(name, color, componentList, effect);
-						break;
-					case "[/TOOL]":
-						thisItem = new Item(mass, volume, name, color);
-						break;
-					case "[/WEAPON]":
-						thisItem = new Weapon(mass, volume, name, color, damage);
-						break;
-					}
-					
-					thisItem.componentList = new List<Item>(componentList); //Copy, not pointer-link
-					thisItem.damage = new DNotation(damage); //Copy, not pointer-link
-					thisItem.use = new List<string>(useList); //Copy, not pointer link
-					thisItem.material = material;
-					
-					itemList.Add(Item.CopyDeep(thisItem)); //Copy, not reference the soon deleted temp item
-					
-					material = null;
-					componentList.Clear();
-					covers.Clear();
-					useList.Clear();
-					#endregion
-					break;
-				}
-			}
-			
-			read.Close();
-			return itemList;
-		}
-		
 		static void FileS_Level(Level currentLevel)
         {
             string folderPath = "Saves/" + sessionName.ToString(); //Folder name based on seed
@@ -680,13 +249,13 @@ namespace Adventurer
                         piece[0] = piece[0].Remove(0, 1);
                         piece[1] = piece[1].Remove(0, 1);
 
-                        if (piece[1] == "pinecone") //Bluh hackish improve later
+                        if (piece[1] == "pinecone") //TODO: Bluh hackish improve later
                         {
-                            currentLevel.tileArray[tilePos.X, tilePos.Y].itemList.Add(new Item("pinecone"));
+                            currentLevel.tileArray[tilePos.X, tilePos.Y].itemList.Add(new Item(content.items.Find(item => item.name == "pinecone")));
                         }
                         else
                         {
-                            foreach (Species c in bestiary) //For gore
+                            foreach (Species c in content.bestiary) //For gore
                             {
                                 if (piece[1].StartsWith(c.name)) //If it's a creature part
                                 {
@@ -694,9 +263,9 @@ namespace Adventurer
                                     
 									Item gore;
                                     if (split[1] == "corpse")
-                                        gore = new Item(piece[1], c.color);
+                                        gore = new Item(500f, 500f, $"{c.name} corpse", c.color, new List<Item>(), new List<string>());
                                     else
-                                        gore = new Item(piece[1], Color.Crimson);
+                                        gore = new Item(500f, 500f, $"{c.name} corpse", Color.Crimson, new List<Item>(), new List<string>());
                                     gore.itemImage = 253; //"²"
                                     gore.edible = true;
                                     currentLevel.tileArray[tilePos.X, tilePos.Y].itemList.Add(gore);
@@ -704,7 +273,7 @@ namespace Adventurer
                                 }
                             }
 
-                            foreach (Item i in itemLibrary)
+                            foreach (Item i in content.items)
                             {
                                 if (i.name == piece[1])
                                 {
@@ -733,13 +302,13 @@ namespace Adventurer
 
                         string[] piece = line.Split(':'); //Split it by ':'                    
 
-                        foreach (Species c in bestiary) //Look for the creature to add
+                        foreach (Species c in content.bestiary) //Look for the creature to add
                         {
                             if (piece[0] == c.name) //If the name matches the type of creature generator
                             {
                                 if (isPlayer)
                                 {
-                                    Creature p = c.GenerateCreature("monster", itemLibrary, int.Parse(piece[1]));
+                                    Creature p = c.GenerateCreature("monster", content.items, int.Parse(piece[1]));
                                     p.hp = int.Parse(piece[2]);
                                     p.hpMax = int.Parse(piece[3]);
                                     p.xp = int.Parse(piece[4]);
@@ -767,7 +336,7 @@ namespace Adventurer
 
                                     if (currentLevel.levelType == "village")
                                     {
-                                        Creature p = c.GenerateCreature("quest giver", itemLibrary, int.Parse(piece[1]));
+                                        Creature p = c.GenerateCreature("quest giver", content.items, int.Parse(piece[1]));
                                         p.inventory.Clear();
                                         p.wornArmor.Clear();
                                         p.weapon = null;
@@ -775,7 +344,7 @@ namespace Adventurer
                                     }
                                     else
                                     {
-                                        Creature p = c.GenerateCreature("monster", itemLibrary, int.Parse(piece[1]));
+                                        Creature p = c.GenerateCreature("monster", content.items, int.Parse(piece[1]));
                                         p.inventory.Clear();
                                         p.wornArmor.Clear();
                                         p.weapon = null;
@@ -789,19 +358,20 @@ namespace Adventurer
                         {
                             if (piece[a] == "pinecone") //Bluh hackish improve later
                             {
-                                currentLevel.creatures[creatureIndex].inventory.Add(new Item("pinecone"));
+                                currentLevel.creatures[creatureIndex].inventory.Add(new Item(content.items.Find(item => item.name == "pinecone")));
                             }
 
-                            foreach (Species c in bestiary) //For gore
+                            foreach (Species c in content.bestiary) //For gore
                             {
                                 if (piece[a].StartsWith(c.name)) //If it's a creature part
                                 {
                                     string[] split = piece[a].Split(' '); //Get creature name and part name
 									Item gore;
                                     if (split[1] == "corpse")
-                                        gore = new Item(piece[1], c.color);
+                                        gore = new Item(500f, 500f, $"{c.name} corpse", c.color, new List<Item>(), new List<string>());
                                     else
-                                        gore = new Item(piece[1], Color.Crimson);
+                                        gore = new Item(500f, 500f, $"{c.name} corpse", Color.Crimson, new List<Item>(), new List<string>());
+
                                     gore.itemImage = 253;
                                     gore.edible = true;
                                     currentLevel.creatures[creatureIndex].inventory.Add(gore);
@@ -809,7 +379,7 @@ namespace Adventurer
                                 }
                             }
 
-                            foreach (Item i in itemLibrary)
+                            foreach (Item i in content.items)
                             {
                                 if (i.name == piece[a])
                                 {

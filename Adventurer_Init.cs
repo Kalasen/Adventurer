@@ -61,19 +61,6 @@ namespace Adventurer
                     imageData[n] = (Sdl.SDL_Surface)Marshal.PtrToStructure(image[n], typeof(Sdl.SDL_Surface)); //Put the image data in its place
                     n++;
                 }
-
-            DrawText(veraSmall, "Images loaded; loading items...", new Vector2(15, 45));
-            Sdl.SDL_Flip(screen); //Update screen
-
-            //TODO: Update loading to XML-based
-
-			//itemLibrary = FileL_Item(content.materials.ToList(), new StreamReader("Content/Encyclopaedia Adventura/Components.txt"));
-            //itemLibrary.AddRange(FileL_Item(content.materials.ToList(), new StreamReader("Content/Encyclopaedia Adventura/Items.txt")));
-
-            DrawText(veraSmall, "Items loaded; loading creatures...", new Vector2(15, 105));
-            Sdl.SDL_Flip(screen); //Update screen
-
-            bestiary = FileL_Creatures(itemLibrary);
 			
             DrawText(veraSmall, "Creatures loaded. External content loading complete.", new Vector2(15, 120));
             DrawText(veraSmall, "Post-initializing...", new Vector2(15, 135));

@@ -34,10 +34,7 @@ namespace Adventurer
 
         static bool run = true; //Whether the game should continue running
 
-        static List<Species> bestiary = new List<Species>();
         static List<Item> craftableItems = new List<Item>(); //For use in inventory menu
-        static List<Item> componentLibrary = new List<Item>();
-        static List<Item> itemLibrary = new List<Item>();
 		
 		public static Material air, rock;
 
@@ -47,8 +44,8 @@ namespace Adventurer
         //The code starts running here
         static void Main() //The code starts running in here
         {
-            try  //Try to run the game
-            {                
+            //try  //Try to run the game
+            //{                
                 Test(); //Test random junk
                 Init_PreInitialize(); //Load in stuff that needs to be done first
                 content.LoadAll();
@@ -60,34 +57,34 @@ namespace Adventurer
                     Draw(); //Draw everything to the screen
                     Update(); //Run the main bits of logic
                 }
-            }
-            catch (Exception e) //If it can't
-            {
-            #region Error Catch
-                List<string> lines = new List<string>();
-                lines.Add("The dungeon collapses. Rocks fall, everyone dies. Kalasen apologizes for the instability.");
-                lines.Add("Perhaps you can salvage some understanding of the collapse from this arcane scroll.");
-                lines.Add(String.Empty);
-                lines.Add("**********************************");
-                lines.Add(String.Empty);
-                lines.Add(e.ToString());
-                lines.Add(String.Empty);
-                lines.Add("**********************************");
+            //}
+            //catch (Exception e) //If it can't
+            //{
+            //#region Error Catch
+            //    List<string> lines = new List<string>();
+            //    lines.Add("The dungeon collapses. Rocks fall, everyone dies. Kalasen apologizes for the instability.");
+            //    lines.Add("Perhaps you can salvage some understanding of the collapse from this arcane scroll.");
+            //    lines.Add(String.Empty);
+            //    lines.Add("**********************************");
+            //    lines.Add(String.Empty);
+            //    lines.Add(e.ToString());
+            //    lines.Add(String.Empty);
+            //    lines.Add("**********************************");
 
-                if (File.Exists("ErrorLogs/crash.txt"))
-                    File.Delete("ErrorLogs/crash.txt"); //Clear it if it's there
+            //    if (File.Exists("ErrorLogs/crash.txt"))
+            //        File.Delete("ErrorLogs/crash.txt"); //Clear it if it's there
 
-                string[] eStr = new string[1];
-                eStr[0] = e.ToString();
-                File.WriteAllLines("ErrorLogs/crash.txt", eStr);
+            //    string[] eStr = new string[1];
+            //    eStr[0] = e.ToString();
+            //    File.WriteAllLines("ErrorLogs/crash.txt", eStr);
 
-                foreach (string s in lines)
-                    Console.WriteLine(s); //Display the error on screen
+            //    foreach (string s in lines)
+            //        Console.WriteLine(s); //Display the error on screen
 
-                Console.ReadLine(); //Pause for the player to read it
-                throw;
-            #endregion
-            }
+            //    Console.ReadLine(); //Pause for the player to read it
+            //    throw;
+            //#endregion
+            //}
         }
 
         //Converts a letter to its number, aka 'a' == 1, 'b' == 2, etc
@@ -258,14 +255,14 @@ namespace Adventurer
             #region Race Select
             gameState = CREATURE_SELECT; //Yup, creature selection            
 
-            int numberOfPages = (int)Math.Ceiling((double)bestiary.Count / 26f); //Get the number of pages we'll need
+            int numberOfPages = (int)Math.Ceiling((double)content.bestiary.Count / 26f); //Get the number of pages we'll need
             string[,] creaturePages = new string[numberOfPages, 26]; //Only as many pages as we need
             for (int i = 0; i < numberOfPages; i++)
                 for (int c = 0; c < 26; c++)
                 {
-                    if (i * 26 + c >= bestiary.Count) //If we've gone out of bounds
+                    if (i * 26 + c >= content.bestiary.Count) //If we've gone out of bounds
                         break;
-                    creaturePages[i, c] = bestiary[i * 26 + c].name; //Add the name of the creature to the right page and position
+                    creaturePages[i, c] = content.bestiary[i * 26 + c].name; //Add the name of the creature to the right page and position
                 }
             
             int pageNumber = 0; //Whatever page we are on            
@@ -383,7 +380,7 @@ namespace Adventurer
                     case "y":
                     case "z":                        
                         inputIndex = (26 * pageNumber) + LetterIndexToNumber(input) - 1;
-                        if(inputIndex < bestiary.Count)
+                        if(inputIndex < content.bestiary.Count)
                             done = true;
                         break;
 
@@ -481,7 +478,7 @@ namespace Adventurer
             GenLevel("dungeon", true);
 
             Vector2 playerPos = currentLevel.creatures[0].pos;
-            currentLevel.creatures[0] = bestiary[inputIndex].GenerateCreature("monster", itemLibrary, rng.Next()); //Player is given creature
+            currentLevel.creatures[0] = content.bestiary[inputIndex].GenerateCreature("monster", content.items, rng.Next()); //Player is given creature
 			currentLevel.creatures[0].hpMax = currentLevel.creatures[0].hp += 5; //Add 5 for being an adventurer
             currentLevel.creatures[0].message.Add("Welcome to Adventurer!");
             currentLevel.creatures[0].message.Add("You are a " + currentLevel.creatures[0].name + ".");

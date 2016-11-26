@@ -108,7 +108,7 @@ namespace Adventurer
 
             int m = 60;
             Queue<string> items = new Queue<string>();
-            foreach (Species item in bestiary)
+            foreach (Species item in content.bestiary)
             {
                 if (items.Count >= 26)
                 {
@@ -429,20 +429,27 @@ namespace Adventurer
                 }
 
                 parts.Enqueue(CapitalizeFirst(part.name));
-
-                healthRatio = (float)part.currentHealth / (float)part.noInjury; // This is the health ratio.                        
-                if (healthRatio >= 1.00)
-                    partDamage.Enqueue(Color.White);
-                else if (healthRatio > 0.75)
-                    partDamage.Enqueue(Color.Cyan);
-                else if (healthRatio > 0.5)
-                    partDamage.Enqueue(Color.Green);
-                else if (healthRatio > 0.25)
-                    partDamage.Enqueue(Color.Yellow);
-                else if (healthRatio > 0)
-                    partDamage.Enqueue(Color.Crimson);
-                else
-                    partDamage.Enqueue(Color.Gray);
+               
+                switch (part.injury)
+                {
+                    case InjuryLevel.Healthy:
+                        partDamage.Enqueue(Color.White);
+                        break;
+                    case InjuryLevel.Minor:
+                        partDamage.Enqueue(Color.Green);
+                        break;
+                    case InjuryLevel.Broken:
+                        partDamage.Enqueue(Color.Yellow);
+                        break;
+                    case InjuryLevel.Mangled:
+                        partDamage.Enqueue(Color.Crimson);
+                        break;
+                    case InjuryLevel.Destroyed:
+                        partDamage.Enqueue(Color.Gray);
+                        break;
+                    default:
+                        throw new Exception($"Unhandled InjuryType '${part.injury.ToString()}' when displaying body parts");
+                }
             }
 
             partCount = parts.Count;

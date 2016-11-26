@@ -11,18 +11,15 @@ namespace Adventurer
         public int aC {get;set;}
         public string shape {get;protected set;}
         public List<string> covers {get;protected set;}
-
-		public Armor():this(1, "missingno", "m[s[i[g[o"){}
-		public Armor(int aC, string shape, string name):this(aC, shape, name, Color.White){}			
-		public Armor(int aC, string shape, string name, Color color):this(1f, 1, aC, shape, new List<Item>(), name, new List<string>(), color){}
-        public Armor(float mass, float volume, int aC, string shape, List<Item> component, string name,
-            List<string> covers, Color color)
-            : base(mass, volume, name, color)
+        
+		public Armor(float mass, float volume, int aC, string shape, List<Item> components, string name,
+            List<string> covers, Color color, List<string> uses)
+            : base(mass, volume, name, color, components, uses)
         {
             this.aC = aC;
             this.covers = covers;
             this.shape = shape;
-            base.componentList = component;
+            base.componentList = components;
             base.itemImage = 91; //The armor image '['
         }
 		public Armor(Armor a):base(a)
