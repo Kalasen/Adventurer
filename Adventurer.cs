@@ -41,6 +41,8 @@ namespace Adventurer
 		public static Material air, rock;
 
         static int ticks = 0;
+
+        static Graphics graphics;
         #endregion
 
         //The code starts running here
@@ -49,7 +51,8 @@ namespace Adventurer
             //try  //Try to run the game
             //{                
                 Test(); //Test random junk
-                Init_PreInitialize(); //Load in stuff that needs to be done first
+                Init_PreInitialize();
+                graphics = new Graphics(); //Load in stuff that needs to be done first
                 content.LoadAll();
                 Init_LoadContent(); //Load in external content
                 Init_PostInitialize(); //Set everything up after the content loading

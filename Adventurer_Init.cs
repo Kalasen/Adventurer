@@ -11,9 +11,9 @@ namespace Adventurer
 	{
         public static int baseSeed = (int)DateTime.Now.Ticks;
         public static int worldSeed = baseSeed;
-        	
-		static void Init_PreInitialize()
-        {			
+
+        static void Init_PreInitialize()
+        {
             Sdl.SDL_Init(Sdl.SDL_INIT_VIDEO); //Set up the video display
             SdlTtf.TTF_Init(); //Set up the text rendering
 

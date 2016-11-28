@@ -61,7 +61,10 @@
     <Compile Include="Adventurer_Update.cs" />
     <Compile Include="General\Direction.cs" />
     <Compile Include="General\Extensions.cs" />
+    <Compile Include="General\Graphics.cs" />
     <Compile Include="General\Menu.cs" />
+    <Compile Include="General\ISprite.cs" />
+    <Compile Include="General\TextSprite.cs" />
     <Compile Include="Item\Amulet.cs" />
     <Compile Include="Item\Armor.cs" />
     <Compile Include="Item\Currency.cs" />

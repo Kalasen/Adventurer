@@ -56,4 +56,11 @@ namespace Adventurer
         Mangled,
         Destroyed
     }
+
+    public enum Fonts
+    {
+        None,
+        Vera,
+        VeraSmall
+    }
 }
