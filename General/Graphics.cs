@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using Tao.Sdl;
 
 namespace Adventurer
@@ -24,6 +21,8 @@ namespace Adventurer
         static IntPtr vera;
         public static SdlTtf.TTF_Font veraSmallData;
         static IntPtr veraSmall;
+
+        public List<IDrawable> sprites = new List<IDrawable>();
 
         public Graphics()
         {
@@ -49,19 +48,29 @@ namespace Adventurer
             veraSmall = SdlTtf.TTF_OpenFont("Content/Fonts/Vera.ttf", 10);
             veraSmallData = (SdlTtf.TTF_Font)Marshal.PtrToStructure(vera, typeof(SdlTtf.TTF_Font));
 
-
             //TODO: Generalize setting the window caption
             //Set the window caption
             Sdl.SDL_WM_SetCaption("Adventurer", "Adventurer");
         }
 
-        public void DrawAll()
+        //
+        public void Draw(GameState gameState)
         {
-            //TODO: Move logic from Adventurer_Draw to here
+            Sdl.SDL_FillRect(screen, ref screenArea, 0); //Clear for next draw cycle
+            screenData = (Sdl.SDL_Surface)Marshal.PtrToStructure(screen, typeof(Sdl.SDL_Surface)); //Put the screen data in its place
+
+            foreach (var sprite in sprites)
+                sprite.Draw(this);
+
+            Sdl.SDL_Flip(screen);
         }
 
         public void DrawText(string text, Vector2 position, Color color = default(Color), Fonts font = Fonts.VeraSmall)
         {
+            //Let's go with white if unspecified
+            if (color == default(Color))
+                color = Color.White;
+
             IntPtr textPointer; //Points to image data
             Sdl.SDL_Color foreColor = new Sdl.SDL_Color(color.R, color.G, color.B, color.A); //Convert Drawing.Color to Sdl color
             Sdl.SDL_Rect source; //Where to grab from
@@ -93,6 +102,11 @@ namespace Adventurer
 
             Sdl.SDL_BlitSurface(textPointer, ref source, screen, ref target); //Draw text on screen
             Sdl.SDL_FreeSurface(textPointer); //Free the text image
+        }
+
+        public void DrawImage(Sdl.SDL_Surface image, Vector2 pos)
+        {
+            //STUB
         }
     }
 }

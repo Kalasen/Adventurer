@@ -13,7 +13,7 @@ namespace Adventurer
         public const double PI = 3.14159265; //Circumference/Diameter
         public const byte TURN_THRESHOLD = 72; //Timing system threshold for getting a turn
 
-        static GameState gameState = GameState.OpeningMenu;
+        public static GameState gameState = GameState.OpeningMenu;
 
         static int exploredLevels = 0;
 

@@ -34,7 +34,7 @@ namespace Adventurer
             Sdl.SDL_FillRect(screen, ref screenArea, 0); //Clear for next draw cycle
             screenData = (Sdl.SDL_Surface)Marshal.PtrToStructure(screen, typeof(Sdl.SDL_Surface)); //Put the screen data in its place
             
-			switch (gameState)
+			switch (Adventurer.gameState)
 			{
 			case GameState.OpeningMenu:
 				Draw_Opening();

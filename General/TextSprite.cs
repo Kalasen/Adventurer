@@ -1,29 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace Adventurer
 {
-    public class TextSprite : ISprite
+    //This is sort of just a bundle of stored arguments for DrawText, representing a drawable sprite of text
+    public class TextSprite : IDrawable
     {
-        Graphics graphics;
         string text;
         Vector2 pos;
         Color color;
+        Fonts font;
 
-        public TextSprite(Graphics graphics, string text, Vector2 pos, Color color)
+        public TextSprite(string text, Vector2 pos, Color color = default(Color), Fonts font = Fonts.VeraSmall)
         {
             this.text = text;
             this.pos = pos;
             this.color = color;
+            this.font = font;
         }
 
-        public void Draw()
+        public void Draw(Graphics graphics)
         {
-            
+            graphics.DrawText(text, pos, color, font);
         }
     }
 }
