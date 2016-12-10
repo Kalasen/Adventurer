@@ -22,7 +22,7 @@ namespace Adventurer
         public static SdlTtf.TTF_Font veraSmallData;
         static IntPtr veraSmall;
 
-        public List<IDrawable> sprites = new List<IDrawable>();
+        Dictionary<GameState, List<IDrawable>> screens = new Dictionary<GameState, List<IDrawable>>();
 
         public Graphics()
         {
@@ -41,6 +41,7 @@ namespace Adventurer
             screenArea.y = 0;
 
             //Load in 24-point Vera
+            //TODO: Fonts collection
             vera = SdlTtf.TTF_OpenFont("Content/Fonts/Vera.ttf", 24);
             veraData = (SdlTtf.TTF_Font)Marshal.PtrToStructure(vera, typeof(SdlTtf.TTF_Font));        
 
@@ -59,7 +60,10 @@ namespace Adventurer
             Sdl.SDL_FillRect(screen, ref screenArea, 0); //Clear for next draw cycle
             screenData = (Sdl.SDL_Surface)Marshal.PtrToStructure(screen, typeof(Sdl.SDL_Surface)); //Put the screen data in its place
 
-            foreach (var sprite in sprites)
+            if (!screens.ContainsKey(gameState))
+                throw new GraphicsException($"The screen {gameState} is unimplemented");
+
+            foreach (var sprite in screens[gameState])
                 sprite.Draw(this);
 
             Sdl.SDL_Flip(screen);

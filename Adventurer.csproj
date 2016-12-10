@@ -60,6 +60,7 @@
     <Compile Include="Adventurer_Load.cs" />
     <Compile Include="Adventurer_Update.cs" />
     <Compile Include="General\Direction.cs" />
+    <Compile Include="General\Exceptions.cs" />
     <Compile Include="General\Extensions.cs" />
     <Compile Include="General\Graphics.cs" />
     <Compile Include="General\IDrawable.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="General\Vector2.cs" />
     <Compile Include="General\Vector3.cs" />
     <Compile Include="Misc\Enums.cs" />
+    <Compile Include="Screens\OpeningMenu.cs" />
     <Compile Include="World\Atom.cs" />
     <Compile Include="World\Corridor.cs" />
     <Compile Include="World\Level.cs" />
