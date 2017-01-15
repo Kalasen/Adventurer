@@ -8,5 +8,6 @@ namespace Adventurer.Screens
 {
     public class OpeningMenu
     {
+        int x = 10;
     }
 }
