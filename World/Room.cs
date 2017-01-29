@@ -21,7 +21,7 @@ namespace Adventurer
             this.doorCount = 0;
         }
 		
-		public bool IsInRoom(Vector2 pos)
+		public bool IsInRoom(Point2D pos)
 		{
 			return (pos.X >= x &&
 			    	pos.X <= x + width &&

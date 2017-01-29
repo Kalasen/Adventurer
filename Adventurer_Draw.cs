@@ -79,33 +79,33 @@ namespace Adventurer
 		
 		static void Draw_Opening()
 		{
-            DrawText(vera, "Adventurer", new Vector2(windowSizeX / 2 - 130, 20), Color.White);
-            DrawText(vera, "by", new Vector2(windowSizeX / 2 - 50, 50), Color.White);
-            DrawText(vera, "Kalasen Zyphurus", new Vector2(windowSizeX / 2 - 130, 80), Color.White);
+            DrawText(vera, "Adventurer", new Point2D(windowSizeX / 2 - 130, 20), Color.White);
+            DrawText(vera, "by", new Point2D(windowSizeX / 2 - 50, 50), Color.White);
+            DrawText(vera, "Kalasen Zyphurus", new Point2D(windowSizeX / 2 - 130, 80), Color.White);
 
             if (selectionCursor == 1) //If New Game is highlighted
-                DrawText(vera, "<Start Game>", new Vector2(350, windowSizeY / 2), Color.White);
+                DrawText(vera, "<Start Game>", new Point2D(350, windowSizeY / 2), Color.White);
             else
-                DrawText(vera, "Start Game", new Vector2(350, windowSizeY / 2), Color.Gray);
+                DrawText(vera, "Start Game", new Point2D(350, windowSizeY / 2), Color.Gray);
 
             if (selectionCursor == 2) //If Help is highlighted
-                DrawText(vera, "<Help>", new Vector2(350, windowSizeY / 2 + 30), Color.White);
+                DrawText(vera, "<Help>", new Point2D(350, windowSizeY / 2 + 30), Color.White);
             else
-                DrawText(vera, "Help", new Vector2(350, windowSizeY / 2 + 30), Color.Gray);
+                DrawText(vera, "Help", new Point2D(350, windowSizeY / 2 + 30), Color.Gray);
 
             if (selectionCursor == 3) //If Quit is highlighted
-                DrawText(vera, "<Quit>", new Vector2(350, windowSizeY / 2 + 60), Color.White);
+                DrawText(vera, "<Quit>", new Point2D(350, windowSizeY / 2 + 60), Color.White);
             else
-                DrawText(vera, "Quit", new Vector2(350, windowSizeY / 2 + 60), Color.Gray);
+                DrawText(vera, "Quit", new Point2D(350, windowSizeY / 2 + 60), Color.Gray);
 		}
 		static void Draw_Name()
 		{
-	        DrawText(vera, "Name Select", new Vector2(windowSizeX / 2 - 130, 20), Color.White);
-            DrawText(veraSmall, "Enter name: " + sessionName, new Vector2(windowSizeX / 2 - 130, windowSizeY / 2), Color.White);
+	        DrawText(vera, "Name Select", new Point2D(windowSizeX / 2 - 130, 20), Color.White);
+            DrawText(veraSmall, "Enter name: " + sessionName, new Point2D(windowSizeX / 2 - 130, windowSizeY / 2), Color.White);
 		}
 		static void Draw_CreatureSel()
 		{
-            DrawText(vera, "Creature Select", new Vector2(350, 20)); //Draw the title
+            DrawText(vera, "Creature Select", new Point2D(350, 20)); //Draw the title
 
             int m = 60;
             Queue<string> items = new Queue<string>();
@@ -179,33 +179,33 @@ namespace Adventurer
                 #endregion
 
                 DrawText(veraSmall, s + ": " + items.Dequeue(),
-                    new Vector2(350, m), Color.White);
+                    new Point2D(350, m), Color.White);
             }
 
             items.Clear();
 		}
 		static void Draw_Help()
 		{
-            DrawText(vera, "Help", new Vector2(400, 20), Color.White);
-            DrawText(vera, "Controls:", new Vector2(10, 50), Color.White);
-            DrawText(veraSmall, "Movement: arrows, end, home, pgup, pgdn; numpad", new Vector2(10, 80), Color.White);
+            DrawText(vera, "Help", new Point2D(400, 20), Color.White);
+            DrawText(vera, "Controls:", new Point2D(10, 50), Color.White);
+            DrawText(veraSmall, "Movement: arrows, end, home, pgup, pgdn; numpad", new Point2D(10, 80), Color.White);
 
-            DrawText(veraSmall, "c - Close", new Vector2(10, 95), Color.White);
-            DrawText(veraSmall, "e - Engrave", new Vector2(10, 110), Color.White);
-            DrawText(veraSmall, "h - Debug digging", new Vector2(10, 125), Color.White);
-            DrawText(veraSmall, "i - Inventory menu", new Vector2(10, 140), Color.White);
-            DrawText(veraSmall, "k - Kick/Dismantle", new Vector2(10, 155), Color.White);
-            DrawText(veraSmall, "l (L) - Toggle debug omnivision", new Vector2(10, 170), Color.White);
-            DrawText(veraSmall, "o - Open", new Vector2(10, 185), Color.White);
-            DrawText(veraSmall, "w - Unwield an item", new Vector2(10, 200), Color.White);
-            DrawText(veraSmall, "W - Remove an item", new Vector2(10, 215), Color.White);
-            DrawText(veraSmall, "x - Examine at range", new Vector2(10, 230), Color.White);
-            DrawText(veraSmall, "X - Debug mode", new Vector2(10, 245), Color.White);
-            DrawText(veraSmall, "z - Status", new Vector2(10, 260), Color.White);
-            DrawText(veraSmall, ", - Pick up item", new Vector2(10, 275), Color.White);
+            DrawText(veraSmall, "c - Close", new Point2D(10, 95), Color.White);
+            DrawText(veraSmall, "e - Engrave", new Point2D(10, 110), Color.White);
+            DrawText(veraSmall, "h - Debug digging", new Point2D(10, 125), Color.White);
+            DrawText(veraSmall, "i - Inventory menu", new Point2D(10, 140), Color.White);
+            DrawText(veraSmall, "k - Kick/Dismantle", new Point2D(10, 155), Color.White);
+            DrawText(veraSmall, "l (L) - Toggle debug omnivision", new Point2D(10, 170), Color.White);
+            DrawText(veraSmall, "o - Open", new Point2D(10, 185), Color.White);
+            DrawText(veraSmall, "w - Unwield an item", new Point2D(10, 200), Color.White);
+            DrawText(veraSmall, "W - Remove an item", new Point2D(10, 215), Color.White);
+            DrawText(veraSmall, "x - Examine at range", new Point2D(10, 230), Color.White);
+            DrawText(veraSmall, "X - Debug mode", new Point2D(10, 245), Color.White);
+            DrawText(veraSmall, "z - Status", new Point2D(10, 260), Color.White);
+            DrawText(veraSmall, ", - Pick up item", new Point2D(10, 275), Color.White);
 
-            DrawText(veraSmall, "Esc (Normal Game) - Main menu", new Vector2(10, 305), Color.White);
-            DrawText(veraSmall, "Space, Escape - Back a menu", new Vector2(10, 320), Color.White);
+            DrawText(veraSmall, "Esc (Normal Game) - Main menu", new Point2D(10, 305), Color.White);
+            DrawText(veraSmall, "Space, Escape - Back a menu", new Point2D(10, 320), Color.White);
 		}
 		static void Draw_Main()
 		{
@@ -219,8 +219,8 @@ namespace Adventurer
                 Color.FromArgb(1, 1, 1, 255).ToArgb()); //Black backdrop
             SdlGfx.rectangleColor(screen, (short)(windowSizeX * 0.66), 0, (short)windowSizeX, (short)windowSizeY,
                 Color.White.ToArgb()); //White border
-            DrawText(vera, "Inventory Menu", new Vector2(690, 20), Color.White);
-            DrawText(veraSmall, "Cancel: Space", new Vector2(605, windowSizeY - 20), Color.White);
+            DrawText(vera, "Inventory Menu", new Point2D(690, 20), Color.White);
+            DrawText(veraSmall, "Cancel: Space", new Point2D(605, windowSizeY - 20), Color.White);
 
             #region List items
             if (inventorySelect == 0) //If none selected
@@ -297,7 +297,7 @@ namespace Adventurer
                     #endregion
 
                     DrawText(veraSmall, s + ": " + items.Dequeue(),
-                        new Vector2(650, m), Color.White);
+                        new Point2D(650, m), Color.White);
                 }
 
                 items.Clear();
@@ -308,16 +308,16 @@ namespace Adventurer
                 if (inventoryMode == 0)
                 {
                     DrawText(veraSmall, CapitalizeFirst(currentLevel.creatures[0].inventory[
-                        inventorySelect - 1].name), new Vector2(650, 75), Color.White); //Draw selected item's name
+                        inventorySelect - 1].name), new Point2D(650, 75), Color.White); //Draw selected item's name
 
-                    DrawText(veraSmall, " - [b]reak down", new Vector2(650, 90), Color.White);
-                    DrawText(veraSmall, " - [c]ombine craft", new Vector2(650, 105), Color.White);
-                    DrawText(veraSmall, " - [d]rop", new Vector2(650, 120), Color.White);
-                    DrawText(veraSmall, " - [e]at", new Vector2(650, 135), Color.White);
-                    DrawText(veraSmall, " - [f]ire/throw", new Vector2(650, 150), Color.White);
-                    DrawText(veraSmall, " - [u]se", new Vector2(650, 165), Color.White);
-                    DrawText(veraSmall, " - [w]ield", new Vector2(650, 180), Color.White);
-                    DrawText(veraSmall, " - [W]ear", new Vector2(650, 195), Color.White);
+                    DrawText(veraSmall, " - [b]reak down", new Point2D(650, 90), Color.White);
+                    DrawText(veraSmall, " - [c]ombine craft", new Point2D(650, 105), Color.White);
+                    DrawText(veraSmall, " - [d]rop", new Point2D(650, 120), Color.White);
+                    DrawText(veraSmall, " - [e]at", new Point2D(650, 135), Color.White);
+                    DrawText(veraSmall, " - [f]ire/throw", new Point2D(650, 150), Color.White);
+                    DrawText(veraSmall, " - [u]se", new Point2D(650, 165), Color.White);
+                    DrawText(veraSmall, " - [w]ield", new Point2D(650, 180), Color.White);
+                    DrawText(veraSmall, " - [W]ear", new Point2D(650, 195), Color.White);
                 }
                 else if (inventoryMode == 1) //Craft this item menu
                 {
@@ -336,7 +336,7 @@ namespace Adventurer
                     int count = items.Count;
                     if (count <= 0)
                         DrawText(veraSmall, "Nothing occurs to you, given what you have.",
-                                               new Vector2(650, 75), Color.White);
+                                               new Point2D(650, 75), Color.White);
 
                     for (int c = 1; c <= count; c++)
                     {
@@ -397,7 +397,7 @@ namespace Adventurer
                         #endregion
 
                         DrawText(veraSmall, s + ": " + items.Dequeue(),
-                            new Vector2(650, m), Color.White);
+                            new Point2D(650, m), Color.White);
                     }
                     items.Clear();
                 }
@@ -411,8 +411,8 @@ namespace Adventurer
             SdlGfx.rectangleColor(screen, (short)(windowSizeX * 0.66), 0, (short)windowSizeX, (short)windowSizeY,
                 Color.White.ToArgb()); //White border
 
-            DrawText(vera, "Status Menu", new Vector2(690, 20), Color.White);
-            DrawText(veraSmall, "Cancel: Space", new Vector2(605, windowSizeY - 20), Color.White);
+            DrawText(vera, "Status Menu", new Point2D(690, 20), Color.White);
+            DrawText(veraSmall, "Cancel: Space", new Point2D(605, windowSizeY - 20), Color.White);
 
             #region List parts
             int partCount = currentLevel.creatures[0].anatomy.Count;
@@ -457,7 +457,7 @@ namespace Adventurer
             {
                 m += 15; //Skip down 15 pixels
                 DrawText(veraSmall, parts.Dequeue(),
-                    new Vector2(650, m), partDamage.Dequeue());
+                    new Point2D(650, m), partDamage.Dequeue());
             }
 
             parts.Clear();
@@ -469,7 +469,7 @@ namespace Adventurer
             SdlGfx.boxColor(screen, 5, 533, 895, (short)(windowSizeY * 0.992), Color.Black.ToArgb());
             SdlGfx.rectangleColor(screen, 5, 533, 895, (short)(windowSizeY * 0.992), Color.White.ToArgb());
             
-            DrawImage(88, new Vector2(cursorPos.X * TILEWIDTH, cursorPos.Y * TILEHEIGHT), Color.Yellow); //Draw Cursor
+            DrawImage(88, new Point2D(cursorPos.X * TILEWIDTH, cursorPos.Y * TILEHEIGHT), Color.Yellow); //Draw Cursor
 
             #region Description
             int m = 535;
@@ -528,7 +528,7 @@ namespace Adventurer
             foreach (string message in messages.Reverse())
             {
                 m -= 15; //Skip up 15 pixels
-                DrawText(veraSmall, message, new Vector2(10, m), Color.White);
+                DrawText(veraSmall, message, new Point2D(10, m), Color.White);
             }
 
             messages.Clear();
@@ -536,17 +536,17 @@ namespace Adventurer
 		}
 		static void Draw_Escape()
 		{
-	        DrawText(vera, "Main Menu", new Vector2(380, 20), Color.White);
+	        DrawText(vera, "Main Menu", new Point2D(380, 20), Color.White);
 	
 	        if (selectionCursor == 1) //If New Game is highlighted
-	            DrawText(vera, "<Return to game>", new Vector2(350, windowSizeY / 2), Color.White);
+	            DrawText(vera, "<Return to game>", new Point2D(350, windowSizeY / 2), Color.White);
 	        else
-	            DrawText(vera, "Return to game", new Vector2(350, windowSizeY / 2), Color.Gray);
+	            DrawText(vera, "Return to game", new Point2D(350, windowSizeY / 2), Color.Gray);
 	
 	        if (selectionCursor == 2) //If Quit is highlighted
-	            DrawText(vera, "<Quit and Save>", new Vector2(350, windowSizeY / 2 + 30), Color.White);
+	            DrawText(vera, "<Quit and Save>", new Point2D(350, windowSizeY / 2 + 30), Color.White);
 	        else
-	            DrawText(vera, "Quit and Save", new Vector2(350, windowSizeY / 2 + 30), Color.Gray);
+	            DrawText(vera, "Quit and Save", new Point2D(350, windowSizeY / 2 + 30), Color.Gray);
 		}
 		
 		static void Draw_HUD()
@@ -601,30 +601,30 @@ namespace Adventurer
             int displayTurn = (int)totalTurnCount;
 
             DrawText(veraSmall, "Turn: " + displayTurn.ToString(),
-                new Vector2(10, 535), Color.White); //Write turn count
+                new Point2D(10, 535), Color.White); //Write turn count
 
             DrawText(veraSmall, "HP: " + currentLevel.creatures[0].hp + "/" + currentLevel.creatures[0].hpMax,
-                new Vector2(175, 535), injuryColor); //Write turn count
+                new Point2D(175, 535), injuryColor); //Write turn count
 
             DrawText(veraSmall, "XP: " + currentLevel.creatures[0].xp + "/" + currentLevel.creatures[0].xpBorder*2,
-                new Vector2(175, 550), Color.White); //Write turn count
+                new Point2D(175, 550), Color.White); //Write turn count
 			
 			DrawText(veraSmall, "GP: " + currentLevel.creatures[0].gold,
-                new Vector2(175, 565), Color.White); //Write turn count
+                new Point2D(175, 565), Color.White); //Write turn count
 
             DrawText(veraSmall, "Area: (" + mapPos.X + ", " + mapPos.Y + ", " + mapPos.Z + ")",
-                new Vector2(10, 550), Color.White);
+                new Point2D(10, 550), Color.White);
 
-            DrawText(veraSmall, "Hunger: ", new Vector2(10, 610),
+            DrawText(veraSmall, "Hunger: ", new Point2D(10, 610),
                 Color.White);
-            DrawText(veraSmall, foodLevelWord, new Vector2(110, 610), foodLevelColor);
+            DrawText(veraSmall, foodLevelWord, new Point2D(110, 610), foodLevelColor);
 
             DrawText(veraSmall, "STR: " + currentLevel.creatures[0].strength +
                 " DEX: " + currentLevel.creatures[0].dexterity +
                 " CON: " + currentLevel.creatures[0].constitution +
                 " INT: " + currentLevel.creatures[0].intelligence +
                 " WIS: " + currentLevel.creatures[0].wisdom +
-                " CHA: " + currentLevel.creatures[0].charisma, new Vector2(10, 730));
+                " CHA: " + currentLevel.creatures[0].charisma, new Point2D(10, 730));
             #endregion
 
             #region Message Box
@@ -643,7 +643,7 @@ namespace Adventurer
             foreach (string message in messages.Reverse()) //Display newest first
             {
                 m += 15; //Skip down 15 pixels
-                DrawText(veraSmall, message, new Vector2(280, m), Color.White);
+                DrawText(veraSmall, message, new Point2D(280, m), Color.White);
             }
 
             messages.Clear();
@@ -671,7 +671,7 @@ namespace Adventurer
                         imageColor = Color.DimGray; //But washed out
                     }
 
-                    bool LOS = ((currentLevel.LineOfSight(player.pos, new Vector2(x, y))) || iCanSeeForever);
+                    bool LOS = ((currentLevel.LineOfSight(player.pos, new Point2D(x, y))) || iCanSeeForever);
 
                     if (LOS && player.blind <= 0) //If in line of sight and not blind
                     {
@@ -726,7 +726,7 @@ namespace Adventurer
 					
 					foreach (Creature c in currentLevel.creatures)
                     {
-                        if (c.pos == new Vector2(x, y) && //If there's a creature here
+                        if (c.pos == new Point2D(x, y) && //If there's a creature here
 						    ((LOS && player.blind <= 0 && (c.invisibility <= 0 || player.seeInvisible > 0)) || 
 						     player.detectMonster > 0)) //And we can see or detect it
                         {
@@ -738,15 +738,15 @@ namespace Adventurer
 					if (imageIndex >= 0 && imageIndex < 256) //If existent
 					{
 						currentLevel.tileArray[x, y].lastSeenImage = imageIndex; //Remember image
-						DrawImage(imageIndex, new Vector2(x * TILEWIDTH, y * TILEHEIGHT),
+						DrawImage(imageIndex, new Point2D(x * TILEWIDTH, y * TILEHEIGHT),
                             imageColor); //Draw this tile's stuff
 					}
 					
-					if (player.pos == new Vector2(x,y)) //PC should always be drawn
+					if (player.pos == new Point2D(x,y)) //PC should always be drawn
 					{
 						imageIndex = player.creatureImage;
 						imageColor = player.color;
-                        DrawImage(imageIndex, new Vector2(x * TILEWIDTH, y * TILEHEIGHT),
+                        DrawImage(imageIndex, new Point2D(x * TILEWIDTH, y * TILEHEIGHT),
                             imageColor); //Draw this tile's stuff
                     }
                     //int smellTotal = 0;
@@ -759,11 +759,11 @@ namespace Adventurer
 			}
 		}
 
-        static void DrawText(IntPtr fontToDraw, string text, Vector2 position)
+        static void DrawText(IntPtr fontToDraw, string text, Point2D position)
         {
             DrawText(fontToDraw, text, position, Color.White);
         }
-        static void DrawText(IntPtr fontToDraw, string text, Vector2 position, Color color)
+        static void DrawText(IntPtr fontToDraw, string text, Point2D position, Color color)
         {
             Sdl.SDL_Surface textImage; //The surface to be rendered on
             IntPtr textPointer; //Points to image data
@@ -784,7 +784,7 @@ namespace Adventurer
             Sdl.SDL_BlitSurface(textPointer, ref source, screen, ref target); //Draw text on screen
             Sdl.SDL_FreeSurface(textPointer); //Free the text image
         }
-        static void DrawImage(int imageToDraw, Vector2 position, Color color)
+        static void DrawImage(int imageToDraw, Point2D position, Color color)
         {
             target.x = position.X;
             target.y = position.Y;

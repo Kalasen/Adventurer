@@ -17,7 +17,7 @@ namespace Adventurer
         public Material material {get;set;}
         public int tileImage {get;set;}
 		public int adjacentToRoomN {get;set;}
-		public Vector2 pos {get;set;}
+		public Point2D pos {get;set;}
         public List<Item> itemList {get;set;}
         public List<Fixture> fixtureLibrary {get;set;}
 

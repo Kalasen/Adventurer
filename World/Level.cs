@@ -17,7 +17,7 @@ namespace Adventurer
         public List<Creature> creatures = new List<Creature>();
         public Tile[,] tileArray = new Tile[GRIDW, GRIDH]; //X,Y; used for storing base tile information
         public int roomCount, corridorCount, creatureCount, itemCount, levelNumber, doorCount, seed;
-        public Vector3 mapPos;
+        public Point3D mapPos;
         public bool playerDiedHere;
         public bool genError = false;
         public string levelType, causeOfDeath, mannerOfDeath;
@@ -28,7 +28,7 @@ namespace Adventurer
         #endregion
 
         public Level(int rCount, int cCount, String type, ContentEncyclopedia content, 
-            int rngSeed, Vector3 mapPos)
+            int rngSeed, Point3D mapPos)
         {
             seed = rngSeed;
             causeOfDeath = "unknown causes."; //If this never gets tripped, then wtf
@@ -294,29 +294,29 @@ namespace Adventurer
                 {
                     if (a != b)
                     {
-                        Vector2 sideA = new Vector2(rng.Next(a.x + 1, a.x + a.width - 1), a.y + a.height + 1);
-                        Vector2 sideB = new Vector2(rng.Next(b.x + 1, b.x + b.width - 1), b.y - 1);
-                        Vector2 midPointA, midPointB;
+                        Point2D sideA = new Point2D(rng.Next(a.x + 1, a.x + a.width - 1), a.y + a.height + 1);
+                        Point2D sideB = new Point2D(rng.Next(b.x + 1, b.x + b.width - 1), b.y - 1);
+                        Point2D midPointA, midPointB;
                         bool horizontal = false;
 
                         if (rng.Next(0, 2) == 1) //50% chance
                         {
-                            sideA = new Vector2(a.x + a.width + 1, rng.Next(a.y + 1, a.y + a.height - 1));
-                            sideB = new Vector2(b.x - 1, rng.Next(b.y + 1, b.y + b.height - 1));
+                            sideA = new Point2D(a.x + a.width + 1, rng.Next(a.y + 1, a.y + a.height - 1));
+                            sideB = new Point2D(b.x - 1, rng.Next(b.y + 1, b.y + b.height - 1));
                             horizontal = true;
                         }
 
                         if (sideA.X + sideB.X > sideA.Y + sideB.Y)
                         {
                             int xAvg = (sideA.X + sideB.X) / 2;
-                            midPointA = new Vector2(xAvg, sideA.Y);
-                            midPointB = new Vector2(xAvg, sideB.Y); //For right angles
+                            midPointA = new Point2D(xAvg, sideA.Y);
+                            midPointB = new Point2D(xAvg, sideB.Y); //For right angles
                         }
                         else
                         {
                             int yAvg = (sideA.Y + sideB.Y) / 2;
-                            midPointA = new Vector2(sideA.X, yAvg);
-                            midPointB = new Vector2(sideB.X, yAvg); //For right angles
+                            midPointA = new Point2D(sideA.X, yAvg);
+                            midPointB = new Point2D(sideB.X, yAvg); //For right angles
                         }
 
                         if (CanDigCorridor(sideA, midPointA, tileArray) &&
@@ -328,10 +328,10 @@ namespace Adventurer
                             DigCorridor(midPointA, midPointB);
                             DigCorridor(midPointB, sideB);
 
-                            Vector2 doorPos = new Vector2(sideA.X, sideA.Y - 1);
+                            Point2D doorPos = new Point2D(sideA.X, sideA.Y - 1);
 
                             if (horizontal)
-                                doorPos = new Vector2(sideA.X - 1, sideA.Y);
+                                doorPos = new Point2D(sideA.X - 1, sideA.Y);
 
                             if (tileArray[doorPos.X, doorPos.Y].fixtureLibrary.Count < 1)
                             {
@@ -346,12 +346,12 @@ namespace Adventurer
                                 a.doorCount++;
                             }
 
-                            doorPos = new Vector2(sideB.X, sideB.Y + 1);
+                            doorPos = new Point2D(sideB.X, sideB.Y + 1);
 
                             if (tileArray[doorPos.X, doorPos.Y].fixtureLibrary.Count < 1)
                             {
                                 if (horizontal)
-                                    doorPos = new Vector2(sideB.X + 1, sideB.Y);
+                                    doorPos = new Point2D(sideB.X + 1, sideB.Y);
 
                                 DigDoor(doorPos.X, doorPos.Y);
 
@@ -375,21 +375,21 @@ namespace Adventurer
                     {
                         if (c != b)
                         {
-                            Vector2 sideA = new Vector2(rng.Next(c.x + 1, c.x + c.width - 1), c.y + c.height + 1);
-                            Vector2 sideB = new Vector2(rng.Next(b.x + 1, b.x + b.width - 1), b.y - 1);
-                            Vector2 midPointA, midPointB;
+                            Point2D sideA = new Point2D(rng.Next(c.x + 1, c.x + c.width - 1), c.y + c.height + 1);
+                            Point2D sideB = new Point2D(rng.Next(b.x + 1, b.x + b.width - 1), b.y - 1);
+                            Point2D midPointA, midPointB;
 
                             if (sideA.X + sideB.X > sideA.Y + sideB.Y)
                             {
                                 int xAvg = (sideA.X + sideB.X) / 2;
-                                midPointA = new Vector2(xAvg, sideA.Y);
-                                midPointB = new Vector2(xAvg, sideB.Y); //For right angles
+                                midPointA = new Point2D(xAvg, sideA.Y);
+                                midPointB = new Point2D(xAvg, sideB.Y); //For right angles
                             }
                             else
                             {
                                 int yAvg = (sideA.Y + sideB.Y) / 2;
-                                midPointA = new Vector2(sideA.X, yAvg);
-                                midPointB = new Vector2(sideB.X, yAvg); //For right angles
+                                midPointA = new Point2D(sideA.X, yAvg);
+                                midPointB = new Point2D(sideB.X, yAvg); //For right angles
                             }
 
                             if (CanDigCorridor(sideA, midPointA, tileArray) &&
@@ -440,7 +440,7 @@ namespace Adventurer
                 {
                     Species c = content.bestiary.First(); //TODO: Select humanoid quest giver?
                     Creature thisCreature = c.GenerateCreature("quest giver", content.items.ToList(), rng.Next()); //If I don't do this, any time I change thisCreature it changes every creature in the list
-                    thisCreature.pos = new Vector2(x, y);
+                    thisCreature.pos = new Point2D(x, y);
                     thisCreature.isPlayer = true; //This is the player
                     if (this.levelType != "village" && this.levelType != "forest") tileArray[x, y].fixtureLibrary.Add(new Stairs(false)); //Add up stairs where the player starts
                     for (y = 0; y < GRIDH; y++)
@@ -464,7 +464,7 @@ namespace Adventurer
             }
 		}
 
-        public Stack<byte> AStarPathfind(Creature creature, Vector2 pointA, Vector2 pointB)
+        public Stack<byte> AStarPathfind(Creature creature, Point2D pointA, Point2D pointB)
         {
             Stack<byte> path = new Stack<byte>();
 
@@ -484,7 +484,7 @@ namespace Adventurer
             //int g = 0;
             //int h = (int)(Math.Abs(pointB.X - pointA.X) + (int)Math.Abs(pointB.Y - pointA.Y));
             bool done = false;
-            AStarTile currentTile = new AStarTile(pointA, new Vector2(-1, -1), 0,
+            AStarTile currentTile = new AStarTile(pointA, new Point2D(-1, -1), 0,
                 100 * ((int)(Math.Abs(pointB.X - pointA.X) + (int)Math.Abs(pointB.Y - pointA.Y))));
             List<AStarTile> openList = new List<AStarTile>();
             List<AStarTile> closedList = new List<AStarTile>();
@@ -506,15 +506,15 @@ namespace Adventurer
                 }
 
                 #region Define adjacent vectors
-                Vector2[] adjacent = new Vector2[8];
-                adjacent[0] = new Vector2(currentTile.pos.X - 1, currentTile.pos.Y + 1); //Adjacent tile at position 1
-                adjacent[1] = new Vector2(currentTile.pos.X, currentTile.pos.Y + 1);     //Adjacent tile at position 2
-                adjacent[2] = new Vector2(currentTile.pos.X + 1, currentTile.pos.Y + 1); //Adjacent tile at position 3
-                adjacent[3] = new Vector2(currentTile.pos.X - 1, currentTile.pos.Y);     //Adjacent tile at position 4
-                adjacent[4] = new Vector2(currentTile.pos.X + 1, currentTile.pos.Y);     //Adjacent tile at position 6
-                adjacent[5] = new Vector2(currentTile.pos.X - 1, currentTile.pos.Y - 1); //Adjacent tile at position 7
-                adjacent[6] = new Vector2(currentTile.pos.X, currentTile.pos.Y - 1);     //Adjacent tile at position 8
-                adjacent[7] = new Vector2(currentTile.pos.X + 1, currentTile.pos.Y - 1); //Adjacent tile at position 9
+                Point2D[] adjacent = new Point2D[8];
+                adjacent[0] = new Point2D(currentTile.pos.X - 1, currentTile.pos.Y + 1); //Adjacent tile at position 1
+                adjacent[1] = new Point2D(currentTile.pos.X, currentTile.pos.Y + 1);     //Adjacent tile at position 2
+                adjacent[2] = new Point2D(currentTile.pos.X + 1, currentTile.pos.Y + 1); //Adjacent tile at position 3
+                adjacent[3] = new Point2D(currentTile.pos.X - 1, currentTile.pos.Y);     //Adjacent tile at position 4
+                adjacent[4] = new Point2D(currentTile.pos.X + 1, currentTile.pos.Y);     //Adjacent tile at position 6
+                adjacent[5] = new Point2D(currentTile.pos.X - 1, currentTile.pos.Y - 1); //Adjacent tile at position 7
+                adjacent[6] = new Point2D(currentTile.pos.X, currentTile.pos.Y - 1);     //Adjacent tile at position 8
+                adjacent[7] = new Point2D(currentTile.pos.X + 1, currentTile.pos.Y - 1); //Adjacent tile at position 9
                 #endregion
 
                 #region Process adjacent tiles to Current Tile
@@ -614,7 +614,7 @@ namespace Adventurer
             int oldIndex = -1;
             int index = 0;
 
-            while (currentTile.parentpos != new Vector2(-1, -1)) //Until parent is starting tile
+            while (currentTile.parentpos != new Point2D(-1, -1)) //Until parent is starting tile
             {
                 int closedListCount = closedList.Count;
                 for (int j = 0; j < closedListCount; j++)
@@ -755,7 +755,7 @@ namespace Adventurer
 
             return true;
         }
-        public bool CanDigCorridor(Vector2 pointA, Vector2 pointB, Tile[,] tileArray)
+        public bool CanDigCorridor(Point2D pointA, Point2D pointB, Tile[,] tileArray)
         {
             #region Variables
             int xa = (int)pointA.X;
@@ -875,17 +875,17 @@ namespace Adventurer
 
             return true;
         }
-        public byte ConvertAbsolutePosToRelative(Vector2 pointA, Vector2 pointB)
+        public byte ConvertAbsolutePosToRelative(Point2D pointA, Point2D pointB)
         {
-            Vector2[] absPos = new Vector2[10];
-            absPos[1] = new Vector2(pointA.X - 1, pointA.Y + 1);
-            absPos[2] = new Vector2(pointA.X, pointA.Y + 1);
-            absPos[3] = new Vector2(pointA.X + 1, pointA.Y + 1);
-            absPos[4] = new Vector2(pointA.X - 1, pointA.Y);
-            absPos[6] = new Vector2(pointA.X + 1, pointA.Y);
-            absPos[7] = new Vector2(pointA.X - 1, pointA.Y - 1);
-            absPos[8] = new Vector2(pointA.X, pointA.Y - 1);
-            absPos[9] = new Vector2(pointA.X + 1, pointA.Y - 1);
+            Point2D[] absPos = new Point2D[10];
+            absPos[1] = new Point2D(pointA.X - 1, pointA.Y + 1);
+            absPos[2] = new Point2D(pointA.X, pointA.Y + 1);
+            absPos[3] = new Point2D(pointA.X + 1, pointA.Y + 1);
+            absPos[4] = new Point2D(pointA.X - 1, pointA.Y);
+            absPos[6] = new Point2D(pointA.X + 1, pointA.Y);
+            absPos[7] = new Point2D(pointA.X - 1, pointA.Y - 1);
+            absPos[8] = new Point2D(pointA.X, pointA.Y - 1);
+            absPos[9] = new Point2D(pointA.X + 1, pointA.Y - 1);
 
             for (byte i = 1; i <= 9; i++)
             {
@@ -937,7 +937,7 @@ namespace Adventurer
             //}
             #endregion
         }
-        public void DigCorridor(Vector2 pointA, Vector2 pointB)
+        public void DigCorridor(Point2D pointA, Point2D pointB)
         {
             #region Variables
             int xa = (int)pointA.X;
@@ -1053,7 +1053,7 @@ namespace Adventurer
             }
             #endregion
         }
-        public bool DiggableLine(Vector2 pointA, Vector2 pointB)
+        public bool DiggableLine(Point2D pointA, Point2D pointB)
         {
             #region Variables
             int xa = (int)pointA.X;
@@ -1141,7 +1141,7 @@ namespace Adventurer
 
             return shouldDig;
         }
-        public void DigLine(Vector2 pointA, Vector2 pointB)
+        public void DigLine(Point2D pointA, Point2D pointB)
         {
             #region Variables
             int xa = (int)pointA.X;
@@ -1274,15 +1274,15 @@ namespace Adventurer
             tileArray[x, y].isTransparent = true;
             tileArray[x, y].isWall = false;
         }
-        public int CountLineTiles(Vector2 pntA, Vector2 pntB)
+        public int CountLineTiles(Point2D pntA, Point2D pntB)
         {
-            Vector2 pointA = pntA;
-            Vector2 pointB = pntB;
+            Point2D pointA = pntA;
+            Point2D pointB = pntB;
 
             #region If A is to the right of B, reverse it
             if (pointA.X > pointB.X)
             {
-                Vector2 pointC = pointA;
+                Point2D pointC = pointA;
                 pointA = pointB;
                 pointB = pointC;
             }
@@ -1338,7 +1338,7 @@ namespace Adventurer
 
             return 0; //If math spontaneously breaks, in order to appease C#, return nothing
         }
-        public bool LineOfSight(Vector2 pointA, Vector2 pointB)
+        public bool LineOfSight(Point2D pointA, Point2D pointB)
         {
             if (pointA == pointB)            
                 return true;            
@@ -1438,7 +1438,7 @@ namespace Adventurer
 
             return true;
         }
-        public bool IsCreatureAt(Vector2 point)
+        public bool IsCreatureAt(Point2D point)
         {
             foreach (Creature i in creatures)
             {
@@ -1453,15 +1453,15 @@ namespace Adventurer
         public Creature CreatureAdjacent(Creature thisCreature)
         {
             #region Array of positions
-            Vector2[] newPos = new Vector2[10];
-            newPos[1] = new Vector2(thisCreature.pos.X - 1, thisCreature.pos.Y + 1); //1
-            newPos[2] = new Vector2(thisCreature.pos.X, thisCreature.pos.Y + 1); //2     
-            newPos[3] = new Vector2(thisCreature.pos.X + 1, thisCreature.pos.Y + 1); //3
-            newPos[4] = new Vector2(thisCreature.pos.X - 1, thisCreature.pos.Y);     //4 
-            newPos[6] = new Vector2(thisCreature.pos.X + 1, thisCreature.pos.Y);     //6
-            newPos[7] = new Vector2(thisCreature.pos.X - 1, thisCreature.pos.Y - 1); //7 
-            newPos[8] = new Vector2(thisCreature.pos.X, thisCreature.pos.Y - 1); //8     
-            newPos[9] = new Vector2(thisCreature.pos.X + 1, thisCreature.pos.Y - 1); //9 
+            Point2D[] newPos = new Point2D[10];
+            newPos[1] = new Point2D(thisCreature.pos.X - 1, thisCreature.pos.Y + 1); //1
+            newPos[2] = new Point2D(thisCreature.pos.X, thisCreature.pos.Y + 1); //2     
+            newPos[3] = new Point2D(thisCreature.pos.X + 1, thisCreature.pos.Y + 1); //3
+            newPos[4] = new Point2D(thisCreature.pos.X - 1, thisCreature.pos.Y);     //4 
+            newPos[6] = new Point2D(thisCreature.pos.X + 1, thisCreature.pos.Y);     //6
+            newPos[7] = new Point2D(thisCreature.pos.X - 1, thisCreature.pos.Y - 1); //7 
+            newPos[8] = new Point2D(thisCreature.pos.X, thisCreature.pos.Y - 1); //8     
+            newPos[9] = new Point2D(thisCreature.pos.X + 1, thisCreature.pos.Y - 1); //9 
             #endregion
 
             for (int i = 1; i <= 9; i++)
@@ -1483,7 +1483,7 @@ namespace Adventurer
 
             return null;
         }
-        public int CreatureNAt(Vector2 point)
+        public int CreatureNAt(Point2D point)
         {
             foreach (Creature i in creatures)
             {
@@ -1554,18 +1554,18 @@ namespace Adventurer
 		}
         public void SmellSpread()
         {
-            Vector2[] adjacent = new Vector2[10];
+            Point2D[] adjacent = new Point2D[10];
             for (int y = 1; y < GRIDH - 1; y++)
                 for (int x = 1; x < GRIDW - 1; x++) //For every tile (2,2) through (39,39), otherwise it goes off the edge
                 {
-                    adjacent[1] = new Vector2(x - 1, y + 1);
-                    adjacent[2] = new Vector2(x, y + 1);
-                    adjacent[3] = new Vector2(x + 1, y + 1);
-                    adjacent[4] = new Vector2(x - 1, y);
-                    adjacent[6] = new Vector2(x + 1, y);
-                    adjacent[7] = new Vector2(x - 1, y - 1);
-                    adjacent[8] = new Vector2(x, y - 1);
-                    adjacent[9] = new Vector2(x + 1, y - 1);
+                    adjacent[1] = new Point2D(x - 1, y + 1);
+                    adjacent[2] = new Point2D(x, y + 1);
+                    adjacent[3] = new Point2D(x + 1, y + 1);
+                    adjacent[4] = new Point2D(x - 1, y);
+                    adjacent[6] = new Point2D(x + 1, y);
+                    adjacent[7] = new Point2D(x - 1, y - 1);
+                    adjacent[8] = new Point2D(x, y - 1);
+                    adjacent[9] = new Point2D(x + 1, y - 1);
 
                     for (int i = 0; i < tileArray[x, y].scentMagnitude.Count; i++) //For each specific smell
                     {
@@ -1620,7 +1620,7 @@ namespace Adventurer
                 bool place = true;
 
                 foreach (Creature c in creatures)
-                    if (c.pos == new Vector2(x, y))
+                    if (c.pos == new Point2D(x, y))
                         place = false;
 
                 if (!tileArray[x, y].isPassable)
@@ -1643,7 +1643,7 @@ namespace Adventurer
                     }
 
                     Creature thisCreature = c.GenerateCreature(social, content.items.ToList(), rng.Next());
-                    thisCreature.pos = new Vector2(x, y);
+                    thisCreature.pos = new Point2D(x, y);
                     for (y = 0; y < GRIDH; y++)
                         for (x = 0; x < GRIDW; x++)
                         {
@@ -1665,7 +1665,7 @@ namespace Adventurer
                 }
             }
         }
-        public void SpawnCreature(Creature c, Vector2 pos)
+        public void SpawnCreature(Creature c, Point2D pos)
         {
             c.pos = pos;
 
@@ -1679,18 +1679,18 @@ namespace Adventurer
         }
         public void TempuratureSpread()
         {
-            Vector2[] adjacent = new Vector2[10];
+            Point2D[] adjacent = new Point2D[10];
             for (int y = 1; y < GRIDH - 1; y++)
                 for (int x = 1; x < GRIDW - 1; x++) //For every tile (2,2) through (39,39), otherwise it goes off the edge
                 {
-                    adjacent[1] = new Vector2(x - 1, y + 1);
-                    adjacent[2] = new Vector2(x, y + 1);
-                    adjacent[3] = new Vector2(x + 1, y + 1);
-                    adjacent[4] = new Vector2(x - 1, y);
-                    adjacent[6] = new Vector2(x + 1, y);
-                    adjacent[7] = new Vector2(x - 1, y - 1);
-                    adjacent[8] = new Vector2(x, y - 1);
-                    adjacent[9] = new Vector2(x + 1, y - 1);
+                    adjacent[1] = new Point2D(x - 1, y + 1);
+                    adjacent[2] = new Point2D(x, y + 1);
+                    adjacent[3] = new Point2D(x + 1, y + 1);
+                    adjacent[4] = new Point2D(x - 1, y);
+                    adjacent[6] = new Point2D(x + 1, y);
+                    adjacent[7] = new Point2D(x - 1, y - 1);
+                    adjacent[8] = new Point2D(x, y - 1);
+                    adjacent[9] = new Point2D(x + 1, y - 1);
 
                     float totaltemp = tileArray[x, y].temperature;
                     int divideTotal = 1;

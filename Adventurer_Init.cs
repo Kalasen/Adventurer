@@ -36,8 +36,8 @@ namespace Adventurer
             veraSmall = SdlTtf.TTF_OpenFont("Content/Fonts/Vera.ttf", 10); //Load in 12-point Vera font.
             veraSmallData = (SdlTtf.TTF_Font)Marshal.PtrToStructure(vera, typeof(SdlTtf.TTF_Font)); //Put the font data in its place
 
-            DrawText(veraSmall, "Pre-initialization complete", new Vector2(15, 15));
-            DrawText(veraSmall, "Fonts loaded; loading images...", new Vector2(15, 30));
+            DrawText(veraSmall, "Pre-initialization complete", new Point2D(15, 15));
+            DrawText(veraSmall, "Fonts loaded; loading images...", new Point2D(15, 30));
             Sdl.SDL_Flip(screen); //Update screen
 			
 			IntPtr rwop = Sdl.SDL_RWFromFile("Content/Tiles/ASCII_Tileset.PNG", "rb");			
@@ -63,8 +63,8 @@ namespace Adventurer
                     n++;
                 }
 			
-            DrawText(veraSmall, "Creatures loaded. External content loading complete.", new Vector2(15, 120));
-            DrawText(veraSmall, "Post-initializing...", new Vector2(15, 135));
+            DrawText(veraSmall, "Creatures loaded. External content loading complete.", new Point2D(15, 120));
+            DrawText(veraSmall, "Post-initializing...", new Point2D(15, 135));
             Sdl.SDL_Flip(screen); //Update screen
         } //Loads in the external content
         static void Init_PostInitialize()
@@ -86,7 +86,7 @@ namespace Adventurer
             rock = content.materials.First(m => m.name ==  "shale"); //Shale is our default rock
             air = content.materials.First(m => m.name == "air"); //TODO: figure out why we're holding on to air and rock, we have Linq now
 
-            DrawText(veraSmall, "Post-initialization complete. Starting main menu...", new Vector2(15, 150));
+            DrawText(veraSmall, "Post-initialization complete. Starting main menu...", new Point2D(15, 150));
             Sdl.SDL_Flip(screen); //Update screen      
 
             //Thread.Sleep(10000); //Pause to allow review of loading steps

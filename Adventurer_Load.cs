@@ -33,7 +33,7 @@ namespace Adventurer
 
                     bool creatureHere = false;
                     foreach (Creature c in currentLevel.creatures)
-                        if (c.pos == new Vector2(x, y))
+                        if (c.pos == new Point2D(x, y))
                             creatureHere = true; //There's a creature at this tile
 
                     if (currentTile.itemList.Count > 0 || currentTile.fixtureLibrary.Count > 0 || creatureHere)
@@ -180,12 +180,12 @@ namespace Adventurer
 
             File.WriteAllLines(filePath, dataArray); //Write the data
         }
-        static void FileL_Level(Vector3 pos)
+        static void FileL_Level(Point3D pos)
         {
             #region Setup
             string levelPath = "Saves/" + sessionName.ToString() + "/(" + pos.X.ToString() + ", " + pos.Y.ToString() + ", " +
                 pos.Z.ToString() + ").txt"; //The path to the level
-            Vector2 tilePos = new Vector2(); //The tile position we're working with
+            Point2D tilePos = new Point2D(); //The tile position we're working with
 
             if (!File.Exists(levelPath))
             {
@@ -552,7 +552,7 @@ namespace Adventurer
                         levelSeed[x, y, z] = rng.Next(); //Seed the world
                     }
             totalTurnCount = 0;
-            mapPos = new Vector3(50, 50, 1);
+            mapPos = new Point3D(50, 50, 1);
 
             if (Directory.Exists("Saves/" + sessionName))
             {

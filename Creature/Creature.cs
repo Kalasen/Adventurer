@@ -19,7 +19,7 @@ namespace Adventurer
         public byte xpLevel;
         public string name, armorType;
 		public Amulet amulet;
-        public Vector2 targetPos, pos;
+        public Point2D targetPos, pos;
         public Color color;
         public Random rng = new Random();
         public Dice rngDie = new Dice();
@@ -282,15 +282,15 @@ namespace Adventurer
         public int AdjacentToCreatureDir(Level currentLevel)
         {
             #region Array of positions
-            Vector2[] newPos = new Vector2[10];
-            newPos[1] = new Vector2(this.pos.X - 1, this.pos.Y + 1); //1
-            newPos[2] = new Vector2(this.pos.X, this.pos.Y + 1); //2     
-            newPos[3] = new Vector2(this.pos.X + 1, this.pos.Y + 1); //3
-            newPos[4] = new Vector2(this.pos.X - 1, this.pos.Y);     //4 
-            newPos[6] = new Vector2(this.pos.X + 1, this.pos.Y);     //6
-            newPos[7] = new Vector2(this.pos.X - 1, this.pos.Y - 1); //7 
-            newPos[8] = new Vector2(this.pos.X, this.pos.Y - 1); //8     
-            newPos[9] = new Vector2(this.pos.X + 1, this.pos.Y - 1); //9 
+            Point2D[] newPos = new Point2D[10];
+            newPos[1] = new Point2D(this.pos.X - 1, this.pos.Y + 1); //1
+            newPos[2] = new Point2D(this.pos.X, this.pos.Y + 1); //2     
+            newPos[3] = new Point2D(this.pos.X + 1, this.pos.Y + 1); //3
+            newPos[4] = new Point2D(this.pos.X - 1, this.pos.Y);     //4 
+            newPos[6] = new Point2D(this.pos.X + 1, this.pos.Y);     //6
+            newPos[7] = new Point2D(this.pos.X - 1, this.pos.Y - 1); //7 
+            newPos[8] = new Point2D(this.pos.X, this.pos.Y - 1); //8     
+            newPos[9] = new Point2D(this.pos.X + 1, this.pos.Y - 1); //9 
             #endregion
 
             for (int i = 1; i <= 9; i++)
@@ -354,15 +354,15 @@ namespace Adventurer
         public bool CanMoveBorder(int dir)
         {
             #region Array of positions
-            Vector2[] newPos = new Vector2[10];
-            newPos[1] = new Vector2(this.pos.X - 1, this.pos.Y + 1);
-            newPos[2] = new Vector2(this.pos.X, this.pos.Y + 1);
-            newPos[3] = new Vector2(this.pos.X + 1, this.pos.Y + 1);
-            newPos[4] = new Vector2(this.pos.X - 1, this.pos.Y);
-            newPos[6] = new Vector2(this.pos.X + 1, this.pos.Y);
-            newPos[7] = new Vector2(this.pos.X - 1, this.pos.Y - 1);
-            newPos[8] = new Vector2(this.pos.X, this.pos.Y - 1);
-            newPos[9] = new Vector2(this.pos.X + 1, this.pos.Y - 1);
+            Point2D[] newPos = new Point2D[10];
+            newPos[1] = new Point2D(this.pos.X - 1, this.pos.Y + 1);
+            newPos[2] = new Point2D(this.pos.X, this.pos.Y + 1);
+            newPos[3] = new Point2D(this.pos.X + 1, this.pos.Y + 1);
+            newPos[4] = new Point2D(this.pos.X - 1, this.pos.Y);
+            newPos[6] = new Point2D(this.pos.X + 1, this.pos.Y);
+            newPos[7] = new Point2D(this.pos.X - 1, this.pos.Y - 1);
+            newPos[8] = new Point2D(this.pos.X, this.pos.Y - 1);
+            newPos[9] = new Point2D(this.pos.X + 1, this.pos.Y - 1);
             #endregion
 
             if (newPos[dir].X < 1 || newPos[dir].Y < 1 || newPos[dir].X > Level.GRIDW - 1 || newPos[dir].Y > Level.GRIDH - 1)
@@ -545,15 +545,15 @@ namespace Adventurer
         public bool InMeleeRange(Level currentLevel)
         {
             #region Array of positions
-            Vector2[] newPos = new Vector2[9];
-            newPos[1] = new Vector2(this.pos.X - 1, this.pos.Y + 1); //1
-            newPos[2] = new Vector2(this.pos.X, this.pos.Y + 1); //2     
-            newPos[3] = new Vector2(this.pos.X + 1, this.pos.Y + 1); //3
-            newPos[4] = new Vector2(this.pos.X - 1, this.pos.Y);     //4 
-            newPos[6] = new Vector2(this.pos.X + 1, this.pos.Y);     //6
-            newPos[7] = new Vector2(this.pos.X - 1, this.pos.Y - 1); //7 
-            newPos[8] = new Vector2(this.pos.X, this.pos.Y - 1); //8     
-            newPos[9] = new Vector2(this.pos.X + 1, this.pos.Y - 1); //9 
+            Point2D[] newPos = new Point2D[9];
+            newPos[1] = new Point2D(this.pos.X - 1, this.pos.Y + 1); //1
+            newPos[2] = new Point2D(this.pos.X, this.pos.Y + 1); //2     
+            newPos[3] = new Point2D(this.pos.X + 1, this.pos.Y + 1); //3
+            newPos[4] = new Point2D(this.pos.X - 1, this.pos.Y);     //4 
+            newPos[6] = new Point2D(this.pos.X + 1, this.pos.Y);     //6
+            newPos[7] = new Point2D(this.pos.X - 1, this.pos.Y - 1); //7 
+            newPos[8] = new Point2D(this.pos.X, this.pos.Y - 1); //8     
+            newPos[9] = new Point2D(this.pos.X + 1, this.pos.Y - 1); //9 
             #endregion
 
             for (int i = 1; i <= 9; i++)
@@ -741,15 +741,15 @@ namespace Adventurer
         public bool Move(Level currentLevel, int dir)
         {
             #region Array of positions
-            Vector2[] newPos = new Vector2[10];
-            newPos[1] = new Vector2(this.pos.X - 1, this.pos.Y + 1); //1
-            newPos[2] = new Vector2(this.pos.X, this.pos.Y + 1); //2     
-            newPos[3] = new Vector2(this.pos.X + 1, this.pos.Y + 1); //3
-            newPos[4] = new Vector2(this.pos.X - 1, this.pos.Y);     //4 
-            newPos[6] = new Vector2(this.pos.X + 1, this.pos.Y);     //6
-            newPos[7] = new Vector2(this.pos.X - 1, this.pos.Y - 1); //7 
-            newPos[8] = new Vector2(this.pos.X, this.pos.Y - 1); //8     
-            newPos[9] = new Vector2(this.pos.X + 1, this.pos.Y - 1); //9 
+            Point2D[] newPos = new Point2D[10];
+            newPos[1] = new Point2D(this.pos.X - 1, this.pos.Y + 1); //1
+            newPos[2] = new Point2D(this.pos.X, this.pos.Y + 1); //2     
+            newPos[3] = new Point2D(this.pos.X + 1, this.pos.Y + 1); //3
+            newPos[4] = new Point2D(this.pos.X - 1, this.pos.Y);     //4 
+            newPos[6] = new Point2D(this.pos.X + 1, this.pos.Y);     //6
+            newPos[7] = new Point2D(this.pos.X - 1, this.pos.Y - 1); //7 
+            newPos[8] = new Point2D(this.pos.X, this.pos.Y - 1); //8     
+            newPos[9] = new Point2D(this.pos.X + 1, this.pos.Y - 1); //9 
             #endregion
 
             if (!currentLevel.IsCreatureAt(newPos[dir]) && //If no creature's there and..

@@ -32,8 +32,8 @@ namespace Adventurer
         static int inventoryMode = 0; //Main inventory mode  
         static int selectionCursor = 1; //A variable to track what part of the menu a cursor is on.        
         static int[, ,] levelSeed = new int[100, 100, 100]; //50x50x50 map x,y,z
-        static Vector2 cursorPos = new Vector2(10, 10); //A position for ranged selection
-        static Vector3 mapPos = new Vector3(50, 50, 1); //We start at 50, 50, 1
+        static Point2D cursorPos = new Point2D(10, 10); //A position for ranged selection
+        static Point3D mapPos = new Point3D(50, 50, 1); //We start at 50, 50, 1
 
         static bool run = true; //Whether the game should continue running
 
@@ -277,7 +277,7 @@ namespace Adventurer
             #region Draw New Page
             Sdl.SDL_FillRect(screen, ref screenArea, 0); //Clear for next draw cycle
             screenData = (Sdl.SDL_Surface)Marshal.PtrToStructure(screen, typeof(Sdl.SDL_Surface)); //Put the screen data in its place
-            DrawText(vera, "Creature Select", new Vector2(350, 20)); //Draw the title
+            DrawText(vera, "Creature Select", new Point2D(350, 20)); //Draw the title
 
             int m = 60;
             Queue<string> items = new Queue<string>();
@@ -348,7 +348,7 @@ namespace Adventurer
 
                 if (items.Peek() != String.Empty)
                     DrawText(veraSmall, s + ": " + items.Dequeue(),
-                        new Vector2(350, m), System.Drawing.Color.White);
+                        new Point2D(350, m), System.Drawing.Color.White);
             }
 
             items.Clear();
@@ -399,7 +399,7 @@ namespace Adventurer
                         #region Draw New Page
                         Sdl.SDL_FillRect(screen, ref screenArea, 0); //Clear for next draw cycle
                         screenData = (Sdl.SDL_Surface)Marshal.PtrToStructure(screen, typeof(Sdl.SDL_Surface)); //Put the screen data in its place
-                        DrawText(vera, "Creature Select", new Vector2(350, 20)); //Draw the title
+                        DrawText(vera, "Creature Select", new Point2D(350, 20)); //Draw the title
 
                         m = 60;
                         items = new Queue<string>();
@@ -470,7 +470,7 @@ namespace Adventurer
 
                         if (items.Peek() != String.Empty)
                             DrawText(veraSmall, s + ": " + items.Dequeue(),
-                                new Vector2(350, m), System.Drawing.Color.White);
+                                new Point2D(350, m), System.Drawing.Color.White);
                         }
 
                         items.Clear();
@@ -483,7 +483,7 @@ namespace Adventurer
 
             GenLevel("dungeon", true);
 
-            Vector2 playerPos = currentLevel.creatures[0].pos;
+            Point2D playerPos = currentLevel.creatures[0].pos;
             currentLevel.creatures[0] = content.bestiary[inputIndex].GenerateCreature("monster", content.items, rng.Next()); //Player is given creature
 			currentLevel.creatures[0].hpMax = currentLevel.creatures[0].hp += 5; //Add 5 for being an adventurer
             currentLevel.creatures[0].message.Add("Welcome to Adventurer!");

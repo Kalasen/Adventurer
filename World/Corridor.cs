@@ -7,11 +7,11 @@ namespace Adventurer
 {
     public class Corridor
     {
-        public Vector2 pointA {get;protected set;}
-        public Vector2 pointB {get;protected set;}
+        public Point2D pointA {get;protected set;}
+        public Point2D pointB {get;protected set;}
 
-		public Corridor():this(new Vector2(), new Vector2()){}
-        public Corridor(Vector2 a, Vector2 b)
+		public Corridor():this(new Point2D(), new Point2D()){}
+        public Corridor(Point2D a, Point2D b)
         {
             this.pointA = a;
             this.pointB = b;

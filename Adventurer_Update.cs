@@ -94,11 +94,11 @@ namespace Adventurer
 	                        Sdl.SDL_FillRect(screen, ref screenArea, 0); //Clear for next draw cycle
 	                        screenData = (Sdl.SDL_Surface)Marshal.PtrToStructure(screen, typeof(Sdl.SDL_Surface)); //Put the screen data in its place
 	                        DrawText(veraSmall, "Loading of {" + sessionName + "} has failed.", 
-	                            new Vector2(windowSizeX / 2 - 130, windowSizeY / 2));
+	                            new Point2D(windowSizeX / 2 - 130, windowSizeY / 2));
 	                        DrawText(veraSmall, "You can either clear it and start a new game, or save it and quit.",
-	                            new Vector2(windowSizeX / 2 - 130, windowSizeY / 2 + 15));
+	                            new Point2D(windowSizeX / 2 - 130, windowSizeY / 2 + 15));
 	                        DrawText(veraSmall, "Delete corrupted data? [y/n]",
-	                            new Vector2(windowSizeX / 2 - 130, windowSizeY / 2 + 30));
+	                            new Point2D(windowSizeX / 2 - 130, windowSizeY / 2 + 30));
 	                        Sdl.SDL_Flip(screen);
 	
 	                        if (Update_GetKey() == "y")
@@ -374,7 +374,7 @@ namespace Adventurer
 	
 	            case "f":
 	                #region Fire Item
-	                Vector2 targetPos = Update_GetPosition();
+	                Point2D targetPos = Update_GetPosition();
 	
 	                //currentLevel.tileArray[targetPos.X, targetPos.Y].itemList.Add(firedItem); //It ends up on selected tile
 	                //currentLevel.creatureList[0].inventory.RemoveAt(inventorySelect - 1); //Remove item from inventory                                                
@@ -468,7 +468,7 @@ namespace Adventurer
                 if (currentLevel.creatures[0].inventory[inventorySelect - 1].use[0] == "dig")
                 {
                     #region Dig
-                    Vector2 pos = currentLevel.creatures[0].pos;
+                    Point2D pos = currentLevel.creatures[0].pos;
 
                     if (currentLevel.tileArray[pos.X, pos.Y].hasBeenDug) //If it's been dug
                     {
@@ -503,25 +503,25 @@ namespace Adventurer
                     gameState = GameState.MainGame;
                     string input = Update_GetKey();
 
-                    Vector2 playerPos = currentLevel.creatures[0].pos;
-                    Vector2 radius = new Vector2(playerPos.X, playerPos.Y);
+                    Point2D playerPos = currentLevel.creatures[0].pos;
+                    Point2D radius = new Point2D(playerPos.X, playerPos.Y);
 
                     if (input == "1")
-                        radius = new Vector2(playerPos.X - 1, playerPos.Y + 1);
+                        radius = new Point2D(playerPos.X - 1, playerPos.Y + 1);
                     else if (input == "2")
-                        radius = new Vector2(playerPos.X - 0, playerPos.Y + 1);
+                        radius = new Point2D(playerPos.X - 0, playerPos.Y + 1);
                     else if (input == "3")
-                        radius = new Vector2(playerPos.X + 1, playerPos.Y + 1);
+                        radius = new Point2D(playerPos.X + 1, playerPos.Y + 1);
                     else if (input == "4")
-                        radius = new Vector2(playerPos.X - 1, playerPos.Y - 0);
+                        radius = new Point2D(playerPos.X - 1, playerPos.Y - 0);
                     else if (input == "6")
-                        radius = new Vector2(playerPos.X + 1, playerPos.Y - 0);
+                        radius = new Point2D(playerPos.X + 1, playerPos.Y - 0);
                     else if (input == "7")
-                        radius = new Vector2(playerPos.X - 1, playerPos.Y - 1);
+                        radius = new Point2D(playerPos.X - 1, playerPos.Y - 1);
                     else if (input == "8")
-                        radius = new Vector2(playerPos.X - 0, playerPos.Y - 1);
+                        radius = new Point2D(playerPos.X - 0, playerPos.Y - 1);
                     else if (input == "9")
-                        radius = new Vector2(playerPos.X + 1, playerPos.Y - 1);
+                        radius = new Point2D(playerPos.X + 1, playerPos.Y - 1);
                     else
                     {
                         currentLevel.creatures[0].message.Add("Dig cancelled");
@@ -572,7 +572,7 @@ namespace Adventurer
                 else if (currentLevel.creatures[0].inventory[inventorySelect - 1].use[0] == "tripwire")
                 {
                     #region Tripwire
-                    Vector2 playerPos = currentLevel.creatures[0].pos;
+                    Point2D playerPos = currentLevel.creatures[0].pos;
                     if (currentLevel.tileArray[playerPos.X, playerPos.Y].fixtureLibrary.Count <= 0)
                     {
                         Trap thisTrap = new Trap(new Effect(rngDie.Roll(5), "tripwire"));
@@ -596,25 +596,25 @@ namespace Adventurer
                     gameState = GameState.MainGame;
                     string input = Update_GetKey();
 
-                    Vector2 playerPos = currentLevel.creatures[0].pos;
-                    Vector2 radius = new Vector2(playerPos.X, playerPos.Y);
+                    Point2D playerPos = currentLevel.creatures[0].pos;
+                    Point2D radius = new Point2D(playerPos.X, playerPos.Y);
 
                     if (input == "1")
-                        radius = new Vector2(playerPos.X - 1, playerPos.Y + 1);
+                        radius = new Point2D(playerPos.X - 1, playerPos.Y + 1);
                     else if (input == "2")
-                        radius = new Vector2(playerPos.X - 0, playerPos.Y + 1);
+                        radius = new Point2D(playerPos.X - 0, playerPos.Y + 1);
                     else if (input == "3")
-                        radius = new Vector2(playerPos.X + 1, playerPos.Y + 1);
+                        radius = new Point2D(playerPos.X + 1, playerPos.Y + 1);
                     else if (input == "4")
-                        radius = new Vector2(playerPos.X - 1, playerPos.Y - 0);
+                        radius = new Point2D(playerPos.X - 1, playerPos.Y - 0);
                     else if (input == "6")
-                        radius = new Vector2(playerPos.X + 1, playerPos.Y - 0);
+                        radius = new Point2D(playerPos.X + 1, playerPos.Y - 0);
                     else if (input == "7")
-                        radius = new Vector2(playerPos.X - 1, playerPos.Y - 1);
+                        radius = new Point2D(playerPos.X - 1, playerPos.Y - 1);
                     else if (input == "8")
-                        radius = new Vector2(playerPos.X - 0, playerPos.Y - 1);
+                        radius = new Point2D(playerPos.X - 0, playerPos.Y - 1);
                     else if (input == "9")
-                        radius = new Vector2(playerPos.X + 1, playerPos.Y - 1);
+                        radius = new Point2D(playerPos.X + 1, playerPos.Y - 1);
                     else
                     {
                         currentLevel.creatures[0].message.Add("Chop cancelled");
@@ -763,7 +763,7 @@ namespace Adventurer
             }
 
             bool wait = true;
-            Vector2 radius;
+            Point2D radius;
             while (wait)
             {
                 Draw();
@@ -845,7 +845,7 @@ namespace Adventurer
                                             {
                                                 stairs = (Stairs)currentLevel.tileArray[x, y].fixtureLibrary[0];
                                                 if (stairs.isDown)
-                                                    c.pos = new Vector2(x, y); //Place on down stairs
+                                                    c.pos = new Point2D(x, y); //Place on down stairs
                                             }
 
                                 currentLevel.creatures[0] = c;
@@ -879,15 +879,15 @@ namespace Adventurer
 
                 case "c":
                     #region Close
-                    Vector2[] position = new Vector2[10];
-                    position[1] = new Vector2((int)c.pos.X - 1, (int)c.pos.Y + 1);
-                    position[2] = new Vector2((int)c.pos.X    , (int)c.pos.Y + 1);
-                    position[3] = new Vector2((int)c.pos.X + 1, (int)c.pos.Y + 1);
-                    position[4] = new Vector2((int)c.pos.X - 1, (int)c.pos.Y    );
-                    position[6] = new Vector2((int)c.pos.X + 1, (int)c.pos.Y    );
-                    position[7] = new Vector2((int)c.pos.X - 1, (int)c.pos.Y - 1);
-                    position[8] = new Vector2((int)c.pos.X    , (int)c.pos.Y - 1);
-                    position[9] = new Vector2((int)c.pos.X + 1, (int)c.pos.Y - 1);
+                    Point2D[] position = new Point2D[10];
+                    position[1] = new Point2D((int)c.pos.X - 1, (int)c.pos.Y + 1);
+                    position[2] = new Point2D((int)c.pos.X    , (int)c.pos.Y + 1);
+                    position[3] = new Point2D((int)c.pos.X + 1, (int)c.pos.Y + 1);
+                    position[4] = new Point2D((int)c.pos.X - 1, (int)c.pos.Y    );
+                    position[6] = new Point2D((int)c.pos.X + 1, (int)c.pos.Y    );
+                    position[7] = new Point2D((int)c.pos.X - 1, (int)c.pos.Y - 1);
+                    position[8] = new Point2D((int)c.pos.X    , (int)c.pos.Y - 1);
+                    position[9] = new Point2D((int)c.pos.X + 1, (int)c.pos.Y - 1);
 
                     for (int dir = 1; dir <= 9; dir++)
                     {
@@ -921,24 +921,24 @@ namespace Adventurer
                         c.message.Add("Choose a direction to dig.");
                         string s = Update_GetKey();
 
-                        radius = new Vector2(c.pos.X, c.pos.Y);
+                        radius = new Point2D(c.pos.X, c.pos.Y);
 
                         if (s == "1")
-                            radius = new Vector2(c.pos.X - 5, c.pos.Y + 5);
+                            radius = new Point2D(c.pos.X - 5, c.pos.Y + 5);
                         else if (s == "2")
-                            radius = new Vector2(c.pos.X - 0, c.pos.Y + 5);
+                            radius = new Point2D(c.pos.X - 0, c.pos.Y + 5);
                         else if (s == "3")
-                            radius = new Vector2(c.pos.X + 5, c.pos.Y + 5);
+                            radius = new Point2D(c.pos.X + 5, c.pos.Y + 5);
                         else if (s == "4")
-                            radius = new Vector2(c.pos.X - 5, c.pos.Y - 0);
+                            radius = new Point2D(c.pos.X - 5, c.pos.Y - 0);
                         else if (s == "6")
-                            radius = new Vector2(c.pos.X + 5, c.pos.Y - 0);
+                            radius = new Point2D(c.pos.X + 5, c.pos.Y - 0);
                         else if (s == "7")
-                            radius = new Vector2(c.pos.X - 5, c.pos.Y - 5);
+                            radius = new Point2D(c.pos.X - 5, c.pos.Y - 5);
                         else if (s == "8")
-                            radius = new Vector2(c.pos.X - 0, c.pos.Y - 5);
+                            radius = new Point2D(c.pos.X - 0, c.pos.Y - 5);
                         else if (s == "9")
-                            radius = new Vector2(c.pos.X + 5, c.pos.Y - 5);
+                            radius = new Point2D(c.pos.X + 5, c.pos.Y - 5);
                         else
                         {
                             c.message.Add("Dig cancelled");
@@ -962,24 +962,24 @@ namespace Adventurer
                     c.message.Add("Choose a direction.");
                     input = Update_GetKey();
 
-                    radius = new Vector2(c.pos.X, c.pos.Y);
+                    radius = new Point2D(c.pos.X, c.pos.Y);
 
                     if (input == "1")
-                        radius = new Vector2(c.pos.X - 1, c.pos.Y + 1);
+                        radius = new Point2D(c.pos.X - 1, c.pos.Y + 1);
                     else if (input == "2")
-                        radius = new Vector2(c.pos.X - 0, c.pos.Y + 1);
+                        radius = new Point2D(c.pos.X - 0, c.pos.Y + 1);
                     else if (input == "3")
-                        radius = new Vector2(c.pos.X + 1, c.pos.Y + 1);
+                        radius = new Point2D(c.pos.X + 1, c.pos.Y + 1);
                     else if (input == "4")
-                        radius = new Vector2(c.pos.X - 1, c.pos.Y - 0);
+                        radius = new Point2D(c.pos.X - 1, c.pos.Y - 0);
                     else if (input == "6")
-                        radius = new Vector2(c.pos.X + 1, c.pos.Y - 0);
+                        radius = new Point2D(c.pos.X + 1, c.pos.Y - 0);
                     else if (input == "7")
-                        radius = new Vector2(c.pos.X - 1, c.pos.Y - 1);
+                        radius = new Point2D(c.pos.X - 1, c.pos.Y - 1);
                     else if (input == "8")
-                        radius = new Vector2(c.pos.X - 0, c.pos.Y - 1);
+                        radius = new Point2D(c.pos.X - 0, c.pos.Y - 1);
                     else if (input == "9")
-                        radius = new Vector2(c.pos.X + 1, c.pos.Y - 1);
+                        radius = new Point2D(c.pos.X + 1, c.pos.Y - 1);
                     else
                     {
                         c.message.Add("Cancelled");
@@ -1088,15 +1088,15 @@ namespace Adventurer
 
                 case "o":
                     #region Open
-                    position = new Vector2[10];
-                    position[1] = new Vector2((int)c.pos.X - 1, (int)c.pos.Y + 1);
-                    position[2] = new Vector2((int)c.pos.X    , (int)c.pos.Y + 1);
-                    position[3] = new Vector2((int)c.pos.X + 1, (int)c.pos.Y + 1);
-                    position[4] = new Vector2((int)c.pos.X - 1, (int)c.pos.Y    );
-                    position[6] = new Vector2((int)c.pos.X + 1, (int)c.pos.Y    );
-                    position[7] = new Vector2((int)c.pos.X - 1, (int)c.pos.Y - 1);
-                    position[8] = new Vector2((int)c.pos.X    , (int)c.pos.Y - 1);
-                    position[9] = new Vector2((int)c.pos.X + 1, (int)c.pos.Y - 1);
+                    position = new Point2D[10];
+                    position[1] = new Point2D((int)c.pos.X - 1, (int)c.pos.Y + 1);
+                    position[2] = new Point2D((int)c.pos.X    , (int)c.pos.Y + 1);
+                    position[3] = new Point2D((int)c.pos.X + 1, (int)c.pos.Y + 1);
+                    position[4] = new Point2D((int)c.pos.X - 1, (int)c.pos.Y    );
+                    position[6] = new Point2D((int)c.pos.X + 1, (int)c.pos.Y    );
+                    position[7] = new Point2D((int)c.pos.X - 1, (int)c.pos.Y - 1);
+                    position[8] = new Point2D((int)c.pos.X    , (int)c.pos.Y - 1);
+                    position[9] = new Point2D((int)c.pos.X + 1, (int)c.pos.Y - 1);
 
                     for (int dir = 1; dir <= 9; dir++)
                     {
@@ -1818,11 +1818,11 @@ namespace Adventurer
                 input = Update_GetKey();
             }            
         }
-        static Vector2 Update_GetPosition()
+        static Point2D Update_GetPosition()
         {
             gameState = GameState.WaitForPosition;
             cursorPos = currentLevel.creatures[0].pos; //Start at player's position
-            Vector2 currentPos = currentLevel.creatures[0].pos; //The position the cursor is on
+            Point2D currentPos = currentLevel.creatures[0].pos; //The position the cursor is on
             bool done = false; //Variable for loop break
 
             Sdl.SDL_Event keyEvent, oldKeyEvent;

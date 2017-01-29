@@ -11,7 +11,7 @@ namespace Adventurer
         bool inventoryCheck = true; //Whether we need to look at the inventory
         Random rng = new Random();
         Stack<byte> path = new Stack<byte>();
-        Vector2 targetPos = new Vector2(-1,-1);
+        Point2D targetPos = new Point2D(-1,-1);
 
         public Sentience():this(50,50,50){} //Default Constructor
         public Sentience(int intelligence, int aggression, int hostility)
@@ -40,15 +40,15 @@ namespace Adventurer
                 return "Wait";            
 
             #region Array of positions
-            Vector2[] newPos = new Vector2[10];
-            newPos[1] = new Vector2(thisCreature.pos.X - 1, thisCreature.pos.Y + 1); //1
-            newPos[2] = new Vector2(thisCreature.pos.X    , thisCreature.pos.Y + 1); //2     
-            newPos[3] = new Vector2(thisCreature.pos.X + 1, thisCreature.pos.Y + 1); //3
-            newPos[4] = new Vector2(thisCreature.pos.X - 1, thisCreature.pos.Y);     //4 
-            newPos[6] = new Vector2(thisCreature.pos.X + 1, thisCreature.pos.Y);     //6
-            newPos[7] = new Vector2(thisCreature.pos.X - 1, thisCreature.pos.Y - 1); //7 
-            newPos[8] = new Vector2(thisCreature.pos.X    , thisCreature.pos.Y - 1); //8     
-            newPos[9] = new Vector2(thisCreature.pos.X + 1, thisCreature.pos.Y - 1); //9 
+            Point2D[] newPos = new Point2D[10];
+            newPos[1] = new Point2D(thisCreature.pos.X - 1, thisCreature.pos.Y + 1); //1
+            newPos[2] = new Point2D(thisCreature.pos.X    , thisCreature.pos.Y + 1); //2     
+            newPos[3] = new Point2D(thisCreature.pos.X + 1, thisCreature.pos.Y + 1); //3
+            newPos[4] = new Point2D(thisCreature.pos.X - 1, thisCreature.pos.Y);     //4 
+            newPos[6] = new Point2D(thisCreature.pos.X + 1, thisCreature.pos.Y);     //6
+            newPos[7] = new Point2D(thisCreature.pos.X - 1, thisCreature.pos.Y - 1); //7 
+            newPos[8] = new Point2D(thisCreature.pos.X    , thisCreature.pos.Y - 1); //8     
+            newPos[9] = new Point2D(thisCreature.pos.X + 1, thisCreature.pos.Y - 1); //9 
             #endregion
 
             #region Gather States
@@ -59,17 +59,17 @@ namespace Adventurer
             }
 
             int canAttackMeleeDir = 0;
-            Vector2 playerPos = currentLevel.creatures[0].pos;
+            Point2D playerPos = currentLevel.creatures[0].pos;
 
             for (int y = 0; y < Level.GRIDH; y++)
                 for (int x = 0; x < Level.GRIDW; x++)
                 {
                     if (currentLevel.tileArray[x, y].itemList.Count > 0 &&
-                        currentLevel.LineOfSight(thisCreature.pos, new Vector2(x, y)) &&
+                        currentLevel.LineOfSight(thisCreature.pos, new Point2D(x, y)) &&
                         path.Count == 0)
                     {
-                        thisCreature.targetPos = new Vector2(x, y); //Item is next target if seen
-                        path = currentLevel.AStarPathfind(thisCreature, thisCreature.pos, new Vector2(x,y));
+                        thisCreature.targetPos = new Point2D(x, y); //Item is next target if seen
+                        path = currentLevel.AStarPathfind(thisCreature, thisCreature.pos, new Point2D(x,y));
                     }
                 }
             #endregion
@@ -106,7 +106,7 @@ namespace Adventurer
             {
                 if (targetPos == thisCreature.pos) //If we're standing on it
                 {
-                    targetPos = new Vector2(-1,-1); //Forget this target
+                    targetPos = new Point2D(-1,-1); //Forget this target
                     path.Clear();
                 }
                 else
@@ -118,7 +118,7 @@ namespace Adventurer
                         return "Move " + path.Pop(); //Go towards target
                     else
                     {
-                        targetPos = new Vector2(-1,-1);
+                        targetPos = new Point2D(-1,-1);
                         path.Clear();
                         return "Move " + dir; //Wander
                     }
@@ -141,13 +141,13 @@ namespace Adventurer
                 {
                     if (currentLevel.tileArray[x, y].itemList.Count > 0)
                     {
-                        if (currentLevel.LineOfSight(thisCreature.pos, new Vector2(x, y)))
+                        if (currentLevel.LineOfSight(thisCreature.pos, new Point2D(x, y)))
                         {
                             foreach (BodyPart b in thisCreature.anatomy)
                             {
                                 if (b.flags.HasFlag(BodyPartFlags.CanPickUpItem))
                                 {
-                                    targetPos = new Vector2(x, y);
+                                    targetPos = new Point2D(x, y);
                                     path = currentLevel.AStarPathfind(thisCreature, thisCreature.pos, playerPos); //Path to item
                                     break;
                                 }
