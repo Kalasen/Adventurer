@@ -2,6 +2,7 @@ using System;
 using System.Net.Mime;
 using System.Collections.Generic;
 using System.Text;
+using KalaGame;
 
 namespace Adventurer
 {

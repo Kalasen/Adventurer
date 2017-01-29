@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Collections.Generic;
 using System.Text;
 using Tao.Sdl;
+using KalaGame;
 
 namespace Adventurer
 {

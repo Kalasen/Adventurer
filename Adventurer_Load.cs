@@ -5,6 +5,7 @@ using System.IO; //Mainly used for reading and writing files
 using System.Runtime.InteropServices; //For use in wrangling pointers in their place
 using System.Xml;
 using Tao.Sdl;
+using KalaGame;
 
 namespace Adventurer
 {

@@ -4,6 +4,7 @@ using System.Drawing; //The colors, man
 using System.IO; //So we can read and write files
 using System.Runtime.InteropServices; //For use in wrangling pointers in their place
 using Tao.Sdl;
+using KalaGame;
 
 namespace Adventurer
 {

@@ -59,13 +59,7 @@
     <Compile Include="Adventurer_Init.cs" />
     <Compile Include="Adventurer_Load.cs" />
     <Compile Include="Adventurer_Update.cs" />
-    <Compile Include="General\Direction.cs" />
-    <Compile Include="General\Exceptions.cs" />
     <Compile Include="General\Extensions.cs" />
-    <Compile Include="General\Graphics.cs" />
-    <Compile Include="General\IDrawable.cs" />
-    <Compile Include="General\Menu.cs" />
-    <Compile Include="General\TextSprite.cs" />
     <Compile Include="Item\Amulet.cs" />
     <Compile Include="Item\Armor.cs" />
     <Compile Include="Item\Currency.cs" />
@@ -87,12 +81,6 @@
     <Compile Include="Fixture\Stairs.cs" />
     <Compile Include="Fixture\Trap.cs" />
     <Compile Include="Fixture\Tree.cs" />
-    <Compile Include="General\AStarTile.cs" />
-    <Compile Include="General\Dice.cs" />
-    <Compile Include="General\DNotation.cs" />
-    <Compile Include="General\Paragraph.cs" />
-    <Compile Include="General\Vector2.cs" />
-    <Compile Include="General\Vector3.cs" />
     <Compile Include="Misc\Enums.cs" />
     <Compile Include="Screens\OpeningMenu.cs" />
     <Compile Include="World\Atom.cs" />
@@ -186,7 +174,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\KalaGame\KalaGame.csproj">
+      <Project>{f05a626e-7253-4175-825f-270de309e6a7}</Project>
+      <Name>KalaGame</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -4,6 +4,7 @@ using System.Collections.Generic; //So I can use List
 using System.Drawing; //The colors, man
 using System.Runtime.InteropServices; //For use in wrangling pointers in their place
 using Tao.Sdl;
+using KalaGame;
 
 namespace Adventurer
 {

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices; //For use in wrangling pointers in their place
 using System.Threading;
 using Tao.Sdl;
+using KalaGame;
 
 namespace Adventurer
 {

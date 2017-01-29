@@ -2,8 +2,9 @@ using System; //The big book of everything
 using System.IO; //Mainly used for reading and writing files
 using System.Collections.Generic;
 using System.Runtime.InteropServices; //For use in wrangling pointers in their place (ew SDL)
-using System.Drawing; //Some system color drawing and stuff
+//using System.Drawing; //Some system color drawing and stuff
 using Tao.Sdl; //Graphics Library
+using KalaGame;
 
 namespace Adventurer
 {
@@ -347,7 +348,7 @@ namespace Adventurer
 
                 if (items.Peek() != String.Empty)
                     DrawText(veraSmall, s + ": " + items.Dequeue(),
-                        new Vector2(350, m), Color.White);
+                        new Vector2(350, m), System.Drawing.Color.White);
             }
 
             items.Clear();
@@ -469,7 +470,7 @@ namespace Adventurer
 
                         if (items.Peek() != String.Empty)
                             DrawText(veraSmall, s + ": " + items.Dequeue(),
-                                new Vector2(350, m), Color.White);
+                                new Vector2(350, m), System.Drawing.Color.White);
                         }
 
                         items.Clear();
