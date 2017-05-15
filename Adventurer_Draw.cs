@@ -428,9 +428,9 @@ namespace Adventurer
                     partDamage.Dequeue();
                 }
 
-                parts.Enqueue(CapitalizeFirst(part.name));
+                parts.Enqueue(CapitalizeFirst(part.Name));
                
-                switch (part.injury)
+                switch (part.Injury)
                 {
                     case InjuryLevel.Healthy:
                         partDamage.Enqueue(Color.White);
@@ -448,7 +448,7 @@ namespace Adventurer
                         partDamage.Enqueue(Color.Gray);
                         break;
                     default:
-                        throw new Exception($"Unhandled InjuryType '${part.injury.ToString()}' when displaying body parts");
+                        throw new Exception($"Unhandled InjuryType '${part.Injury.ToString()}' when displaying body parts");
                 }
             }
 

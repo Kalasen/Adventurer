@@ -1,12 +1,13 @@
 using System;
 using System.Drawing;
 using System.Collections.Generic;
-using System.Text;
-using Tao.Sdl;
 using KalaGame;
 
 namespace Adventurer
 {
+    /// <summary>
+    /// Whether monster or player, they're all creatures
+    /// </summary>
     public class Creature
     {
         #region Variables
@@ -31,7 +32,9 @@ namespace Adventurer
         public List<Armor> wornArmor = new List<Armor>();
         public List<string> message = new List<string>(10);
         public Sentience mind;
-        public byte status_paralyzed = 0;		
+        public byte status_paralyzed = 0;	
+        
+        // TODO: Hold on to the level we're in.
         #endregion
 
         public Creature(byte speed, DNotation attack, int creatureImage,
@@ -51,7 +54,7 @@ namespace Adventurer
 			this.gold = 0;
             this.attack = new DNotation(attack);
             this.killCount = 0;
-            this.food = 15000; //Start with 15000 food units
+            this.food = 15000;
             this.isPlayer = false;
             this.anatomy = new List<BodyPart>(anatomy);
             this.isAlive = true;
@@ -69,17 +72,17 @@ namespace Adventurer
 
             foreach (BodyPart b in this.anatomy)
             {
-                if (b.flags.HasFlag(BodyPartFlags.CanPickUpItem))
+                if (b.Flags.HasFlag(BodyPartFlags.CanPickUpItem))
                 {
                     this.isDextrous = true;
-                    b.flags |= BodyPartFlags.CanUseWeapon;
+                    b.Flags |= BodyPartFlags.CanUseWeapon;
                 }
             }
         }
         public Creature(Creature c)
         {
 			this.gold = c.gold;
-			this.attack = new DNotation(c.attack); //Deep copy
+			this.attack = new DNotation(c.attack); // Deep copy
             this.turn_energy = c.turn_energy;
             this.level = c.level;
             this.xpWorth = c.xpWorth;
@@ -133,11 +136,7 @@ namespace Adventurer
             this.isDextrous = c.isDextrous;
         }
 
-		public void Affect(Effect e, Level currentLevel)
-		{
-			Affect(e, currentLevel, false); //No mute
-		}
-		public void Affect(Effect e, Level currentLevel, bool mute)
+		public void Affect(Effect e, Level currentLevel, bool mute = false)
 		{
 			switch(e.type)
 			{
@@ -193,10 +192,10 @@ namespace Adventurer
 			case "heal":
 				foreach (BodyPart b in anatomy)
                 {
-                    b.currentHealth += (int)(b.maxHealth * 0.25f);
+                    b.CurrentHealth += (int)(b.MaxHealth * 0.25f);
 
-                    if (b.currentHealth > b.maxHealth)
-                        b.currentHealth = b.maxHealth;
+                    if (b.CurrentHealth > b.MaxHealth)
+                        b.CurrentHealth = b.MaxHealth;
                 }
 
                 hp += e.magnitude;
@@ -246,9 +245,9 @@ namespace Adventurer
 			case "regenerate body part":
 				if (lostParts.Count > 0)
                 {
-                    lostParts[0].currentHealth = lostParts[0].maxHealth; //Heal part
+                    lostParts[0].CurrentHealth = lostParts[0].MaxHealth; //Heal part
                     anatomy.Add(lostParts[0]); //Restore part                    
-                    if (!mute) message.Add("A shiver runs through your body, and your missing " + lostParts[0].name + " grows back where it once was, good as new.");
+                    if (!mute) message.Add("A shiver runs through your body, and your missing " + lostParts[0].Name + " grows back where it once was, good as new.");
                     lostParts.RemoveAt(0);                    
                 }
                 else
@@ -400,7 +399,7 @@ namespace Adventurer
                                 return false;
                             }
                         }
-                    if (s == b.name) //If it fits on any body part
+                    if (s == b.Name) //If it fits on any body part
                         return true;
                 }
 
@@ -410,7 +409,7 @@ namespace Adventurer
         public bool CanWield(Item w)
         {
             foreach (BodyPart b in anatomy)
-                if (b.flags.HasFlag(BodyPartFlags.CanUseWeapon))
+                if (b.Flags.HasFlag(BodyPartFlags.CanUseWeapon))
                     return true; //If can wield weapon
 
             message.Add("You have no body parts that can use a weapon.");
@@ -518,7 +517,7 @@ namespace Adventurer
             }
             
             return candidate; //Return all the items we can make from this one                
-        } //Find all items that can be made from this item
+        } // Find all items that can be made from this item
         public Level Drop(Level currentLevel, Item dropItem)
         {
             int x = pos.X;
@@ -582,7 +581,7 @@ namespace Adventurer
         {
             lostParts.Add(b); //Keep track of lost, removed parts
 
-            Item part = new Item(100f, 100f, $"{name} {b.name}", Color.Red, new List<Item>(), new List<string>());            
+            Item part = new Item(100f, 100f, $"{name} {b.Name}", Color.Red, new List<Item>(), new List<string>());            
             part.edible = true;
             part.itemImage = 253;           
             part.nutrition = 500;
@@ -626,7 +625,7 @@ namespace Adventurer
                     BodyPart part = currentLevel.creatures[opponentIndex].anatomy[partIndex];
                     foreach (Armor a in wornArmor)
                         foreach (string s in a.covers)
-                            if (s == part.name)
+                            if (s == part.Name)
                             {
                                 //damage -= a.aC;
                             }                    
@@ -637,30 +636,30 @@ namespace Adventurer
                         message.Add("You deal no damage.");
                     }
 
-                    var damageBefore = currentLevel.creatures[opponentIndex].anatomy[partIndex].injury;
+                    var damageBefore = currentLevel.creatures[opponentIndex].anatomy[partIndex].Injury;
                     currentLevel.creatures[opponentIndex].TakeDamage(damage);
-                    var damageAfter = currentLevel.creatures[opponentIndex].anatomy[partIndex].injury;
+                    var damageAfter = currentLevel.creatures[opponentIndex].anatomy[partIndex].Injury;
 
                     message.Add("You hit the " + currentLevel.creatures[opponentIndex].name + " in the " +
-                        part.name + " for " + damage + " damage.");
+                        part.Name + " for " + damage + " damage.");
                     currentLevel.creatures[opponentIndex].message.Add("The " + this.name + " hits you in the " +
-                        part.name + " for " + damage + " damage.");
+                        part.Name + " for " + damage + " damage.");
 
                     if (damageBefore != damageAfter)
                     {
                         switch(damageAfter)
                         {
                             case InjuryLevel.Minor:
-                                message.Add($"You wound the {currentLevel.creatures[opponentIndex].name}'s {part.name}.");
+                                message.Add($"You wound the {currentLevel.creatures[opponentIndex].name}'s {part.Name}.");
                                 break;
                             case InjuryLevel.Broken:
-                                message.Add($"You break the {currentLevel.creatures[opponentIndex].name}'s {part.name}.");
+                                message.Add($"You break the {currentLevel.creatures[opponentIndex].name}'s {part.Name}.");
                                 break;
                             case InjuryLevel.Mangled:
-                                message.Add($"You mangle the {currentLevel.creatures[opponentIndex].name}'s {part.name}.");
+                                message.Add($"You mangle the {currentLevel.creatures[opponentIndex].name}'s {part.Name}.");
                                 break;
                             case InjuryLevel.Destroyed:
-                                message.Add($"You obliterate the {currentLevel.creatures[opponentIndex].name}'s {part.name}.");
+                                message.Add($"You obliterate the {currentLevel.creatures[opponentIndex].name}'s {part.Name}.");
                                 break;
                         }
                     }
@@ -676,12 +675,12 @@ namespace Adventurer
 
                     if (opponentIndex == 0) //If player
                     {
-                        currentLevel.causeOfDeath = $"lethal damage to your {part.name}.";
+                        currentLevel.causeOfDeath = $"lethal damage to your {part.Name}.";
 
                         if(weapon == null)
-                            currentLevel.mannerOfDeath = $"you were hit in the {part.name} by a {name}.";
+                            currentLevel.mannerOfDeath = $"you were hit in the {part.Name} by a {name}.";
                         else
-                            currentLevel.mannerOfDeath = $"you were struck in the {part.name} by a {weapon.name} wielded by a {name}.";                        
+                            currentLevel.mannerOfDeath = $"you were struck in the {part.Name} by a {weapon.name} wielded by a {name}.";                        
                     }
                 }
             }
@@ -879,15 +878,15 @@ namespace Adventurer
                 BodyPart part = target.anatomy[partIndex];
                 foreach (Armor a in wornArmor)
                     foreach (string s in a.covers)
-                        if (s == part.name)
+                        if (s == part.Name)
                             damage -= a.aC;
                 //float conBonus = target.constitution / 10f;
                 //damage = (int)((float)damage / conBonus);
 
                 target.TakeDamage(damage);
 
-                this.message.Add("You hit the " + target.name + " in the " + part.name + " for " + damage + " damage.");
-                target.message.Add("The " + this.name + " hits you in the " + part.name + " for " + damage + " damage.");
+                this.message.Add("You hit the " + target.name + " in the " + part.Name + " for " + damage + " damage.");
+                target.message.Add("The " + this.name + " hits you in the " + part.Name + " for " + damage + " damage.");
 
                 if (firedItem is Potion)
                 {
@@ -903,8 +902,8 @@ namespace Adventurer
 
                 if (target == currentLevel.creatures[0]) //If player
                 {
-                    currentLevel.causeOfDeath = "lethal damage to your " + part.name + ".";
-                    currentLevel.mannerOfDeath = "you were struck in the " + part.name + " by a " + firedItem.name + " thrown by a " + name + ".";
+                    currentLevel.causeOfDeath = "lethal damage to your " + part.Name + ".";
+                    currentLevel.mannerOfDeath = "you were struck in the " + part.Name + " by a " + firedItem.name + " thrown by a " + name + ".";
                 }
 
                 inventory.Remove(firedItem); //Remove item from inventory
@@ -988,7 +987,7 @@ namespace Adventurer
 
             foreach (BodyPart b in this.anatomy)
             {
-                if (b.flags.HasFlag(BodyPartFlags.LifeCritical) && b.injury == InjuryLevel.Destroyed) //If your head is chunky salsa, you're dead.          
+                if (b.Flags.HasFlag(BodyPartFlags.LifeCritical) && b.Injury == InjuryLevel.Destroyed) //If your head is chunky salsa, you're dead.          
                     return true;
             }
 
@@ -1000,7 +999,7 @@ namespace Adventurer
         }
         public void Unwield()
         {
-            message.Add("You put away the " + weapon.name + ".");
+            message.Add($"You put away the {weapon.name}.");
             inventory.Add(weapon);
             weapon = null;
         }		
@@ -1052,5 +1051,5 @@ namespace Adventurer
         {
             return name;
         }
-    } //Whether monster or player, they're all creatures
+    }
 }

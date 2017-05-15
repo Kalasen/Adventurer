@@ -80,7 +80,7 @@ namespace Adventurer
             {
                 foreach (BodyPart b in thisCreature.anatomy)
                 {
-                    if (b.flags.HasFlag(BodyPartFlags.CanPickUpItem)) //If any part can pick up items
+                    if (b.Flags.HasFlag(BodyPartFlags.CanPickUpItem)) //If any part can pick up items
                     {
                         inventoryCheck = true; //We're picking up an item, so we need to see what we can do with it
                         return "Pick Up"; //Pick it up
@@ -129,7 +129,7 @@ namespace Adventurer
             {
                 foreach (Item i in thisCreature.inventory)
                 {
-                    if (i is Potion && (b.injury.HasFlag(InjuryLevel.Mangled) || b.injury.HasFlag(InjuryLevel.Broken))) //If the creature has a potion and is hurt badly
+                    if (i is Potion && (b.Injury.HasFlag(InjuryLevel.Mangled) || b.Injury.HasFlag(InjuryLevel.Broken))) //If the creature has a potion and is hurt badly
                     {
                         return "Eat " + thisCreature.inventory.IndexOf(i);
                     }
@@ -145,7 +145,7 @@ namespace Adventurer
                         {
                             foreach (BodyPart b in thisCreature.anatomy)
                             {
-                                if (b.flags.HasFlag(BodyPartFlags.CanPickUpItem))
+                                if (b.Flags.HasFlag(BodyPartFlags.CanPickUpItem))
                                 {
                                     targetPos = new Point2D(x, y);
                                     path = currentLevel.AStarPathfind(thisCreature, thisCreature.pos, playerPos); //Path to item

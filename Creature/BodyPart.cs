@@ -1,22 +1,21 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace Adventurer
 {
+    /// <summary>
+    /// Represents anything from limbs to organs
+    /// </summary>
     public class BodyPart
     {
-        public string name { get; set; }
-        public int maxHealth { get; set; }
+        public string Name { get; set; }
+        public int MaxHealth { get; set; }
 
         private int _currentHealth;
-        public int currentHealth
+        public int CurrentHealth
         {
             get { return _currentHealth; }
             set
             {
-                if (_currentHealth > maxHealth)
-                    _currentHealth = maxHealth;
+                if (_currentHealth > MaxHealth)
+                    _currentHealth = MaxHealth;
 
                 if (_currentHealth < 0)
                     _currentHealth = 0;
@@ -25,18 +24,18 @@ namespace Adventurer
             }
         }                
         
-        public BodyPartFlags flags;
-        public InjuryLevel injury
+        public BodyPartFlags Flags { get; set; }
+        public InjuryLevel Injury
         {
             get
             {
-                if (currentHealth <= 0)
+                if (CurrentHealth <= 0)
                     return InjuryLevel.Destroyed;
-                if (currentHealth <= maxHealth * 0.25)
+                if (CurrentHealth <= MaxHealth * 0.25)
                     return InjuryLevel.Mangled;
-                if (currentHealth <= maxHealth * 0.50)
+                if (CurrentHealth <= MaxHealth * 0.50)
                     return InjuryLevel.Broken;
-                if (currentHealth <= maxHealth * 0.75)
+                if (CurrentHealth <= MaxHealth * 0.75)
                     return InjuryLevel.Minor;
 
                 return InjuryLevel.Healthy;
@@ -45,27 +44,42 @@ namespace Adventurer
 
         BodyPart parent;
 
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="name">What to call this body part.</param>
+        /// <param name="health">How much damage this part can take. TODO: Percent based?</param>
+        /// <param name="flags">The optional bit properties of this body part.</param>
+        /// <param name="parent">Fingers connected to the hand, hand connected to the forearm, etc.</param>
         public BodyPart(string name, int health, BodyPartFlags flags, BodyPart parent = null)
         {
-            this.name = name;
-            this.currentHealth = this.maxHealth = health;
-            this.flags = flags;
+            Name = name;
+            CurrentHealth = MaxHealth = health;
+            Flags = flags;
             this.parent = parent;
         }
 
+
+        /// <summary>
+        /// Deep copy contructor.
+        /// </summary>
+        /// <param name="b">The body part to clone.</param>
         public BodyPart(BodyPart b)
         {
-            this.name = b.name;            
-            this.currentHealth = b.currentHealth;
-            this.maxHealth = b.maxHealth;
-            this.flags = b.flags;
-            this.parent = b.parent != null ? new BodyPart(b.parent) : null;
+            Name = b.Name;
+            CurrentHealth = b.CurrentHealth;
+            MaxHealth = b.MaxHealth;
+            Flags = b.Flags;
+            parent = b.parent != null ? new BodyPart(b.parent) : null;
         }
 
+        /// <summary>
+        /// Converts this creature to its string representation, its name.
+        /// </summary>
+        /// <returns>The name of this body part.</returns>
         public override string ToString()
         {
-            return name;
+            return Name;
         }
     }
 }
-
