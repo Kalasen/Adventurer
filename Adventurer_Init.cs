@@ -87,9 +87,7 @@ namespace Adventurer
             air = content.materials.First(m => m.name == "air"); //TODO: figure out why we're holding on to air and rock, we have Linq now
 
             DrawText(veraSmall, "Post-initialization complete. Starting main menu...", new Point2D(15, 150));
-            Sdl.SDL_Flip(screen); //Update screen      
-
-            //Thread.Sleep(10000); //Pause to allow review of loading steps
+            Sdl.SDL_Flip(screen); //Update screen
         } //Sets up everything needed after load content		
 	}
 }

@@ -1,9 +1,8 @@
-using System; //The big book of everything
-using System.IO; //Mainly used for reading and writing files
+using System;
+using System.IO;
 using System.Collections.Generic;
-using System.Runtime.InteropServices; //For use in wrangling pointers in their place (ew SDL)
-//using System.Drawing; //Some system color drawing and stuff
-using Tao.Sdl; //Graphics Library
+using System.Runtime.InteropServices;
+using Tao.Sdl;
 using KalaGame;
 
 namespace Adventurer
@@ -11,8 +10,8 @@ namespace Adventurer
     public partial class Adventurer
     {
         #region Data Declarations
-        public const double PI = 3.14159265; //Circumference/Diameter
-        public const byte TURN_THRESHOLD = 72; //Timing system threshold for getting a turn
+        public const double PI = 3.14159265;
+        public const byte TURN_THRESHOLD = 72; // Timing system threshold for getting a turn
 
         public static GameState gameState = GameState.OpeningMenu;
 
@@ -20,24 +19,24 @@ namespace Adventurer
 
         static ContentEncyclopedia content = new ContentEncyclopedia();
 
-        static Level currentLevel {get;set;} //The level we're working with
-        public static Random rng = new Random(baseSeed); //The will of the random number god
+        static Level CurrentLevel { get; set; } 
+        public static Random rng = new Random(baseSeed);
         public static Dice rngDie = new Dice(baseSeed);
         static float totalTurnCount = 1;
         static bool iCanSeeForever = false;
         static bool debugMode = false;
 		
-        static string sessionName = string.Empty; //The title of the current session
-        static int inventorySelect = 0; //For use in the inventory menu
-        static int inventoryMode = 0; //Main inventory mode  
-        static int selectionCursor = 1; //A variable to track what part of the menu a cursor is on.        
-        static int[, ,] levelSeed = new int[100, 100, 100]; //50x50x50 map x,y,z
-        static Point2D cursorPos = new Point2D(10, 10); //A position for ranged selection
+        static string sessionName = string.Empty; // The title of the current session
+        static int inventorySelect = 0; // For use in the inventory menu
+        static int inventoryMode = 0; // Main inventory mode  
+        static int selectionCursor = 1; // A variable to track what part of the menu a cursor is on.        
+        static int[, ,] levelSeed = new int[100, 100, 100]; // 50x50x50 map x,y,z
+        static Point2D cursorPos = new Point2D(10, 10); // A position for ranged selection
         static Point3D mapPos = new Point3D(50, 50, 1); //We start at 50, 50, 1
 
-        static bool run = true; //Whether the game should continue running
+        static bool run = true; // Whether the game should continue running
 
-        static List<Item> craftableItems = new List<Item>(); //For use in inventory menu
+        static List<Item> craftableItems = new List<Item>(); // For use in inventory menu
 		
 		public static Material air, rock;
 
@@ -46,12 +45,10 @@ namespace Adventurer
         static Graphics graphics;
         #endregion
 
-        //The code starts running here
-        static void Main() //The code starts running in here
+        static void Main()
         {
-            //try  //Try to run the game
-            //{                
-                Test(); //Test random junk
+            try
+            {
                 Init_PreInitialize();
                 graphics = new Graphics(); //Load in stuff that needs to be done first
                 content.LoadAll();
@@ -63,34 +60,35 @@ namespace Adventurer
                     Draw(); //Draw everything to the screen
                     Update(); //Run the main bits of logic
                 }
-            //}
-            //catch (Exception e) //If it can't
-            //{
-            //#region Error Catch
-            //    List<string> lines = new List<string>();
-            //    lines.Add("The dungeon collapses. Rocks fall, everyone dies. Kalasen apologizes for the instability.");
-            //    lines.Add("Perhaps you can salvage some understanding of the collapse from this arcane scroll.");
-            //    lines.Add(String.Empty);
-            //    lines.Add("**********************************");
-            //    lines.Add(String.Empty);
-            //    lines.Add(e.ToString());
-            //    lines.Add(String.Empty);
-            //    lines.Add("**********************************");
+            }
+            catch (Exception e) // Log any errors
+            {
+                List<string> lines = new List<string>
+                {
+                    "The dungeon collapses. Rocks fall, everyone dies. Kalasen apologizes for the instability.",
+                    "Perhaps you can salvage some understanding of the collapse from this arcane scroll.",
+                    String.Empty,
+                    "**********************************",
+                    String.Empty,
+                    e.ToString(),
+                    String.Empty,
+                    "**********************************"
+                };
+                
+                // Display the error on screen
+                foreach (string s in lines)
+                    Console.WriteLine(s); 
 
-            //    if (File.Exists("ErrorLogs/crash.txt"))
-            //        File.Delete("ErrorLogs/crash.txt"); //Clear it if it's there
+                // Clear the log file if it's there
+                if (File.Exists("ErrorLogs/crash.txt"))
+                    File.Delete("ErrorLogs/crash.txt");
 
-            //    string[] eStr = new string[1];
-            //    eStr[0] = e.ToString();
-            //    File.WriteAllLines("ErrorLogs/crash.txt", eStr);
+                // Write to log file
+                File.WriteAllLines("ErrorLogs/crash.txt", new string[] { e.ToString() });
 
-            //    foreach (string s in lines)
-            //        Console.WriteLine(s); //Display the error on screen
-
-            //    Console.ReadLine(); //Pause for the player to read it
-            //    throw;
-            //#endregion
-            //}
+                Console.ReadLine(); // Pause for the player to read
+                throw;
+            }
         }
 
         //Converts a letter to its number, aka 'a' == 1, 'b' == 2, etc
@@ -198,12 +196,12 @@ namespace Adventurer
         {
             exploredLevels++;
 
-            if (currentLevel != null)
+            if (CurrentLevel != null)
             {
-                FileS_Level(currentLevel);
+                FileS_Level(CurrentLevel);
             }
 
-            currentLevel = null;            
+            CurrentLevel = null;            
 
             string levelPath = "Saves/" + sessionName + "/(" + mapPos.X.ToString() + ", " + mapPos.Y.ToString() + ", " +
                 mapPos.Z.ToString() + ").txt"; //The path to the level
@@ -212,7 +210,7 @@ namespace Adventurer
             {
                 FileL_Level(mapPos);
                 
-                if (currentLevel.creatures.Count <= 0) //If it failed
+                if (CurrentLevel.creatures.Count <= 0) //If it failed
                 {
 
                     bool success = false;
@@ -222,7 +220,7 @@ namespace Adventurer
                         try
                         {
                             //TODO: Make a new ContentEncyclopedia to pass in here with only the creatures and such that should appear on this level
-                            currentLevel = new Level(rng.Next(8, 10), rng.Next(6, 16), levelType, content, levelSeed[mapPos.X, mapPos.Y, mapPos.Z], mapPos);
+                            CurrentLevel = new Level(rng.Next(8, 10), rng.Next(6, 16), levelType, content, levelSeed[mapPos.X, mapPos.Y, mapPos.Z], mapPos);
                             success = true;
                         }
                         catch (Exception e)
@@ -243,7 +241,7 @@ namespace Adventurer
                     try
                     {
                         //TODO: Make a new content object with just the creatures that should appear in this level
-                        currentLevel = new Level(rng.Next(8, 10), rng.Next(6, 16), levelType, content, levelSeed[mapPos.X, mapPos.Y, mapPos.Z], mapPos);
+                        CurrentLevel = new Level(rng.Next(8, 10), rng.Next(6, 16), levelType, content, levelSeed[mapPos.X, mapPos.Y, mapPos.Z], mapPos);
                         success = true;
                     }
                     catch (Exception e)
@@ -483,18 +481,18 @@ namespace Adventurer
 
             GenLevel("dungeon", true);
 
-            Point2D playerPos = currentLevel.creatures[0].pos;
-            currentLevel.creatures[0] = content.bestiary[inputIndex].GenerateCreature("monster", content.items, rng.Next()); //Player is given creature
-			currentLevel.creatures[0].hpMax = currentLevel.creatures[0].hp += 5; //Add 5 for being an adventurer
-            currentLevel.creatures[0].message.Add("Welcome to Adventurer!");
-            currentLevel.creatures[0].message.Add("You are a " + currentLevel.creatures[0].name + ".");
+            Point2D playerPos = CurrentLevel.creatures[0].pos;
+            CurrentLevel.creatures[0] = content.bestiary[inputIndex].GenerateCreature("monster", content.items, rng.Next()); //Player is given creature
+			CurrentLevel.creatures[0].hpMax = CurrentLevel.creatures[0].hp += 5; //Add 5 for being an adventurer
+            CurrentLevel.creatures[0].message.Add("Welcome to Adventurer!");
+            CurrentLevel.creatures[0].message.Add("You are a " + CurrentLevel.creatures[0].name + ".");
             if (rngDie.Roll(100) != 1) //99 out of every 100 times            
-                currentLevel.creatures[0].message.Add("Try not to die too soon.");
+                CurrentLevel.creatures[0].message.Add("Try not to die too soon.");
             else            
-                currentLevel.creatures[0].message.Add("You are going to die soon."); //Freak 'em out.
-            currentLevel.creatures[0].pos = playerPos;
-            currentLevel.creatures[0].hpMax += rngDie.Roll(currentLevel.creatures[0].constitution) / 2;
-            currentLevel.creatures[0].hp = currentLevel.creatures[0].hpMax;
+                CurrentLevel.creatures[0].message.Add("You are going to die soon."); //Freak 'em out.
+            CurrentLevel.creatures[0].pos = playerPos;
+            CurrentLevel.creatures[0].hpMax += rngDie.Roll(CurrentLevel.creatures[0].constitution) / 2;
+            CurrentLevel.creatures[0].hp = CurrentLevel.creatures[0].hpMax;
 
             #region Create initial save data
             string folderPath = "Saves/" + sessionName;
@@ -520,10 +518,5 @@ namespace Adventurer
             //SaveLevel(currentLevel); //Track the first level
             #endregion
         }
-
-        // For testing code snippets
-        static void Test()
-        {
-        } 
     }
 }

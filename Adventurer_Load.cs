@@ -207,20 +207,20 @@ namespace Adventurer
                 levelSeed[pos.X, pos.Y, pos.Z] = int.Parse(line); //Fix the seed to its original
 
                 GenLevel(levelType, false); //Recreate the originally genned level
-                Creature tempCreature = new Creature(currentLevel.creatures[0]);
-                currentLevel.creatures.Clear(); //We'll fill this in from the load file
+                Creature tempCreature = new Creature(CurrentLevel.creatures[0]);
+                CurrentLevel.creatures.Clear(); //We'll fill this in from the load file
                 for (int y = 0; y < Level.GRIDH; y++)
                     for (int x = 0; x < Level.GRIDW; x++) //For all tiles
                     {
-                        currentLevel.tileArray[x, y].scentIdentifier.Add(tempCreature.name); //Keep track of this creature's scent now
-                        currentLevel.tileArray[x, y].scentMagnitude.Add(0); //Start it at zero scent in the room
-                        currentLevel.tileArray[x, y].itemList.Clear(); //Clear out previous items
-                        if (!currentLevel.tileArray[x, y].isPassable && currentLevel.tileArray[x, y].fixtureLibrary.Count > 0)
+                        CurrentLevel.tileArray[x, y].scentIdentifier.Add(tempCreature.name); //Keep track of this creature's scent now
+                        CurrentLevel.tileArray[x, y].scentMagnitude.Add(0); //Start it at zero scent in the room
+                        CurrentLevel.tileArray[x, y].itemList.Clear(); //Clear out previous items
+                        if (!CurrentLevel.tileArray[x, y].isPassable && CurrentLevel.tileArray[x, y].fixtureLibrary.Count > 0)
                         {
-                            currentLevel.tileArray[x, y].isTransparent = true; //Remove influence of fixtures
-                            currentLevel.tileArray[x, y].isPassable = true;
+                            CurrentLevel.tileArray[x, y].isTransparent = true; //Remove influence of fixtures
+                            CurrentLevel.tileArray[x, y].isPassable = true;
                         }
-                        currentLevel.tileArray[x, y].fixtureLibrary.Clear();
+                        CurrentLevel.tileArray[x, y].fixtureLibrary.Clear();
                     }
                 //currentLevel.creatureList.Add(tempCreature);
             #endregion
@@ -238,8 +238,8 @@ namespace Adventurer
                         piece[1] = piece[1].Substring(0, piece[1].Length - 1); //Remove ")"
                         tilePos.X = short.Parse(piece[0]); //Get the X digit
                         tilePos.Y = short.Parse(piece[1]); //Get the Y digit
-                        currentLevel.tileArray[tilePos.X, tilePos.Y].itemList.Clear(); //Empty the random gen items.
-                        currentLevel.tileArray[tilePos.X, tilePos.Y].fixtureLibrary.Clear(); //Empty the random gen items.
+                        CurrentLevel.tileArray[tilePos.X, tilePos.Y].itemList.Clear(); //Empty the random gen items.
+                        CurrentLevel.tileArray[tilePos.X, tilePos.Y].fixtureLibrary.Clear(); //Empty the random gen items.
                         #endregion
                     }
                     else if (line.StartsWith("[ARMOR]") || line.StartsWith("[ITEM]") || line.StartsWith("[POTION]") || line.StartsWith("[SCROLL]")
@@ -252,7 +252,7 @@ namespace Adventurer
 
                         if (piece[1] == "pinecone") //TODO: Bluh hackish improve later
                         {
-                            currentLevel.tileArray[tilePos.X, tilePos.Y].itemList.Add(new Item(content.items.Find(item => item.name == "pinecone")));
+                            CurrentLevel.tileArray[tilePos.X, tilePos.Y].itemList.Add(new Item(content.items.Find(item => item.name == "pinecone")));
                         }
                         else
                         {
@@ -269,7 +269,7 @@ namespace Adventurer
                                         gore = new Item(500f, 500f, $"{c.name} corpse", Color.Crimson, new List<Item>(), new List<string>());
                                     gore.itemImage = 253; //"²"
                                     gore.edible = true;
-                                    currentLevel.tileArray[tilePos.X, tilePos.Y].itemList.Add(gore);
+                                    CurrentLevel.tileArray[tilePos.X, tilePos.Y].itemList.Add(gore);
                                     break;
                                 }
                             }
@@ -278,7 +278,7 @@ namespace Adventurer
                             {
                                 if (i.name == piece[1])
                                 {
-                                    currentLevel.tileArray[tilePos.X, tilePos.Y].itemList.Add(i);
+                                    CurrentLevel.tileArray[tilePos.X, tilePos.Y].itemList.Add(i);
                                     break;
                                 }
                             }
@@ -325,23 +325,23 @@ namespace Adventurer
                                     for (int y = 0; y < Level.GRIDH; y++)
                                         for (int x = 0; x < Level.GRIDW; x++)
                                         {
-                                            currentLevel.tileArray[x, y].scentIdentifier.Add(p.name); //Keep track of this creature's scent now
-                                            currentLevel.tileArray[x, y].scentMagnitude.Add(0); //Start it at zero scent in the room
+                                            CurrentLevel.tileArray[x, y].scentIdentifier.Add(p.name); //Keep track of this creature's scent now
+                                            CurrentLevel.tileArray[x, y].scentMagnitude.Add(0); //Start it at zero scent in the room
                                         }
 
-                                    currentLevel.creatures.Insert(0, p); //Insert player at spot 0
+                                    CurrentLevel.creatures.Insert(0, p); //Insert player at spot 0
                                 }
                                 else
                                 {
-                                    creatureIndex = currentLevel.creatures.Count;
+                                    creatureIndex = CurrentLevel.creatures.Count;
 
-                                    if (currentLevel.levelType == "village")
+                                    if (CurrentLevel.levelType == "village")
                                     {
                                         Creature p = c.GenerateCreature("quest giver", content.items, int.Parse(piece[1]));
                                         p.inventory.Clear();
                                         p.wornArmor.Clear();
                                         p.weapon = null;
-                                        currentLevel.SpawnCreature(p, tilePos);
+                                        CurrentLevel.SpawnCreature(p, tilePos);
                                     }
                                     else
                                     {
@@ -349,7 +349,7 @@ namespace Adventurer
                                         p.inventory.Clear();
                                         p.wornArmor.Clear();
                                         p.weapon = null;
-                                        currentLevel.SpawnCreature(p, tilePos);
+                                        CurrentLevel.SpawnCreature(p, tilePos);
                                     }
                                 }
                             }
@@ -359,7 +359,7 @@ namespace Adventurer
                         {
                             if (piece[a] == "pinecone") //Bluh hackish improve later
                             {
-                                currentLevel.creatures[creatureIndex].inventory.Add(new Item(content.items.Find(item => item.name == "pinecone")));
+                                CurrentLevel.creatures[creatureIndex].inventory.Add(new Item(content.items.Find(item => item.name == "pinecone")));
                             }
 
                             foreach (Species c in content.bestiary) //For gore
@@ -375,7 +375,7 @@ namespace Adventurer
 
                                     gore.itemImage = 253;
                                     gore.edible = true;
-                                    currentLevel.creatures[creatureIndex].inventory.Add(gore);
+                                    CurrentLevel.creatures[creatureIndex].inventory.Add(gore);
                                     break;
                                 }
                             }
@@ -384,7 +384,7 @@ namespace Adventurer
                             {
                                 if (i.name == piece[a])
                                 {
-                                    currentLevel.creatures[creatureIndex].inventory.Add(i);
+                                    CurrentLevel.creatures[creatureIndex].inventory.Add(i);
                                 }
                             }
                         }
@@ -394,7 +394,7 @@ namespace Adventurer
                     {
                         #region Trap Data
                         line = line.Remove(0, 7); //Remove the "[TRAP] " part
-                        currentLevel.tileArray[tilePos.X, tilePos.Y].fixtureLibrary.Add(new Trap(new Effect(rngDie.Roll(5), line))); //Add trap
+                        CurrentLevel.tileArray[tilePos.X, tilePos.Y].fixtureLibrary.Add(new Trap(new Effect(rngDie.Roll(5), line))); //Add trap
                         #endregion
                     }
                     else if (line.StartsWith("[TREE]"))
@@ -406,9 +406,9 @@ namespace Adventurer
                         thisTree.species = piece[0];
                         thisTree.fruit = piece[1];
 
-                        currentLevel.tileArray[tilePos.X, tilePos.Y].isPassable = false; //Fix for tree
-                        currentLevel.tileArray[tilePos.X, tilePos.Y].isTransparent = false; //Fix for tree
-                        currentLevel.tileArray[tilePos.X, tilePos.Y].fixtureLibrary.Add(thisTree); //Add tree
+                        CurrentLevel.tileArray[tilePos.X, tilePos.Y].isPassable = false; //Fix for tree
+                        CurrentLevel.tileArray[tilePos.X, tilePos.Y].isTransparent = false; //Fix for tree
+                        CurrentLevel.tileArray[tilePos.X, tilePos.Y].fixtureLibrary.Add(thisTree); //Add tree
                         #endregion
                     }
                     else if (line.StartsWith("[DOOR]"))
@@ -416,17 +416,17 @@ namespace Adventurer
                         #region Door Data
                         line = line.Remove(0, 7);
 						string[] dataSplit = line.Split(':');
-                        Tile thisTile = currentLevel.tileArray[tilePos.X, tilePos.Y];
+                        Tile thisTile = CurrentLevel.tileArray[tilePos.X, tilePos.Y];
                         Door thisDoor = new Door(thisTile, bool.Parse(dataSplit[1]));
                         thisTile.fixtureLibrary.Add(thisDoor);
 
                         if (dataSplit[0] == "open")
                         {
-                            thisDoor.Open(thisTile, currentLevel); //Open the door from default closed
+                            thisDoor.Open(thisTile, CurrentLevel); //Open the door from default closed
                         }
                         else
                         {
-                            thisDoor.Close(thisTile, currentLevel);
+                            thisDoor.Close(thisTile, CurrentLevel);
                         }
                         #endregion
                     }
@@ -435,9 +435,9 @@ namespace Adventurer
                         #region Stairs Data
                         line = line.Remove(0, 9);
                         if (line == "down")
-                            currentLevel.tileArray[tilePos.X, tilePos.Y].fixtureLibrary.Add(new Stairs(true));
+                            CurrentLevel.tileArray[tilePos.X, tilePos.Y].fixtureLibrary.Add(new Stairs(true));
                         else
-                            currentLevel.tileArray[tilePos.X, tilePos.Y].fixtureLibrary.Add(new Stairs(false));
+                            CurrentLevel.tileArray[tilePos.X, tilePos.Y].fixtureLibrary.Add(new Stairs(false));
                         #endregion
                     }
                     #endregion
@@ -491,7 +491,7 @@ namespace Adventurer
 
                     FileL_Level(mapPos); //Load first level
 
-                    currentLevel.creatures[0].killCount = int.Parse(worldData[2].Remove(0, 12)); //Get killcount
+                    CurrentLevel.creatures[0].killCount = int.Parse(worldData[2].Remove(0, 12)); //Get killcount
                     exploredLevels = int.Parse(worldData[3].Remove(0, 11)); //Get explored levels
                     break;
                 }
@@ -499,7 +499,7 @@ namespace Adventurer
         }
         static void FileS_World()
         {
-            FileS_Level(currentLevel);
+            FileS_Level(CurrentLevel);
 
             string folderPath = "Saves/" + sessionName;
             string filePath = folderPath + "/WorldData.txt";
@@ -512,7 +512,7 @@ namespace Adventurer
             data.Add("[PLAYERPOS] (" + mapPos.X.ToString() +
                 "," + mapPos.Y.ToString() +
                 "," + mapPos.Z.ToString() + ")"); //Track player's position
-            data.Add("[KILLCOUNT] " + currentLevel.creatures[0].killCount);
+            data.Add("[KILLCOUNT] " + CurrentLevel.creatures[0].killCount);
             data.Add("[EXPLORED] " + exploredLevels);
 
             File.WriteAllLines(filePath, data.ToArray()); //Write the data
@@ -522,10 +522,10 @@ namespace Adventurer
             string[] oldData = File.ReadAllLines("Saves/SaveStockpile.txt");
             List<string> newData = new List<string>();
 
-            newData.Add("[RACE] " + currentLevel.creatures[0].name);
-            newData.Add("[DEATHCAUSE] Died from " + currentLevel.causeOfDeath);
-            newData.Add("[DEATHMANNER] This happened because " + currentLevel.mannerOfDeath);
-            newData.Add("[KILLCOUNT] " + currentLevel.creatures[0].killCount);
+            newData.Add("[RACE] " + CurrentLevel.creatures[0].name);
+            newData.Add("[DEATHCAUSE] Died from " + CurrentLevel.causeOfDeath);
+            newData.Add("[DEATHMANNER] This happened because " + CurrentLevel.mannerOfDeath);
+            newData.Add("[KILLCOUNT] " + CurrentLevel.creatures[0].killCount);
             newData.Add("[EXPLORED] " + exploredLevels);
             File.WriteAllLines("Graveyard/" + sessionName + "-" + worldSeed + ".txt", newData.ToArray());
 

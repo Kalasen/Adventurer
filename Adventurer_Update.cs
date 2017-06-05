@@ -165,32 +165,32 @@ namespace Adventurer
 		}
 		static void Update_MainGame()
 		{
-            for (int n = 0; n < currentLevel.creatures.Count; n++) //For every creature
+            for (int n = 0; n < CurrentLevel.creatures.Count; n++) //For every creature
             {
                 #region All Creatures
-                if (currentLevel.creatures[n].status_paralyzed > 0)
+                if (CurrentLevel.creatures[n].status_paralyzed > 0)
                 {
                     break;
                 }
 
-                if (currentLevel.creatures[n].turn_energy >= TURN_THRESHOLD) //If a creature's turn
+                if (CurrentLevel.creatures[n].turn_energy >= TURN_THRESHOLD) //If a creature's turn
                 {
                     if (n == 0)
                     {
-						if (!Update_Player(currentLevel.creatures[0])) //If skipped turn
+						if (!Update_Player(CurrentLevel.creatures[0])) //If skipped turn
 						{
 							return;
 						}
                     }
                     else
                     {        
-						Update_Creature(currentLevel.creatures[n]);
+						Update_Creature(CurrentLevel.creatures[n]);
                     }
 					
-					Update_PostTurn(currentLevel.creatures[n]);
+					Update_PostTurn(CurrentLevel.creatures[n]);
                 }
 
-                currentLevel.creatures[n].turn_energy += currentLevel.creatures[n].speed; //Every cycle, add to energy
+                CurrentLevel.creatures[n].turn_energy += CurrentLevel.creatures[n].speed; //Every cycle, add to energy
                 #endregion
             }
 
@@ -258,7 +258,7 @@ namespace Adventurer
             }
             else //If within an item
             {
-                if (inventorySelect > currentLevel.creatures[0].inventory.Count) //If the item is nonexistent
+                if (inventorySelect > CurrentLevel.creatures[0].inventory.Count) //If the item is nonexistent
                     inventorySelect = 0; //Revert
 
                 if (inventoryMode == 0) //If we're just looking at an item
@@ -292,7 +292,7 @@ namespace Adventurer
 	
 	            inventorySelect = LetterIndexToNumber(input); //Set to letter input, if any
 	
-	            if (inventorySelect > currentLevel.creatures[0].inventory.Count || inventorySelect <= 0)
+	            if (inventorySelect > CurrentLevel.creatures[0].inventory.Count || inventorySelect <= 0)
 	                inventorySelect = 0;
 				else // If a valid selection
 				{
@@ -304,8 +304,8 @@ namespace Adventurer
 		}
 		static void Inv_Main()
 		{
-			Item thisItem = currentLevel.creatures[0].inventory[inventorySelect - 1];
-			Creature player = currentLevel.creatures[0];
+			Item thisItem = CurrentLevel.creatures[0].inventory[inventorySelect - 1];
+			Creature player = CurrentLevel.creatures[0];
 			
 			Draw();
 			while (true)
@@ -321,24 +321,24 @@ namespace Adventurer
 					return;
 					
 	            case "b": //Break down item
-	                currentLevel.creatures[0].BreakDownItem(currentLevel, thisItem); //Break down said item
+	                CurrentLevel.creatures[0].BreakDownItem(CurrentLevel, thisItem); //Break down said item
 	                inventorySelect = 0;
 	                gameState = GameState.MainGame;
 	                return;
 	
 	            case "c":
 	                #region Enter Combine Craft Mode
-	                if (currentLevel.creatures[0].isDextrous)
+	                if (CurrentLevel.creatures[0].isDextrous)
 	                {
-	                    craftableItems = currentLevel.creatures[0].FindValidRecipe( //Find list of items
-	                        thisItem, currentLevel.content.items.ToList()); //that can be made	
+	                    craftableItems = CurrentLevel.creatures[0].FindValidRecipe( //Find list of items
+	                        thisItem, CurrentLevel.content.items.ToList()); //that can be made	
 	                    inventoryMode = 1; //Crafting mode with item
 						Inv_CombCraft();
 						return;
 	                }
 	                else
 	                {
-	                    currentLevel.creatures[0].message.Add("Your limbs are too clumsy to make tools.");
+	                    CurrentLevel.creatures[0].message.Add("Your limbs are too clumsy to make tools.");
 	                    inventorySelect = 0; //Back out of menu
 	                    gameState = GameState.MainGame;
 	                }
@@ -346,27 +346,27 @@ namespace Adventurer
 	                return;
 	
 	            case "d":
-	                currentLevel.creatures[0].Drop(currentLevel, thisItem); //Drop said item	
+	                CurrentLevel.creatures[0].Drop(CurrentLevel, thisItem); //Drop said item	
 	                inventorySelect = 0; //Back out of menu 
 	                gameState = GameState.MainGame;
 	                return;
 	
 	            case "e":
 	                #region Eat Item
-	                if (thisItem.name.StartsWith(currentLevel.creatures[0].name)) //Aka, goblin eating goblin corpse
+	                if (thisItem.name.StartsWith(CurrentLevel.creatures[0].name)) //Aka, goblin eating goblin corpse
 	                {
-	                    if (currentLevel.creatures[0].food > 2500)
+	                    if (CurrentLevel.creatures[0].food > 2500)
 	                    {
-	                        currentLevel.creatures[0].message.Add("You nauseate yourself - you cannot bring yourself to eat one of your own kind");
+	                        CurrentLevel.creatures[0].message.Add("You nauseate yourself - you cannot bring yourself to eat one of your own kind");
 	                        break;
 	                    }
 	                    else
 	                    {
-	                        currentLevel.creatures[0].message.Add("It really is a matter of starvation or cannibalism.");
+	                        CurrentLevel.creatures[0].message.Add("It really is a matter of starvation or cannibalism.");
 	                    }
 	                }
 	
-	                currentLevel.creatures[0].Eat(currentLevel, thisItem); //Eat said item	
+	                CurrentLevel.creatures[0].Eat(CurrentLevel, thisItem); //Eat said item	
 	                inventorySelect = 0; //Back out of menu
 	                gameState = GameState.MainGame;
 	                #endregion
@@ -378,14 +378,14 @@ namespace Adventurer
 	
 	                //currentLevel.tileArray[targetPos.X, targetPos.Y].itemList.Add(firedItem); //It ends up on selected tile
 	                //currentLevel.creatureList[0].inventory.RemoveAt(inventorySelect - 1); //Remove item from inventory                                                
-	                currentLevel.creatures[0].message.Add("You send the " + thisItem.name + " flying.");
+	                CurrentLevel.creatures[0].message.Add("You send the " + thisItem.name + " flying.");
 	                
-	                for (int i = 0; i < currentLevel.creatures.Count; i++)
+	                for (int i = 0; i < CurrentLevel.creatures.Count; i++)
 	                {
-	                    Creature c = currentLevel.creatures[i];                                   
+	                    Creature c = CurrentLevel.creatures[i];                                   
 	                    if (c.pos == targetPos)
 	                    {                                                        
-	                        currentLevel.creatures[0].RangeAttack(currentLevel, c, thisItem);
+	                        CurrentLevel.creatures[0].RangeAttack(CurrentLevel, c, thisItem);
 	                    }
 	                }                                                
 	
@@ -402,15 +402,15 @@ namespace Adventurer
 	                #region Wield Item
 	                Item w;
 	
-	                w = currentLevel.creatures[0].inventory[inventorySelect - 1];
-	                if (currentLevel.creatures[0].CanWield(w))
+	                w = CurrentLevel.creatures[0].inventory[inventorySelect - 1];
+	                if (CurrentLevel.creatures[0].CanWield(w))
 	                {
-	                    currentLevel.creatures[0].Wield(w);
+	                    CurrentLevel.creatures[0].Wield(w);
 	                    gameState = GameState.MainGame;
 	                }
 	                else
 	                {
-	                    currentLevel.creatures[0].message.Add("The " + w.name + " slips from your grip");
+	                    CurrentLevel.creatures[0].message.Add("The " + w.name + " slips from your grip");
 	                }
 	                
 	                inventorySelect = 0; //Back out of menu
@@ -423,9 +423,9 @@ namespace Adventurer
 	                if (thisItem is Armor)
 	                {
 						Armor thisArmor = (Armor)thisItem;
-	                    if (currentLevel.creatures[0].CanWear(thisArmor))
+	                    if (CurrentLevel.creatures[0].CanWear(thisArmor))
 	                    {
-	                        currentLevel.creatures[0].Wear(thisArmor);//If it's armor, wear it.
+	                        CurrentLevel.creatures[0].Wear(thisArmor);//If it's armor, wear it.
 	                        gameState = GameState.MainGame;
 	                    }
 	                }
@@ -434,7 +434,7 @@ namespace Adventurer
 						Amulet thisAmulet = (Amulet)thisItem;
 						if (player.amulet == null)
 						{
-							player.Wear(new Amulet(thisAmulet), currentLevel);
+							player.Wear(new Amulet(thisAmulet), CurrentLevel);
 						}
 						else
 						{
@@ -443,7 +443,7 @@ namespace Adventurer
 						}
 					}
 	                else
-	                    currentLevel.creatures[0].message.Add("That's not armor.");
+	                    CurrentLevel.creatures[0].message.Add("That's not armor.");
 	
 	                inventorySelect = 0; //Back out of menu
 	                gameState = GameState.MainGame;
@@ -454,56 +454,56 @@ namespace Adventurer
 		}
 		static void Inv_Main_UseItem()
 		{
-            if (!currentLevel.creatures[0].isDextrous) //Check to see if these can be used
+            if (!CurrentLevel.creatures[0].isDextrous) //Check to see if these can be used
             {
-                currentLevel.creatures[0].message.Add("Your limbs are too clumsy to use this");
+                CurrentLevel.creatures[0].message.Add("Your limbs are too clumsy to use this");
             }
-            else if (currentLevel.creatures[0].inventory[inventorySelect - 1].use.Count > 1) //If it has multple uses
+            else if (CurrentLevel.creatures[0].inventory[inventorySelect - 1].use.Count > 1) //If it has multple uses
             {
                 //inventoryMode = 2; //Switch to Use mode with item WIP
             }
-            else if (currentLevel.creatures[0].inventory[inventorySelect - 1].use.Count == 1)
+            else if (CurrentLevel.creatures[0].inventory[inventorySelect - 1].use.Count == 1)
             {
                 //Do the use for the item
-                if (currentLevel.creatures[0].inventory[inventorySelect - 1].use[0] == "dig")
+                if (CurrentLevel.creatures[0].inventory[inventorySelect - 1].use[0] == "dig")
                 {
                     #region Dig
-                    Point2D pos = currentLevel.creatures[0].pos;
+                    Point2D pos = CurrentLevel.creatures[0].pos;
 
-                    if (currentLevel.tileArray[pos.X, pos.Y].hasBeenDug) //If it's been dug
+                    if (CurrentLevel.tileArray[pos.X, pos.Y].hasBeenDug) //If it's been dug
                     {
-                        Creature player = currentLevel.creatures[0];
+                        Creature player = CurrentLevel.creatures[0];
                         player.message.Add("You break through the floor, and fall all the way to the next level down.");
                         player.TakeDamage(5);
                         player.message.Add("You land with a painful thud.");
                         mapPos.Z++;
                         GenLevel("dungeon", true);
-                        while (!currentLevel.tileArray[player.pos.X, player.pos.Y].isPassable) //Keep going until we can move
+                        while (!CurrentLevel.tileArray[player.pos.X, player.pos.Y].isPassable) //Keep going until we can move
                         {
                             player.pos.X = (short)rng.Next(1, Level.GRIDW);
                             player.pos.Y = (short)rng.Next(1, Level.GRIDH);
                         }
-                        currentLevel.creatures[0] = player;
+                        CurrentLevel.creatures[0] = player;
                         Item dirtChunk = new Item(100f, 100f, "dirt chunk", Color.FromArgb(157, 144, 118), new List<Item>(), new List<string>()); //Chunk of dirt
-                        currentLevel.tileArray[player.pos.X, player.pos.Y].itemList.Add(new Item(dirtChunk)); //Put the dirt chunk there
+                        CurrentLevel.tileArray[player.pos.X, player.pos.Y].itemList.Add(new Item(dirtChunk)); //Put the dirt chunk there
                     }
                     else
                     {                                                            
                         Item dirtChunk = new Item(100f, 100f, "dirt chunk", Color.FromArgb(157, 144, 118), new List<Item>(), new List<string>()); //Chunk of dirt
-                        currentLevel.tileArray[pos.X, pos.Y].itemList.Add(new Item(dirtChunk)); //Put the dirt chunk there
-                        currentLevel.tileArray[pos.X, pos.Y].hasBeenDug = true; //We've dug a pit here.
-                        currentLevel.creatures[0].message.Add("You dig a hole, unearthing some dirt.");
+                        CurrentLevel.tileArray[pos.X, pos.Y].itemList.Add(new Item(dirtChunk)); //Put the dirt chunk there
+                        CurrentLevel.tileArray[pos.X, pos.Y].hasBeenDug = true; //We've dug a pit here.
+                        CurrentLevel.creatures[0].message.Add("You dig a hole, unearthing some dirt.");
                     }
                     #endregion
                 }
-                else if (currentLevel.creatures[0].inventory[inventorySelect - 1].use[0] == "mine")
+                else if (CurrentLevel.creatures[0].inventory[inventorySelect - 1].use[0] == "mine")
                 {
                     #region Mine
-                    currentLevel.creatures[0].message.Add("Choose a direction to dig.");
+                    CurrentLevel.creatures[0].message.Add("Choose a direction to dig.");
                     gameState = GameState.MainGame;
                     string input = Update_GetKey();
 
-                    Point2D playerPos = currentLevel.creatures[0].pos;
+                    Point2D playerPos = CurrentLevel.creatures[0].pos;
                     Point2D radius = new Point2D(playerPos.X, playerPos.Y);
 
                     if (input == "1")
@@ -524,79 +524,79 @@ namespace Adventurer
                         radius = new Point2D(playerPos.X + 1, playerPos.Y - 1);
                     else
                     {
-                        currentLevel.creatures[0].message.Add("Dig cancelled");
+                        CurrentLevel.creatures[0].message.Add("Dig cancelled");
                         return;
                     }
                     
-                    if (currentLevel.tileArray[radius.X, radius.Y].fixtureLibrary.Count > 0)
+                    if (CurrentLevel.tileArray[radius.X, radius.Y].fixtureLibrary.Count > 0)
                     {
-                        if (currentLevel.tileArray[radius.X, radius.Y].fixtureLibrary[0] is Door)
+                        if (CurrentLevel.tileArray[radius.X, radius.Y].fixtureLibrary[0] is Door)
                         {
                             if (rngDie.Roll(2) == 1) // 1/2 chance
                             {
-                                currentLevel.creatures[0].message.Add("Your swing bounces wildly off the door");
+                                CurrentLevel.creatures[0].message.Add("Your swing bounces wildly off the door");
                             }
                             else
                             {
-                                currentLevel.creatures[0].message.Add("You break right through the door");
-                                currentLevel.tileArray[radius.X, radius.Y].MakeOpen(); //Clear out adjacent tile
+                                CurrentLevel.creatures[0].message.Add("You break right through the door");
+                                CurrentLevel.tileArray[radius.X, radius.Y].MakeOpen(); //Clear out adjacent tile
                             }
                         }
-                        else if (currentLevel.tileArray[radius.X, radius.Y].fixtureLibrary[0] is Tree)
+                        else if (CurrentLevel.tileArray[radius.X, radius.Y].fixtureLibrary[0] is Tree)
                         {
                             if (rngDie.Roll(100) == 1) // 1% chance
                             {
-                                currentLevel.creatures[0].message.Add("You somehow hit a weak point and topple the tree!");
-                                Tree thisTree = (Tree)currentLevel.tileArray[radius.X, radius.Y].fixtureLibrary[0];
-                                currentLevel.tileArray[radius.X, radius.Y].itemList.Add(new Item(500f, 500f, CapitalizeFirst(thisTree.species) + " log", Color.Brown, new List<Item>(), new List<string>()));
-                                currentLevel.creatures[0].message.Add("You cut down the " + thisTree.species + " tree.");
-                                currentLevel.tileArray[radius.X, radius.Y].fixtureLibrary.RemoveAt(0);
+                                CurrentLevel.creatures[0].message.Add("You somehow hit a weak point and topple the tree!");
+                                Tree thisTree = (Tree)CurrentLevel.tileArray[radius.X, radius.Y].fixtureLibrary[0];
+                                CurrentLevel.tileArray[radius.X, radius.Y].itemList.Add(new Item(500f, 500f, CapitalizeFirst(thisTree.species) + " log", Color.Brown, new List<Item>(), new List<string>()));
+                                CurrentLevel.creatures[0].message.Add("You cut down the " + thisTree.species + " tree.");
+                                CurrentLevel.tileArray[radius.X, radius.Y].fixtureLibrary.RemoveAt(0);
                             }
                             else // 99% chance
                             {
-                                currentLevel.creatures[0].message.Add("You chip off only sawdust");
-                                currentLevel.tileArray[radius.X, radius.Y].MakeOpen(); //Clear out adjacent tile
+                                CurrentLevel.creatures[0].message.Add("You chip off only sawdust");
+                                CurrentLevel.tileArray[radius.X, radius.Y].MakeOpen(); //Clear out adjacent tile
                             }
                         }
                         else
                         {
-                            currentLevel.tileArray[radius.X, radius.Y].MakeOpen(); //Clear out adjacent tile
+                            CurrentLevel.tileArray[radius.X, radius.Y].MakeOpen(); //Clear out adjacent tile
                         }
                     }
                     else
                     {
-                        currentLevel.tileArray[radius.X, radius.Y].MakeOpen(); //Clear out the adjacent tile
+                        CurrentLevel.tileArray[radius.X, radius.Y].MakeOpen(); //Clear out the adjacent tile
                     }
                     #endregion
                 }
-                else if (currentLevel.creatures[0].inventory[inventorySelect - 1].use[0] == "tripwire")
+                else if (CurrentLevel.creatures[0].inventory[inventorySelect - 1].use[0] == "tripwire")
                 {
                     #region Tripwire
-                    Point2D playerPos = currentLevel.creatures[0].pos;
-                    if (currentLevel.tileArray[playerPos.X, playerPos.Y].fixtureLibrary.Count <= 0)
+                    Point2D playerPos = CurrentLevel.creatures[0].pos;
+                    if (CurrentLevel.tileArray[playerPos.X, playerPos.Y].fixtureLibrary.Count <= 0)
                     {
                         Trap thisTrap = new Trap(new Effect(rngDie.Roll(5), "tripwire"));
                         thisTrap.visible = true; //The player made it, so they can see it
-                        currentLevel.tileArray[playerPos.X, playerPos.Y].fixtureLibrary.Add(thisTrap);
+                        CurrentLevel.tileArray[playerPos.X, playerPos.Y].fixtureLibrary.Add(thisTrap);
 
-                        currentLevel.creatures[0].inventory.RemoveAt(inventorySelect - 1); //Rope is now in trap
-                        currentLevel.creatures[0].message.Add("You make a tripwire from the rope.");
+                        CurrentLevel.creatures[0].inventory.RemoveAt(inventorySelect - 1); //Rope is now in trap
+                        CurrentLevel.creatures[0].message.Add("You make a tripwire from the rope.");
                     }
                     else
                     {
-                        currentLevel.creatures[0].message.Add("There is already a " +
-                            currentLevel.tileArray[playerPos.X, playerPos.Y].fixtureLibrary[0].type + " here.");
+                        CurrentLevel.creatures[0].message.Add("There is already a " +
+                            CurrentLevel.tileArray[playerPos.X, playerPos.Y].fixtureLibrary[0].type + " here.");
                     }
                     #endregion
                 }
-                else if (currentLevel.creatures[0].inventory[inventorySelect - 1].use[0] == "chop")
+                else if (CurrentLevel.creatures[0].inventory[inventorySelect - 1].use[0] == "chop")
                 {
                     #region Chop
-                    currentLevel.creatures[0].message.Add("Choose a direction to chop.");
+                    CurrentLevel.creatures[0].message.Add("Choose a direction to chop.");
                     gameState = GameState.MainGame;
                     string input = Update_GetKey();
 
-                    Point2D playerPos = currentLevel.creatures[0].pos;
+                    Point2D playerPos = CurrentLevel.creatures[0].pos;
                     Point2D radius = new Point2D(playerPos.X, playerPos.Y);
 
                     if (input == "1")
@@ -617,12 +617,12 @@ namespace Adventurer
                         radius = new Point2D(playerPos.X + 1, playerPos.Y - 1);
                     else
                     {
-                        currentLevel.creatures[0].message.Add("Chop cancelled");
+                        CurrentLevel.creatures[0].message.Add("Chop cancelled");
                         return;
                     }
 
                     bool creatureThere = false;
-                    foreach (Creature c in currentLevel.creatures)
+                    foreach (Creature c in CurrentLevel.creatures)
                     {
                         if (c.pos == radius) //If a creature is there.
                         {
@@ -631,32 +631,32 @@ namespace Adventurer
                     }                                                        
 
                     if (creatureThere) //Stupid foreach limitations
-                        currentLevel.creatures[0].MeleeAttack(currentLevel, Direction.Parse(input));
+                        CurrentLevel.creatures[0].MeleeAttack(CurrentLevel, Direction.Parse(input));
                     else
                     {
-                        if (currentLevel.tileArray[radius.X, radius.Y].fixtureLibrary.Count > 0)
+                        if (CurrentLevel.tileArray[radius.X, radius.Y].fixtureLibrary.Count > 0)
                         {
-                            if (currentLevel.tileArray[radius.X, radius.Y].fixtureLibrary[0] is Tree)
+                            if (CurrentLevel.tileArray[radius.X, radius.Y].fixtureLibrary[0] is Tree)
                             {
-                                Tree thisTree = (Tree)currentLevel.tileArray[radius.X, radius.Y].fixtureLibrary[0];
-                                currentLevel.tileArray[radius.X, radius.Y].itemList.Add(new Item(500f, 500f, CapitalizeFirst(thisTree.species) + " log", Color.Brown, new List<Item>(), new List<string>()));
-                                currentLevel.creatures[0].message.Add("You cut down the " + thisTree.species + " tree.");
-                                currentLevel.tileArray[radius.X, radius.Y].fixtureLibrary.RemoveAt(0);
+                                Tree thisTree = (Tree)CurrentLevel.tileArray[radius.X, radius.Y].fixtureLibrary[0];
+                                CurrentLevel.tileArray[radius.X, radius.Y].itemList.Add(new Item(500f, 500f, CapitalizeFirst(thisTree.species) + " log", Color.Brown, new List<Item>(), new List<string>()));
+                                CurrentLevel.creatures[0].message.Add("You cut down the " + thisTree.species + " tree.");
+                                CurrentLevel.tileArray[radius.X, radius.Y].fixtureLibrary.RemoveAt(0);
                             }
-                            else if (currentLevel.tileArray[radius.X, radius.Y].fixtureLibrary[0] is Door)
+                            else if (CurrentLevel.tileArray[radius.X, radius.Y].fixtureLibrary[0] is Door)
                             {                                
 								Item stick = new Item(100f, 100f, "stick", Color.Brown, new List<Item>(), new List<string>());
 
-                                currentLevel.tileArray[radius.X, radius.Y].itemList.Add(new Item(stick));
-                                currentLevel.tileArray[radius.X, radius.Y].itemList.Add(new Item(stick));
-                                currentLevel.tileArray[radius.X, radius.Y].itemList.Add(new Item(stick));
+                                CurrentLevel.tileArray[radius.X, radius.Y].itemList.Add(new Item(stick));
+                                CurrentLevel.tileArray[radius.X, radius.Y].itemList.Add(new Item(stick));
+                                CurrentLevel.tileArray[radius.X, radius.Y].itemList.Add(new Item(stick));
 
-                                currentLevel.tileArray[radius.X, radius.Y].fixtureLibrary.RemoveAt(0);
-                                currentLevel.tileArray[radius.X, radius.Y].isPassable = true;
-                                currentLevel.tileArray[radius.X, radius.Y].isTransparent = true;
-                                currentLevel.tileArray[radius.X, radius.Y].isDoor = false;
+                                CurrentLevel.tileArray[radius.X, radius.Y].fixtureLibrary.RemoveAt(0);
+                                CurrentLevel.tileArray[radius.X, radius.Y].isPassable = true;
+                                CurrentLevel.tileArray[radius.X, radius.Y].isTransparent = true;
+                                CurrentLevel.tileArray[radius.X, radius.Y].isDoor = false;
 
-                                currentLevel.creatures[0].message.Add("You chop the door to pieces");
+                                CurrentLevel.creatures[0].message.Add("You chop the door to pieces");
                             }
                         }
                     }
@@ -665,7 +665,7 @@ namespace Adventurer
             }
             else
             {
-                currentLevel.creatures[0].message.Add("You can't think of an obvious use for it at the moment.");
+                CurrentLevel.creatures[0].message.Add("You can't think of an obvious use for it at the moment.");
             }
             gameState = GameState.MainGame;
             inventorySelect = 0;
@@ -705,7 +705,7 @@ namespace Adventurer
 	            {
 	                if (c == selection) //If we've selected this item
 	                {
-	                    currentLevel.creatures[0].CombineItem(currentLevel.creatures[0].inventory[inventorySelect - 1],
+	                    CurrentLevel.creatures[0].CombineItem(CurrentLevel.creatures[0].inventory[inventorySelect - 1],
 	                        items.Dequeue());
 	
 	                    inventorySelect = 0; //Back out of menu
@@ -728,7 +728,7 @@ namespace Adventurer
 		
 		static bool Update_Player(Creature c)
 		{
-            if (currentLevel.playerDiedHere)
+            if (CurrentLevel.playerDiedHere)
             {				
 				if (c.revive > 0) //If extra life
 				{
@@ -742,13 +742,13 @@ namespace Adventurer
 					c.food = 15000; //Full food
 					c.message.Add("You have a near death experience");
 					c.constitution--;	
-					currentLevel.playerDiedHere = false;
+					CurrentLevel.playerDiedHere = false;
 				}
 				else
 				{
-	                c.message.Add("You have died from " + currentLevel.causeOfDeath);
-	                c.message.Add("This happened because " + currentLevel.mannerOfDeath);
-	                c.message.Add("You have slain " + currentLevel.creatures[0].killCount + " foes");
+	                c.message.Add("You have died from " + CurrentLevel.causeOfDeath);
+	                c.message.Add("This happened because " + CurrentLevel.mannerOfDeath);
+	                c.message.Add("You have slain " + CurrentLevel.creatures[0].killCount + " foes");
 	                c.message.Add("You lived to see " + exploredLevels + " areas in your world");
 	
 	                Draw();
@@ -780,7 +780,7 @@ namespace Adventurer
                 case "7":
                 case "8":
                 case "9":
-					return Update_Move(currentLevel.creatures[0], 
+					return Update_Move(CurrentLevel.creatures[0], 
                                        Direction.Parse(input));
 					
 				case "5":
@@ -790,18 +790,18 @@ namespace Adventurer
 
                 case ">":
                     #region [S] Adventurer: Descend
-                    if (currentLevel.tileArray[c.pos.X, c.pos.Y].fixtureLibrary.Count > 0)
+                    if (CurrentLevel.tileArray[c.pos.X, c.pos.Y].fixtureLibrary.Count > 0)
                     { //If there's a fixture here
-                        if (currentLevel.tileArray[c.pos.X, c.pos.Y].fixtureLibrary[0] is Stairs)
+                        if (CurrentLevel.tileArray[c.pos.X, c.pos.Y].fixtureLibrary[0] is Stairs)
                         { //If that fixture is stairs
-                            Stairs stairs = (Stairs)currentLevel.tileArray[c.pos.X, c.pos.Y].fixtureLibrary[0]; //Stairs
+                            Stairs stairs = (Stairs)CurrentLevel.tileArray[c.pos.X, c.pos.Y].fixtureLibrary[0]; //Stairs
                             if (stairs.isDown)
                             { //If those stairs are down stairs
                                 mapPos.Z++; //Go down a level
 								c = new Creature(c); //Break reference link
                                 GenLevel("dungeon", true);
-                                c.pos = currentLevel.creatures[0].pos; //Place the player at the new up stairs position
-                                currentLevel.creatures[0] = c;
+                                c.pos = CurrentLevel.creatures[0].pos; //Place the player at the new up stairs position
+                                CurrentLevel.creatures[0] = c;
                                 wait = true;
                             }
                             else
@@ -815,11 +815,11 @@ namespace Adventurer
 
                 case "<":
                     #region [S] Adventurer: Ascend
-                    if (currentLevel.tileArray[c.pos.X, c.pos.Y].fixtureLibrary.Count > 0)
+                    if (CurrentLevel.tileArray[c.pos.X, c.pos.Y].fixtureLibrary.Count > 0)
                     {
-                        if (currentLevel.tileArray[c.pos.X, c.pos.Y].fixtureLibrary[0] is Stairs)
+                        if (CurrentLevel.tileArray[c.pos.X, c.pos.Y].fixtureLibrary[0] is Stairs)
                         {
-                            Stairs stairs = (Stairs)currentLevel.tileArray[c.pos.X, c.pos.Y].fixtureLibrary[0]; //Stairs
+                            Stairs stairs = (Stairs)CurrentLevel.tileArray[c.pos.X, c.pos.Y].fixtureLibrary[0]; //Stairs
                             if (!stairs.isDown)
                             {
                                 mapPos.Z--; //Go up a level
@@ -840,15 +840,15 @@ namespace Adventurer
                                     GenLevel("dungeon", true);
                                 for (int y = 0; y < Level.GRIDH; y++)
                                     for (int x = 0; x < Level.GRIDW; x++)
-                                        if (currentLevel.tileArray[x, y].fixtureLibrary.Count > 0)
-                                            if (currentLevel.tileArray[x, y].fixtureLibrary[0].type == "stairs")
+                                        if (CurrentLevel.tileArray[x, y].fixtureLibrary.Count > 0)
+                                            if (CurrentLevel.tileArray[x, y].fixtureLibrary[0].type == "stairs")
                                             {
-                                                stairs = (Stairs)currentLevel.tileArray[x, y].fixtureLibrary[0];
+                                                stairs = (Stairs)CurrentLevel.tileArray[x, y].fixtureLibrary[0];
                                                 if (stairs.isDown)
                                                     c.pos = new Point2D(x, y); //Place on down stairs
                                             }
 
-                                currentLevel.creatures[0] = c;
+                                CurrentLevel.creatures[0] = c;
                             }
                             else
                             {
@@ -865,12 +865,12 @@ namespace Adventurer
 
                 case ",":
                     #region Pick Up
-                    c.PickUp(currentLevel);
+                    c.PickUp(CurrentLevel);
 
                     while (c.inventory.Count > 25)
                     {
                         c.message.Add("You drop your " + c.inventory[25] + " to make room.");
-                        c.Drop(currentLevel, c.inventory[25]); //Drop item
+                        c.Drop(CurrentLevel, c.inventory[25]); //Drop item
                     }
 
                     wait = false;
@@ -893,15 +893,15 @@ namespace Adventurer
                     {
                         if (dir == 5)
                             dir++; //Skip 5
-                        foreach (Fixture f in currentLevel.tileArray[(int)position[dir].X, (int)position[dir].Y].fixtureLibrary)
+                        foreach (Fixture f in CurrentLevel.tileArray[(int)position[dir].X, (int)position[dir].Y].fixtureLibrary)
                         {
                             if (f.type == "door")
                             {
                                 Door door = (Door)f;
                                 if (door.isOpen)
                                 {
-                                    c.CloseDoor(currentLevel.tileArray[
-                                        (int)position[dir].X, (int)position[dir].Y], currentLevel);
+                                    c.CloseDoor(CurrentLevel.tileArray[
+                                        (int)position[dir].X, (int)position[dir].Y], CurrentLevel);
                                 }
                             }
                         }
@@ -910,7 +910,7 @@ namespace Adventurer
                     #endregion
 
                 case "e":
-                    currentLevel.tileArray[c.pos.X, c.pos.Y].engraving = Update_GetString(); //Engrave
+                    CurrentLevel.tileArray[c.pos.X, c.pos.Y].engraving = Update_GetString(); //Engrave
                     wait = false;
                     break;
 
@@ -946,7 +946,7 @@ namespace Adventurer
                         }
 
                         c.message.Add("You release a blast of unnatural energy, tearing through the walls of the dungeon.");
-                        currentLevel.DigLine(c.pos, radius);
+                        CurrentLevel.DigLine(c.pos, radius);
                         wait = false;
                     }
                     wait = true;
@@ -988,7 +988,7 @@ namespace Adventurer
 
                     bool creatureThere = false;
 
-                    foreach (Creature d in currentLevel.creatures)
+                    foreach (Creature d in CurrentLevel.creatures)
                     {
                         if (d.pos == radius) //If a creature is there.
                         {
@@ -998,24 +998,24 @@ namespace Adventurer
 
                     if (creatureThere) //Stupid foreach limitations
                     {
-                        c.MeleeAttack(currentLevel, Direction.Parse(input));
+                        c.MeleeAttack(CurrentLevel, Direction.Parse(input));
                     }
-                    else if (currentLevel.tileArray[radius.X, radius.Y].fixtureLibrary.Count > 0)
+                    else if (CurrentLevel.tileArray[radius.X, radius.Y].fixtureLibrary.Count > 0)
                     {
-                        if (currentLevel.tileArray[radius.X, radius.Y].fixtureLibrary[0] is Door)
+                        if (CurrentLevel.tileArray[radius.X, radius.Y].fixtureLibrary[0] is Door)
                         {
                             if (rngDie.Roll(2) == 1) // 1/2 chance
                             {
                                 Item stick = new Item(100f, 100f, "stick", Color.Brown, new List<Item>(), new List<string>());
 
-                                currentLevel.tileArray[radius.X, radius.Y].itemList.Add(new Item(stick));
-                                currentLevel.tileArray[radius.X, radius.Y].itemList.Add(new Item(stick));
-                                currentLevel.tileArray[radius.X, radius.Y].itemList.Add(new Item(stick));
+                                CurrentLevel.tileArray[radius.X, radius.Y].itemList.Add(new Item(stick));
+                                CurrentLevel.tileArray[radius.X, radius.Y].itemList.Add(new Item(stick));
+                                CurrentLevel.tileArray[radius.X, radius.Y].itemList.Add(new Item(stick));
 
-                                currentLevel.tileArray[radius.X, radius.Y].fixtureLibrary.RemoveAt(0);
-                                currentLevel.tileArray[radius.X, radius.Y].isPassable = true;
-                                currentLevel.tileArray[radius.X, radius.Y].isTransparent = true;
-                                currentLevel.tileArray[radius.X, radius.Y].isDoor = false;
+                                CurrentLevel.tileArray[radius.X, radius.Y].fixtureLibrary.RemoveAt(0);
+                                CurrentLevel.tileArray[radius.X, radius.Y].isPassable = true;
+                                CurrentLevel.tileArray[radius.X, radius.Y].isTransparent = true;
+                                CurrentLevel.tileArray[radius.X, radius.Y].isDoor = false;
 
                                 c.message.Add("The door splinters apart.");
                             }
@@ -1024,9 +1024,9 @@ namespace Adventurer
                                 c.message.Add("The door thuds.");
                             }
                         }
-                        else if (currentLevel.tileArray[radius.X, radius.Y].fixtureLibrary[0] is Trap)
+                        else if (CurrentLevel.tileArray[radius.X, radius.Y].fixtureLibrary[0] is Trap)
                         {
-                            Trap thisTrap = (Trap)currentLevel.tileArray[radius.X, radius.Y].fixtureLibrary[0];
+                            Trap thisTrap = (Trap)CurrentLevel.tileArray[radius.X, radius.Y].fixtureLibrary[0];
 
                             if (thisTrap.effect.type == "tripwire")
                             {
@@ -1040,21 +1040,21 @@ namespace Adventurer
                                     }
                                 }
 
-                                currentLevel.tileArray[radius.X, radius.Y].itemList.Add(new Item(rope));
+                                CurrentLevel.tileArray[radius.X, radius.Y].itemList.Add(new Item(rope));
 
                                 c.message.Add("You take apart the tripwire.");
 
-                                currentLevel.tileArray[radius.X, radius.Y].fixtureLibrary.RemoveAt(0);
+                                CurrentLevel.tileArray[radius.X, radius.Y].fixtureLibrary.RemoveAt(0);
                             }
                         }
-                        else if (currentLevel.tileArray[radius.X, radius.Y].fixtureLibrary[0] is Stairs)
+                        else if (CurrentLevel.tileArray[radius.X, radius.Y].fixtureLibrary[0] is Stairs)
                         {
                             c.TakeDamage(1); //Ow.
                             c.message.Add("You kick the hard stairs and hurt your leg.");
                         }
-                        else if (currentLevel.tileArray[radius.X, radius.Y].fixtureLibrary[0] is Tree)
+                        else if (CurrentLevel.tileArray[radius.X, radius.Y].fixtureLibrary[0] is Tree)
                         {
-                            Tree thisTree = (Tree)currentLevel.tileArray[radius.X, radius.Y].fixtureLibrary[0];
+                            Tree thisTree = (Tree)CurrentLevel.tileArray[radius.X, radius.Y].fixtureLibrary[0];
 
                             if (rng.Next(1, 101) > 50) //50% chance
                             {
@@ -1063,7 +1063,7 @@ namespace Adventurer
                             }
                             else if (thisTree.fruit != String.Empty && rng.Next(1, 101) > 50) //If it has fruit, 50% chance
                             {
-                                currentLevel.tileArray[c.pos.X, c.pos.Y].itemList.Add(new Item(100f, 100f, thisTree.fruit, Color.Lime, new List<Item>(), new List<string>())); //Add a fruit
+                                CurrentLevel.tileArray[c.pos.X, c.pos.Y].itemList.Add(new Item(100f, 100f, thisTree.fruit, Color.Lime, new List<Item>(), new List<string>())); //Add a fruit
                                 c.message.Add("A " + thisTree.fruit + " drops at your feet.");
                                 thisTree.fruit = String.Empty; //No more fruit
                             }
@@ -1102,14 +1102,14 @@ namespace Adventurer
                     {
                         if (dir == 5)
                             dir++; //Skip 5
-                        foreach (Fixture f in currentLevel.tileArray[(int)position[dir].X, (int)position[dir].Y].fixtureLibrary)
+                        foreach (Fixture f in CurrentLevel.tileArray[(int)position[dir].X, (int)position[dir].Y].fixtureLibrary)
                         {
                             if (f.type == "door")
                             {
                                 Door door = (Door)f;
                                 if (!door.isOpen)
                                 {
-                                    c.OpenDoor(currentLevel.tileArray[(int)position[dir].X, (int)position[dir].Y], currentLevel);
+                                    c.OpenDoor(CurrentLevel.tileArray[(int)position[dir].X, (int)position[dir].Y], CurrentLevel);
                                 }
                             }
                         }
@@ -1125,8 +1125,8 @@ namespace Adventurer
                         c.message.Add("You warp through the floor");
                         mapPos.Z++;//Go down a level
                         GenLevel("dungeon", true);
-                        c.pos = currentLevel.creatures[0].pos; //Place the player at the new up stairs position
-                        currentLevel.creatures[0] = c;
+                        c.pos = CurrentLevel.creatures[0].pos; //Place the player at the new up stairs position
+                        CurrentLevel.creatures[0] = c;
                         c.message.Add("Now entering area (" + mapPos.X + ", " + mapPos.Y + ", " + mapPos.Z + ")");
                     }
                     break;
@@ -1186,7 +1186,7 @@ namespace Adventurer
 		static void Update_Creature(Creature c)
 		{
             c.message.Clear(); //Monsters shouldn't need to keep messages
-            string action = c.mind.DecideAction(currentLevel, c); //Decide action
+            string action = c.mind.DecideAction(CurrentLevel, c); //Decide action
 
             #region Perform Action
 
@@ -1206,7 +1206,7 @@ namespace Adventurer
             {
                 if (action == actionList[k])
                 {
-                    c.Move(currentLevel, k + 1);
+                    c.Move(CurrentLevel, k + 1);
                 }
             }
 
@@ -1216,7 +1216,7 @@ namespace Adventurer
             #region Item Management Actions
             if (action == "Pick Up")
             {
-                currentLevel = c.PickUp(currentLevel);
+                CurrentLevel = c.PickUp(CurrentLevel);
             }
 
             if (action == "Unwield")
@@ -1247,7 +1247,7 @@ namespace Adventurer
             {
                 action = action.Remove(0, 4); //Clip everything but the index
                 Item targetItem = c.inventory[int.Parse(action)];
-                c.Eat(currentLevel, targetItem); //Eat the given item
+                c.Eat(CurrentLevel, targetItem); //Eat the given item
             }
             #endregion
 
@@ -1255,7 +1255,7 @@ namespace Adventurer
             if (action.StartsWith("Attack"))
             {
                 action = action.Remove(0, 7);
-                currentLevel = c.MeleeAttack(currentLevel, Direction.Parse(action));
+                CurrentLevel = c.MeleeAttack(CurrentLevel, Direction.Parse(action));
             }
             #endregion
             #endregion	
@@ -1268,20 +1268,20 @@ namespace Adventurer
 				ticks = 0;
                 totalTurnCount++;
 				
-				foreach (Creature c in currentLevel.creatures)
-					c.CycleWithWorld(currentLevel);
+				foreach (Creature c in CurrentLevel.creatures)
+					c.CycleWithWorld(CurrentLevel);
                 if ((int)totalTurnCount % 42 == 0) //Every 42 turns
                 {
-                    if (rng.Next(1, currentLevel.creatures.Count) == 1 && currentLevel.levelType != "village") //With a percentage inversely proportional to already existing creatures
+                    if (rng.Next(1, CurrentLevel.creatures.Count) == 1 && CurrentLevel.levelType != "village") //With a percentage inversely proportional to already existing creatures
                     {
-                        currentLevel.SpawnCreature(false, "monster"); //Spawn new creature
+                        CurrentLevel.SpawnCreature(false, "monster"); //Spawn new creature
                     }
                 }
 			}
 		}
 		static void Update_PostTurn(Creature c)
 		{
-			c.Wait(currentLevel);
+			c.Wait(CurrentLevel);
 			
             if (c.message.Count > 50)
                 c.message.RemoveRange(0, c.message.Count - 50); //Toss excess messages
@@ -1289,13 +1289,13 @@ namespace Adventurer
             #region Check if a creature should be dead
             int killedIndex = 0;
 
-            if (c.ShouldBeDead(currentLevel))
+            if (c.ShouldBeDead(CurrentLevel))
             {
-				currentLevel.SlayCreature(c);
+				CurrentLevel.SlayCreature(c);
             }
             
             if (killedIndex > 0)
-                currentLevel.creatures.RemoveAt(killedIndex);
+                CurrentLevel.creatures.RemoveAt(killedIndex);
             #endregion
 		}
 		static void Update_Hunger(Creature c)
@@ -1305,8 +1305,8 @@ namespace Adventurer
             if (c.food < 0) //If starving
             {
                 c.hp--;
-                currentLevel.causeOfDeath = "organ failure.";
-                currentLevel.mannerOfDeath = "you were starving.";
+                CurrentLevel.causeOfDeath = "organ failure.";
+                CurrentLevel.mannerOfDeath = "you were starving.";
             }
 		}
 		static void Update_Smell(Creature c)
@@ -1314,19 +1314,19 @@ namespace Adventurer
             int x = (int)c.pos.X;
             int y = (int)c.pos.Y;
             string smelledWhat = String.Empty;
-            for (int i = 0; i < currentLevel.tileArray[x, y].scentMagnitude.Count; i++)
-                if (currentLevel.tileArray[x, y].scentMagnitude[i] > c.senseOfSmell)
+            for (int i = 0; i < CurrentLevel.tileArray[x, y].scentMagnitude.Count; i++)
+                if (CurrentLevel.tileArray[x, y].scentMagnitude[i] > c.senseOfSmell)
                 {
-                    smelledWhat = currentLevel.tileArray[x, y].scentIdentifier[i];
+                    smelledWhat = CurrentLevel.tileArray[x, y].scentIdentifier[i];
                 }
             if (smelledWhat != String.Empty)
             {
                 bool seeSmelled = false;
                 bool ownSmell = false;
-                for (int i = 1; i < currentLevel.creatures.Count; i++)
+                for (int i = 1; i < CurrentLevel.creatures.Count; i++)
                 {
-                    if (currentLevel.LineOfSight(c.pos,
-                        currentLevel.creatures[i].pos) && currentLevel.creatures[i].name == smelledWhat)
+                    if (CurrentLevel.LineOfSight(c.pos,
+                        CurrentLevel.creatures[i].pos) && CurrentLevel.creatures[i].name == smelledWhat)
                     {
                         seeSmelled = true; //It's the same as something seen
                     }
@@ -1350,7 +1350,7 @@ namespace Adventurer
 		{
             bool peacefulAdjacent = false; //Whether the adjacent creature, if any, is peaceful
 
-            foreach (Creature d in currentLevel.creatures)
+            foreach (Creature d in CurrentLevel.creatures)
             {
                 if (d is QuestGiver && d.pos == c.pos.AdjacentVector(dir))
                 {
@@ -1411,14 +1411,14 @@ namespace Adventurer
 
             if (!peacefulAdjacent)
             {            
-	            if (c.CanAttackMelee(currentLevel, dir) && !peacefulAdjacent)
+	            if (c.CanAttackMelee(CurrentLevel, dir) && !peacefulAdjacent)
 				{
-	                currentLevel = c.MeleeAttack(currentLevel, dir);
+	                CurrentLevel = c.MeleeAttack(CurrentLevel, dir);
 					return true;
 				}
-	            else if (!currentLevel.MoveWillBeBlocked(0, dir))
+	            else if (!CurrentLevel.MoveWillBeBlocked(0, dir))
 	            {
-	                bool moved = c.Move(currentLevel, (int)dir);
+	                bool moved = c.Move(CurrentLevel, (int)dir);
 					Update_MapEdge(c); //Check for hitting map edge
 					return moved;
 	            }
@@ -1448,7 +1448,7 @@ namespace Adventurer
                 }
 
                 player.pos.X = Level.GRIDW - 2; //Now on other end of map
-                currentLevel.creatures[0] = player; //Creature 0 is the player                                                                        
+                CurrentLevel.creatures[0] = player; //Creature 0 is the player                                                                        
             }
             else if (c.pos.X >= Level.GRIDW - 1)
             {
@@ -1469,7 +1469,7 @@ namespace Adventurer
                     GenLevel("forest", true);
                 }
                 player.pos.X = 2; //Now on other end of map
-                currentLevel.creatures[0] = player; //Creature 0 is the player                                    
+                CurrentLevel.creatures[0] = player; //Creature 0 is the player                                    
             }
             else if (c.pos.Y <= 1)
             {
@@ -1491,7 +1491,7 @@ namespace Adventurer
                 }
 
                 player.pos.Y = Level.GRIDH - 2; //Now on other end of map
-                currentLevel.creatures[0] = player; //Creature 0 is the player                                    
+                CurrentLevel.creatures[0] = player; //Creature 0 is the player                                    
             }
             else if (c.pos.Y >= Level.GRIDH - 1)
             {
@@ -1513,7 +1513,7 @@ namespace Adventurer
                 }
 
                 player.pos.Y = 2; //Now on other end of map
-                currentLevel.creatures[0] = player; //Creature 0 is the player                                    
+                CurrentLevel.creatures[0] = player; //Creature 0 is the player                                    
             }
 		}
 
@@ -1769,7 +1769,7 @@ namespace Adventurer
             string input = String.Empty;
             string returnString = String.Empty;
 
-            currentLevel.creatures[0].message.Add(returnString);
+            CurrentLevel.creatures[0].message.Add(returnString);
 
             while (input != "Enter" && input != "Escape" && input != "Backspace")
             {
@@ -1787,7 +1787,7 @@ namespace Adventurer
                     returnString += CapitalizeFirst(input); //If not a special case, add the letter
                 }
 
-                currentLevel.creatures[0].message[currentLevel.creatures[0].message.Count-1] = "~" + returnString; //Update the single message
+                CurrentLevel.creatures[0].message[CurrentLevel.creatures[0].message.Count-1] = "~" + returnString; //Update the single message
                 Draw();
                 input = Update_GetKey();
             }
@@ -1821,8 +1821,8 @@ namespace Adventurer
         static Point2D Update_GetPosition()
         {
             gameState = GameState.WaitForPosition;
-            cursorPos = currentLevel.creatures[0].pos; //Start at player's position
-            Point2D currentPos = currentLevel.creatures[0].pos; //The position the cursor is on
+            cursorPos = CurrentLevel.creatures[0].pos; //Start at player's position
+            Point2D currentPos = CurrentLevel.creatures[0].pos; //The position the cursor is on
             bool done = false; //Variable for loop break
 
             Sdl.SDL_Event keyEvent, oldKeyEvent;

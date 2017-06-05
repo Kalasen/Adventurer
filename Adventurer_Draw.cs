@@ -227,7 +227,7 @@ namespace Adventurer
             {
                 int m = 60;
                 Queue<string> items = new Queue<string>();
-                foreach (Item item in currentLevel.creatures[0].inventory)
+                foreach (Item item in CurrentLevel.creatures[0].inventory)
                 {
                     if (items.Count >= 26)
                     {
@@ -303,11 +303,11 @@ namespace Adventurer
                 items.Clear();
             }
             #endregion
-            else if (inventorySelect <= currentLevel.creatures[0].inventory.Count) //If the item exists
+            else if (inventorySelect <= CurrentLevel.creatures[0].inventory.Count) //If the item exists
             {
                 if (inventoryMode == 0)
                 {
-                    DrawText(veraSmall, CapitalizeFirst(currentLevel.creatures[0].inventory[
+                    DrawText(veraSmall, CapitalizeFirst(CurrentLevel.creatures[0].inventory[
                         inventorySelect - 1].name), new Point2D(650, 75), Color.White); //Draw selected item's name
 
                     DrawText(veraSmall, " - [b]reak down", new Point2D(650, 90), Color.White);
@@ -415,12 +415,12 @@ namespace Adventurer
             DrawText(veraSmall, "Cancel: Space", new Point2D(605, windowSizeY - 20), Color.White);
 
             #region List parts
-            int partCount = currentLevel.creatures[0].anatomy.Count;
+            int partCount = CurrentLevel.creatures[0].anatomy.Count;
             int m = 60;
             Queue<string> parts = new Queue<string>();
             Queue<Color> partDamage = new Queue<Color>();
 
-            foreach (BodyPart part in currentLevel.creatures[0].anatomy)
+            foreach (BodyPart part in CurrentLevel.creatures[0].anatomy)
             {
                 if (parts.Count >= 24)
                 {
@@ -474,11 +474,11 @@ namespace Adventurer
             #region Description
             int m = 535;
             Queue<string> messages = new Queue<string>();
-            Tile thisTile = currentLevel.tileArray[cursorPos.X, cursorPos.Y];
+            Tile thisTile = CurrentLevel.tileArray[cursorPos.X, cursorPos.Y];
 
-            if (currentLevel.LineOfSight(currentLevel.creatures[0].pos, cursorPos)) //If it can be seen
+            if (CurrentLevel.LineOfSight(CurrentLevel.creatures[0].pos, cursorPos)) //If it can be seen
             {
-                foreach (Creature c in currentLevel.creatures)
+                foreach (Creature c in CurrentLevel.creatures)
                 {
                     if (c.pos == cursorPos) //If creature is at this position
                     {
@@ -557,27 +557,27 @@ namespace Adventurer
             #region Stat Box
             Color foodLevelColor = Color.White;
             string foodLevelWord = "Full";
-            if (currentLevel.creatures[0].food > 15000)
+            if (CurrentLevel.creatures[0].food > 15000)
             {
                 foodLevelColor = Color.Cyan;
                 foodLevelWord = "Overstuffed";
             }
-            if (currentLevel.creatures[0].food < 10000)
+            if (CurrentLevel.creatures[0].food < 10000)
             {
                 foodLevelColor = Color.LightGreen;
                 foodLevelWord = "Hungry";
             }
-            if (currentLevel.creatures[0].food < 5000)
+            if (CurrentLevel.creatures[0].food < 5000)
             {
                 foodLevelColor = Color.Yellow;
                 foodLevelWord = "Famished";
             }
-            if (currentLevel.creatures[0].food < 2500)
+            if (CurrentLevel.creatures[0].food < 2500)
             {
                 foodLevelColor = Color.Crimson;
                 foodLevelWord = "Starving";
             }
-            if (currentLevel.creatures[0].food < 0)
+            if (CurrentLevel.creatures[0].food < 0)
             {
                 foodLevelColor = Color.Gray;
                 foodLevelWord = "Organ Failure";
@@ -585,17 +585,17 @@ namespace Adventurer
 
             Color injuryColor = Color.White;
 
-            if (currentLevel.creatures[0].hp >= currentLevel.creatures[0].hpMax)
+            if (CurrentLevel.creatures[0].hp >= CurrentLevel.creatures[0].hpMax)
                 injuryColor = Color.White;
-            else if (currentLevel.creatures[0].hp > currentLevel.creatures[0].hpMax * 0.75)
+            else if (CurrentLevel.creatures[0].hp > CurrentLevel.creatures[0].hpMax * 0.75)
                 injuryColor = Color.LightCyan;
-            else if (currentLevel.creatures[0].hp > currentLevel.creatures[0].hpMax * 0.5)
+            else if (CurrentLevel.creatures[0].hp > CurrentLevel.creatures[0].hpMax * 0.5)
                 injuryColor = Color.Green;
-            else if (currentLevel.creatures[0].hp > currentLevel.creatures[0].hpMax * 0.25)
+            else if (CurrentLevel.creatures[0].hp > CurrentLevel.creatures[0].hpMax * 0.25)
                 injuryColor = Color.Yellow;
-            else if (currentLevel.creatures[0].hp > currentLevel.creatures[0].hpMax * 0.0)
+            else if (CurrentLevel.creatures[0].hp > CurrentLevel.creatures[0].hpMax * 0.0)
                 injuryColor = Color.FromArgb(255,50,50);
-            else if (currentLevel.creatures[0].hp <= 0)
+            else if (CurrentLevel.creatures[0].hp <= 0)
                 injuryColor = Color.Gray;
 
             int displayTurn = (int)totalTurnCount;
@@ -603,13 +603,13 @@ namespace Adventurer
             DrawText(veraSmall, "Turn: " + displayTurn.ToString(),
                 new Point2D(10, 535), Color.White); //Write turn count
 
-            DrawText(veraSmall, "HP: " + currentLevel.creatures[0].hp + "/" + currentLevel.creatures[0].hpMax,
+            DrawText(veraSmall, "HP: " + CurrentLevel.creatures[0].hp + "/" + CurrentLevel.creatures[0].hpMax,
                 new Point2D(175, 535), injuryColor); //Write turn count
 
-            DrawText(veraSmall, "XP: " + currentLevel.creatures[0].xp + "/" + currentLevel.creatures[0].xpBorder*2,
+            DrawText(veraSmall, "XP: " + CurrentLevel.creatures[0].xp + "/" + CurrentLevel.creatures[0].xpBorder*2,
                 new Point2D(175, 550), Color.White); //Write turn count
 			
-			DrawText(veraSmall, "GP: " + currentLevel.creatures[0].gold,
+			DrawText(veraSmall, "GP: " + CurrentLevel.creatures[0].gold,
                 new Point2D(175, 565), Color.White); //Write turn count
 
             DrawText(veraSmall, "Area: (" + mapPos.X + ", " + mapPos.Y + ", " + mapPos.Z + ")",
@@ -619,18 +619,18 @@ namespace Adventurer
                 Color.White);
             DrawText(veraSmall, foodLevelWord, new Point2D(110, 610), foodLevelColor);
 
-            DrawText(veraSmall, "STR: " + currentLevel.creatures[0].strength +
-                " DEX: " + currentLevel.creatures[0].dexterity +
-                " CON: " + currentLevel.creatures[0].constitution +
-                " INT: " + currentLevel.creatures[0].intelligence +
-                " WIS: " + currentLevel.creatures[0].wisdom +
-                " CHA: " + currentLevel.creatures[0].charisma, new Point2D(10, 730));
+            DrawText(veraSmall, "STR: " + CurrentLevel.creatures[0].strength +
+                " DEX: " + CurrentLevel.creatures[0].dexterity +
+                " CON: " + CurrentLevel.creatures[0].constitution +
+                " INT: " + CurrentLevel.creatures[0].intelligence +
+                " WIS: " + CurrentLevel.creatures[0].wisdom +
+                " CHA: " + CurrentLevel.creatures[0].charisma, new Point2D(10, 730));
             #endregion
 
             #region Message Box
             int m = 520;
             Queue<string> messages = new Queue<string>();
-            foreach (string message in currentLevel.creatures[0].message)
+            foreach (string message in CurrentLevel.creatures[0].message)
             {
                 if (messages.Count >= 14)
                 {
@@ -657,10 +657,10 @@ namespace Adventurer
                 {
                     int imageIndex = -1; //Open floor image
                     Color imageColor = Color.White;
-					Tile thisTile = currentLevel.tileArray[x,y]; //Shorthand for this tile
-					Creature player = currentLevel.creatures[0]; //Shorthand for the player creature
+					Tile thisTile = CurrentLevel.tileArray[x,y]; //Shorthand for this tile
+					Creature player = CurrentLevel.creatures[0]; //Shorthand for the player creature
 
-                    if (currentLevel.levelType == "forest")
+                    if (CurrentLevel.levelType == "forest")
                     {
                         imageColor = Color.LightGreen; //Grassy forest floor
                     }
@@ -671,25 +671,25 @@ namespace Adventurer
                         imageColor = Color.DimGray; //But washed out
                     }
 
-                    bool LOS = ((currentLevel.LineOfSight(player.pos, new Point2D(x, y))) || iCanSeeForever);
+                    bool LOS = ((CurrentLevel.LineOfSight(player.pos, new Point2D(x, y))) || iCanSeeForever);
 
                     if (LOS && player.blind <= 0) //If in line of sight and not blind
                     {
 						imageIndex = 46; //Open floor tile
-                        if (currentLevel.tileArray[x, y].isWall)
+                        if (CurrentLevel.tileArray[x, y].isWall)
                         {
                             imageIndex = 219; //Wall image
                             imageColor = Color.Tan;
                         }
 
-                        if (currentLevel.tileArray[x, y].fixtureLibrary.Count > 0)
+                        if (CurrentLevel.tileArray[x, y].fixtureLibrary.Count > 0)
                         {
-                            int topIndex = currentLevel.tileArray[x, y].fixtureLibrary.Count - 1;
+                            int topIndex = CurrentLevel.tileArray[x, y].fixtureLibrary.Count - 1;
                             bool visibleTrap = true;
 
-                            if (currentLevel.tileArray[x, y].fixtureLibrary[topIndex] is Trap)
+                            if (CurrentLevel.tileArray[x, y].fixtureLibrary[topIndex] is Trap)
                             {
-                                Trap t = (Trap)currentLevel.tileArray[x, y].fixtureLibrary[topIndex];
+                                Trap t = (Trap)CurrentLevel.tileArray[x, y].fixtureLibrary[topIndex];
                                 if (t.visible)
                                 {
                                     visibleTrap = true;
@@ -702,8 +702,8 @@ namespace Adventurer
 
                             if (visibleTrap)
                             {
-                                imageIndex = currentLevel.tileArray[x, y].fixtureLibrary[topIndex].imageIndex;
-                                imageColor = currentLevel.tileArray[x, y].fixtureLibrary[topIndex].color;
+                                imageIndex = CurrentLevel.tileArray[x, y].fixtureLibrary[topIndex].imageIndex;
+                                imageColor = CurrentLevel.tileArray[x, y].fixtureLibrary[topIndex].color;
                             }
                             //else
                             //{
@@ -713,18 +713,18 @@ namespace Adventurer
                         }
                     }
 					
-					if (currentLevel.tileArray[x,y].itemList.Count > 0 && //If there's an item here
-					    (currentLevel.creatures[0].detectItem > 0 || (LOS && player.blind <= 0))) //If detecting items or can see them
+					if (CurrentLevel.tileArray[x,y].itemList.Count > 0 && //If there's an item here
+					    (CurrentLevel.creatures[0].detectItem > 0 || (LOS && player.blind <= 0))) //If detecting items or can see them
 					{
-						int topIndex = currentLevel.tileArray[x, y].itemList.Count - 1;
-                        if (currentLevel.tileArray[x, y].itemList[topIndex] != null)
+						int topIndex = CurrentLevel.tileArray[x, y].itemList.Count - 1;
+                        if (CurrentLevel.tileArray[x, y].itemList[topIndex] != null)
                         {
-                            imageIndex = currentLevel.tileArray[x, y].itemList[topIndex].itemImage; //Top item image
-                            imageColor = currentLevel.tileArray[x, y].itemList[topIndex].color;
+                            imageIndex = CurrentLevel.tileArray[x, y].itemList[topIndex].itemImage; //Top item image
+                            imageColor = CurrentLevel.tileArray[x, y].itemList[topIndex].color;
                         }
 					}
 					
-					foreach (Creature c in currentLevel.creatures)
+					foreach (Creature c in CurrentLevel.creatures)
                     {
                         if (c.pos == new Point2D(x, y) && //If there's a creature here
 						    ((LOS && player.blind <= 0 && (c.invisibility <= 0 || player.seeInvisible > 0)) || 
@@ -737,7 +737,7 @@ namespace Adventurer
 
 					if (imageIndex >= 0 && imageIndex < 256) //If existent
 					{
-						currentLevel.tileArray[x, y].lastSeenImage = imageIndex; //Remember image
+						CurrentLevel.tileArray[x, y].lastSeenImage = imageIndex; //Remember image
 						DrawImage(imageIndex, new Point2D(x * TILEWIDTH, y * TILEHEIGHT),
                             imageColor); //Draw this tile's stuff
 					}
