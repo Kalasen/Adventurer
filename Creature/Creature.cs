@@ -31,7 +31,7 @@ namespace Adventurer
         public List<BodyPart> lostParts = new List<BodyPart>();
         public List<Armor> wornArmor = new List<Armor>();
         public List<string> message = new List<string>(10);
-        public Sentience mind;
+        public Mind mind;
         public byte status_paralyzed = 0;	
         
         // TODO: Hold on to the level we're in.
@@ -61,7 +61,7 @@ namespace Adventurer
             this.creatureImage = creatureImage;
             this.speed = speed;
             this.turnsToWait = speed;
-            this.mind = new Sentience();
+            this.mind = new Mind(this);
             this.name = name;
             this.smelliness = 32;
             this.senseOfSmell = 10;

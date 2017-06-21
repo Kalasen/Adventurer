@@ -1186,7 +1186,7 @@ namespace Adventurer
 		static void Update_Creature(Creature c)
 		{
             c.message.Clear(); //Monsters shouldn't need to keep messages
-            string action = c.mind.DecideAction(CurrentLevel, c); //Decide action
+            string action = c.mind.DecideAction(CurrentLevel); //Decide action
 
             #region Perform Action
 
