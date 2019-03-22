@@ -693,57 +693,6 @@ namespace Adventurer
             }
             return -1; //Error if it makes it here
         }
-        public int AStarBinarySearch(List<AStarTile> openList, AStarTile tileToInsert)
-        {
-//            List<AStarTile> list = openList; //The AStarTile list to consider
-//            AStarTile tile = tileToInsert; //The tile to insert
-//            bool done = false; //Loop condition
-//            int min = 0; //The minimum index number to look at
-//            int max = list.Count - 1; //The maximum index number to look at
-//            int range = max - min; //The range between max and min
-//			
-//            int f = tile.f; //The f cost to insert and compare with
-//            //bool totalIsEven; //Whether the number of insert points is even or odd
-//            //if ((range + 1) % 2 == 0) //If insert points is even
-//            //{
-//            //    totalIsEven = true;
-//            //}
-//            //else //If odd
-//            //{
-//            //    totalIsEven = false;
-//            //}
-//
-//            while (!done) //Loop until done with the search
-//            {
-//                if (list.Count == 0) //If nothing's there, then obviously the new Tile will have the lowest f cost
-//                {
-//                    done = true; //Nothing's there already, so we're done
-//                }
-//
-//                if (list.Count == 1)
-//                {
-//                    if (f < list[0].f)
-//                    {
-//                        indexToInsertAt = 0;
-//                    }
-//                    else if (f > list[0].f)
-//                    {
-//                        indexToInsertAt = 1;
-//                    }
-//                    else
-//                    {
-//                        indexToInsertAt = random.Next(0, 1);
-//                    }
-//                }
-//
-//                if (list.Count == 2)
-//                {
-//
-//                }
-//            }
-
-            return -1; //Error if it gets here
-        }
         public bool CanDigRoom(Room room, Tile[,] tileArray)
         {
             for (int y = room.y; y <= room.y + room.height; y++) //For every tile in room's height...

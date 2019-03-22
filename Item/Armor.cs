@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Collections.Generic;
 using System.Text;
 using Tao.Sdl;
+using Newtonsoft.Json;
 
 namespace Adventurer
 {
@@ -11,8 +12,9 @@ namespace Adventurer
         public int aC {get;set;}
         public string shape {get;protected set;}
         public List<string> covers {get;protected set;}
-        
-		public Armor(float mass, float volume, int aC, string shape, List<Item> components, string name,
+
+        public Armor() : base() { }
+        public Armor(float mass, float volume, int aC, string shape, List<Item> components, string name,
             List<string> covers, Color color, List<string> uses)
             : base(mass, volume, name, color, components, uses)
         {

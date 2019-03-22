@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Collections.Generic;
 using System.Text;
 using KalaGame;
+using Newtonsoft.Json;
 
 namespace Adventurer
 {
@@ -23,6 +24,7 @@ namespace Adventurer
         public Dice rngDice = new Dice();
         public DNotation damage = new DNotation();
 
+        [JsonConstructor]
         public Species(byte speed, DNotation damage, int mass, byte imageIndex, Color color,
             string name, string habitat, List<BodyPart> anatomy, int seed)
         {

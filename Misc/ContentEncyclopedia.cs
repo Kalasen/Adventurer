@@ -1,4 +1,5 @@
 ﻿using KalaGame;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -32,7 +33,9 @@ namespace Adventurer
             LoadMolecules();
             LoadMaterials();
             LoadItems();
-            LoadCreatures();            
+            LoadCreatures();
+
+            File.WriteAllText("Content/Encyclopaedia.json", JsonConvert.SerializeObject(this, new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.Auto }));
         }
 
         void LoadAtoms()

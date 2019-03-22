@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace Adventurer
 {
@@ -17,6 +18,7 @@ namespace Adventurer
 		public Scroll(string name, List<Item> componentList, Effect effect):this(name, Color.White, componentList, effect){}		              
         public Scroll(string name, Color color, List<Item> componentList):this(name, color, componentList, new Effect()){}
 		public Scroll(string name, Color color, List<Item> componentList, Effect effect):this(1f, 1, name, color, componentList, effect){}
+        [JsonConstructor]
 		public Scroll(float mass, int volume, string name, Color color, List<Item> componentList, Effect effect)
 			:base(mass, volume, name, color, componentList, new List<string>())
         {

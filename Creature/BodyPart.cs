@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+
 namespace Adventurer
 {
     /// <summary>
@@ -11,7 +13,7 @@ namespace Adventurer
         private int _currentHealth;
         public int CurrentHealth
         {
-            get { return _currentHealth; }
+            get => _currentHealth;
             set
             {
                 if (_currentHealth > MaxHealth)
@@ -22,8 +24,8 @@ namespace Adventurer
 
                 _currentHealth = value;
             }
-        }                
-        
+        }
+
         public BodyPartFlags Flags { get; set; }
         public InjuryLevel Injury
         {
@@ -42,7 +44,7 @@ namespace Adventurer
             }
         }
 
-        BodyPart parent;
+        public BodyPart Parent;
 
         /// <summary>
         /// Constructor.
@@ -51,12 +53,13 @@ namespace Adventurer
         /// <param name="health">How much damage this part can take. TODO: Percent based?</param>
         /// <param name="flags">The optional bit properties of this body part.</param>
         /// <param name="parent">Fingers connected to the hand, hand connected to the forearm, etc.</param>
+        [JsonConstructor]
         public BodyPart(string name, int health, BodyPartFlags flags, BodyPart parent = null)
         {
             Name = name;
             CurrentHealth = MaxHealth = health;
             Flags = flags;
-            this.parent = parent;
+            Parent = parent;
         }
 
 
@@ -70,16 +73,13 @@ namespace Adventurer
             CurrentHealth = b.CurrentHealth;
             MaxHealth = b.MaxHealth;
             Flags = b.Flags;
-            parent = b.parent != null ? new BodyPart(b.parent) : null;
+            Parent = b.Parent != null ? new BodyPart(b.Parent) : null;
         }
 
         /// <summary>
-        /// Converts this creature to its string representation, its name.
+        /// Represent this body part in text as its name.
         /// </summary>
         /// <returns>The name of this body part.</returns>
-        public override string ToString()
-        {
-            return Name;
-        }
+        public override string ToString() => Name;
     }
 }

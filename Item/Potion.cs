@@ -3,11 +3,13 @@ using System.Drawing;
 using System.Collections.Generic;
 using System.Text;
 using Tao.Sdl;
+using Newtonsoft.Json;
 
 namespace Adventurer
 {
     public class Potion : Item
     {
+        public Potion() : base() { }
         public Potion(string name, float mass, float volume, Color color, List<Item> components, List<string> uses): base(mass, volume, name, color, components, uses) { }
 		public Potion(Potion p):base(p){}
 

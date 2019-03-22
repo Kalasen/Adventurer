@@ -1,4 +1,5 @@
 using KalaGame;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -23,7 +24,7 @@ namespace Adventurer
         //TODO: Get effect from componentList
         public Effect eatEffect {get;set;}
 		
-		protected Material materialRaw;
+		public Material materialRaw;
 		public Material material 
 		{
 			get
@@ -53,7 +54,8 @@ namespace Adventurer
 					materialRaw = value;
 			}
 		}
-        
+
+        public Item() { }
 		public Item(float mass, float volume, string name, Color color, List<Item> componentList, List<string> use)
 		{			
 			this.componentList = new List<Item>();

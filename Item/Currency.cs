@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -7,8 +8,10 @@ namespace Adventurer
 	public class Currency : Item
 	{
 		public int worth {get; protected set;}
-		
-		public Currency(float mass, int volume, string name, Color color, int worth, List<Item> components, List<string> uses)
+
+        public Currency() : base() { }
+
+        public Currency(float mass, int volume, string name, Color color, int worth, List<Item> components, List<string> uses)
 			:base(mass, volume, name, color, components, uses)
 		{
 			this.worth = worth;

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using Tao.Sdl;
 using KalaGame;
+using Newtonsoft.Json;
 
 namespace Adventurer
 {
@@ -51,7 +52,8 @@ namespace Adventurer
             {
                 Init_PreInitialize();
                 graphics = new Graphics(); //Load in stuff that needs to be done first
-                content.LoadAll();
+                content = JsonConvert.DeserializeObject<ContentEncyclopedia>(File.ReadAllText("Content/Encyclopaedia.json"),
+                    new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.Auto });
                 Init_LoadContent(); //Load in external content
                 Init_PostInitialize(); //Set everything up after the content loading
 
